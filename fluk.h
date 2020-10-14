@@ -28,12 +28,6 @@ public:
         cout << "1.Renew Card" << endl;
         cout << "2. Back " << endl;
     }//print renewcard
-    void PrintInfo(){
-        cout << "Hello filed" << endl;
-    }
-    void PrintInfo(){
-        cout << "Hello sss" << endl;
-    }
 };
 bool isloggin(string user_name,string pass){
     //get parameter username and pass for check 
