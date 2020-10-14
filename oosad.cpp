@@ -1,4 +1,5 @@
 #include"fluk.h"
+#include"station.h"
 using namespace std;
 
  //created by weradet nopsombun 62160110 2/10/63
@@ -22,7 +23,7 @@ class UI{
            cout << "3. Register Member" << endl;
            cout << "4. Renew Member Card" << endl;
            cout << "5. Add Station" << endl;
-           cout << "6. Manage Station" << endl;
+           cout << "6. Fix Station" << endl;
            cout << "7. Back" << endl;
            cout << "Please Choose 1 Choice(1-7): ";
 
@@ -41,9 +42,7 @@ class UI{
                cout << "Hello";   
             }//if
         }
-      void hello(){
-          cout << "Hello fluk";
-      }
+
 };
 int main(){
      //mainmenu
