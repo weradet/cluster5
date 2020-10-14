@@ -1,5 +1,6 @@
 #include"fluk.h"
 using namespace std;
+
  //created by weradet nopsombun 62160110 2/10/63
 class UI{
     private:
@@ -40,6 +41,9 @@ class UI{
                cout << "Hello";   
             }//if
         }
+      void hello(){
+          cout << "Hello fluk";
+      }
 };
 int main(){
      //mainmenu
