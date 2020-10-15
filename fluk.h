@@ -1,22 +1,59 @@
+/* Create By Weradet Nopsombun 62160110 
+   Use Case - Renew Card
+            - Register Member
+    *** Add class MemberList
+*/ 
 #include<iostream>
 #include<string>
 #include<fstream>
 #include<iomanip>
 using namespace std;
+
+//Class
+class MemberCard{
+       private:
+         string IdCard;
+         double Money;
+         string DayExpire;  
+       public:
+         MemberCard(){
+         }
+         void SetMemberCard(string id_card){
+             IdCard = id_card; 
+         }    
+};
+
 class Member{
     //class member 
       private:
-        string name,lastname,Tel,IdCard;
+        string Name,Lastname,Tel;
+        MemberCard member_card; 
         /*data is name of member lastname 
         Telephone number 
         Thai Id Card */ 
       public: 
+      Member *next;
+      void Setmember(string user_ame,string lastname,string tel,string id_card){
+        //set up member
+          Name = user_ame;
+          Lastname = lastname;
+          Tel = tel;
+           member_card.SetMemberCard(id_card);  
+      }//set up member
 };
-class MemberCard{
-       private:
-         double Money;
-         string DayExpire;  
+
+class ListMember{
+//Linked list Member 
+      private:
+        Member *head;
+        Member *tail;
+      public:
+         ListMember(){
+             head = NULL;
+             tail = NULL;
+         }
 };
+
 class RenewControler{
     //Contro Usecase Renew Card
 private:
@@ -29,6 +66,8 @@ public:
         cout << "2. Back " << endl;
     }//print renewcard
 };
+
+// Function
 bool isloggin(string user_name,string pass){
     //get parameter username and pass for check 
     // is true return true 
