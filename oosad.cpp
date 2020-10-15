@@ -1,8 +1,11 @@
 #include"fluk.h"
 #include"station.h"
+#include<conio.h>
 using namespace std;
-
- //created by weradet nopsombun 62160110 2/10/63
+ /*created by weradet nopsombun 62160110 2/10/63
+   Class UI 
+   function main 
+ */  
 class UI{
     private:
     RenewControler *Renew_obj;  
@@ -66,13 +69,15 @@ int main(){
           else if(Menu==2){
               //Menu Admin 
             string str_user_name;  // username
-            string str_password; //pass
+            string str_password=""; //pass
+            char star;
                cout << "User name : "; cin >> str_user_name;
                cout << "Password : ";  cin >> str_password;
                if(isloggin(str_user_name,str_password)){
                       int menu_admin; //set varible menu admin
                    do{
                        //Module Admin 
+                       cout << endl;
                        obj_ui.PrintAdmin();
                       try{ 
                        cin >> menu_admin; //Input 2
@@ -89,7 +94,7 @@ int main(){
                    }while( menu_admin !=7);      
                }  //if Correct loggin
                else{
-                   cout << "Cannot Loggin" << endl;
+                   cout << "\nCannot Loggin" << endl;
                }// Fail
           } // if Menu =2 
          } // Try Exception  
