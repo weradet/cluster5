@@ -52,6 +52,16 @@ class ListMember{
              head = NULL;
              tail = NULL;
          }
+         void Addmember(Member newmember){
+           Member *new_member = new Member;
+            if(head == NULL){
+              head = new_member;
+              tail = new_member; 
+             }else{
+               tail->next = new_member;
+               tail = new_member;
+               } 
+             }
 };
 
 class RenewControler{
