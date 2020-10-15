@@ -53,6 +53,7 @@ class ListMember{
              tail = NULL;
          }
          void Addmember(Member newmember){
+           //Add data to the linklist
            Member *new_member = new Member;
             if(head == NULL){
               head = new_member;
