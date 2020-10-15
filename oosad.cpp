@@ -12,7 +12,10 @@ class UI{
        }
        void PrintCustomer(){
            //print customer menu
-            cout << "xxx" << endl;  
+          cout << "*****Electic Train*****" << endl;
+          cout << "1. Find cycle Time" << endl; 
+          cout << "2. Buy Train Ticket" << endl;
+          cout << "3. ";
        }//printcustomer menu
        void PrintAdmin(){
            //print employee menu
@@ -53,10 +56,14 @@ int main(){
         // loop for all Program
       try{ 
        obj_ui.PrintFirstMenu(); cin >> Menu; // input 1 
+          
           if(!cin){
               throw str_error; // Throw Error
             } // if Not Input
-          if(Menu==2){
+          else if(Menu == 1){
+                
+          }// This Customer  
+          else if(Menu==2){
               //Menu Admin 
             string str_user_name;  // username
             string str_password; //pass
