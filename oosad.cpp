@@ -9,7 +9,9 @@ using namespace std;
  */  
 
 int main(){
-     //mainmenu
+     /* In the main program 
+        Actor Admin Customer
+     */   
      int Menu;
      UI obj_ui;
      string str_error = "404 Not found! Your Input Incorrect ! Please Try Again";
@@ -22,14 +24,36 @@ int main(){
               throw str_error; // Throw Error
             } // if Not Input
           else if(Menu == 1){
-                
+              int menu_customer;
+              do{
+                  obj_ui.PrintCustomer();
+                 try{ 
+                     //user input
+                   cin >> menu_customer;
+                      if(!cin){
+                          throw menu_customer;
+                        } // if
+                      /* Customer have a member Card
+                      */  
+                      else if(menu_customer==3){
+                          string pass_card;
+                          //do{
+                             
+                          //}while();
+                      } //else if
+
+                 }catch(int menu){
+                      cin.clear(); 
+                      cin.ignore(100, '\n'); 
+                  }
+                }while(menu_customer!=4);   
           }// This Customer  
           else if(Menu==2){
               //Menu Admin 
             string str_user_name;  // username
             string str_password=""; //pass
             char star;
-               cout << "User name : "; cin >> str_user_name;
+               cout << "Username : "; cin >> str_user_name;
                cout << "Password : ";  cin >> str_password;
                if(isloggin(str_user_name,str_password)){
                       int menu_admin; //set varible menu admin
