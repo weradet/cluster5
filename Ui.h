@@ -1,6 +1,4 @@
-#include<iostream>
-//#include"Renewcard.h"
-using namespace std;
+#include"include.h"
 class UI{
     /*
     class UI 
