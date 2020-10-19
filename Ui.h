@@ -6,9 +6,11 @@ class UI{
     */
     private:
     RenewControler *Renew_obj;  
+    StationController *station_obj;
     public:
        UI(){
            Renew_obj = new RenewControler;
+           station_obj = new StationController;
        }
        void PrintCustomer(){
            //print customer menu
@@ -32,7 +34,7 @@ class UI{
            cout << "7. Back" << endl;
            cout << "Please Choose 1 Choice(1-7): ";
        } // print Admin
-       
+
        void PrintFirstMenu(){
         //print the first menu
         cout << "1.Customer" << endl;
