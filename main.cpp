@@ -76,7 +76,7 @@ int main(){
 
                           }//Register Member
                           else if(menu_admin == 4){
-
+                              obj_ui.CheckMenuAdmin(menu_admin);
                           }//Renew Member Card
                           else if(menu_admin == 5){
 
@@ -92,8 +92,7 @@ int main(){
                             cout << str << endl;  
                             cin.clear(); 
                             cin.ignore(100, '\n'); 
-                       }//catch
-                       obj_ui.CheckMenuAdmin(menu_admin);
+                       }//catch  
                    }while( menu_admin !=7);      
                }  //if Correct loggin
                else{
