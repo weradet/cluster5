@@ -1,16 +1,24 @@
 #include "include.h"
 class RegisterController{
     private:
-        /* data */
+        string Firstname;
+        string Lastname;
+        string Tel;
     public:
-    Register(/* args */);
-    ~Register();
+        Register(){
+            Firstname = "";
+            Lastname = "";
+            Tel = "";
+        }
+        ~Register(){
+        }//destructer
+        void AddMember(string Firstname,string Lastname,string Tel){
+
+        }
+        void SetMemberInformation(string Firstname,string Lastname,string Tel){
+
+        }
+        void SetMemberCard(MemberCard){
+            
+        }
 };
-
-Register::Register(/* args */){
-
-}
-
-Register::~Register(){
-
-}
