@@ -41,8 +41,8 @@ int main(){
                              
                           //}while();
                       } //else if
-
-                 }catch(int menu){
+                    }//try
+                    catch(int menu){
                       cin.clear(); 
                       cin.ignore(100, '\n'); 
                   }
@@ -66,6 +66,27 @@ int main(){
                           if(!cin){
                               throw str_error;
                              } //if check exception
+                          else if(menu_admin == 1){
+
+                          }//find cycle time
+                          else if(menu_admin == 2){
+
+                          }//Buy Train Ticket
+                          else if(menu_admin == 3){
+
+                          }//Register Member
+                          else if(menu_admin == 4){
+
+                          }//Renew Member Card
+                          else if(menu_admin == 5){
+
+                          }//Add Station
+                          else if(menu_admin == 6){
+
+                          }//Fix Station
+                          else if(menu_admin == 7){
+
+                          }// back menu
                        }//Try
                        catch(string str){
                             cout << str << endl;  
