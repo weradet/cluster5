@@ -29,7 +29,7 @@ class Station{
             StationName = sta_name;
             StationStatus = sta_stu;
             Cost = cost;
-            link = NULL
+            link = NULL;
         }
         void printShowAllStation(){
             cout << "------------------ Station -----------------" << endl;
