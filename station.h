@@ -1,8 +1,4 @@
-#include<iostream>
-#include<string>
-#include<fstream>
-#include<iomanip>
-using namespace std;
+#include"include.h"
 class StatusStationController{
     
 };
