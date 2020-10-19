@@ -25,4 +25,4 @@ class linklist_station{
             link = NULL;
             plink = NULL;
         }
-}
+};
