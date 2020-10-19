@@ -31,8 +31,8 @@ class UI{
            cout << "6. Fix Station" << endl;
            cout << "7. Back" << endl;
            cout << "Please Choose 1 Choice(1-7): ";
-
        } // print Admin
+       
        void PrintFirstMenu(){
         //print the first menu
         cout << "1.Customer" << endl;
