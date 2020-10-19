@@ -5,7 +5,7 @@
 #include"include.h"
 #include"domainclass.h"
 //Class
-class RenewControler{
+class RenewController{
     //Contro Usecase Renew Card
 private:
     Member user_member;  
