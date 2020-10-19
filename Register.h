@@ -7,12 +7,12 @@ class RegisterController{
         string Lastname;
         string Tel;
     public:
-        Register(string f,string l,string t){
+        RegisterController(string f,string l,string t){
             Firstname = f;
             Lastname = l;
             Tel = t;
         }
-        ~Register(){
+        ~RegisterController(){
         }//destructer
         void AddMember(){
             
