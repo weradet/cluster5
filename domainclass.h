@@ -21,7 +21,7 @@ class Member{
         Telephone number 
         Thai Id Card */ 
       public: 
-      Member *next;
+      Member *link;
       void Setmember(string user_ame,string lastname,string tel,string id_card){
         //set up member
           Name = user_ame;
@@ -48,7 +48,7 @@ class ListMember{
               head = new_member;
               tail = new_member; 
              }else{
-               tail->next = new_member;
+               tail->link = new_member;
                tail = new_member;
                } 
              }
