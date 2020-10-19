@@ -1,6 +1,4 @@
-#include<iostream>
-#include<string>
-using namespace std;
+#include"include.h"
 class MemberCard{
        private:
          string IdCard;
