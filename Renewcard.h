@@ -2,12 +2,8 @@
    Use Case - Renew Card
     *** Add class MemberList
 */ 
-#include<iostream>
-#include<string>
-#include<fstream>
-#include<iomanip>
+#include"include.h"
 #include"domainclass.h"
-using namespace std;
 //Class
 class RenewControler{
     //Contro Usecase Renew Card
