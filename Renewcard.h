@@ -16,6 +16,12 @@ public:
         cout << "1.Renew Card" << endl;
         cout << "2. Back " << endl;
     }
+    void Entercardcode(string cardcode){
+
+    }
+    bool Findmember(){
+        
+    }
 };
 
 // Function
