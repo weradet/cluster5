@@ -4,7 +4,6 @@
 #include"include.h"
 using namespace std;
  /*created by weradet nopsombun 62160110 2/10/63
-   Class UI 
    function main 
  */  
 
