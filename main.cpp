@@ -102,7 +102,7 @@ int main(){
                                cout << "Please Ener the Customer LastName : " << endl;
                                  cin >> user_lastname;
                                cout << "Please Ener the Customer Tel. : " << endl;
-                                  cin >> tel.    
+                                  cin >> user_tel;    
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
