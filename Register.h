@@ -2,70 +2,67 @@
 // 62160334 Mattaneeya Phosrisuk //
 #include "include.h"
 #include"domainclass.h"
-
 class RegisterController{
     public:
-         Member UserMember;
-         MemberCard PassMember;
-         ListMember *list_member;
+        Member UserMember;
+        MemberCard PassMember;
+        ListMember *list_member;
         RegisterController(){
             list_member = new ListMember;
         } 
         ~RegisterController(){
         }//destructer
         void SetMemberInformation(string f,string l,string t,string pw){
-             //  UserMember
-             UserMember.Setmember(f,l,t,pw);  
-             list_member->Addmember(UserMember);   
-            // list_member->savedata();       
+            //UserMember
+            UserMember.Setmember(f,l,t,pw);  
+            list_member->Addmember(UserMember);   
+            //list_member->savedata();       
         }
         void ShowUserInformation(string name){
-             Member *customer = list_member->searchMember(name);
-             if(customer != NULL){
+            Member *customer = list_member->searchMember(name);
+            if(customer != NULL){
                 system ("cls");
                 cout << "================ Customer Information ===============" << endl;
-                cout << "Firstname : " << customer->getFirstname() << endl;
-                cout << "Lastname : " << customer->getLastname() << endl;
-                cout << "Tel. : " << customer->getTel() << endl;
-                cout << "pass : " << customer->getPassword() << endl;
-             }else{
-                cout << "Error Information!!" << endl;
-             }
-             
+                cout << "Firstname : " << customer->getFirstname();
+                cout << "Lastname : " << customer->getLastname();
+                cout << "Tel. : " << customer->getTel();
+                //cout << "Password : " << customer->getPassword() << endl;
+            }else{
+                cout << "Information Error!!" << endl;
+            }    
         }
         void ShowExpireCard(string name){
-             Member *customer = list_member->searchMember(name);
-             //list_member->printlist();
-             if(customer!=NULL){
+            Member *customer = list_member->searchMember(name);
+            //list_member->printlist();
+            if(customer != NULL){
                 cout << "ExpireCard : " << customer->getExpire();  
-             }else{
-                cout << "Error Information!!" << endl;
-             }
-        } 
-       void ShowRemainingAmount(string password){
-            Member *customer = list_member->getmember(password);
-            if(customer!=NULL){
-                cout << "Remaining Amount : " << customer->getMoney();
-                cout << "\n=====================================================" << endl;   
             }else{
-                cout << "Error Information!!" << endl;
+                cout << "Information Error!!" << endl;
             }
         }
-       void TopupMoney(double money,string password){
-                 Member *customer = list_member->getmember(password);
-                 //cout <<"2 "<< password << endl;
-                 //list_member->printlist();
-                 //list_member->Loaddata();
-                 if(customer!=NULL){
-                      customer->Topupmoney(money);
-                      ShowRemainingAmount(password);
-                     // list_member->Loaddata();
-                 }else{
-                    cout << "Error" << endl;
-                  }
+        void TopupMoney(double money,string password){
+            Member *customer = list_member->getmember(password);
+            //cout <<"2 "<< password << endl;
+            //list_member->printlist();
+            //list_member->Loaddata();
+            if(customer != NULL){
+                customer->Topupmoney(money);
+                ShowRemainingAmount(password);
+                // list_member->Loaddata();
+            }else{
+                cout << "Information Error!!" << endl;
             }
+        } 
+        void ShowRemainingAmount(string password){
+            Member *customer = list_member->getmember(password);
+            if(customer != NULL){
+                cout << "Remaining Amount : " << customer->getMoney();
+                cout << "\n========================================================" << endl;   
+            }else{
+                cout << "Information Error!!" << endl;
+            }
+        }
 };
-
 
 /*class TopupCardController{
         private:
