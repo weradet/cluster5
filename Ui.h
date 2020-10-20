@@ -1,8 +1,8 @@
 #include"include.h"
 #include"Buy_ticket.h"
-//#include"domainclass.h"
+#include"domainclass.h"
 //#include"Path.h"
-//#include"Register.h"
+#include"Register.h"
 #include"Renewcard.h"
 //#include"station.h"
 class UI{
