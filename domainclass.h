@@ -10,22 +10,22 @@ class MemberCard{
         void PasswordCard(string pass){
             Password = pass; 
         }    
-        string getpasswordcard(){
+        string getPasswordcard(){
           return Password;
         }
         string getDayExpire(){
           return DayExpire;
         }
         void GenerateExpire(){
-           time_t now = time(0);
-           tm *ltm = localtime(&now);
-           stringstream ss;
-           ss <<  1901+ltm->tm_year << "-" << 1+ltm->tm_mon << "-" << ltm->tm_mday;
-           string date = ss.str();
-           DayExpire = date;
+          time_t now = time(0);
+          tm *ltm = localtime(&now);
+          stringstream ss;
+          ss <<  1901+ltm->tm_year << "-" << 1+ltm->tm_mon << "-" << ltm->tm_mday;
+          string date = ss.str();
+          DayExpire = date;
         }
-        double getmoney(){
-           return Money;
+        double getMoney(){
+          return Money;
         }
 };
 
@@ -42,39 +42,39 @@ class Member{
         Member(){
 
         }
-        Member(string user_name,string lastname,string tel,string passwordcard){
-            Firstname = user_name;
+        Member(string firstname,string lastname,string tel,string password){
+            Firstname = firstname;
             Lastname = lastname;
             Tel = tel;
-            member_card.PasswordCard(passwordcard);  
+            member_card.PasswordCard(password);  
             link = NULL;
             member_card.GenerateExpire();  
         }
-        void Setmember(string user_name,string lastname,string tel,string passwordcard){
+        void Setmember(string firstname,string lastname,string tel,string password){
           //set up member
-            Firstname = user_name;
+            Firstname = firstname;
             Lastname = lastname;
             Tel = tel;
-            member_card.PasswordCard(passwordcard);
+            member_card.PasswordCard(password);
             member_card.GenerateExpire();  
         }//set up member
-        string getname(){
+        string getFirstname(){
           return Firstname;
         }
-         string getlastname(){
+         string getLastname(){
           return Lastname;
         }
-         string gettel(){
+         string getTel(){
           return Tel;
         }
-        string getpasswordcard(){
-          return member_card.getpasswordcard();
+        string getPassword(){
+          return member_card.getPassword();
         }
         string getExpire(){
           return member_card.getDayExpire();
         }
-        double getmoney(){
-          return member_card.getmoney();
+        double getMoney(){
+          return member_card.getMoney();
         }
 };
 
@@ -90,7 +90,7 @@ class ListMember{
         }
         void Addmember(Member newmember){
            //Add data to the linklist
-            Member *new_member = new Member(newmember.getname(),newmember.getlastname(),newmember.gettel(),newmember.getpasswordcard());
+            Member *new_member = new Member(newmember.getFirstname(),newmember.getLastname(),newmember.getTel(),newmember.getPassword());
             if(head == NULL){
               head = new_member;
               tail = new_member; 
@@ -102,7 +102,7 @@ class ListMember{
         Member *searchMember(string name){
                 Member *cur = head;
                 while(cur!=NULL){
-                    if(cur->getname()==name){
+                    if(cur->getFirstname()==name){
                         return cur;
                         break;
                     }
@@ -115,8 +115,8 @@ class ListMember{
               ofstream file("checking.dat",ios::app);
               if(file.is_open()){
                     while (cur!=NULL){ 
-                       file<< cur->getname() <<","<<cur->getlastname()<< "," << cur->gettel() << "," 
-                       << cur->getpasswordcard() << ","<< cur->getExpire() << "," << cur->getmoney()<< endl;   
+                       file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
+                       << cur->getPassword() << ","<< cur->getExpire() << "," << cur->getMoney()<< endl;   
                         cur=cur->link;
                    }
               }
