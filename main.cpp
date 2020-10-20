@@ -146,4 +146,3 @@ bool Islogin(string user_name,string pass){
     }while(Menu!=3);
      return 0;
 }//main
-}
