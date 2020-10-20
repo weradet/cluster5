@@ -19,6 +19,7 @@ class RegisterController{
         void ShowUserInformation(string name){
              Member *customer = list_member->searchMember(name);
              if(customer != NULL){
+                system ("cls");
                 cout << "================ Customer Information ===============" << endl;
                 cout << "Firstname : " << customer->getFirstname() << endl;
                 cout << "Lastname : " << customer->getLastname() << endl;
@@ -32,7 +33,7 @@ class RegisterController{
              Member *customer = list_member->searchMember(name);
              if(customer!=NULL){
                 cout << "ExpireCard : " << customer->getExpire();
-                cout << "\n================ Customer Information ===============" << endl;   
+                cout << "\n===================================================" << endl;   
              }else{
                 cout << "Error Information!!" << endl;
              }
