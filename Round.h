@@ -50,7 +50,7 @@ class Round{
             }
             void Readfile(){
                 string filein,name,timeout[9];
-                ifstream file("test2.txt",ios::in);
+                ifstream file("Round.txt",ios::in);
                 if(file.is_open()){
                     while(getline(file,filein)){
                         name = filein.substr(0,filein.find(','));
