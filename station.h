@@ -94,10 +94,10 @@ class Status :public Path{
             Station *temp = head;
             while(temp != NULL){
                 if(id == temp->ID){
-                    if(temp->StationStatus == "Open"){
-                        temp->NewStatus("Close");
-                    }else if(temp->StationStatus == "Close"){
-                        temp->NewStatus("Open");
+                    if(temp->StationStatus == "open"){
+                        temp->NewStatus("close");
+                    }else if(temp->StationStatus == "close"){
+                        temp->NewStatus("open");
                     }
                     break;
                 }
