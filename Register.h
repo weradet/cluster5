@@ -4,11 +4,10 @@
 #include"domainclass.h"
 
 class RegisterController{
-    protected:
+    public:
          Member UserMember;
          MemberCard PassMember;
          ListMember *list_member;
-    public:
         RegisterController(){
             list_member = new ListMember;
         } 
@@ -43,10 +42,32 @@ class RegisterController{
                 cout << "Error Information!!" << endl;
              }
         } 
+       void ShowRemainingAmount(string password){
+            Member *customer = list_member->getmember(password);
+            if(customer!=NULL){
+                cout << "Remaining Amount : " << customer->getMoney();
+                cout << "\n=====================================================" << endl;   
+            }else{
+                cout << "Error Information!!" << endl;
+            }
+        }
+       void TopupMoney(double money,string password){
+                 Member *customer = list_member->getmember(password);
+                 //cout <<"2 "<< password << endl;
+                 //list_member->printlist();
+                 //list_member->Loaddata();
+                 if(customer!=NULL){
+                      customer->Topupmoney(money);
+                      ShowRemainingAmount(password);
+                     // list_member->Loaddata();
+                 }else{
+                    cout << "Error" << endl;
+                  }
+            }
 };
 
 
-class TopupCardController{
+/*class TopupCardController{
         private:
             Member UserMember;
             ListMember *list_member;
@@ -99,4 +120,4 @@ class TopupCardController{
             }
         }
  
-};
+};*/
