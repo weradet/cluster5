@@ -34,23 +34,18 @@ class RegisterController{
         void ShowExpireCard(string name){
              Member *customer = list_member->searchMember(name);
              if(customer!=NULL){
-                cout << "ExpireCard : " << customer->getExpire();
-                cout << "\n=====================================================" << endl;   
+                cout << "ExpireCard : " << customer->getExpire();  
              }else{
                 cout << "Error Information!!" << endl;
              }
         }
-        void EnterMoney(double money){
+        void ShowRemainingAmount(double money){
             Member *customer = list_member->getMoney(money);
-            cout << "Please Enter Your Money : ";
-            cin >> money;
-            MemberCard.getPassword();
+            if(customer!=NULL){
+                cout << "Remaining Amount : " << customer->getMoney();
+                cout << "\n=====================================================" << endl;   
+            }else{
+                cout << "Error Information!!" << endl;
+            }
         }
-        double TopupMoney(){
-            return Money;
-        }
-        void SaveMoneyInformation(){
-
-        }
-        
 };
