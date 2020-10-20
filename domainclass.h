@@ -24,6 +24,9 @@ class MemberCard{
            string date = ss.str();
            DayExpire = date;
         }
+        double getmoney(){
+           return Money;
+        }
 };
 
 class Member{
@@ -70,6 +73,9 @@ class Member{
         string getExpire(){
           return member_card.getDayExpire();
         }
+        double getmoney(){
+          return member_card.getmoney();
+        }
 };
 
 class ListMember{
@@ -110,9 +116,10 @@ class ListMember{
               if(file.is_open()){
                     while (cur!=NULL){ 
                        file<< cur->getname() <<","<<cur->getlastname()<< "," << cur->gettel() << "," 
-                       << cur->getpasswordcard() << "," << endl;   
+                       << cur->getpasswordcard() << ","<< cur->getExpire() << "," << cur->getmoney()<< endl;   
                         cur=cur->link;
                    }
+              }
         }
          /*void savefile(){
                    NodeCheckin *cur = head;
