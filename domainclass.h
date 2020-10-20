@@ -8,7 +8,7 @@ class MemberCard{
         MemberCard(){
         }
         void PasswordCard(string pass){
-            Password = pass; 
+          Password = pass; 
         }    
         string getPassword(){
           return Password;
@@ -121,6 +121,7 @@ class ListMember{
                    }
               }
         }
+        
          /*void savefile(){
                    NodeCheckin *cur = head;
                   //string student_code,numfac,date,timein,timeout;
