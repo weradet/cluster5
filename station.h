@@ -36,16 +36,16 @@ class Station{
         void NewName(string name){
             StationName = name;
         }
-        string StationID(){
+        string GetStationID(){
             return ID;
         }
-        string stationName(){
+        string GetstationName(){
             return StationName;
         }
-        string stationStatus(){
+        string GetstationStatus(){
             return StationStatus;
         }
-        int cost(){
+        int Getcost(){
             return Cost;
         }
 };
@@ -59,10 +59,10 @@ class Status :public Path{
                  << "Status" << setw(10) << right << "Cost" << endl;
             while(temp != NULL){
                 cout << left << setw(10) << i;
-                cout << left << setw(10) << temp->StationID();
-                cout << left << setw(10) << temp->stationName();
-                cout << left << setw(10) << temp->stationStatus();
-                cout << left << setw(10) << temp->cost() << endl;
+                cout << left << setw(10) << temp->GetStationID();
+                cout << left << setw(10) << temp->GetstationName();
+                cout << left << setw(10) << temp->GetstationStatus();
+                cout << left << setw(10) << temp->Getcost() << endl;
             }
             cout << "--------------------------------------------" << endl;
         }
@@ -71,10 +71,10 @@ class Status :public Path{
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
                 if(id == temp->ID){
-                   cout << "Station ID : " << temp->StationID() << endl;
-                   cout << "Station Name : " << temp->stationName() << endl;
-                   cout << "Station Status : " << temp->stationStatus() << endl;
-                   cout << "Station Cost : " << temp->cost() << endl; 
+                   cout << "Station ID : " << temp->GetStationID() << endl;
+                   cout << "Station Name : " << temp->GetstationName() << endl;
+                   cout << "Station Status : " << temp->GetstationStatus() << endl;
+                   cout << "Station Cost : " << temp->Getcost() << endl; 
                 }
                temp = temp->link;
             }
