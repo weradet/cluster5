@@ -124,7 +124,15 @@ bool Islogin(string user_name,string pass){
 
                           }//Add Station
                           else if(menu_admin == 6){
-
+                              obj_ui.ShowAllStation();
+                              string chooseId;
+                              int menu;
+                              cout << "Choose Station ID : ";
+                              cin >> chooseId;
+                              obj_ui.ShowFixMenuStation();
+                              cout << "Choose Fix Menu Station : ";
+                              cin >> menu;
+                              obj_ui.ChooseFixMenu(chooseId,menu);
                           }//Fix Station
                           else if(menu_admin == 7){
 
