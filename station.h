@@ -1,9 +1,6 @@
-#ifndef STATION_H
-#define STATION_H
-
 #include"include.h"
-#include"Addstation.h"
-#include"Path.h"
+//#include"Addstation.h"
+
 
 class StationController{
     private:
@@ -19,7 +16,9 @@ class StationController{
 };
 class Station{
     private:
-        string ID,StationName,StationStatus;
+        string ID;
+        string StationName;
+        string StationStatus;
         int Cost;
     public:
         Station *link;
@@ -29,7 +28,8 @@ class Station{
             StationName = sta_name;
             StationStatus = sta_stu;
             Cost = cost;
-           
+            link = NULL;
+            plink = NULL;
         }
         void NewCost(int cost){
             Cost = cost;
@@ -52,7 +52,76 @@ class Station{
         int cost(){
             return Cost;
         }
+
 };
+
+class Path{
+    private:
+       
+    public:
+        Station *head;
+        Station *tail;
+        int count;
+        void add_path(string id,string sta_name,string sta_stu,int cost){
+            Station *New = new Station(id,sta_name,sta_stu,cost);
+            if(head == NULL){
+                head = New;
+                tail = New;
+                count++;
+            }else{
+                tail->plink = tail;
+                tail = New;
+                tail->link = head;
+                head->plink = tail;
+                count++;
+            }
+        }
+        Path(){
+            head = NULL;
+            tail = NULL;
+            count = 0;
+        }
+        void read_file(){
+		string id,name,cost,status,filein;
+        int Cost;
+			filein = "Station.txt";
+			ifstream infile;
+            stringstream ss();
+			infile.open(filein.c_str(),std::ios::in);
+				if(infile.fail()){
+					
+				}else{
+					while(getline(infile,filein)){
+						name = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						id = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						cost = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						status = filein;
+                        stringstream ss(cost);
+                        ss >> Cost;
+					    
+						add_path(name,id,status,Cost);
+					}
+					infile.close();
+					}
+					
+        }
+
+        void show(){
+            Station *a = head;
+            for(int i=0;i<count;i++){
+                cout << a->StationID() << endl;
+            }
+        }
+
+        void calculate_cost(string DepartureStation,string TerminalStation){
+            
+
+        }
+};
+
 class Status :public Path{
     public:
         void ShowAllStation(){
@@ -95,13 +164,13 @@ class Status :public Path{
                 temp = temp->link;
             }
         }
-        void Maintenence(srting id){
+        void Maintenence(string id){
             Station *temp = head;
             while(temp != NULL){
                 if(id == temp->StationID()){
                     if(temp->stationStatus() == "Open"){
                         temp->NewStatus("Close");
-                    }else if(temp->stationStatus()s == "Close"){
+                    }else if(temp->stationStatus() == "Close"){
                         temp->NewStatus("Open");
                     }
                     break;
@@ -113,7 +182,7 @@ class Status :public Path{
            Station *temp = head;
             while(temp != NULL){
                 if(id == temp->StationID()){
-                    temp->Newname(name);
+                    temp->NewName(name);
                     break;
                 }
                 temp = temp->link;
@@ -121,4 +190,3 @@ class Status :public Path{
         }
 
 };
-#endif
