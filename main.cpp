@@ -29,13 +29,10 @@ bool isloggin(string user_name,string pass){
      }
      return false;
 }
-
-#include"Path.h"
-
 int main(){
      /* In the main program 
-        Actor Admin Customer*/  
-        
+        Actor Admin Customer
+     */   
      int Menu;
      UI obj_ui;
      string str_error = "404 Not found! Your Input Incorrect ! Please Try Again";
@@ -100,12 +97,17 @@ int main(){
                                //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
                                string user_name,user_lastname,user_tel,password_card;
                                cout << "==========Register==========" << endl;
-                               cout << "Please Ener the Customer Name : " << endl;
+                               cout << "Please Ener the Customer Name : ";
                                  cin >> user_name;
-                               cout << "Please Ener the Customer LastName : " << endl;
+                               cout << "Please Ener the Customer LastName : ";
                                  cin >> user_lastname;
-                               cout << "Please Ener the Customer Tel. : " << endl;
+                               cout << "Please Ener the Customer Tel. : ";
                                   cin >> user_tel;    
+                               cout << "====Please Enter Password Card====" << endl;
+                               cout << "Password Card : "; cin >> password_card;
+                               obj_ui.InputPersonalInformation(user_name,user_lastname,user_tel,password_card);
+                               obj_ui.showInformation(user_name);
+                               //obj_ui.ShowExprirationDate();    
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
@@ -140,6 +142,3 @@ int main(){
     }while(Menu!=3);
      return 0;
 }//main
-
-
-
