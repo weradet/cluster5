@@ -1,3 +1,5 @@
+#ifndef DOMAINCLASS_H
+#define DOMAINCLASS_H
 #include"include.h"
 class MemberCard{
       private:
@@ -80,7 +82,8 @@ class ListMember{
               tail = new_member;
             } 
         }
-        void showUser(Member new){
+        void showUser(Member newmember){
 
         }
 };
+#endif
