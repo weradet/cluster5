@@ -96,6 +96,7 @@ bool Islogin(string user_name,string pass){
                           else if(menu_admin == 3){
                               //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
                               string user_firstname,user_lastname,user_tel,password_card;
+                              double money;
                               system ("cls");
                               cout << "==================== Register ====================" << endl;
                               cout << "Please Enter the Customer Firstname : ";
@@ -107,10 +108,14 @@ bool Islogin(string user_name,string pass){
                               cout << "================== Password Card =================" << endl;
                               cout << "Please Enter Password Card : ";
                                 cin >> password_card;
+                              cout << "================= Topup Money Card ===============" << endl;
+                              cout << "Please Enter Money : ";
+                                cin >> money;
                               cout << "==================================================" << endl;
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname);
                               obj_ui.ShowExprirationDate(user_firstname);
+                              
                               //obj_ui.ShowExprirationDate();    
                           }//Register Member
                           else if(menu_admin == 4){
