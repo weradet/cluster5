@@ -13,13 +13,13 @@ class UI{
    RenewController *Renew_obj;  
    RegisterController *Regis_obj;
    Buy_ticket_controller *a;
-    //StationController *station_obj;
+    StationController *station_obj;
     public:
        UI(){
             Renew_obj = new RenewController;
             Regis_obj = new RegisterController;
             a = new Buy_ticket_controller;
-          //station_obj = new StationController;
+          station_obj = new StationController;
        }
        void PrintCustomer(){
             //print customer menu
@@ -60,15 +60,20 @@ class UI{
                cout << "Hello";   
             }//if
         }*/
+        void ChooseFixMenu(string id,int menu){
+            station_obj->ChooseFixMenu(id,menu);
+        }
+        void ShowFixMenuStation(){
+            station_obj->ShowFixMenuStation();
+        }
+        void ShowAllStation(){
+            station_obj->ShowAllStation();
+        }
         void InputPersonalInformation(string firstname,string lastname,string tel,string password){
             Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
         }//inputpersonal
         void ShowExprirationDate(string name){
-<<<<<<< Updated upstream
             Regis_obj->ShowExpireCard(name);
-=======
-              Regis_obj->showExpireCard(name);
->>>>>>> Stashed changes
         }
         void ShowInformation(string name){
             Regis_obj->ShowuserInformation(name);
