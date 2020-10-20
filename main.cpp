@@ -94,10 +94,18 @@ int main(){
 
                           }//Buy Train Ticket
                           else if(menu_admin == 3){
-
+                               //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
+                               string user_name,user_lastname,user_tel,password_card;
+                               cout << "==========Register==========" << endl;
+                               cout << "Please Ener the Customer Name : " << endl;
+                                 cin >> user_name;
+                               cout << "Please Ener the Customer LastName : " << endl;
+                                 cin >> user_lastname;
+                               cout << "Please Ener the Customer Tel. : " << endl;
+                                  cin >> tel.    
                           }//Register Member
                           else if(menu_admin == 4){
-                              obj_ui.CheckMenuAdmin(menu_admin);
+                              //obj_ui.CheckMenuAdmin(menu_admin);
                           }//Renew Member Card
                           else if(menu_admin == 5){
 
