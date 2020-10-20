@@ -1,9 +1,10 @@
 //62160157 Preechaya Choosrithong
 #include"include.h"
-
+#include"domainclass.h"
 class TopupCardController{
         private:
             Member UserMember;
+            ListMember *list_member;
         public:
 
             void ShowMenuTopupCard(){
@@ -28,9 +29,23 @@ class TopupCardController{
 
             }
 
-            void TopupMoney(double money){
-
+            void TopupMoney(double money,string password){
+                 Member *customer = list_member->getmember(password);
+                 if(customer!=NULL){
+                      customer->Topupmoney(money);
+                      ShowRemainingAmount(password);
+                 }else{
+                    cout << "Error Information!!" << endl;
+                  }
             }
-
-
+        void ShowRemainingAmount(string password){
+            Member *customer = list_member->getmember(password);
+            if(customer!=NULL){
+                cout << "Remaining Amount : " << customer->getMoney();
+                cout << "\n=====================================================" << endl;   
+            }else{
+                cout << "Error Information!!" << endl;
+            }
+        }
+ 
 };
