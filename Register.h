@@ -5,8 +5,8 @@ class RegisterController{
     private:
          Member UserMember;
     public:
-        RegisterController(string f,string l,string t){
-           //Member.
+        RegisterController(string f,string l,string t,string id){
+           UserMember.Setmember(f,l,t,id);
         }
         ~RegisterController(){
         }//destructer
