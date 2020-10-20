@@ -1,19 +1,5 @@
 #include"include.h"
 //#include"Addstation.h"
-
-
-class StationController{
-    private:
-        
-    public:
-        void ShowFixMenuStation(){
-            cout << "------------------- Menu -------------------" << endl;
-            cout << "1. Fix Station Name"       << endl;
-            cout << "2. Maintenance Station"    << endl;
-            cout << "3. Fix Cost Station"       << endl;
-            cout << "--------------------------------------------" << endl;
-        }
-};
 class Station{
     private:
         string ID;
@@ -157,6 +143,26 @@ class Status :public Path{
             }
             cout << "*****************************************" << endl;
         }
+        void ChooseFixMenu(string id,int menu){
+            showStation(id);
+            switch(menu){
+                case 1:
+                    int cost;
+                    cout << "Enter New Station Cost : ";
+                    cin >> cost;
+                    FixCostStation(id,cost);
+                    cout << "******** Fix Station Cost Complete *******" << endl;
+                case 2:
+                    Maintenence(id);
+                    cout << "******** Maintenance Station Complete *******" << endl;
+                case 3:
+                    string name;
+                    cout << "Enter New Station Name : ";
+                    cin >> name;
+                    NewStationName(id,name);
+                    cout << "******** Fix Station Name Complete *******" << endl;
+            }
+        }
         void FixCostStation(string id,int cost){
             Station *temp = head;
             int ptemp;
@@ -193,4 +199,22 @@ class Status :public Path{
             } 
         }
 
+};
+class StationController{
+    private:
+        Status obj_sta;
+    public:
+        void ChooseFixMenu(string id,int menu){
+             obj_sta.ChooseFixMenu(id,menu);
+        }
+        void ShowAllStation(){
+            obj_sta.ShowAllStation();
+        } 
+        void ShowFixMenuStation(){
+            cout << "------------------- Menu -------------------" << endl;
+            cout << "1. Fix Station Name"       << endl;
+            cout << "2. Maintenance Station"    << endl;
+            cout << "3. Fix Cost Station"       << endl;
+            cout << "--------------------------------------------" << endl;
+        }
 };
