@@ -1,4 +1,2 @@
 ,,,,,1.5235e+268
-weradet,nopsombun,0852812191,12345,2021-10-21,0
-weradet,nopsomdd,5555,1234,2021-10-21,0
-weradttt,dddddd,55555,123456,2021-10-21,0
+weradet,nopsombun,0852812191,1234,2021-10-21,0
