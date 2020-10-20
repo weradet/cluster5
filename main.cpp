@@ -110,7 +110,7 @@ bool Islogin(string user_name,string pass){
                                 cin >> password_card;
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname);
-                              obj_ui.ShowExprirationDate(user_firstname); cout << endl;
+                              obj_ui.ShowExprirationDate(user_firstname); cout << endl;            
                               cout << "================= Topup Money Card ===============" << endl;
                               cout << "Please Enter Money : ";
                                 cin >> money;
