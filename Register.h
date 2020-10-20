@@ -18,7 +18,7 @@ class RegisterController{
              //  UserMember
              UserMember.Setmember(f,l,t,pw);  
              list_member->Addmember(UserMember);   
-             list_member->savedata();       
+            // list_member->savedata();       
         }
         void ShowUserInformation(string name){
              Member *customer = list_member->searchMember(name);
