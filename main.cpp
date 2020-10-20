@@ -4,7 +4,7 @@
  /*created by weradet nopsombun 62160110 2/10/63
    function main 
  */  
-bool isloggin(string user_name,string pass){
+bool Islogin(string user_name,string pass){
     //get parameter username and pass for check 
     // is true return true 
     string line,us,ps;
@@ -17,7 +17,7 @@ bool isloggin(string user_name,string pass){
              found = line.find(" "); //find /t
              us = line.substr(0,found);
              ps = line.substr(found+1,string::npos);
-               if(us==user_name&&ps==pass){
+               if(us==user_name && ps==pass){
                    //check username and pass is true
                    return true;
                }
@@ -25,7 +25,7 @@ bool isloggin(string user_name,string pass){
           userfile.close();
      }
      else{
-         cout << "Fail to loggin" << endl;
+         cout << "Fail to login!!" << endl;
      }
      return false;
 }
@@ -35,7 +35,7 @@ bool isloggin(string user_name,string pass){
      */   
      int Menu;
      UI obj_ui;
-     string str_error = "404 Not found! Your Input Incorrect ! Please Try Again";
+     string str_error = "404 Not found! Your Input Incorrect. Please Try Again";
     do{
         // loop for all Program
       try{ 
@@ -72,11 +72,11 @@ bool isloggin(string user_name,string pass){
           else if(Menu==2){
               //Menu Admin 
             string str_user_name;  // username
-            string str_password=""; //pass
+            string str_password = ""; //pass
             char star;
                cout << "Username : "; cin >> str_user_name;
-               cout << "Password : ";  cin >> str_password;
-               if(isloggin(str_user_name,str_password)){
+               cout << "Password : "; cin >> str_password;
+               if(Islogin(str_user_name,str_password)){
                       int menu_admin; //set varible menu admin
                    do{
                        //Module Admin 
@@ -94,21 +94,24 @@ bool isloggin(string user_name,string pass){
 
                           }//Buy Train Ticket
                           else if(menu_admin == 3){
-                               //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
-                               string user_name,user_lastname,user_tel,password_card;
-                               cout << "==========Register==========" << endl;
-                               cout << "Please Ener the Customer Name : ";
-                                 cin >> user_name;
-                               cout << "Please Ener the Customer LastName : ";
-                                 cin >> user_lastname;
-                               cout << "Please Ener the Customer Tel. : ";
-                                  cin >> user_tel;    
-                               cout << "====Please Enter Password Card====" << endl;
-                               cout << "Password Card : "; cin >> password_card;
-                               obj_ui.InputPersonalInformation(user_name,user_lastname,user_tel,password_card);
-                               obj_ui.showInformation(user_name);
-                               obj_ui.ShowExprirationDate(user_name);
-                               //obj_ui.ShowExprirationDate();    
+                              //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
+                              string user_firstname,user_lastname,user_tel,password_card;
+                              system ("cls");
+                              cout << "==================== Register ====================" << endl;
+                              cout << "Please Enter the Customer Firstname : ";
+                                cin >> user_firstname;
+                              cout << "Please Enter the Customer Lastname : ";
+                                cin >> user_lastname;
+                              cout << "Please Enter the Customer Tel. : ";
+                                cin >> user_tel;    
+                              cout << "================== Password Card =================" << endl;
+                              cout << "Please Enter Password Card : ";
+                                cin >> password_card;
+                              cout << "==================================================" << endl;
+                              obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
+                              obj_ui.ShowInformation(user_firstname);
+                              obj_ui.ShowExprirationDate(user_firstname);
+                              //obj_ui.ShowExprirationDate();    
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
@@ -131,7 +134,7 @@ bool isloggin(string user_name,string pass){
                    }while( menu_admin !=7);      
                }  //if Correct loggin
                else{
-                   cout << "\nCannot Loggin" << endl;
+                   cout << "\nCannot Login!!" << endl;
                }// Fail
           } // if Menu =2 
          } // Try Exception  
