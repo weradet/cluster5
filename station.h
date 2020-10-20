@@ -1,5 +1,8 @@
 #include"include.h"
+#include"AddStation.h"
+#include"Path.h"
 class StationController{
+    private:
 
     public:
         void printFixMenuStation(){
@@ -16,6 +19,7 @@ class Station{
         int Cost;
     public:
         Station *link;
+        Station *plink;
         Station(string id,string sta_name,string sta_stu,int cost){
             ID = id;
             StationName = sta_name;
@@ -45,7 +49,7 @@ class Station{
             return Cost;
         }
 };
-class Status :protected Add{
+class Status :public Path{
     public:
         void printShowAllStation(){
             Station *temp = head;
@@ -67,10 +71,10 @@ class Status :protected Add{
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
                 if(id == temp->ID){
-                   cout << "Station ID : " << temp->ID << endl;
-                   cout << "Station Name : " << temp->StationName << endl;
-                   cout << "Station Status : " << temp->StationStatus << endl;
-                   cout << "Station Cost : " << temp->Cost << endl; 
+                   cout << "Station ID : " << temp->StationID() << endl;
+                   cout << "Station Name : " << temp->stationName() << endl;
+                   cout << "Station Status : " << temp->stationStatus() << endl;
+                   cout << "Station Cost : " << temp->cost() << endl; 
                 }
                temp = temp->link;
             }
