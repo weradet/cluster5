@@ -1,4 +1,5 @@
 #include"include.h"
+//werty
 #include"Buy_ticket.h"
 #include"domainclass.h"
 //#include"Path.h"
@@ -12,6 +13,8 @@ class UI{
     */
     private:
    RenewController *Renew_obj;  
+   RegisterController *Regis_obj;
+
     //StationController *station_obj;
     public:
        UI(){
@@ -56,6 +59,7 @@ class UI{
             }//if
         }
         void InputPersonalInformation(string name,string lastname,string tel){
-            
+             Regis_obj->SetMemberInformation(name,lastname,tel);
         }//inputpersonal
+        void 
 };
