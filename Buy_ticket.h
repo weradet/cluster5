@@ -12,8 +12,8 @@ class Buy_ticket_controller{
         Path *Head;
         Buy_ticket_controller();
         void Seach();
-        void Departure_Staion(string name);
-        void Terminal_Staion();
+        void Departure_Staion(string Origin);
+        void Terminal_Staion(string destination);
         void Chose_Round();
         double Calculate();
         void Payment();
@@ -32,11 +32,29 @@ Buy_ticket_controller :: Buy_ticket_controller(){
 void Buy_ticket_controller :: Seach(){
 
 }
-void Buy_ticket_controller :: Departure_Staion(string Departure){
+void Buy_ticket_controller :: Departure_Staion(string Origin){
     Head->read_file();
-    cout << Head->head->StationID();
+    Head->add_path();
+    Path * train = Head;
+    while(train != NULL){
+    if(Origin == train->StationName){
+         cout << Head->head->StationID();
+         break;
+    }
+        train = train->link;
+    }
 }
-void Buy_ticket_controller :: Terminal_Staion(){
+void Buy_ticket_controller :: Terminal_Staion(string destination){
+    Head->read_file();
+    Head->add_path();
+    Path *train = Head;
+    while(train != NULL){
+    if(destination == train->StationName){
+         cout << Head->head->StationID();
+         break;
+    }
+        train = train->link;
+    }
 
 }
 void Buy_ticket_controller :: Chose_Round(){
