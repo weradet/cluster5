@@ -1,4 +1,4 @@
-#include<iostream>
+#include"include.h"
 #include"station.h"
 using namespace std;
 class Buy_ticket_controller{
