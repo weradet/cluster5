@@ -5,7 +5,7 @@ class StationController{
     private:
 
     public:
-        void printFixMenuStation(){
+        void ShowFixMenuStation(){
             cout << "------------------- Menu -------------------" << endl;
             cout << "1. Fix Station Name"       << endl;
             cout << "2. Maintenance Station"    << endl;
@@ -51,7 +51,7 @@ class Station{
 };
 class Status :public Path{
     public:
-        void printShowAllStation(){
+        void ShowAllStation(){
             Station *temp = head;
             int i;
             cout << "------------------ Station -----------------" << endl;
@@ -66,7 +66,7 @@ class Status :public Path{
             }
             cout << "--------------------------------------------" << endl;
         }
-        void printStation(string id){
+        void ShowStation(string id){
             Station *temp = head;
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
