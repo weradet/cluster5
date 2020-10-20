@@ -1,6 +1,4 @@
-#include<iostream>
-#include<fstream>
-using namespace std;
+#include"include.h"
 class Node_Addstation{
 	public:
 		string StationName,StationID,Status,Cost;
@@ -119,7 +117,7 @@ class StationList{
             return count;
         }
 };
-int main(){
+/*int main(){
 	StationList *stList = new StationList;
 	char choice;
 	string StationName,StationID,Status,Cost;
@@ -209,4 +207,4 @@ Addstation:cout <<"1.Add destination"<<endl;
     }while(choice != '4');
 	//goto Addstation;
 	return 0;
-}
+}*/
