@@ -1,6 +1,6 @@
 #include"include.h"
 #include"station.h"
-#include"Path.h"
+//#include"Path.h"
 //werty
 //#include"Buy_ticket.h"
 #include"domainclass.h"
