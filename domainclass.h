@@ -1,5 +1,3 @@
-#ifndef DOMAINCLASS_H
-#define DOMAINCLASS_H
 #include"include.h"
 class MemberCard{
       private:
@@ -18,6 +16,9 @@ class MemberCard{
         string getDayExpire(){
           return DayExpire;
         }
+        void GenerateExpire(){
+          
+        }
 };
 
 class Member{
@@ -31,14 +32,14 @@ class Member{
       public: 
         Member *link;
         Member(){
-            link = NULL;
-        }//member
+
+        }
         Member(string user_name,string lastname,string tel,string passwordcard){
             Firstname = user_name;
             Lastname = lastname;
             Tel = tel;
             member_card.PasswordCard(passwordcard);  
-              link = NULL;
+            link = NULL;
         }
         void Setmember(string user_name,string lastname,string tel,string passwordcard){
           //set up member
@@ -82,8 +83,15 @@ class ListMember{
               tail = new_member;
             } 
         }
-        void showUser(Member newmember){
-
+        Member *searchMember(string name){
+                Member *cur = head;
+                while(cur!=NULL){
+                    if(cur->getname()==name){
+                        return cur;
+                        break;
+                    }
+                    cur = cur->link;
+                }
+                return NULL;
         }
 };
-#endif
