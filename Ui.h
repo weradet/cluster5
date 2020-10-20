@@ -55,4 +55,7 @@ class UI{
                cout << "Hello";   
             }//if
         }
+        void InputPersonalInformation(string name,string lastname,string tel){
+            
+        }//inputpersonal
 };
