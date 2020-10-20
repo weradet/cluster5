@@ -81,7 +81,7 @@ class UI{
         void printfile(){
              a->Departure_Staion("Departure");
         }
-        void InputMoney(double money){
-            Regis_obj->InputMoney(money);
+        void InputMoney(double money,string pass){
+            Regis_obj->InputMoney(money,pass);
         }
 };
