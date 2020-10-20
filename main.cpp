@@ -102,7 +102,11 @@ int main(){
                                cout << "Please Ener the Customer LastName : " << endl;
                                  cin >> user_lastname;
                                cout << "Please Ener the Customer Tel. : " << endl;
-                                  cin >> user_tel;    
+                                  cin >> user_tel;   
+                                obj_ui.InputPersonalInformation(user_name,user_lastname,user_tel);   
+                               cout << "====Please Enter Password Card====" << endl;
+                               cout << "Password Card : "; cin >> password_card;
+                                  
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
