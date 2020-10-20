@@ -1,6 +1,10 @@
+#ifndef STATION_H
+#define STATION_H
+
 #include"include.h"
 #include"Addstation.h"
 #include"Path.h"
+
 class StationController{
     private:
         
@@ -53,7 +57,7 @@ class Station{
 class Status :public Path{
     public:
         void ShowAllStation(){
-            Station *temp = head;
+            Station *temp = Path::head;
             int i;
             cout << "------------------ Station -----------------" << endl;
             cout << "ID Station" << setw(10) << right << "Station Name" << setw(10) << right 
@@ -118,3 +122,4 @@ class Status :public Path{
         }
 
 };
+#endif
