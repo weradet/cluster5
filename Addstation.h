@@ -114,7 +114,7 @@ class Station{
                 AddOntheWay(Stationid,StationName,Status,Cost);
         }    
 };
-    
+    /*
 int main(){
     Station *st = new Station;
     int addstationChoice,menu;
@@ -157,3 +157,4 @@ int main(){
     EXIT:cout <<"================="<<endl; 
     return 0;
 }
+*/
