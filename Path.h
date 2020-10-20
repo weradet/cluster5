@@ -31,14 +31,14 @@ class Path{
             count = 0;
         }
         void read_file(){
-		string Id,Fac,Date,In,Out,filein;
-        int Cost
+		string id,name,cost,status,filein;
+        int Cost;
 			filein = "Station.txt";
 			ifstream infile;
-            stringstream ss()
+            stringstream ss();
 			infile.open(filein.c_str(),std::ios::in);
 				if(infile.fail()){
-					return false;
+					
 				}else{
 					while(getline(infile,filein)){
 						name = filein.substr(0,filein.find(','));
@@ -49,9 +49,9 @@ class Path{
 						     filein.erase(0,filein.find(',')+1);
 						status = filein;
                         stringstream ss(cost);
-                        ss >> Cost
+                        ss >> Cost;
 					    
-						add_path(name,id,Cost,status);
+						add_path(name,id,status,Cost);
 					}
 					infile.close();
 					}
@@ -59,7 +59,7 @@ class Path{
         }
 
         void show(){
-            linklist_station *a = head;
+            Station *a = head;
             for(int i=0;i<count;i++){
                 //cout << a->station.StationID() << endl;
             }
