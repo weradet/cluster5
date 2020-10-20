@@ -120,7 +120,7 @@ class ListMember{
             Loaddata();
         }
         ~ListMember(){
-          //savedata();
+         // savedata();
         }
         void printlist(){
           Member *cur = head;
