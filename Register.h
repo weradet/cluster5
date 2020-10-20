@@ -11,29 +11,30 @@ class RegisterController{
         } 
         ~RegisterController(){
         }//destructer
-        void SetMemberInformation(string f,string l,string t,string pwc){
+        void SetMemberInformation(string f,string l,string t,string pw){
              //  UserMember
-             UserMember.Setmember(f,l,t,pwc);  
+             UserMember.Setmember(f,l,t,pw);  
              list_member->Addmember(UserMember);          
         }
-        void ShowuserInformation(string name){
+        void ShowUserInformation(string name){
              Member *customer = list_member->searchMember(name);
-             if(customer!=NULL){
-                 cout << "====Customer Information===" << endl;
-                 cout << "Name: "     <<customer->getname() << endl;
-                 cout << "LastName: " <<customer->getlastname() << endl;
-                 cout << "Tel.: " <<customer->gettel() <<" "<< endl;
+             if(customer != NULL){
+                cout << "================ Customer Information ===============" << endl;
+                cout << "Firstname : " << customer->getFirstname() << endl;
+                cout << "Lastname : " << customer->getLastname() << endl;
+                cout << "Tel. : " << customer->getTel() << endl;
              }else{
-                 cout << "Error Information" << endl;
+                cout << "Error Information!!" << endl;
              }
              
         }
-        void showExpireCard(string name){
+        void ShowExpireCard(string name){
              Member *customer = list_member->searchMember(name);
              if(customer!=NULL){
-                 cout << "ExpireCard : " << customer->getExpire();   
+                cout << "ExpireCard : " << customer->getExpire();
+                cout << "\n================ Customer Information ===============" << endl;   
              }else{
-                 cout << "Error Information" << endl;
+                cout << "Error Information!!" << endl;
              }
         }
         void MemberCardInformation(){
