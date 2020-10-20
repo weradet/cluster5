@@ -21,7 +21,7 @@ class UI{
        }
        void PrintCustomer(){
             //print customer menu
-            cout << "***************Electic Train***************" << endl;
+            cout << "************** Electic Train **************" << endl;
             cout << "1. Find cycle Time" << endl; 
             cout << "2. Buy Train Ticket" << endl;
             cout << "3. Have a member" << endl;
@@ -32,7 +32,7 @@ class UI{
        void PrintAdmin(){
            //print employee menu
            //print interface
-            cout << "***************Electic Train***************" << endl;
+            cout << "************** Electic Train **************" << endl;
             cout << "1. Find cycle Time" << endl; 
             cout << "2. Buy Train Ticket" << endl;
             cout << "3. Register Member" << endl;
