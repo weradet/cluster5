@@ -104,4 +104,26 @@ class ListMember{
                 }
                 return NULL;
         }
+        void savedata(){
+              Member *cur = head;
+              ofstream file("checking.dat",ios::app);
+              if(file.is_open()){
+                    while (cur!=NULL){ 
+                       file<< cur->getname() <<","<<cur->getlastname()<< "," << cur->gettel() << "," 
+                       << cur->getpasswordcard() << "," << endl;   
+                        cur=cur->link;
+                   }
+        }
+         /*void savefile(){
+                   NodeCheckin *cur = head;
+                  //string student_code,numfac,date,timein,timeout;
+                  ofstream file("checking.dat",ios::out);
+                  if(file.is_open()){
+                    while (cur!=NULL){ 
+                       file<< cur->student_code <<","<<cur->numfac<< "," << cur->date << "," 
+                       << cur->timein << "," << cur->timeout << endl;   
+                        cur=cur->next;
+                   }
+               }
+            } */
 };
