@@ -1,9 +1,9 @@
 #include"include.h"
-#include"AddStation.h"
+#include"Addstation.h"
 #include"Path.h"
 class StationController{
     private:
-
+        
     public:
         void ShowFixMenuStation(){
             cout << "------------------- Menu -------------------" << endl;
@@ -36,16 +36,16 @@ class Station{
         void NewName(string name){
             StationName = name;
         }
-        string GetStationID(){
+        string StationID(){
             return ID;
         }
-        string GetstationName(){
+        string stationName(){
             return StationName;
         }
-        string GetstationStatus(){
+        string stationStatus(){
             return StationStatus;
         }
-        int Getcost(){
+        int cost(){
             return Cost;
         }
 };
@@ -59,22 +59,22 @@ class Status :public Path{
                  << "Status" << setw(10) << right << "Cost" << endl;
             while(temp != NULL){
                 cout << left << setw(10) << i;
-                cout << left << setw(10) << temp->GetStationID();
-                cout << left << setw(10) << temp->GetstationName();
-                cout << left << setw(10) << temp->GetstationStatus();
-                cout << left << setw(10) << temp->Getcost() << endl;
+                cout << left << setw(10) << temp->StationID();
+                cout << left << setw(10) << temp->stationName();
+                cout << left << setw(10) << temp->stationStatus();
+                cout << left << setw(10) << temp->cost() << endl;
             }
             cout << "--------------------------------------------" << endl;
         }
-        void ShowStation(string id){
+        void showStation(string id){
             Station *temp = head;
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
                 if(id == temp->ID){
-                   cout << "Station ID : " << temp->GetStationID() << endl;
-                   cout << "Station Name : " << temp->GetstationName() << endl;
-                   cout << "Station Status : " << temp->GetstationStatus() << endl;
-                   cout << "Station Cost : " << temp->Getcost() << endl; 
+                   cout << "Station ID : " << temp->StationID() << endl;
+                   cout << "Station Name : " << temp->stationName() << endl;
+                   cout << "Station Status : " << temp->stationStatus() << endl;
+                   cout << "Station Cost : " << temp->cost() << endl; 
                 }
                temp = temp->link;
             }
