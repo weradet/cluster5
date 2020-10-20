@@ -107,6 +107,7 @@ int main(){
                                cout << "Password Card : "; cin >> password_card;
                                obj_ui.InputPersonalInformation(user_name,user_lastname,user_tel,password_card);
                                obj_ui.showInformation(user_name);
+                               obj_ui.ShowExprirationDate(user_name);
                                //obj_ui.ShowExprirationDate();    
                           }//Register Member
                           else if(menu_admin == 4){
