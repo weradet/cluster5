@@ -115,8 +115,7 @@ bool Islogin(string user_name,string pass){
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname);
                               obj_ui.ShowExprirationDate(user_firstname);
-                              
-                              //obj_ui.ShowExprirationDate();    
+                              obj_ui.InputMoney(money);   
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
