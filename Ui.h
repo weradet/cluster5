@@ -1,13 +1,9 @@
 #include"include.h"
 #include"station.h"
-//#include"Path.h"
-//werty
-//#include"Buy_ticket.h"
 #include"domainclass.h"
-//#include"Path.h"
 #include"Register.h"
 #include"Renewcard.h"
-#include"station.h"
+
 class UI{
     /*
     class UI 
