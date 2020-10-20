@@ -27,7 +27,7 @@ class Member{
             Firstname = user_name;
             Lastname = lastname;
             Tel = tel;
-            member_card.SetMemberCard(id_card);  
+            //member_card.SetMemberCard(id_card);  
         }//set up member
 };
 
