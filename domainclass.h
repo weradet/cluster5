@@ -38,7 +38,7 @@ class Member{
          string gettel(){
           return Tel;
         }
-        void Setmember(string user_ame,string lastname,string tel,string passwordcard){
+        void Setmember(string user_name,string lastname,string tel,string passwordcard){
           //set up member
             Firstname = user_name;
             Lastname = lastname;
