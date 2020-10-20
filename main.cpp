@@ -2,7 +2,7 @@
 #include"Ui.h"
 //using namespace std;
  /*created by weradet nopsombun 62160110 2/10/63
-   function main 
+   function main g
  */  
 bool Islogin(string user_name,string pass){
     //get parameter username and pass for check 
