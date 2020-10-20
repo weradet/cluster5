@@ -59,12 +59,15 @@ class UI{
             }//if
         }*/
         void InputPersonalInformation(string firstname,string lastname,string tel,string password){
-             Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
+            Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
         }//inputpersonal
         void ShowExprirationDate(string name){
-              Regis_obj->ShowExpireCard(name);
+            Regis_obj->ShowExpireCard(name);
         }
         void ShowInformation(string name){
             Regis_obj->ShowUserInformation(name);
+        }
+        void InputMoney(double money){
+
         }
 };
