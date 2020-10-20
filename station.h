@@ -67,11 +67,14 @@ class Path{
             if(head == NULL){
                 head = New;
                 tail = New;
+                tail->link = head;
+                head->plink = tail;
                 count++;
             }else{
                 tail->link = New;	
 				New->plink = tail;
 				tail = New;
+                tail->link = head;
                 count++;
             }
         }
