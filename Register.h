@@ -4,6 +4,8 @@
 class RegisterController{
     private:
          Member UserMember;
+         MemberCard PassMember;
+
          ListMember *list_member;
     public:
         RegisterController(){
@@ -38,14 +40,14 @@ class RegisterController{
                 cout << "Error Information!!" << endl;
              }
         }
-        void MemberCardInformation(){
- 
+        void EnterMoney(double money){
+            Member *customer = list_member->getMoney(money);
+            cout << "Please Enter Your Money : ";
+            cin >> money;
+            MemberCard.getPassword();
         }
-        void EnterMoney(){
-
-        }
-        void TopupMoney(){
-
+        double TopupMoney(){
+            return Money;
         }
         void SaveMoneyInformation(){
 
