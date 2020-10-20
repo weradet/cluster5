@@ -6,12 +6,13 @@ class RegisterController{
          Member UserMember;
     public:
         RegisterController(string f,string l,string t,string id){
-           UserMember.Setmember(f,l,t,id);
+           UserMember.Setmember(f,l,t);
         }
         ~RegisterController(){
         }//destructer
-        void SetMemberInformation(string f,string l,string t,string idcard){
+        void SetMemberInformation(string f,string l,string t){
              //  UserMember
+             UserMember.Setmember(f,l,t);
         }
         string SetMemberCard(){
             
