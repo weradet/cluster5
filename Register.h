@@ -33,7 +33,7 @@ class RegisterController{
              Member *customer = list_member->searchMember(name);
              if(customer!=NULL){
                 cout << "ExpireCard : " << customer->getExpire();
-                cout << "\n===================================================" << endl;   
+                cout << "\n=====================================================" << endl;   
              }else{
                 cout << "Error Information!!" << endl;
              }
