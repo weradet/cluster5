@@ -2,28 +2,17 @@
 #define PATH_H
 #include "include.h"
 #include "station.h"
-class linklist_station{
-    public:
-        linklist_station *link;
-        linklist_station *plink;
-        Station station;
-        string cost;
-        linklist_station(Station station){
-            this->station = station;
-            link = NULL;
-            plink = NULL;
-        }
-};
+
 
 class Path{
     private:
 
     public:
-        linklist_station *head;
-        linklist_station *tail;
+        Station *head;
+        Station *tail;
         int count;
-        void add_path(Station station){
-            linklist_station *New = new linklist_station(Station station);
+        void add_path(string id,string sta_name,string sta_stu,int cost){
+            Station *New = new Station(id,sta_name,sta_stu,cost);
             if(head == NULL){
                 head = New;
                 tail = New;
@@ -62,8 +51,7 @@ class Path{
                         stringstream ss(cost);
                         ss >> Cost
 					    
-                        Station s_tation(name,id,Cost,status);
-						add_path(s_tation);
+						add_path(name,id,Cost,status);
 					}
 					infile.close();
 					}
@@ -73,7 +61,7 @@ class Path{
         void show(){
             linklist_station *a = head;
             for(int i=0;i<count;i++){
-                cout << a->station.StationID() << endl;
+                //cout << a->station.StationID() << endl;
             }
         }
 
