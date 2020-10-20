@@ -1,9 +1,8 @@
 #include"include.h"
 class MemberCard{
       private:
-        string Password;
+        string Password,DayExpire;
         double Money;
-        string DayExpire;  
       public:
         MemberCard(){
           Money = 0;
@@ -29,22 +28,21 @@ class MemberCard{
           return Money;
         }
         void TopupMoney(double money){
-            Money += money;
+          Money += money;
         }
         void setMoney(double money){
-             Money = money;
+          Money = money;
         }
         void PayTicket(double money){
-            Money -= money;
+          Money -= money;
         }
-        void setdateExpire(string dayexpire){
-              DayExpire = dayexpire;
+        void setDateExpire(string dayexpire){
+          DayExpire = dayexpire;
         }
-        
 };
 
 class Member{
-    //class member 
+      //class member 
       private:
         string Firstname,Lastname,Tel;
         MemberCard member_card; 
@@ -56,34 +54,33 @@ class Member{
         Member(){
         link = NULL;
         }
-        Member(string firstname,string lastname,string tel,string password,string dateexpire,string money){
-            Firstname = firstname;
-            Lastname = lastname;
-            Tel = tel;
-            member_card.PasswordCard(password);
-            stringstream ss;
-            ss << money;
-            double Money;
-            ss >> Money;
-            member_card.setdateExpire(dateexpire);
-            member_card.setMoney(Money);
-            link = NULL;
+        Member(string firstname,string lastname,string tel,string password,string expire,string money){
+          Firstname = firstname;
+          Lastname = lastname;
+          Tel = tel;
+          member_card.PasswordCard(password);
+          stringstream ss;
+          ss << money;
+          double Money;
+          ss >> Money;
+          member_card.setDateExpire(expire);
+          member_card.setMoney(Money);
+          link = NULL;
         }
         Member(string firstname,string lastname,string tel,string password){
-            Firstname = firstname;
-            Lastname = lastname;
-            Tel = tel;
-            member_card.PasswordCard(password);  
-            link = NULL;
-            member_card.GenerateExpire();  
+          Firstname = firstname;
+          Lastname = lastname;
+          Tel = tel;
+          member_card.PasswordCard(password); 
+          member_card.GenerateExpire(); 
+          link = NULL; 
         }
-        void Setmember(string firstname,string lastname,string tel,string password){
-          //set up member
-            Firstname = firstname;
-            Lastname = lastname;
-            Tel = tel;
-            member_card.PasswordCard(password);
-            member_card.GenerateExpire();  
+        void setMember(string firstname,string lastname,string tel,string password){
+          Firstname = firstname;
+          Lastname = lastname;
+          Tel = tel;
+          member_card.PasswordCard(password);
+          member_card.GenerateExpire();  
         }//set up member
         string getFirstname(){
           return Firstname;
@@ -104,7 +101,7 @@ class Member{
           return member_card.getMoney();
         }
         void Topupmoney(double money){
-            member_card.TopupMoney(money);
+          member_card.TopupMoney(money);
         }
 };
 
@@ -115,14 +112,13 @@ class ListMember{
         Member *tail;
       public:
         ListMember(){
-            head = NULL;
-            tail = NULL;
-            Loaddata();
+          head = NULL;
+          tail = NULL;
+          Loaddata();
         }
         ~ListMember(){
-         // savedata();
-        }
-        void printlist(){
+        }//destructor
+        void Printlist(){
           Member *cur = head;
           while(cur!=NULL){
                 cout << cur->getFirstname() << " " << cur->getLastname() << endl;
@@ -130,87 +126,86 @@ class ListMember{
           }
         }
         void Addmember(Member newmember){
-           //Add data to the linklist
-            Member *new_member = new Member(newmember.getFirstname(),newmember.getLastname(),newmember.getTel(),newmember.getPassword());
-            if(head == NULL){
-              head = new_member;
-              tail = new_member; 
-            }else{
-              tail->link = new_member;
-              tail = new_member;
-            } 
+          //Add data to the linklist
+          Member *new_member = new Member(newmember.getFirstname(),newmember.getLastname(),newmember.getTel(),newmember.getPassword());
+          if(head == NULL){
+            head = new_member;
+            tail = new_member; 
+          }else{
+            tail->link = new_member;
+            tail = new_member;
+          } 
         }
-        void Addmember(string name,string lastname,string tel,string pass,string expire,string money){
-           //Add data to the linklist
-            Member *new_member = new Member(name,lastname,tel,pass,expire,money);
-            if(head == NULL){
-              head = new_member;
-              tail = new_member; 
-            }else{
-              tail->link = new_member;
-              tail = new_member;
-            } 
-            //savedata();
+        void Addmember(string firstname,string lastname,string tel,string password,string expire,string money){
+          //Add data to the linklist
+          Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
+          if(head == NULL){
+            head = new_member;
+            tail = new_member; 
+          }else{
+            tail->link = new_member;
+            tail = new_member;
+          } 
+          //savedata();
         }
         Member *searchMember(string name){
-                Member *cur = head;
-                while(cur!=NULL){
-                    if(cur->getFirstname()==name){
-                        return cur;
-                        break;
-                    }
-                    cur = cur->link;
-                }
-                return NULL;
+          Member *cur = head;
+          while(cur != NULL){
+            if(cur->getFirstname() == name){
+              return cur;
+              break;
+            }
+          cur = cur->link;
+          }//while
+          return NULL;
         }
-        Member *getmember(string password_card){
-                Member *cur = head;
-                while(cur != NULL){
-                  //cout << cur->getPassword() << endl;
-                   if(cur->getPassword()==password_card){
-                      return cur;  
-                      break;
-                   }
-                   cur = cur->link;
-                }   
-                return NULL;
+        Member *getMember(string password_card){
+          Member *cur = head;
+          while(cur != NULL){
+          //cout << cur->getPassword() << endl;
+            if(cur->getPassword()==password_card){
+              return cur;  
+              break;
+            }
+          cur = cur->link;
+          }//while   
+          return NULL;
         }
         void savedata(){
-              Member *cur = head;
-              ofstream file("member.txt",ios::out);
-              if(file.is_open()){
-                    while (cur!=NULL){ 
-                       file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
-                       << cur->getPassword() << ","<< cur->getExpire() << "," << cur->getMoney()<< endl;   
-                        cur=cur->link;
-                   }
-              }
+          Member *cur = head;
+          ofstream file("member.txt",ios::out);
+          if(file.is_open()){
+            while (cur!=NULL){ 
+              file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
+              << cur->getPassword() << ","<< cur->getExpire() << "," << cur->getMoney()<< endl;   
+              cur=cur->link;
+            }//while
+          }
         }
-         void Loaddata(){
-            //à¹‚à¸«à¸¥à¸”à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ˆà¸²à¸à¹„à¸Ÿà¸¥à¹Œà¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆLinkedlist
-           string line,user_name,lastname,tel,pass,dateexpire,money;
-           ifstream data("member.txt",ios::in);
-           if(data.is_open()){
-                  while(getline(data,line)){ 
-                    user_name = line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                    lastname = line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                       tel =   line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                      pass = line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                      dateexpire = line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                      money = line.substr(0,line.find(','));
-                               line.erase(0,line.find(',')+1); 
-                  Addmember(user_name,lastname,tel,pass,dateexpire,money);
+        void Loaddata(){
+          string line,firstname,lastname,tel,password,expire,money;
+          ifstream data("member.txt",ios::in);
+          if(data.is_open()){
+            while(getline(data,line)){ 
+              firstname = line.substr(0,line.find(','));
+                          line.erase(0,line.find(',')+1); 
+              lastname = line.substr(0,line.find(','));
+                         line.erase(0,line.find(',')+1); 
+              tel = line.substr(0,line.find(','));
+                    line.erase(0,line.find(',')+1); 
+              password = line.substr(0,line.find(','));
+                         line.erase(0,line.find(',')+1); 
+              expire = line.substr(0,line.find(','));
+                       line.erase(0,line.find(',')+1); 
+              money = line.substr(0,line.find(','));
+                      line.erase(0,line.find(',')+1); 
+            Addmember(firstname,lastname,tel,password,expire,money);
             }//while
           }else{
-             cout << "Error File!!" << endl;
-           }
-         } 
-         /*void savefile(){
+            cout << "File Error!!" << endl;
+          }
+        } 
+      /*void savefile(){
                    NodeCheckin *cur = head;
                   //string student_code,numfac,date,timein,timeout;
                   ofstream file("checking.dat",ios::out);
@@ -221,5 +216,5 @@ class ListMember{
                         cur=cur->next;
                    }
                }
-            } */
+        } */
 };
