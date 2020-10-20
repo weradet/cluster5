@@ -49,13 +49,13 @@ class UI{
         cout << "3.Out" << endl;
         cout << "Please Choose 1 Choice(1-3): ";
         }//print FirstMenu
-      void CheckMenuAdmin(int menu){
+      /*void CheckMenuAdmin(int menu){
             //check is menu admin in the method PrintAdmin() in UI class
             if(menu == 4){
             //Renew Card
                cout << "Hello";   
             }//if
-        }
+        }*/
         void InputPersonalInformation(string name,string lastname,string tel,string passwordcard){
              Regis_obj->SetMemberInformation(name,lastname,tel,passwordcard);   
         }//inputpersonal
