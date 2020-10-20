@@ -3,7 +3,7 @@
 #include"Path.h"
 class StationController{
     private:
-
+        
     public:
         void ShowFixMenuStation(){
             cout << "------------------- Menu -------------------" << endl;
@@ -66,7 +66,7 @@ class Status :public Path{
             }
             cout << "--------------------------------------------" << endl;
         }
-        void ShowStation(string id){
+        void showStation(string id){
             Station *temp = head;
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
