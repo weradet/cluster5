@@ -61,8 +61,8 @@ class UI{
         void InputPersonalInformation(string name,string lastname,string tel,string passwordcard){
              Regis_obj->SetMemberInformation(name,lastname,tel,passwordcard);   
         }//inputpersonal
-        void ShowExprirationDate(){
-            
+        void ShowExprirationDate(string name){
+              Regis_obj->showExpireCard(name);
         }
         void showInformation(string name){
             Regis_obj->ShowuserInformation(name);
