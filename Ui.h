@@ -7,7 +7,7 @@
 //#include"Path.h"
 #include"Register.h"
 #include"Renewcard.h"
-//#include"station.h"
+#include"station.h"
 class UI{
     /*
     class UI 
