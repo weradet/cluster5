@@ -23,7 +23,7 @@ class Station{
     public:
         Station *link;
         Station *plink;
-        Station(string id,string sta_name,string sta_stu,int cost){
+        Station(string sta_name,string id,string sta_stu,int cost){
             ID = id;
             StationName = sta_name;
             StationStatus = sta_stu;
@@ -102,9 +102,7 @@ class Path{
                         ss >> Cost;
 						add_path(name,id,status,Cost);
 					}
-					infile.close();
-					
-					
+					infile.close();			
         }
 
         void show(){
@@ -127,21 +125,24 @@ class Status :public Path{
         void ShowAllStation(){
             Station *temp = head;
             int i;
-            cout << "------------------ Station -----------------" << endl;
-            cout << "ID Station" << setw(10) << right << "Station Name" << setw(10) << right 
-                 << "Status" << setw(10) << right << "Cost" << endl;
+            cout << "**************** Station ****************" << endl;
+            cout << setw(7) << left << "NO."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
+            cout << "*****************************************" << endl;
             while(temp != NULL){
-                cout << left << setw(10) << i;
-                cout << left << setw(10) << temp->StationID();
-                cout << left << setw(10) << temp->stationName();
+                cout << left << setw(7) << temp->StationID();
+                cout << left << setw(20) << temp->stationName();
                 cout << left << setw(10) << temp->stationStatus();
-                cout << left << setw(10) << temp->cost() << endl;
+                cout << temp->cost() << endl;
+                temp = temp->link;
+                if(temp == head){
+                	break;
+				}
             }
-            cout << "--------------------------------------------" << endl;
+            cout << "*****************************************" << endl;
         }
         void showStation(string id){
             Station *temp = head;
-            cout << "------------------ Detail Station -----------------" << endl;
+            cout << "**************** Detail Station ****************" << endl;
             while(temp != NULL){
                 if(id == temp->StationID()){
                    cout << "Station ID : " << temp->StationID() << endl;
@@ -150,8 +151,11 @@ class Status :public Path{
                    cout << "Station Cost : " << temp->cost() << endl; 
                 }
                temp = temp->link;
+               if(temp == head){
+                	break;
+				}
             }
-            cout << "--------------------------------------------" << endl;
+            cout << "*****************************************" << endl;
         }
         void FixCostStation(string id,int cost){
             Station *temp = head;
@@ -168,10 +172,10 @@ class Status :public Path{
             Station *temp = head;
             while(temp != NULL){
                 if(id == temp->StationID()){
-                    if(temp->stationStatus() == "Open"){
-                        temp->NewStatus("Close");
-                    }else if(temp->stationStatus() == "Close"){
-                        temp->NewStatus("Open");
+                    if(temp->stationStatus() == "open"){
+                        temp->NewStatus("close");
+                    }else if(temp->stationStatus() == "close"){
+                        temp->NewStatus("open");
                     }
                     break;
                 }
