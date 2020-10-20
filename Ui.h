@@ -1,5 +1,6 @@
 #include"include.h"
-#include"Buy_ticket.h"
+//werty
+//#include"Buy_ticket.h"
 #include"domainclass.h"
 //#include"Path.h"
 #include"Register.h"
@@ -55,7 +56,11 @@ class UI{
                cout << "Hello";   
             }//if
         }
-        void InputPersonalInformation(string name,string lastname,string tel){
-            
+        void InputPersonalInformation(string name,string lastname,string tel,string passwordcard){
+             Regis_obj->SetMemberInformation(name,lastname,tel,passwordcard);
+          
         }//inputpersonal
+        void ShowExprirationDate(){
+            
+        }
 };

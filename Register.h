@@ -4,17 +4,20 @@
 class RegisterController{
     private:
          Member UserMember;
+         ListMember *list_member;
     public:
-        RegisterController(string f,string l,string t,string id){
-           UserMember.Setmember(f,l,t,id);
+        RegisterController(){
+            list_member = new ListMember;
+        } 
+        RegisterController(string f,string l,string t,string pass){
+           UserMember.Setmember(f,l,t,pass);
         }
         ~RegisterController(){
         }//destructer
-        void SetMemberInformation(string f,string l,string t,string idcard){
+        void SetMemberInformation(string f,string l,string t,string pwc){
              //  UserMember
-        }
-        string SetMemberCard(){
-            
+             UserMember.Setmember(f,l,t,pwc);  
+             list_member->Addmember(UserMember);
         }
         void MemberCardInformation(){
 
@@ -28,4 +31,7 @@ class RegisterController{
         void SaveMoneyInformation(){
 
         }
+        /*Member getMemberObj(){
+            return UserMember;
+        }*/
 };
