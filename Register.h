@@ -9,19 +9,35 @@ class RegisterController{
         RegisterController(){
             list_member = new ListMember;
         } 
-        RegisterController(string f,string l,string t,string pass){
-           UserMember.Setmember(f,l,t,pass);
-        }
         ~RegisterController(){
         }//destructer
         void SetMemberInformation(string f,string l,string t,string pwc){
              //  UserMember
              UserMember.Setmember(f,l,t,pwc);  
-             list_member->Addmember(UserMember);
-             //list_member->
+             list_member->Addmember(UserMember);          
+        }
+        void ShowuserInformation(string name){
+             Member *customer = list_member->searchMember(name);
+             if(customer!=NULL){
+                 cout << "====Customer Information===" << endl;
+                 cout << "Name: "     <<customer->getname() << endl;
+                 cout << "LastName: " <<customer->getlastname() << endl;
+                 cout << "Tel.: " <<customer->gettel() <<" "<< endl;
+             }else{
+                 cout << "Error Information" << endl;
+             }
+             
+        }
+        void showExpireCard(string name){
+             Member *customer = list_member->searchMember(name);
+             if(customer!=NULL){
+                 cout << "ExpireCard : " << customer->getExpire();   
+             }else{
+                 cout << "Error Information" << endl;
+             }
         }
         void MemberCardInformation(){
-
+ 
         }
         void EnterMoney(){
 

@@ -1,6 +1,10 @@
+#ifndef STATION_H
+#define STATION_H
+
 #include"include.h"
 #include"Addstation.h"
 #include"Path.h"
+
 class StationController{
     private:
         
@@ -25,8 +29,7 @@ class Station{
             StationName = sta_name;
             StationStatus = sta_stu;
             Cost = cost;
-            link = NULL;
-            plink = NULL;
+           
         }
         void NewCost(int cost){
             Cost = cost;
@@ -71,7 +74,7 @@ class Status :public Path{
             Station *temp = head;
             cout << "------------------ Detail Station -----------------" << endl;
             while(temp != NULL){
-                if(id == temp->ID){
+                if(id == temp->StationID()){
                    cout << "Station ID : " << temp->StationID() << endl;
                    cout << "Station Name : " << temp->stationName() << endl;
                    cout << "Station Status : " << temp->stationStatus() << endl;
@@ -85,7 +88,7 @@ class Status :public Path{
             Station *temp = head;
             int ptemp;
             while(temp != NULL){
-                if(id == temp->ID){
+                if(id == temp->StationID()){
                     temp->NewCost(cost);
                     break;
                 }
@@ -95,10 +98,10 @@ class Status :public Path{
         void Maintenence(srting id){
             Station *temp = head;
             while(temp != NULL){
-                if(id == temp->ID){
-                    if(temp->StationStatus == "Open"){
+                if(id == temp->StationID()){
+                    if(temp->stationStatus() == "Open"){
                         temp->NewStatus("Close");
-                    }else if(temp->StationStatus == "Close"){
+                    }else if(temp->stationStatus()s == "Close"){
                         temp->NewStatus("Open");
                     }
                     break;
@@ -109,7 +112,7 @@ class Status :public Path{
         void NewStationName(string id,string name){
            Station *temp = head;
             while(temp != NULL){
-                if(id == temp->ID){
+                if(id == temp->StationID()){
                     temp->Newname(name);
                     break;
                 }
@@ -118,3 +121,4 @@ class Status :public Path{
         }
 
 };
+#endif

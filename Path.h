@@ -1,27 +1,18 @@
+#ifndef PATH_H
+#define PATH_H
 #include "include.h"
 #include "station.h"
-class linklist_station{
-    public:
-        linklist_station *link;
-        linklist_station *plink;
-        Station station;
-        string cost;
-        linklist_station(Station station){
-            this->station = station;
-            link = NULL;
-            plink = NULL;
-        }
-};
+
 
 class Path{
     private:
 
     public:
-        linklist_station *head;
-        linklist_station *tail;
+        Station *head;
+        Station *tail;
         int count;
-        void add_path(Station station){
-            linklist_station *New = new linklist_station(Station station);
+        void add_path(string id,string sta_name,string sta_stu,int cost){
+            Station *New = new Station(id,sta_name,sta_stu,cost);
             if(head == NULL){
                 head = New;
                 tail = New;
@@ -40,14 +31,14 @@ class Path{
             count = 0;
         }
         void read_file(){
-		string Id,Fac,Date,In,Out,filein;
-        int Cost
+		string id,name,cost,status,filein;
+        int Cost;
 			filein = "Station.txt";
 			ifstream infile;
-            stringstream ss()
+            stringstream ss();
 			infile.open(filein.c_str(),std::ios::in);
 				if(infile.fail()){
-					return false;
+					
 				}else{
 					while(getline(infile,filein)){
 						name = filein.substr(0,filein.find(','));
@@ -58,20 +49,19 @@ class Path{
 						     filein.erase(0,filein.find(',')+1);
 						status = filein;
                         stringstream ss(cost);
-                        ss >> Cost
+                        ss >> Cost;
 					    
-                        Station Station(name,id,Cost,status);
-						add_path(Station);
+						add_path(name,id,status,Cost);
 					}
 					infile.close();
 					}
-					return true;
+					
         }
 
         void show(){
-            linklist_station *a = head;
+            Station *a = head;
             for(int i=0;i<count;i++){
-                cout << a->station.StationID() << endl;
+                //cout << a->station.StationID() << endl;
             }
         }
 
@@ -81,3 +71,4 @@ class Path{
         }
 };
 
+#endif

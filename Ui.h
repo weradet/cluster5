@@ -18,7 +18,7 @@ class UI{
     public:
        UI(){
            Renew_obj = new RenewController;
-          
+            Regis_obj = new RegisterController;
           // station_obj = new StationController;
        }
        void PrintCustomer(){
@@ -59,10 +59,12 @@ class UI{
             }//if
         }
         void InputPersonalInformation(string name,string lastname,string tel,string passwordcard){
-             Regis_obj->SetMemberInformation(name,lastname,tel,passwordcard);
-          
+             Regis_obj->SetMemberInformation(name,lastname,tel,passwordcard);   
         }//inputpersonal
-        void ShowExprirationDate(){
-            
+        void ShowExprirationDate(string name){
+              Regis_obj->showExpireCard(name);
+        }
+        void showInformation(string name){
+            Regis_obj->ShowuserInformation(name);
         }
 };
