@@ -63,6 +63,6 @@ class UI{
               Regis_obj->showExpireCard(name);
         }
         void ShowInformation(string name){
-            Regis_obj->ShowUserInformation(name);
+            Regis_obj->ShowuserInformation(name);
         }
 };
