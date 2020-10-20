@@ -9,6 +9,7 @@ class RenewController{
 private:
     Member user_member;  
 public:
+ 
     void PrintRenewMenu(){
         //print interface ewnew card menu
         cout << "****Renew Card****" << endl;

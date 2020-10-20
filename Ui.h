@@ -1,6 +1,6 @@
 #include"include.h"
 //#include"station.h"
-#include"domainclass.h"
+//#include"domainclass.h"
 #include"Register.h"
 #include"Renewcard.h"
 #include"Buy_ticket.h"
@@ -14,12 +14,14 @@ class UI{
    RegisterController *Regis_obj;
    Buy_ticket_controller *a;
     StationController *station_obj;
+    TopupCardController *topupcard;
     public:
        UI(){
             Renew_obj = new RenewController;
             Regis_obj = new RegisterController;
             a = new Buy_ticket_controller;
           station_obj = new StationController;
+          topupcard = new TopupCardController;
        }
        void PrintCustomer(){
             //print customer menu
@@ -76,12 +78,12 @@ class UI{
             Regis_obj->ShowExpireCard(name);
         }
         void ShowInformation(string name){
-            Regis_obj->ShowuserInformation(name);
+            Regis_obj->ShowUserInformation(name);
         }
         void printfile(){
              a->Departure_Staion("Departure");
         }
-        void InputMoney(double money){
-            Regis_obj->InputMoney(money);
+        void InputMoney(double money,string pass){
+            topupcard->TopupMoney(money,pass);
         }
 };
