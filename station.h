@@ -29,8 +29,7 @@ class Station{
             StationName = sta_name;
             StationStatus = sta_stu;
             Cost = cost;
-            link = NULL;
-            plink = NULL;
+           
         }
         void NewCost(int cost){
             Cost = cost;
@@ -57,7 +56,7 @@ class Station{
 class Status :public Path{
     public:
         void ShowAllStation(){
-            Station *temp = Path::head;
+            Station *temp = head;
             int i;
             cout << "------------------ Station -----------------" << endl;
             cout << "ID Station" << setw(10) << right << "Station Name" << setw(10) << right 
