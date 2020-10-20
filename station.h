@@ -69,10 +69,9 @@ class Path{
                 tail = New;
                 count++;
             }else{
-                tail->plink = tail;
-                tail = New;
-                tail->link = head;
-                head->plink = tail;
+                tail->link = New;	
+				New->plink = tail;
+				tail = New;
                 count++;
             }
         }
@@ -88,7 +87,6 @@ class Path{
 			ifstream infile;
             stringstream ss();
 			infile.open(filein.c_str(),std::ios::in);
-
 					while(getline(infile,filein)){
 						name = filein.substr(0,filein.find(','));
 						     filein.erase(0,filein.find(',')+1);
@@ -100,7 +98,6 @@ class Path{
                         stringstream ss(cost);
                         ss >> Cost;
 						add_path(name,id,status,Cost);
-                        cout << "a  ";
 					}
 					infile.close();
 					
