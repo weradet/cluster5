@@ -1,3 +1,5 @@
+#ifndef PATH_H
+#define PATH_H
 #include "include.h"
 #include "station.h"
 class linklist_station{
@@ -60,12 +62,12 @@ class Path{
                         stringstream ss(cost);
                         ss >> Cost
 					    
-                        Station Station(name,id,Cost,status);
-						add_path(Station);
+                        Station s_tation(name,id,Cost,status);
+						add_path(s_tation);
 					}
 					infile.close();
 					}
-					return true;
+					
         }
 
         void show(){
@@ -81,3 +83,4 @@ class Path{
         }
 };
 
+#endif
