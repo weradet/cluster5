@@ -17,7 +17,12 @@ class MemberCard{
           return DayExpire;
         }
         void GenerateExpire(){
-          
+           time_t now = time(0);
+           tm *ltm = localtime(&now);
+           stringstream ss;
+           ss <<  1901+ltm->tm_year << "-" << 1+ltm->tm_mon << "-" << ltm->tm_mday;
+           string date = ss.str();
+           DayExpire = date;
         }
 };
 
@@ -40,13 +45,15 @@ class Member{
             Tel = tel;
             member_card.PasswordCard(passwordcard);  
             link = NULL;
+            member_card.GenerateExpire();  
         }
         void Setmember(string user_name,string lastname,string tel,string passwordcard){
           //set up member
             Firstname = user_name;
             Lastname = lastname;
             Tel = tel;
-            member_card.PasswordCard(passwordcard);  
+            member_card.PasswordCard(passwordcard);
+            member_card.GenerateExpire();  
         }//set up member
         string getname(){
           return Firstname;
@@ -59,6 +66,9 @@ class Member{
         }
         string getpasswordcard(){
           return member_card.getpasswordcard();
+        }
+        string getExpire(){
+          return member_card.getDayExpire();
         }
 };
 
