@@ -68,6 +68,6 @@ class UI{
             Regis_obj->ShowUserInformation(name);
         }
         void InputMoney(double money){
-
+            Regis_obj->InputMoney(money);
         }
 };
