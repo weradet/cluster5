@@ -10,7 +10,7 @@ class MemberCard{
         void PasswordCard(string pass){
             Password = pass; 
         }    
-        string getPasswordcard(){
+        string getPassword(){
           return Password;
         }
         string getDayExpire(){
