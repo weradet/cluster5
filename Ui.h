@@ -1,16 +1,22 @@
 #include"include.h"
+#include"Buy_ticket.h"
+//#include"domainclass.h"
+//#include"Path.h"
+//#include"Register.h"
+#include"Renewcard.h"
+//#include"station.h"
 class UI{
     /*
     class UI 
     any ui in the project
     */
     private:
-    RenewControler *Renew_obj;  
-    StationController *station_obj;
+   RenewController *Renew_obj;  
+    //StationController *station_obj;
     public:
        UI(){
-           Renew_obj = new RenewControler;
-           station_obj = new StationController;
+           Renew_obj = new RenewController;
+          // station_obj = new StationController;
        }
        void PrintCustomer(){
            //print customer menu

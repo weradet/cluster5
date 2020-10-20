@@ -3,24 +3,15 @@
 #include "include.h"
 class RegisterController{
     private:
-        string Firstname;
-        string Lastname;
-        string Tel;
+         Member UserMember;
     public:
         RegisterController(string f,string l,string t){
-            Firstname = f;
-            Lastname = l;
-            Tel = t;
+           //Member.
         }
         ~RegisterController(){
         }//destructer
-        void AddMember(){
-            
-        }
-        void SetMemberInformation(string f,string l,string t){
-            Firstname = f;
-            Lastname = l;
-            Tel = t;
+        void SetMemberInformation(string f,string l,string t,string idcard){
+             //  UserMember
         }
         string SetMemberCard(){
             
