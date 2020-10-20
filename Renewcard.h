@@ -3,7 +3,6 @@
     *** Add class MemberList
 */ 
 #include"include.h"
-#include"domainclass.h"
 //Class
 class RenewController{
     //Contro Usecase Renew Card
