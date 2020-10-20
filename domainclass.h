@@ -1,15 +1,21 @@
 #include"include.h"
 class MemberCard{
       private:
-        string IdCard;
+        string Password;
         double Money;
         string DayExpire;  
       public:
         MemberCard(){
         }
-        void SetMemberCard(string id_card){
-            IdCard = id_card; 
+        void PasswordCard(string pass){
+            Password = pass; 
         }    
+        string getpasswordcard(){
+          return Password;
+        }
+        string getDayExpire(){
+          return DayExpire;
+        }
 };
 
 class Member{
@@ -22,13 +28,35 @@ class Member{
         Thai Id Card */ 
       public: 
         Member *link;
-        void Setmember(string user_name,string lastname,string tel,string id_card){
+        Member(){
+            link = NULL;
+        }//member
+        Member(string user_name,string lastname,string tel,string passwordcard){
+            Firstname = user_name;
+            Lastname = lastname;
+            Tel = tel;
+            member_card.PasswordCard(passwordcard);  
+              link = NULL;
+        }
+        void Setmember(string user_name,string lastname,string tel,string passwordcard){
           //set up member
             Firstname = user_name;
             Lastname = lastname;
             Tel = tel;
-            //member_card.SetMemberCard(id_card);  
+            member_card.PasswordCard(passwordcard);  
         }//set up member
+        string getname(){
+          return Firstname;
+        }
+         string getlastname(){
+          return Lastname;
+        }
+         string gettel(){
+          return Tel;
+        }
+        string getpasswordcard(){
+          return member_card.getpasswordcard();
+        }
 };
 
 class ListMember{
@@ -43,8 +71,7 @@ class ListMember{
         }
         void Addmember(Member newmember){
            //Add data to the linklist
-            Member *new_member = new Member;
-           
+            Member *new_member = new Member(newmember.getname(),newmember.getlastname(),newmember.gettel(),newmember.getpasswordcard());
             if(head == NULL){
               head = new_member;
               tail = new_member; 
@@ -52,5 +79,8 @@ class ListMember{
               tail->link = new_member;
               tail = new_member;
             } 
+        }
+        void showUser(Member new){
+
         }
 };
