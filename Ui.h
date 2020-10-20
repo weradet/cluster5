@@ -13,10 +13,12 @@ class UI{
     */
     private:
    RenewController *Renew_obj;  
+   RegisterController *Regis_obj;
     //StationController *station_obj;
     public:
        UI(){
            Renew_obj = new RenewController;
+          
           // station_obj = new StationController;
        }
        void PrintCustomer(){
