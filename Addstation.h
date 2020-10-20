@@ -3,13 +3,13 @@
 #include<fstream>
 #include<iomanip>
 using namespace std;
-class Station_Data{
+class station_Data{
 	public:
 		string StationName,StationID,Status,Cost;
-        //int index;
+        int index;
 		Station_Data *link;
 		Station_Data *plink;
-		Station_Data(string Sid,string name,string stat,string c){
+		Station_Data(int index,string Sid,string name,string stat,string c){
 			StationName = name;
             StationID = Sid;
             Status = stat;
@@ -18,7 +18,7 @@ class Station_Data{
 			plink = NULL;
 		}
 };
-class Station{
+class stationList{
     private:
         Station_Data *head;
         Station_Data *tail;
@@ -26,23 +26,18 @@ class Station{
     public:
         string StationName,StationID,Status;
         int Cost;
-        void add(string StationID,string StationName,string Status,string Cost){
-			Station_Data *n = new Station_Data(StationID,StationName,Status,Cost);
-			if(head == NULL){
-				head = n;
-				tail = head;
-				count++;
-			}else{
-				tail->link = n;
-				n->plink = tail;	
-				tail = n;
-				count++;
-			}		
-		}
+        int countList(){
+            int num = 0;
+            Station_Data *temp = head;
+            while(temp!=NULL){
+                temp = temp->link;
+                num++;
+            }
+            return num;
+        }
         void AddOntheWay(string StationID,string StationName,string Status,string Cost){
 			Station_Data *n = new Station_Data(StationID,StationName,Status,Cost);
 			Station_Data *temp = head;
-
             int index;
             //stringstream ss;  
             //ss << StationID;  
@@ -88,7 +83,7 @@ class Station{
                 Stationfile.open("Station.txt",std::ios::app);
                 Stationfile << StationID <<","<< StationName << "," << Status  << "," << Cost << endl;
                 Stationfile.close(); 
-                add(StationID,StationName,Status,Cost);
+                //add(StationID,StationName,Status,Cost);
             }
         void AddStation_Ontheway(){
             string Stationid,index,Cost;
