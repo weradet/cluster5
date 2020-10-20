@@ -22,9 +22,9 @@ class Member{
         Thai Id Card */ 
       public: 
         Member *link;
-        void Setmember(string user_ame,string lastname,string tel,string id_card){
+        void Setmember(string user_name,string lastname,string tel,string id_card){
           //set up member
-            Firstname = user_ame;
+            Firstname = user_name;
             Lastname = lastname;
             Tel = tel;
             member_card.SetMemberCard(id_card);  
