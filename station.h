@@ -91,7 +91,11 @@ class Status :protected Add{
             Station *temp = head;
             while(temp != NULL){
                 if(id == temp->ID){
-                    temp->NewStatus("Close");
+                    if(temp->StationStatus == "Open"){
+                        temp->NewStatus("Close");
+                    }else if(temp->StationStatus == "Close"){
+                        temp->NewStatus("Open");
+                    }
                     break;
                 }
                 temp = temp->link;
