@@ -28,8 +28,16 @@ class RegisterController{
              }
              
         }
+        void showExpireCard(string name){
+             Member *customer = list_member->searchMember(name);
+             if(customer!=NULL){
+                 cout << "ExpireCard : " << customer->getExpire();   
+             }else{
+                 cout << "Error Information" << endl;
+             }
+        }
         void MemberCardInformation(){
-
+ 
         }
         void EnterMoney(){
 
