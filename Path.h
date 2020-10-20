@@ -19,6 +19,34 @@ class Path{
                 count++;
             }
         }
+        void read_file(){
+		string Id,Fac,Date,In,Out,filein;
+        int Cost
+			filein = "checking.dat";
+			ifstream infile;
+            stringstream ss()
+			infile.open(filein.c_str(),std::ios::in);
+				if(infile.fail()){
+					return false;
+				}else{
+					while(getline(infile,filein)){
+						name = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						id = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						cost = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1);
+						status = filein;
+                        stringstream ss(cost);
+                        ss >> Cost
+					    
+                        Station Station(name,id,Cost,status);
+						add_path(Station);
+					}
+					infile.close();
+					}
+					return true;
+        }
         void calculate_cost(string DepartureStation,string TerminalStation){
             
 
