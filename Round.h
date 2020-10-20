@@ -55,12 +55,13 @@ class Round{
                     while(getline(file,filein)){
                         name = filein.substr(0,filein.find(','));
 						     filein.erase(0,filein.find(',')+1);
+                             add(name);
                         for(int i=0;i<9;i++){
                             timeout[i] = filein.substr(0,filein.find(','));
 						     filein.erase(0,filein.find(',')+1);
                             add(timeout[i],i);
                         }
-                    add(name);
+                    
                     }
                 //file.close();
                 }
