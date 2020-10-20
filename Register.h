@@ -14,7 +14,7 @@ class RegisterController{
         }//destructer
         void SetMemberInformation(string f,string l,string t,string pw){
             //UserMember
-            UserMember.Setmember(f,l,t,pw);  
+            UserMember.setMember(f,l,t,pw);  
             list_member->Addmember(UserMember);   
             //list_member->savedata();       
         }
@@ -22,10 +22,10 @@ class RegisterController{
             Member *customer = list_member->searchMember(name);
             if(customer != NULL){
                 system ("cls");
-                cout << "================ Customer Information ===============" << endl;
-                cout << "Firstname : " << customer->getFirstname();
-                cout << "Lastname : " << customer->getLastname();
-                cout << "Tel. : " << customer->getTel();
+                cout << "============== Customer Information ==============" << endl;
+                cout << "Firstname : " << customer->getFirstname() << endl;
+                cout << "Lastname : " << customer->getLastname() << endl;
+                cout << "Tel. : " << customer->getTel() << endl;
                 //cout << "Password : " << customer->getPassword() << endl;
             }else{
                 cout << "Information Error!!" << endl;
@@ -35,13 +35,13 @@ class RegisterController{
             Member *customer = list_member->searchMember(name);
             //list_member->printlist();
             if(customer != NULL){
-                cout << "ExpireCard : " << customer->getExpire();  
+                cout << "ExpireCard : " << customer->getExpire() << endl; 
             }else{
                 cout << "Information Error!!" << endl;
             }
         }
         void TopupMoney(double money,string password){
-            Member *customer = list_member->getmember(password);
+            Member *customer = list_member->getMember(password);
             //cout <<"2 "<< password << endl;
             //list_member->printlist();
             //list_member->Loaddata();
@@ -54,10 +54,10 @@ class RegisterController{
             }
         } 
         void ShowRemainingAmount(string password){
-            Member *customer = list_member->getmember(password);
+            Member *customer = list_member->getMember(password);
             if(customer != NULL){
                 cout << "Remaining Amount : " << customer->getMoney();
-                cout << "\n========================================================" << endl;   
+                cout << "\n==================================================" << endl;   
             }else{
                 cout << "Information Error!!" << endl;
             }
