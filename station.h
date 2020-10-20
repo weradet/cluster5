@@ -26,6 +26,7 @@ class Station{
             StationStatus = sta_stu;
             Cost = cost;
             link = NULL;
+            plink = NULL;
         }
         void NewCost(int cost){
             Cost = cost;
