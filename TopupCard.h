@@ -12,10 +12,10 @@ class TopupCardController{
         public:
         TopupCardController();
         void ShowMenuTopupCard();
-        void CheckMember(string Pass_Card);
+        Member* CheckMember(string Pass_Card);
         void ShowMemberInformation();
         void TopupMoney(double money,string password);
-        void ShowRemainingAmount(string password);
+        void ShowRemainingAmount(Member *cur);
         void Loaddata();
         void savedata();
         void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
