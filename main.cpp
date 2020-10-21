@@ -110,13 +110,14 @@ bool Islogin(string user_name,string pass){
                                 cin >> password_card;
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname);
-                              obj_ui.ShowExprirationDate(user_firstname); cout << endl;            
+                              obj_ui.ShowExprirationDate(user_firstname); cout << endl;
+                              obj_ui.savefile();            
                               cout << "================= Topup Money Card ===============" << endl;
                               cout << "Please Enter Money : ";
                                 cin >> money;
                               cout << "==================================================" << endl;
                               obj_ui.InputMoney(money,password_card);   
-                              obj_ui.savefile();
+                              //obj_ui.savefile();
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
