@@ -116,6 +116,7 @@ bool Islogin(string user_name,string pass){
                                 cin >> money;
                               cout << "==================================================" << endl;
                               obj_ui.InputMoney(money,password_card);   
+                              obj_ui.savefile();
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
