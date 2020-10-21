@@ -47,6 +47,7 @@
         }
         bool UI::CheckStatus(string name){
             station_obj->CheckStatus(name);
+            return true;
         }
         void UI::ChooseFixMenu(string id,int menu){
             station_obj->ChooseFixMenu(id,menu);
