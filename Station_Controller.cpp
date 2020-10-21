@@ -4,6 +4,7 @@
         }
         bool StationController::CheckStatus(string name){
             obj_sta.CheckStatus(name);
+            return true;
         }
         void StationController::ChooseFixMenu(string id,int menu){
             obj_sta.ChooseFixMenu(id,menu);
