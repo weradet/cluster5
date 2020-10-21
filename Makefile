@@ -9,7 +9,7 @@
   # the build target executable:
   TARGET = main
   FILEMAIN = main.cpp
-  CLASS =  Ui.cpp station.cpp Status.cpp Path.cpp Station_Controller.cpp Register.cpp TopupCard.cpp Buy_ticket.cpp ViewCycleTimes.cpp
+  CLASS =  Ui.cpp station.cpp Status.cpp Path.cpp Station_Controller.cpp Register.cpp TopupCard.cpp Buy_ticket.cpp ViewCycleTimes.cpp domainclass.cpp
   all: 
 	$(CC) $(FILEMAIN) $(CLASS) $(CFLAGS) -o $(TARGET)
 
