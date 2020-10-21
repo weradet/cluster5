@@ -80,3 +80,24 @@
         void UI::loadfile(){
             Regis_obj->list_member->Loaddata();
         }
+        void UI::Addstation(string StationID,string StationName,string Status,string Cost){
+
+        }
+        void UI::AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost){
+
+        }
+        bool UI::checkStationID(string id){
+            return true;
+        }
+        bool UI::checkStationName(string name){
+            return true;
+        }
+        void UI::WriteStationfile(){
+            
+        }
+        void UI::show_station(){
+
+        }
+        int UI::StationNumber(){
+            return 1;
+        }
