@@ -46,8 +46,8 @@
             station_obj->readfile();
         }
         bool UI::CheckStatus(string name){
-            station_obj->CheckStatus(name);
-            return true;
+            return station_obj->CheckStatus(name);
+           
         }
         void UI::ChooseFixMenu(string id,int menu){
             station_obj->ChooseFixMenu(id,menu);
