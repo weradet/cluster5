@@ -75,6 +75,7 @@ bool Islogin(string user_name,string pass){
                                  if(obj_ui.checkmember(pass_card)){
                                     int menu_topup;
                                     double money;
+                                    obj_ui.PrintCustomer();
                                     do{obj_ui.showmenu();
                                     cin >> menu_topup;
                                        if(menu_topup==1){
@@ -163,7 +164,9 @@ bool Islogin(string user_name,string pass){
                                     cin.ignore(100, '\n'); 
                                  }else if(menu_renew==1){
                                       string passwordcard;
-                                        
+                                       obj_ui.loaddataRenew();
+                                       cout << "Please Input the Password Card : "; cin >> passwordcard; 
+                                       obj_ui.EnterCardcode(passwordcard);
                                  }
                             }while(menu_renew!=2);
                           }//Renew Member Card
