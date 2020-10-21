@@ -35,23 +35,24 @@ void Status::showStation(string id){
 }
  void Status::ChooseFixMenu(string id,int menu){
             showStation(id);
-            switch(menu){
-                case 1:
+                if(menu == 1){
                     int cost;
                     cout << "Enter New Station Cost : ";
                     cin >> cost;
                     FixCostStation(id,cost);
                     cout << "******** Fix Station Cost Complete *******" << endl;
-                case 2:
+                }                 
+                if(menu == 2){
                     Maintenance(id);
                     cout << "******** Maintenance Station Complete *******" << endl;
-                case 3:
+                }
+                if(menu == 3){
                     string name;
                     cout << "Enter New Station Name : ";
                     cin >> name;
                     NewStationName(id,name);
                     cout << "******** Fix Station Name Complete *******" << endl;
-            }
+                }            
         }
 void Status::FixCostStation(string id,int cost){
             Station *temp = head;
