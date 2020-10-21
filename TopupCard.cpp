@@ -27,8 +27,8 @@ Member* TopupCardController::CheckMember(string Pass_Card){
          return NULL;
 }//voidCheck
 
-void TopupCardController::ShowMemberInformation(){
-
+void TopupCardController::ShowMemberInformation(Member *cur){
+      cout << cur->getFirstname() << " " << cur->getLastname() << endl;
 }//show InforMember
 
 void TopupCardController::TopupMoney(double money,string password){
