@@ -4,7 +4,7 @@
 class Station{
     private:
         string ID;
-        string StationName;
+        string Station_Name;
         string StationStatus;
         int Cost;
     public:
