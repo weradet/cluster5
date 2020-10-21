@@ -101,4 +101,5 @@ bool Status::CheckStatus(string name){
                 }
                 temp = temp->link;
             }
+            return true;
 }
