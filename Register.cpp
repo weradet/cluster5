@@ -54,4 +54,3 @@
                 cout << "Information Error!!" << endl;
             }
         }
-};
