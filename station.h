@@ -18,7 +18,6 @@ class Station{
         string stationName();
         string stationStatus();
         int cost();
-
 };
 
 #endif
