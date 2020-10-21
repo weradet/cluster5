@@ -4,9 +4,11 @@
 #include"include.h"
 #include"domainclass.h"
 class TopupCardController{
-        private:
-            Member UserMember;
-            ListMember *list_member;
+     public:
+            //Member UserMember;
+           // ListMember *list_member;
+           Member *head;
+           Member *tail;
         public:
         TopupCardController();
         void ShowMenuTopupCard();
@@ -14,6 +16,9 @@ class TopupCardController{
         void ShowMemberInformation();
         void TopupMoney(double money,string password);
         void ShowRemainingAmount(string password);
+        void Loaddata();
+        void savedata();
+        void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
  
 };
  #endif           
