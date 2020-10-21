@@ -90,6 +90,7 @@
           }
           data.close();
         }
+        
         void RegisterController::Showallmember(){
                    Member *cur = head;
                    while(cur != NULL){
