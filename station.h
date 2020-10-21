@@ -109,8 +109,8 @@ class Path{
 class Status :public Path{
     public:
         void ShowAllStation(){
+            read_file();
             Station *temp = head;
-            int i;
             cout << "**************** Station ****************" << endl;
             cout << setw(7) << left << "NO."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
             cout << "*****************************************" << endl;
@@ -145,23 +145,22 @@ class Status :public Path{
         }
         void ChooseFixMenu(string id,int menu){
             showStation(id);
-            switch(menu){
-                case 1:
+                if(menu == 1){
                     int cost;
                     cout << "Enter New Station Cost : ";
                     cin >> cost;
                     FixCostStation(id,cost);
                     cout << "******** Fix Station Cost Complete *******" << endl;
-                case 2:
+                }else if(menu == 2){
                     Maintenence(id);
                     cout << "******** Maintenance Station Complete *******" << endl;
-                case 3:
+                }else if(menu == 3){
                     string name;
                     cout << "Enter New Station Name : ";
                     cin >> name;
                     NewStationName(id,name);
                     cout << "******** Fix Station Name Complete *******" << endl;
-            }
+                }
         }
         void FixCostStation(string id,int cost){
             Station *temp = head;
@@ -204,9 +203,6 @@ class StationController{
     private:
         Status obj_sta;
     public:
-        void Readfile(){
-            obj_sta.read_file();
-        }
         void ChooseFixMenu(string id,int menu){
              obj_sta.ChooseFixMenu(id,menu);
         }
@@ -215,9 +211,9 @@ class StationController{
         } 
         void ShowFixMenuStation(){
             cout << "------------------- Menu -------------------" << endl;
-            cout << "1. Fix Station Name"       << endl;
+            cout << "1. Fix Station Cost"       << endl;
             cout << "2. Maintenance Station"    << endl;
-            cout << "3. Fix Cost Station"       << endl;
+            cout << "3. Fix Station Name"       << endl;
             cout << "--------------------------------------------" << endl;
         }
 };
