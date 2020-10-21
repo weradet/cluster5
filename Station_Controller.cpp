@@ -3,8 +3,8 @@
             obj_sta.read_file();
         }
         bool StationController::CheckStatus(string name){
-            obj_sta.CheckStatus(name);
-            return true;
+           return obj_sta.CheckStatus(name);
+           
         }
         void StationController::ChooseFixMenu(string id,int menu){
             obj_sta.ChooseFixMenu(id,menu);
