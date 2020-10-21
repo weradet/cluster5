@@ -1,4 +1,3 @@
-#include"include.h"
 #include"domainclass.h"
         MemberCard::MemberCard(){
           Money = 0;
