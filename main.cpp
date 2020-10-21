@@ -123,7 +123,84 @@ bool Islogin(string user_name,string pass){
                               //obj_ui.CheckMenuAdmin(menu_admin);
                           }//Renew Member Card
                           else if(menu_admin == 5){
+                              char choice;
+	                          string StationName,StationID,Status,Cost;
+                            cout <<"1.Add destination"<<endl;
+                            cout <<"2.Add Departure station,Add station on the way"<<endl;
+                            cout <<"3.show "<<endl;
+                            cout <<"Enter ==> ";
+                            cin >> choice;
+                          if(choice == '1'){
+                                  cout << "Station ID: ";
+                                  cin >> StationID;
+                                      while(StationID.length() != 5){
+                                          cout << "!!! Warning !!!\n";
+                                          cout << "Station ID Not equal to 5 ";
+                                          cin >> StationID;
+                                      }
+                                  cout << "StationName: ";
+                                  cin >> StationName;
+                          if(obj_ui.checkStationID(StationID)==true && obj_ui.checkStationName(StationName)==true){
+                            cout << "The station already exists!!!" << endl;
+                          }
+                                  cout << "Station Status: ";
+                                  cin >> Status;
+                                  cout << "Station cost: ";
+                                  cin >> Cost;
+                              obj_ui.Addstation(StationID,StationName,Status,Cost);
+                          }
+                          else if(choice == '2'){
+                              int index, data;
+                              int size = obj_ui.StationNumber();
 
+                              if(size == 0){
+                                  cout << "cannot add station" << endl;
+                              }
+                              else{
+                                string Cost;
+                                  cout << "Station ID: ";
+                                  cin >> StationID;
+                                      while(StationID.length() != 5){
+                                          cout << "!!! Warning !!!\n";
+                                          cout << "Station ID Not equal to 5 ";
+                                          cin >> StationID;
+                                      }
+                                  cout << "StationName: ";
+                                  cin >> StationName;
+                          if(obj_ui.checkStationID(StationID)==true && obj_ui.checkStationName(StationName)==true){
+                            cout << "The station already exists!!!" << endl;
+                          }
+                                  cout << "Station Status: ";
+                                  cin >> Status;
+                                  cout << "Station cost: ";
+                                  cin >> Cost;
+                                  if(size == 1){
+                                      cout << "input position (1): ";
+                                      cin >> index;
+                                      if(index > size || index < 1){
+                                        cout << "cannot add station" << endl;
+                                      }
+                                      else{
+                                          obj_ui.AddStation_ontheway(index,StationID,StationName,Status,Cost);
+                                      }
+                                  }
+                                  else{
+                                      cout << "choose position station(1 - " << size << "): ";
+                                      cin >> index;
+
+                                      
+                                      if(index > size || index < 1){
+                                        cout << "cannot add station" << endl;
+                            }
+                            else{
+                              obj_ui.AddStation_ontheway(index,StationID,StationName,Status,Cost);
+                            }
+                                  }
+                              }
+                          }
+                        else if(choice == '3'){
+                              obj_ui.show_station();
+                  }
                           }//Add Station
                           else if(menu_admin == 6){
                               obj_ui.ShowAllStation();
