@@ -53,7 +53,7 @@ void Status::showStation(string id){
                     cout << "******** Fix Station Name Complete *******" << endl;
             }
         }
-        void Status::FixCostStation(string id,int cost){
+void Status::FixCostStation(string id,int cost){
             Station *temp = head;
             int ptemp;
             while(temp != NULL){
@@ -64,7 +64,7 @@ void Status::showStation(string id){
                 temp = temp->link;
             }
         }
-        void Status::Maintenance(string id){
+void Status::Maintenance(string id){
             Station *temp = head;
             while(temp != NULL){
                 if(id == temp->StationID()){
@@ -78,7 +78,7 @@ void Status::showStation(string id){
                 temp = temp->link;
             }
         }
-        void Status::NewStationName(string id,string name){
+void Status::NewStationName(string id,string name){
            Station *temp = head;
             while(temp != NULL){
                 if(id == temp->StationID()){
