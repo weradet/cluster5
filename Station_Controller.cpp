@@ -1,4 +1,7 @@
-#include"Station_Controller.h"        
+#include"Station_Controller.h"    
+        void StationController::readfile(){
+            obj_sta.read_file();
+        }
         bool StationController::CheckStatus(string name){
             obj_sta.CheckStatus(name);
         }
