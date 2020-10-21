@@ -3,7 +3,7 @@ TopupCardController::TopupCardController(){
              //list_member=new ListMember;
              head = NULL;
              tail = NULL;
-             Loaddata();
+            // Loaddata();
 }
 void TopupCardController::ShowMenuTopupCard(){
    
@@ -16,8 +16,15 @@ void TopupCardController::ShowMenuTopupCard(){
                 
 }//void showMenu
 
-void TopupCardController::CheckMember(string Pass_Card){
-
+Member* TopupCardController::CheckMember(string Pass_Card){
+         Member *cur = head;
+         while(cur!=NULL){
+             if(cur->getPassword()==Pass_Card){
+                  return cur;
+             }
+             cur = cur->link;
+         }
+         return NULL;
 }//voidCheck
 
 void TopupCardController::ShowMemberInformation(){
@@ -29,24 +36,17 @@ void TopupCardController::TopupMoney(double money,string password){
     while(cur!=NULL){
         if(cur->getPassword()==password){
             cur->Topupmoney(money);
-            ShowRemainingAmount(password);
-            savedata();
+            ShowRemainingAmount(cur);
+            //savedata();
              break; 
         }
          cur = cur->link;
     }
 }//void topupMoney
 
-void TopupCardController::ShowRemainingAmount(string password){
-      Member *cur = head;
-    while(cur!=NULL){
-        if(cur->getPassword()==password){
-             cout << "Remaining Amount : " << cur->getMoney();
+void TopupCardController::ShowRemainingAmount(Member *cur){
+            cout << "Remaining Amount : " << cur->getMoney();
              cout << "\n=====================================================" << endl;  
-             break; 
-        }
-         cur = cur->link;
-    }
 }//void showamoung
 
 void TopupCardController::SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money){
@@ -64,7 +64,7 @@ void TopupCardController:: savedata(){
           Member *cur = head;
           ofstream file("member.txt",ios::out);
           if(file.is_open()){
-            while (cur!=NULL){ 
+            while (cur!=NULL){
               file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
               << cur->getPassword() << ","<< cur->getExpire() << "," << cur->getMoney()<< endl;   
               cur=cur->link;
