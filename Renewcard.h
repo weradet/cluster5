@@ -13,10 +13,15 @@ class RenewController{
 public:
     Member *head;
     Member *tail;
-    
+
+    RenewController();
     void PrintRenewMenu();
     void Entercardcode(string cardcode);
-    bool Findmember();
+    Member* Findmember(string password);
+    void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
+    void RenewCard(Member *cur,int comit);
+    void savedata();
+    void Loaddata();
 };
 #endif
 // Function
