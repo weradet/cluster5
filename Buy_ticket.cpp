@@ -16,11 +16,11 @@ void Buy_ticket_controller :: Terminal_Staion(string destination){
     Head->read_file();
     Path *train = Head;
     while(train != NULL){
-    if(destination == train->StationName){
-         cout << Head->head->StationID();
+    if(destination == train->head->stationName()){
+         cout << train->head->StationID();
          break;
     }
-        train = train->head->link;
+        train->head = train->head->link;
     }
 
 }
