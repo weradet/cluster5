@@ -1,3 +1,5 @@
+#ifndef DOMAINCLASS_H
+#define DOMAINCLASS_H
 #include"include.h"
 class MemberCard{
       private:
@@ -56,3 +58,4 @@ class ListMember{
         void Loaddata(); 
       
 };
+#endif
