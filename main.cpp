@@ -203,6 +203,7 @@ bool Islogin(string user_name,string pass){
                   }
                           }//Add Station
                           else if(menu_admin == 6){
+                              obj_ui.readfile();
                               obj_ui.ShowAllStation();
                               string chooseId;
                               int menu;
