@@ -32,12 +32,17 @@ class UI{
         void ChooseFixMenu(string id,int menu);
         void ShowFixMenuStation();
         void ShowAllStation();
+        
+        
         void InputPersonalInformation(string firstname,string lastname,string tel,string password);
-        void ShowExprirationDate(string name);
-        void ShowInformation(string name);
+        void ShowExprirationDate(string name,string pass);
+        void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
+        void showallmember();
         void savefile();
         void loadfile();
+       
+       
         void Addstation(string StationID,string StationName,string Status,string Cost);
         void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost);
         bool checkStationID(string id);
