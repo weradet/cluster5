@@ -119,13 +119,12 @@ bool Islogin(string user_name,string pass){
                           }//Register Member
                           else if(menu_admin == 4){
                               //obj_ui.CheckMenuAdmin(menu_admin);
-                                cout << "==================== RenewCard ====================" << endl;
-                                cout << "Please Enter Password : ";
                           }//Renew Member Card
                           else if(menu_admin == 5){
 
                           }//Add Station
                           else if(menu_admin == 6){
+                              obj_ui.Readfile();
                               obj_ui.ShowAllStation();
                               string chooseId;
                               int menu;
@@ -134,7 +133,7 @@ bool Islogin(string user_name,string pass){
                               obj_ui.ShowFixMenuStation();
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
-                              //obj_ui.ChooseFixMenu(chooseId,menu);
+                              obj_ui.ChooseFixMenu(chooseId,menu);
                           }//Fix Station
                           else if(menu_admin == 7){
 
@@ -158,6 +157,5 @@ bool Islogin(string user_name,string pass){
           cin.ignore(100, '\n'); 
       }  // catch Error   
     }while(Menu!=3);
-    obj_ui.savefile();
      return 0;
 }//main
