@@ -73,7 +73,7 @@ bool Islogin(string user_name,string pass){
               //Menu Admin 
             string str_user_name;  // username
             string str_password = ""; //pass
-            char star;
+           // char star;
                cout << "Username : "; cin >> str_user_name;
                cout << "Password : "; cin >> str_password;
                if(Islogin(str_user_name,str_password)){
