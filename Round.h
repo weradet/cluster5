@@ -1,3 +1,5 @@
+#ifndef ROUND_H
+#define ROUND_H
 #include "include.h"
 class Round{
         private:
@@ -17,3 +19,4 @@ class Round{
             void Readfile();
             void Show();
 };
+#endif
