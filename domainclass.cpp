@@ -80,3 +80,6 @@
         void Member::Topupmoney(double money){
           member_card.TopupMoney(money);
         }
+        MemberCard Member::getmembercard(){
+          return member_card;
+        }
