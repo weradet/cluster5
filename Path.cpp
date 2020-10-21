@@ -37,11 +37,7 @@
                             status = filein;
                             stringstream ss(cost);
                             ss >> Cost;
-                            if(status == "close"){
-                                continue;
-                            }else{
-                                add_path(name,id,status,Cost);
-                            }    
+                            add_path(name,id,status,Cost);
                         }
                         infile.close();			
         }
