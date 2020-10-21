@@ -1,5 +1,6 @@
-// 62160085 Natsuda Kuhasak //
-// 62160334 Mattaneeya Phosrisuk //
+
+#ifndef REGISTER_H
+#define REGISTER_H
 #include "include.h"
 #include"domainclass.h"
 class RegisterController{
@@ -15,7 +16,7 @@ class RegisterController{
         void TopupMoney(double money,string password);
         void ShowRemainingAmount(string password);
 };
-
+#endif
 /*class TopupCardController{
         private:
             Member UserMember;
