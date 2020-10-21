@@ -7,67 +7,18 @@ class RegisterController{
     public:
         Member UserMember;
         MemberCard PassMember;
-        ListMember *list_member;
+       // ListMember *list_member;
+        Member *head;
+        Member *tail;
         RegisterController(); 
         ~RegisterController();
         void SetMemberInformation(string f,string l,string t,string pw);
-        void ShowUserInformation(string name);
-        void ShowExpireCard(string name);
-        void TopupMoney(double money,string password);
+        void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
+        void ShowUserInformation(string name,string pass);
+        void ShowExpireCard(string name,string pass);
+        void Showallmember();
         void ShowRemainingAmount(string password);
+        void savedata();
+        void Loaddata();
 };
 #endif
-/*class TopupCardController{
-        private:
-            Member UserMember;
-            ListMember *list_member;
-        public:
-               TopupCardController(){
-                 list_member = new ListMember;
-                } 
-            void ShowMenuTopupCard(){
-                int chioceMenu;
-                do{
-                    cout << "=============== TOPUP ==============="<< endl;
-                    cout << "1. Topup" << endl;
-                    cout << "2. Show balance" << endl;
-                    cout << "3. Back to menu" << endl;
-                    cout << "====================================="<< endl;
-                    cout << "" << endl;
-                }while(chioceMenu!=3);
-                
-            }
-
-            void CheckMember(string Pass_Card){
-                
-                
-            }
-
-            void ShowMemberInformation(){
-
-            }
-
-            void TopupMoney(double money,string password){
-                 Member *customer = list_member->getmember(password);
-                 //cout <<"2 "<< password << endl;
-                 //list_member->printlist();
-                 list_member->Loaddata();
-                 if(customer!=NULL){
-                      customer->Topupmoney(money);
-                      ShowRemainingAmount(password);
-                      list_member->Loaddata();
-                 }else{
-                    cout << "Error" << endl;
-                  }
-            }
-        void ShowRemainingAmount(string password){
-            Member *customer = list_member->getmember(password);
-            if(customer!=NULL){
-                cout << "Remaining Amount : " << customer->getMoney();
-                cout << "\n=====================================================" << endl;   
-            }else{
-                cout << "Error Information!!" << endl;
-            }
-        }
- 
-};*/
