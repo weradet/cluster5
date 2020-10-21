@@ -49,6 +49,10 @@ class UI{
        
 
         void showmenuRenewCard();
+        void EnterCardcode(string password);
+        void loaddataRenew();
+        void SaveDataRenew();
+        void ConfirmRenew();
 
         void Addstation(string StationID,string StationName,string Status,string Cost);
         void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost);
