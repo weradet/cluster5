@@ -22,6 +22,7 @@ class UI{
     TopupCardController *topupcard;
     public:
         UI();
+        bool CheckStatus(string name);
         void PrintCustomer();
         void PrintAdmin();
         void PrintFirstMenu();
