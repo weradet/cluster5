@@ -1,18 +1,18 @@
 #include"include.h"
 #include"domainclass.h"
-        MemberCard(){
+        MemberCard::MemberCard(){
           Money = 0;
         }
-        void PasswordCard(string pass){
+        void MemberCard::PasswordCard(string pass){
           Password = pass; 
         }    
-        string getPassword(){
+        string MemberCard::getPassword(){
           return Password;
         }
-        string getDayExpire(){
+        string MemberCard::getDayExpire(){
           return DayExpire;
         }
-        void GenerateExpire(){
+        void MemberCard::GenerateExpire(){
           time_t now = time(0);
           tm *ltm = localtime(&now);
           stringstream ss;
@@ -20,27 +20,27 @@
           string date = ss.str();
           DayExpire = date;
         }
-        double getMoney(){
+        double MemberCard::getMoney(){
           return Money;
         }
-        void TopupMoney(double money){
+        void MemberCard::TopupMoney(double money){
           Money += money;
         }
-        void setMoney(double money){
+        void MemberCard::setMoney(double money){
           Money = money;
         }
-        void PayTicket(double money){
+        void MemberCard::PayTicket(double money){
           Money -= money;
         }
-        void setDateExpire(string dayexpire){
+        void MemberCard::setDateExpire(string dayexpire){
           DayExpire = dayexpire;
         }
      
      
-        Member(){
+        Member::Member(){
         link = NULL;
         }
-        Member(string firstname,string lastname,string tel,string password,string expire,string money){
+        Member::Member(string firstname,string lastname,string tel,string password,string expire,string money){
           Firstname = firstname;
           Lastname = lastname;
           Tel = tel;
@@ -53,7 +53,7 @@
           member_card.setMoney(Money);
           link = NULL;
         }
-        Member(string firstname,string lastname,string tel,string password){
+        Member::Member(string firstname,string lastname,string tel,string password){
           Firstname = firstname;
           Lastname = lastname;
           Tel = tel;
@@ -61,50 +61,50 @@
           member_card.GenerateExpire(); 
           link = NULL; 
         }
-        void setMember(string firstname,string lastname,string tel,string password){
+        void Member::setMember(string firstname,string lastname,string tel,string password){
           Firstname = firstname;
           Lastname = lastname;
           Tel = tel;
           member_card.PasswordCard(password);
           member_card.GenerateExpire();  
         }//set up member
-        string getFirstname(){
+        string Member::getFirstname(){
           return Firstname;
         }
-         string getLastname(){
+         string Member::getLastname(){
           return Lastname;
         }
-         string getTel(){
+         string Member::getTel(){
           return Tel;
         }
-        string getPassword(){
+        string Member::getPassword(){
           return member_card.getPassword();
         }
-        string getExpire(){
+        string Member::getExpire(){
           return member_card.getDayExpire();
         }
-        double getMoney(){
+        double Member::getMoney(){
           return member_card.getMoney();
         }
-        void Topupmoney(double money){
+        void Member::Topupmoney(double money){
           member_card.TopupMoney(money);
         }
 
-        ListMember(){
+        ListMember::ListMember(){
           head = NULL;
           tail = NULL;
           Loaddata();
         }
-        ~ListMember(){
+         ListMember::~ListMember(){
         }//destructor
-        void Printlist(){
+        void ListMember::Printlist(){
           Member *cur = head;
           while(cur!=NULL){
                 cout << cur->getFirstname() << " " << cur->getLastname() << endl;
                 cur = cur->link;
           }
         }
-        void Addmember(Member newmember){
+        void ListMember::Addmember(Member newmember){
           //Add data to the linklist
           Member *new_member = new Member(newmember.getFirstname(),newmember.getLastname(),newmember.getTel(),newmember.getPassword());
           if(head == NULL){
@@ -115,7 +115,7 @@
             tail = new_member;
           } 
         }
-        void Addmember(string firstname,string lastname,string tel,string password,string expire,string money){
+        void ListMember::Addmember(string firstname,string lastname,string tel,string password,string expire,string money){
           //Add data to the linklist
           Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
           if(head == NULL){
@@ -127,7 +127,7 @@
           } 
           //savedata();
         }
-        Member *searchMember(string name){
+        Member *ListMember::searchMember(string name){
           Member *cur = head;
           while(cur != NULL){
             if(cur->getFirstname() == name){
@@ -138,7 +138,7 @@
           }//while
           return NULL;
         }
-        Member *getMember(string password_card){
+        Member *ListMember::getMember(string password_card){
           Member *cur = head;
           while(cur != NULL){
           //cout << cur->getPassword() << endl;
@@ -150,7 +150,7 @@
           }//while   
           return NULL;
         }
-        void savedata(){
+        void ListMember::savedata(){
           Member *cur = head;
           ofstream file("member.txt",ios::out);
           if(file.is_open()){
@@ -161,7 +161,7 @@
             }//while
           }
         }
-        void Loaddata(){
+        void ListMember::Loaddata(){
           string line,firstname,lastname,tel,password,expire,money;
           ifstream data("member.txt",ios::in);
           if(data.is_open()){
