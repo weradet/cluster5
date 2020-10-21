@@ -1,8 +1,10 @@
 #ifndef UI_H
 #define UI_H
 #include"include.h"
-//#include"station.h"
-//#include"domainclass.h"
+#include"station.h"
+#include"Station_Controller.h"
+#include"Path.h"
+#include"Status.h"
 #include"Register.h"
 #include"Renewcard.h"
 //#include"Buy_ticket.h"
@@ -15,7 +17,7 @@ class UI{
    RenewController *Renew_obj;  
    RegisterController *Regis_obj;
    //Buy_ticket_controller *a;
-    //StationController *station_obj;
+    StationController *station_obj;
     //TopupCardController *topupcard;
     public:
        UI();
