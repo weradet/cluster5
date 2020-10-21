@@ -14,15 +14,15 @@ class UI{
     any ui in the project
     */
     private:
-   RenewController *Renew_obj;  
-   RegisterController *Regis_obj;
-   //Buy_ticket_controller *a;
+    RenewController *Renew_obj;  
+    RegisterController *Regis_obj;
+    //Buy_ticket_controller *a;
     StationController *station_obj;
     //TopupCardController *topupcard;
     public:
-       UI();
-       void PrintCustomer();
-       void PrintAdmin();
+        UI();
+        void PrintCustomer();
+        void PrintAdmin();
         void PrintFirstMenu();
         void ChooseFixMenu(string id,int menu);
         void ShowFixMenuStation();
