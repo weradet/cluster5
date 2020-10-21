@@ -62,6 +62,9 @@ class UI{
                cout << "Hello";   
             }//if
         }*/
+        void Readfile(){
+            station_obj->Readfile();
+        }
         void ChooseFixMenu(string id,int menu){
             station_obj->ChooseFixMenu(id,menu);
         }
