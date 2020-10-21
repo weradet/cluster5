@@ -8,7 +8,6 @@ class Buy_ticket_controller{
         int Cost;
         string Round;
     public:
-       // Path line;
         Path *Head;
         Buy_ticket_controller();
         void Seach();
