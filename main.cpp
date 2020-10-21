@@ -60,9 +60,39 @@ bool Islogin(string user_name,string pass){
                       */  
                       else if(menu_customer==3){
                           string pass_card;
-                          //do{
-                             
-                          //}while();
+                          int menu_member;
+                          do{
+                             cout << "1. Input The card" << endl;
+                             cout << "2. Back to menu Customer" << endl;
+                             cout << "Please Enter choice (1-2) : "; cin >> menu_member;
+                               if(!cin){
+                                 cin.clear(); 
+                                 cin.ignore(100, '\n'); 
+                                 } // if
+                             else if(menu_member==1){
+                                 obj_ui.loadtopupfile();
+                                 cout << "Please Input Yours Password Card : "; cin >> pass_card;
+                                 if(obj_ui.checkmember(pass_card)){
+                                    int menu_topup;
+                                    double money;
+                                    do{obj_ui.showmenu();
+                                    cin >> menu_topup;
+                                       if(menu_topup==1){
+                                          // obj_ui.loadtopupfile();
+                                           cout << "Input money : "; cin >> money;
+                                           obj_ui.InputMoney(money,pass_card);
+                                           obj_ui.savetopupfile();
+                                       }else if(menu_topup==2){
+                                           obj_ui.Showmoney(pass_card);
+                                       }
+                                    }while(menu_topup!=3);
+                                 }
+                                 else{
+                                   cout << "Cannot Find Member Or Password is Incorrect" << endl;
+                                 }
+                             }
+
+                          }while(menu_member != 2);
                       } //else if
                     }//try
                     catch(int menu){
@@ -113,17 +143,29 @@ bool Islogin(string user_name,string pass){
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname,password_card);
                               obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;
-                              obj_ui.savefile();            
-                              cout << "================= Topup Money Card ===============" << endl;
+                              obj_ui.savefile();           
+                             /* cout << "================= Topup Money Card ===============" << endl;
                               cout << "Please Enter Money : ";
                                 cin >> money;
                               cout << "==================================================" << endl;
+                              obj_ui.loadtopupfile();
                               obj_ui.InputMoney(money,password_card);  
-                              obj_ui.showallmember(); 
+                              obj_ui.savetopupfile();*/
+                            //  obj_ui.showallmember(); 
                               //obj_ui.savefile();
                           }//Register Member
                           else if(menu_admin == 4){
-                              //obj_ui.CheckMenuAdmin(menu_admin);
+                            int menu_renew;
+                            do{
+                                obj_ui.showmenuRenewCard(); cin >> menu_renew;
+                                 if(!cin){
+                                    cin.clear(); 
+                                    cin.ignore(100, '\n'); 
+                                 }else if(menu_renew==1){
+                                      string passwordcard;
+                                        
+                                 }
+                            }while(menu_renew!=2);
                           }//Renew Member Card
                           else if(menu_admin == 5){
                               char choice;
