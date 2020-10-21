@@ -21,7 +21,7 @@ void TopupCardController::ShowMenuTopupCard(){
             }
 
             void TopupCardController::TopupMoney(double money,string password){
-                 Member *customer = list_member->getmember(password);
+                 Member *customer = list_member->getMember(password);
                  if(customer!=NULL){
                       customer->Topupmoney(money);
                       ShowRemainingAmount(password);
@@ -30,7 +30,7 @@ void TopupCardController::ShowMenuTopupCard(){
                   }
             }
         void TopupCardController::ShowRemainingAmount(string password){
-            Member *customer = list_member->getmember(password);
+            Member *customer = list_member->getMember(password);
             if(customer!=NULL){
                 cout << "Remaining Amount : " << customer->getMoney();
                 cout << "\n=====================================================" << endl;   
