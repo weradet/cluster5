@@ -150,7 +150,7 @@ bool Islogin(string user_name,string pass){
                               obj_ui.Addstation(StationID,StationName,Status,Cost);
                           }
                           else if(choice == '2'){
-                              int index, data;
+                              int index;
                               int size = obj_ui.StationNumber();
 
                               if(size == 0){
