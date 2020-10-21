@@ -204,6 +204,9 @@ class StationController{
     private:
         Status obj_sta;
     public:
+        void Readfile(){
+            obj_sta.read_file();
+        }
         void ChooseFixMenu(string id,int menu){
              obj_sta.ChooseFixMenu(id,menu);
         }
