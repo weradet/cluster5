@@ -89,3 +89,16 @@ void Status::NewStationName(string id,string name){
                 temp = temp->link;
             } 
         }
+bool Status::CheckStatus(string name){
+            Station *temp = head;
+            while(temp != NULL){
+                if(name == temp->stationName()){
+                    if(temp->stationStatus() == "close"){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+                temp = temp->link;
+            }
+}
