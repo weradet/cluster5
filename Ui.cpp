@@ -3,7 +3,7 @@
             Renew_obj = new RenewController;
             Regis_obj = new RegisterController;
      //       a = new Buy_ticket_controller;
-         // station_obj = new StationController;
+          station_obj = new StationController;
       //    topupcard = new TopupCardController;
        }
        void UI::PrintCustomer(){
@@ -39,13 +39,13 @@
         cout << "Please Choose 1 Choice (1-3) : ";
         }
         void UI::ChooseFixMenu(string id,int menu){
-        //    station_obj->ChooseFixMenu(id,menu);
+            station_obj->ChooseFixMenu(id,menu);
         }
         void UI::ShowFixMenuStation(){
-       //     station_obj->ShowFixMenuStation();
+            station_obj->ShowFixMenuStation();
         }
         void UI::ShowAllStation(){
-         //   station_obj->ShowAllStation();
+            station_obj->ShowAllStation();
         }
         void UI::InputPersonalInformation(string firstname,string lastname,string tel,string password){
             Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
