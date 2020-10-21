@@ -3,8 +3,8 @@
             Renew_obj = new RenewController;
             Regis_obj = new RegisterController;
      //       a = new Buy_ticket_controller;
-          station_obj = new StationController;
-          topupcard = new TopupCardController;
+            station_obj = new StationController;
+            topupcard = new TopupCardController;
        }
        void UI::PrintCustomer(){
             //print customer menu
@@ -46,8 +46,7 @@
             station_obj->readfile();
         }
         bool UI::CheckStatus(string name){
-            return station_obj->CheckStatus(name);
-           
+            return station_obj->CheckStatus(name);      
         }
         void UI::ChooseFixMenu(string id,int menu){
             station_obj->ChooseFixMenu(id,menu);
@@ -59,6 +58,7 @@
             station_obj->ShowAllStation();
         }
 
+        /*Usecase Register and Topup Card*/
         void UI::InputPersonalInformation(string firstname,string lastname,string tel,string password){
             Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
         }//inputpersonal
@@ -71,11 +71,8 @@
         void UI::showallmember(){
             Regis_obj->Showallmember();
         }
-       /* void printfile(){
-             a->Departure_Staion("Departure");
-        }*/
         void UI::InputMoney(double money,string pass){
-            topupcard->Loaddata();
+            //topupcard->Loaddata();
             topupcard->TopupMoney(money,pass);
             //Regis_obj->list_member->printlist();
         }
@@ -83,11 +80,38 @@
            // Regis_obj->list_member->savedata();
               Regis_obj->savedata();
         }
+        void UI::savetopupfile(){
+           // Regis_obj->list_member->savedata();
+              topupcard->savedata();
+        }
+        void UI::loadtopupfile(){
+           // Regis_obj->list_member->savedata();
+              topupcard->Loaddata();
+        }
         void UI::loadfile(){
               Regis_obj->Loaddata();
         }
+        bool UI::checkmember(string pass){
+             Member *member = topupcard->CheckMember(pass);
+             if(member!=NULL){
+                return true;
+             }
+                return false;
+        }
+        void UI::Showmoney(string password){
+            Member *member = topupcard->CheckMember(password);
+            topupcard->ShowRemainingAmount(member);
+        } 
+        void UI::showmenu(){
+          topupcard->ShowMenuTopupCard();
+        }
 
-
+         /*Usecase Renew Card */
+        void UI::showmenuRenewCard(){
+            Renew_obj->PrintRenewMenu();
+        } 
+ 
+       /*Usecase Add Station */
         void UI::Addstation(string StationID,string StationName,string Status,string Cost){
 
         }
