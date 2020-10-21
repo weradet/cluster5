@@ -21,13 +21,13 @@ void TopupCardController::ShowMemberInformation(){
 }//show InforMember
 
 void TopupCardController::TopupMoney(double money,string password){
-                 Member *customer = list_member->getmember(password);
-                 if(customer!=NULL){
-                      customer->Topupmoney(money);
-                      ShowRemainingAmount(password);
-                 }else{
-                    cout << "Error Information!!" << endl;
-                  }
+    Member *customer = list_member->getmember(password);
+        if(customer!=NULL){
+            customer->Topupmoney(money);
+                ShowRemainingAmount(password);
+        }else{
+            cout << "Error Information!!" << endl;
+        }
 }//void topupMoney
 
 void TopupCardController::ShowRemainingAmount(string password){
