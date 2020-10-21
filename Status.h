@@ -10,6 +10,5 @@ class Status :public Path{
         void FixCostStation(string id,int cost);
         void Maintenance(string id);
         void NewStationName(string id,string name);
-
 };
 #endif
