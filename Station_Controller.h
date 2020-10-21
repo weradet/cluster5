@@ -11,5 +11,6 @@ class StationController{
         void ChooseFixMenu(string id,int menu);
         void ShowAllStation();
         void ShowFixMenuStation();
+        bool CheckStatus(string name);
 };
 #endif
