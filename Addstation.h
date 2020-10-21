@@ -34,7 +34,7 @@ class StationList{
 			head = NULL;
 			tail = NULL;
 		}
-		void add(string StationID,string StationName,string Status,string Cost){
+		void Addstation(string StationID,string StationName,string Status,string Cost){
 			Node_Addstation *n = new Node_Addstation(StationID,StationName,Status,Cost);
 			if(head == NULL){
 				head = n;
@@ -47,7 +47,7 @@ class StationList{
 				count++;
 			}		
 		}
-		void add(int index,string StationID,string StationName,string Status,string Cost){
+		void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost){
 			Node_Addstation *newnode = new Node_Addstation(StationID,StationName,Status,Cost);
 			Node_Addstation *temp = head;
 			if(index > count){
@@ -92,16 +92,16 @@ class StationList{
 				temp = temp->link;
 			}
 		}
-		void show(){
+		void show_station(){
 			Node_Addstation *temp = head;
 			int i = 1;
 			while(temp != NULL){
-				cout << "List " << i << ": = " << temp->StationID << temp->StationName << temp->Status << temp->Cost << endl;
+				cout << "Station" << i << ": = " << temp->StationID << temp->StationName << temp->Status << temp->Cost << endl;
 				temp = temp->link;
 				i++;
 			}		
 		}
-		void writefile(){
+		void WriteStationfile(){
 			string line3;
 			Node_Addstation *temp = head;
 			ofstream myFile3("Station.txt",ios::app);
@@ -113,7 +113,7 @@ class StationList{
 		}
 
 		}
-		int size(){
+		int StationNumber(){
             return count;
         }
 };
@@ -146,7 +146,7 @@ Addstation:cout <<"1.Add destination"<<endl;
                 cin >> Status;
                 cout << "Station cost: ";
                 cin >> Cost;
-            stList->add(StationID,StationName,Status,Cost);
+            stList->addStation(StationID,StationName,Status,Cost);
         }
         else if(choice == '2'){
             int index, data;
@@ -192,7 +192,7 @@ Addstation:cout <<"1.Add destination"<<endl;
                     	cout << "cannot add station" << endl;
 					}
 					else{
-						stList->add(index,StationID,StationName,Status,Cost);
+						stList->AddStation(index,StationID,StationName,Status,Cost);
 					}
                 }
             }
