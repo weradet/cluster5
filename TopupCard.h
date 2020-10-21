@@ -8,7 +8,7 @@ class TopupCardController{
             Member UserMember;
             ListMember *list_member;
         public:
-
+        TopupCardController();
         void ShowMenuTopupCard();
         void CheckMember(string Pass_Card);
         void ShowMemberInformation();
