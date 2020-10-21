@@ -20,7 +20,7 @@
        void UI::PrintAdmin(){
            //print employee menu
            //print interface
-            system ("cls");
+            //system ("cls");
             cout << "************** Electic Train **************" << endl;
             cout << "*  1. Find cycle Time                     *" << endl; 
             cout << "*  2. Buy Train Ticket                    *" << endl;
@@ -58,28 +58,36 @@
         void UI::ShowAllStation(){
             station_obj->ShowAllStation();
         }
+
         void UI::InputPersonalInformation(string firstname,string lastname,string tel,string password){
             Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   
         }//inputpersonal
-        void UI::ShowExprirationDate(string name){
-            Regis_obj->ShowExpireCard(name);
+        void UI::ShowExprirationDate(string name,string pass){
+            Regis_obj->ShowExpireCard(name,pass);
         }
-        void UI::ShowInformation(string name){
-            Regis_obj->ShowUserInformation(name);
+        void UI::ShowInformation(string name,string pass){
+            Regis_obj->ShowUserInformation(name,pass);
+        }
+        void UI::showallmember(){
+            Regis_obj->Showallmember();
         }
        /* void printfile(){
              a->Departure_Staion("Departure");
         }*/
         void UI::InputMoney(double money,string pass){
+            topupcard->Loaddata();
             topupcard->TopupMoney(money,pass);
             //Regis_obj->list_member->printlist();
         }
         void UI::savefile(){
-            Regis_obj->list_member->savedata();
+           // Regis_obj->list_member->savedata();
+              Regis_obj->savedata();
         }
         void UI::loadfile(){
-            Regis_obj->list_member->Loaddata();
+              Regis_obj->Loaddata();
         }
+
+
         void UI::Addstation(string StationID,string StationName,string Status,string Cost){
 
         }
