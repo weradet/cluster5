@@ -30,7 +30,6 @@ class Member{
         Member *link;
         Member();
         Member(string firstname,string lastname,string tel,string password,string expire,string money);
-        Member(string firstname,string lastname,string tel,string password);
         void setMember(string firstname,string lastname,string tel,string password);
         string getFirstname();
          string getLastname();
@@ -39,23 +38,5 @@ class Member{
         string getExpire();
         double getMoney();
         void Topupmoney(double money);
-};
-
-class ListMember{
-//Linked list Member 
-      private:
-        Member *head;
-        Member *tail;
-      public:
-        ListMember();
-        ~ListMember();
-        void Printlist();
-        void Addmember(Member newmember);
-        void Addmember(string firstname,string lastname,string tel,string password,string expire,string money);
-        Member *searchMember(string name);
-        Member *getMember(string password_card);
-        void savedata();
-        void Loaddata(); 
-      
 };
 #endif
