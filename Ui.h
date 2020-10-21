@@ -39,10 +39,17 @@ class UI{
         void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
         void showallmember();
+        bool checkmember(string password);
+        void Showmoney(string password);
+        void showmenu();
         void savefile();
         void loadfile();
+        void savetopupfile(); 
+        void loadtopupfile();
        
-       
+
+        void showmenuRenewCard();
+
         void Addstation(string StationID,string StationName,string Status,string Cost);
         void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost);
         bool checkStationID(string id);
