@@ -15,7 +15,7 @@ class MemberCard{
         void TopupMoney(double money);
         void setMoney(double money);
         void PayTicket(double money);
-        void setDateExpire(string dayexpire);
+        void setDateExpire(string dayexpire); 
 };
 
 class Member{
@@ -32,11 +32,12 @@ class Member{
         Member(string firstname,string lastname,string tel,string password,string expire,string money);
         void setMember(string firstname,string lastname,string tel,string password);
         string getFirstname();
-         string getLastname();
-         string getTel();
+        string getLastname();
+        string getTel();
         string getPassword();
         string getExpire();
         double getMoney();
+        MemberCard getmembercard();
         void Topupmoney(double money);
 };
 #endif
