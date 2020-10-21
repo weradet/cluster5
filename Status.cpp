@@ -1,7 +1,7 @@
 #include"Status.h"
 void Status::ShowAllStation(){
             Station *temp = head;
-            int i;
+            //int i;
             cout << "**************** Station ****************" << endl;
             cout << setw(7) << left << "NO."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
             cout << "*****************************************" << endl;
@@ -43,7 +43,7 @@ void Status::showStation(string id){
                     FixCostStation(id,cost);
                     cout << "******** Fix Station Cost Complete *******" << endl;
                 case 2:
-                    Maintenence(id);
+                    Maintenance(id);
                     cout << "******** Maintenance Station Complete *******" << endl;
                 case 3:
                     string name;
@@ -55,7 +55,7 @@ void Status::showStation(string id){
         }
 void Status::FixCostStation(string id,int cost){
             Station *temp = head;
-            int ptemp;
+          //  int ptemp;
             while(temp != NULL){
                 if(id == temp->StationID()){
                     temp->NewCost(cost);
