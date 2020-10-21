@@ -2,7 +2,10 @@
    Use Case - Renew Card
     *** Add class MemberList
 */ 
+#ifndef RENEWCARD_H
+#define RENEWCARD_H
 #include"include.h"
+#include"domainclass.h"
 //Class
 class RenewController{
     //Contro Usecase Renew Card
@@ -10,18 +13,9 @@ private:
     Member user_member;  
 public:
  
-    void PrintRenewMenu(){
-        //print interface ewnew card menu
-        cout << "****Renew Card****" << endl;
-        cout << "1.Renew Card" << endl;
-        cout << "2. Back " << endl;
-    }
-    void Entercardcode(string cardcode){
-
-    }
-    bool Findmember(){
-       return true; 
-    }
+    void PrintRenewMenu();
+    void Entercardcode(string cardcode);
+    bool Findmember();
 };
-
+#endif
 // Function
