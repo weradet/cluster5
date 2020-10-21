@@ -1,4 +1,7 @@
 #include"TopupCard.h"
+TopupCardController::TopupCardController(){
+             list_member=new ListMember;
+}
 void TopupCardController::ShowMenuTopupCard(){
    
             cout << "=============== TOPUP ==============="<< endl;
