@@ -9,10 +9,11 @@
 //Class
 class RenewController{
     //Contro Usecase Renew Card
-private:
-    Member user_member;  
+    //Member user_member;  
 public:
- 
+    Member *head;
+    Member *tail;
+    
     void PrintRenewMenu();
     void Entercardcode(string cardcode);
     bool Findmember();
