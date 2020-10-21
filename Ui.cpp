@@ -8,35 +8,39 @@
        }
        void UI::PrintCustomer(){
             //print customer menu
+            system ("cls");
             cout << "************** Electic Train **************" << endl;
-            cout << "1. Find cycle Time" << endl; 
-            cout << "2. Buy Train Ticket" << endl;
-            cout << "3. Have a member" << endl;
-            cout << "4. Back to the main menu" << endl;
+            cout << "*  1. Find cycle Time                     *" << endl; 
+            cout << "*  2. Buy Train Ticket                    *" << endl;
+            cout << "*  3. Have a member                       *" << endl;
+            cout << "*  4. Back to Main menu                   *" << endl;
             cout << "*******************************************" << endl;
             cout << "Please Choose 1 Choice (1-4) : ";
        }//printcustomer menu
        void UI::PrintAdmin(){
            //print employee menu
            //print interface
+            system ("cls");
             cout << "************** Electic Train **************" << endl;
-            cout << "1. Find cycle Time" << endl; 
-            cout << "2. Buy Train Ticket" << endl;
-            cout << "3. Register Member" << endl;
-            cout << "4. Renew Member Card" << endl;
-            cout << "5. Add Station" << endl;
-            cout << "6. Fix Station" << endl;
-            cout << "7. Back" << endl;
+            cout << "*  1. Find cycle Time                     *" << endl; 
+            cout << "*  2. Buy Train Ticket                    *" << endl;
+            cout << "*  3. Register Member                     *" << endl;
+            cout << "*  4. Renew Member Card                   *" << endl;
+            cout << "*  5. Add Station                         *" << endl;
+            cout << "*  6. Fix Station                         *" << endl;
+            cout << "*  7. Back to Main menu                   *" << endl;
             cout << "*******************************************" << endl;
             cout << "Please Choose 1 Choice (1-7) : ";
        } // print Admin
 
        void UI::PrintFirstMenu(){
         //print the first menu
-        cout << "1.Customer" << endl;
-        cout << "2.Admin" << endl;
-        cout << "3.Out" << endl;
-        cout << "Please Choose 1 Choice (1-3) : ";
+        cout << "\t\t************* Personal *************" << endl;
+        cout << "\t\t*  1.Customer                      *" << endl;
+        cout << "\t\t*  2.Admin                         *" << endl;
+        cout << "\t\t*  3.Exit                          *" << endl;
+        cout << "\t\t************************************" << endl;
+        cout << "\t\tPlease Choose 1 Choice (1-3) : ";
         }
         bool UI::CheckStatus(string name){
             station_obj->CheckStatus(name);
