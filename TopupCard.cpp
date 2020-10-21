@@ -1,6 +1,6 @@
 #include"TopupCard.h"
 void TopupCardController::ShowMenuTopupCard(){
-    int chioceMenu;
+   
             cout << "=============== TOPUP ==============="<< endl;
             cout << "1. Topup" << endl;
             cout << "2. Show balance" << endl;
