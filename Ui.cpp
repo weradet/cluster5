@@ -42,6 +42,9 @@
         cout << "\t\t************************************" << endl;
         cout << "\t\tPlease Choose 1 Choice (1-3) : ";
         }
+        void UI::readfile(){
+            station_obj->readfile();
+        }
         bool UI::CheckStatus(string name){
             station_obj->CheckStatus(name);
         }
