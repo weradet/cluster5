@@ -2,6 +2,7 @@
 #define STATION_CONTROLL_H
 #include "include.h"
 #include "station.h"
+#include "Status.h"
 #include "Path.h"
 class StationController{
     private:
