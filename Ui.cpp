@@ -38,6 +38,9 @@
         cout << "3.Out" << endl;
         cout << "Please Choose 1 Choice (1-3) : ";
         }
+        bool UI::CheckStatus(string name){
+            station_obj->CheckStatus(name);
+        }
         void UI::ChooseFixMenu(string id,int menu){
             station_obj->ChooseFixMenu(id,menu);
         }
