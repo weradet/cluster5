@@ -9,7 +9,7 @@
   # the build target executable:
   TARGET = main
   FILEMAIN = main.cpp
-  CLASS = 
+  CLASS =  Ui.cpp
   all: 
 	$(CC) $(FILEMAIN) $(CLASS) $(CFLAGS) -o $(TARGET)
 
