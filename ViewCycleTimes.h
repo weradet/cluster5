@@ -3,15 +3,13 @@
 #include"include.h"
 #include"Path.h"
 #include"station.h"
-class ViewCycleTimes{
+class ViewCycleTime{
     private :
         Station my_station;
         Path my_path;
-
-    public :
         Path *head;
-
-        ViewCycleTimes();
+    public :
+        ViewCycleTime(void);
         void ChooseDepatureStation(string name);
         void ChooseTeminalStation(string name);
 
