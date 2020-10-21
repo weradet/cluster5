@@ -13,7 +13,7 @@ class TopupCardController{
         TopupCardController();
         void ShowMenuTopupCard();
         Member* CheckMember(string Pass_Card);
-        void ShowMemberInformation();
+        void ShowMemberInformation(Member *cur);
         void TopupMoney(double money,string password);
         void ShowRemainingAmount(Member *cur);
         void Loaddata();
