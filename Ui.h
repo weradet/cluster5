@@ -8,6 +8,7 @@
 #include"Register.h"
 #include"Renewcard.h"
 #include"TopupCard.h"
+#include"Addstation.h"
 //#include"Buy_ticket.h"
 class UI{
     /*
@@ -35,5 +36,12 @@ class UI{
         void InputMoney(double money,string pass);
         void savefile();
         void loadfile();
+        void Addstation(string StationID,string StationName,string Status,string Cost);
+        void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost);
+        bool checkStationID(string id);
+        bool checkStationName(string name);
+        void WriteStationfile();
+        void show_station();
+        int StationNumber();//คืนค่าจำนวนสถานี(return count)
 };
 #endif
