@@ -28,7 +28,7 @@ void Buy_ticket_controller :: Chose_Round(){
 
 }
 double Buy_ticket_controller :: Calculate(){
-
+return 1000;
 }
 void Buy_ticket_controller :: Payment(){
 
