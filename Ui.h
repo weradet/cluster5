@@ -8,7 +8,8 @@
 #include"Register.h"
 #include"Renewcard.h"
 #include"TopupCard.h"
-#include"Addstation.h"
+#include"StationList.h"
+#include"node_Addstation.h"
 //#include"Buy_ticket.h"
 class UI{
     /*
