@@ -1,6 +1,9 @@
 #include"Station_Controller.h"        
+        bool StationController::CheckStatus(string name){
+            obj_sta.CheckStatus(name);
+        }
         void StationController::ChooseFixMenu(string id,int menu){
-             obj_sta.ChooseFixMenu(id,menu);
+            obj_sta.ChooseFixMenu(id,menu);
         }
          void StationController::ShowAllStation(){
             obj_sta.ShowAllStation();
