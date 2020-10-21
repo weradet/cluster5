@@ -52,21 +52,13 @@
           member_card.setMoney(Money);
           link = NULL;
         }
-        Member::Member(string firstname,string lastname,string tel,string password){
-          Firstname = firstname;
-          Lastname = lastname;
-          Tel = tel;
-          member_card.PasswordCard(password); 
-          member_card.GenerateExpire(); 
-          link = NULL; 
-        }
         void Member::setMember(string firstname,string lastname,string tel,string password){
           Firstname = firstname;
           Lastname = lastname;
           Tel = tel;
           member_card.PasswordCard(password);
-          member_card.GenerateExpire();  
-        }//set up member
+          member_card.GenerateExpire();
+        }
         string Member::getFirstname(){
           return Firstname;
         }
@@ -88,98 +80,3 @@
         void Member::Topupmoney(double money){
           member_card.TopupMoney(money);
         }
-
-        ListMember::ListMember(){
-          head = NULL;
-          tail = NULL;
-          Loaddata();
-        }
-         ListMember::~ListMember(){
-        }//destructor
-        void ListMember::Printlist(){
-          Member *cur = head;
-          while(cur!=NULL){
-                cout << cur->getFirstname() << " " << cur->getLastname() << endl;
-                cur = cur->link;
-          }
-        }
-        void ListMember::Addmember(Member newmember){
-          //Add data to the linklist
-          Member *new_member = new Member(newmember.getFirstname(),newmember.getLastname(),newmember.getTel(),newmember.getPassword());
-          if(head == NULL){
-            head = new_member;
-            tail = new_member; 
-          }else{
-            tail->link = new_member;
-            tail = new_member;
-          } 
-        }
-        void ListMember::Addmember(string firstname,string lastname,string tel,string password,string expire,string money){
-          //Add data to the linklist
-          Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
-          if(head == NULL){
-            head = new_member;
-            tail = new_member; 
-          }else{
-            tail->link = new_member;
-            tail = new_member;
-          } 
-          //savedata();
-        }
-        Member *ListMember::searchMember(string name){
-          Member *cur = head;
-          while(cur != NULL){
-            if(cur->getFirstname() == name){
-              return cur;
-              break;
-            }
-          cur = cur->link;
-          }//while
-          return NULL;
-        }
-        Member *ListMember::getMember(string password_card){
-          Member *cur = head;
-          while(cur != NULL){
-          //cout << cur->getPassword() << endl;
-            if(cur->getPassword()==password_card){
-              return cur;  
-              break;
-            }
-          cur = cur->link;
-          }//while   
-          return NULL;
-        }
-        void ListMember::savedata(){
-          Member *cur = head;
-          ofstream file("member.txt",ios::out);
-          if(file.is_open()){
-            while (cur!=NULL){ 
-              file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
-              << cur->getPassword() << ","<< cur->getExpire() << "," << cur->getMoney()<< endl;   
-              cur=cur->link;
-            }//while
-          }
-        }
-        void ListMember::Loaddata(){
-          string line,firstname,lastname,tel,password,expire,money;
-          ifstream data("member.txt",ios::in);
-          if(data.is_open()){
-            while(getline(data,line)){ 
-              firstname = line.substr(0,line.find(','));
-                          line.erase(0,line.find(',')+1); 
-              lastname = line.substr(0,line.find(','));
-                         line.erase(0,line.find(',')+1); 
-              tel = line.substr(0,line.find(','));
-                    line.erase(0,line.find(',')+1); 
-              password = line.substr(0,line.find(','));
-                         line.erase(0,line.find(',')+1); 
-              expire = line.substr(0,line.find(','));
-                       line.erase(0,line.find(',')+1); 
-              money = line.substr(0,line.find(','));
-                      line.erase(0,line.find(',')+1); 
-            Addmember(firstname,lastname,tel,password,expire,money);
-            }//while
-          }else{
-            cout << "File Error!!" << endl;
-          }
-        } 
