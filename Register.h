@@ -9,6 +9,7 @@ class RegisterController{
        // ListMember *list_member;
         Member *head;
         Member *tail;
+        Member *cur;
         RegisterController(); 
         ~RegisterController();
         void SetMemberInformation(string f,string l,string t,string pw);
