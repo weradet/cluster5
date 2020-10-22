@@ -56,7 +56,7 @@
         }
          void RegisterController::savedata(){
           Member *cur = head;
-          ofstream file("member.txt",ios::out);
+          ofstream file("member.txt",ios::app);
           if(file.is_open()){
             while (cur!=NULL){ 
               file<< cur->getFirstname() <<","<<cur->getLastname()<< "," << cur->getTel() << "," 
@@ -112,3 +112,7 @@
               cur = cur->link;
             }
         }//void topupMoney
+        void RegisterController::ShowRemainingAmount(Member *cur){
+            cout << "Remaining Amount : " << cur->getMoney();
+             cout << "\n=====================================================" << endl;  
+      }//void showamoung
