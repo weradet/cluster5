@@ -71,7 +71,7 @@
                 }
         }
         void ViewCycleTime::SearchRound(){
-                //round->Show();
+            /*    //round->Show();
                 Round *ro = round;
                 while(ro->head != NULL){
                     cout << "asfa";
@@ -82,5 +82,5 @@
                         }
                     }
                     ro->head = ro->head->link;
-                }
+                }*/
         }
