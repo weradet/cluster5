@@ -16,8 +16,8 @@
 			head = NULL;
 			tail = NULL;
 		}
-		void StationList::Addstation(string StationName,string StationID,string Status,int Cost){
-			Node_Addstation *n = new Node_Addstation(StationName,StationID,Status,Cost);
+		void StationList::Addstation(int index,string StationName,string StationID,int Cost,string Status){
+			Node_Addstation *n = new Node_Addstation(StationName,StationID,Cost,Status);
 			if(head == NULL){
 				head = n;
 				tail = head;
@@ -29,8 +29,8 @@
 				count++;
 			}			
 		}
-		void StationList::AddStation_ontheway(int index,string StationName,string StationID,string Status,int Cost){
-			Node_Addstation *newnode = new Node_Addstation(StationName,StationID,Status,Cost);
+		void StationList::AddStation_ontheway(int index,string StationName,string StationID,int Cost,string Status){
+			Node_Addstation *newnode = new Node_Addstation(StationName,StationID,Cost,Status);
 			Node_Addstation *temp = head;
 			if(index > count){
 				cout << "cannot add" << endl;
@@ -72,7 +72,7 @@
 						stringstream COST(C);
 						int Cost = 0;
 						COST >> Cost;
-						Addstation(StationName,StationID,Status,Cost);
+						Addstation(StationName,StationID,Cost,Status);
 					}
 				}
 		}
@@ -111,16 +111,14 @@
 			Node_Addstation *temp = head;
 			ofstream myFile3("Station.txt",ios::app);
         	if(myFile3.is_open()){ 
-        	while(temp!=NULL){
-				myFile3  << temp->StationName <<","<< temp->StationID << "," << temp->Cost  << ","  << temp->Status << endl;
-				temp = temp->link;
-				if(temp == head){
-                	break;
-				}
-   			}
-			   
-		}
-
+				while(temp!=NULL){
+					myFile3  << temp->StationName <<","<< temp->StationID << "," << temp->Cost  << ","  << temp->Status <<"," << endl;
+					temp = temp->link;
+					if(temp == head){
+						break;
+					}
+				}  
+			}
 		}
 		int StationList::StationNumber(){
             return count;
