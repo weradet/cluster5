@@ -1,34 +1,24 @@
-#include"include.h"
-#include"Ui.h"
-//using namespace std;
- /*created by weradet nopsombun 62160110 2/10/63
-   function main g
- */  
-bool Islogin(string user_name,string pass){
-    //get parameter username and pass for check 
-    // is true return true 
-    string line,us,ps;
-    int found;
-     ifstream  userfile("data.txt",ios::in);
-     //openfile datamanager
-     if(userfile.is_open()){
-          while(getline(userfile,line)){
-              //get all line in file
-             found = line.find(" "); //find /t
-             us = line.substr(0,found);
-             ps = line.substr(found+1,string::npos);
-               if(us==user_name && ps==pass){
-                   //check username and pass is true
-                   return true;
-               }
-          }
-          userfile.close();
-     }
-     else{
-         cout << "Fail to login!!" << endl;
-     }
-     return false;
-}
+#include "include.h"
+#include "Ui.h"
+bool Islogin(string name,string password){ 
+  string line,Username,Password;
+  int found;
+  ifstream  userfile("data.txt",ios::in); //openfile datamanager
+    if(userfile.is_open()){
+      while(getline(userfile,line)){
+        found = line.find(" ");
+        Username = line.substr(0,found);
+        Password = line.substr(found+1,string::npos);
+        if(Username == name && Password == password){
+          return true;
+        }//Check Username and Password is true
+      }//while
+      userfile.close();
+    }else{
+      cout << "\t\t\tCannot Login!!" << endl;
+    }
+    return false;
+}//get parameter username and pass for check 
  int main(){
      /* In the main program 
         Actor Admin Customer
@@ -112,8 +102,8 @@ bool Islogin(string user_name,string pass){
             string str_password = ""; //pass
            // char star;
                cout << "\t\t************************************" << endl;
-               cout << "\t\tUsername : "; cin >> str_user_name;
-               cout << "\t\tPassword : "; cin >> str_password;
+               cout << "\t\t\tUsername : "; cin >> str_user_name;
+               cout << "\t\t\tPassword : "; cin >> str_password;
                if(Islogin(str_user_name,str_password)){
                       int menu_admin; //set varible menu admin
                    do{
@@ -165,7 +155,6 @@ bool Islogin(string user_name,string pass){
                                     cin.ignore(100, '\n'); 
                                  }else if(menu_renew==1){
                                       string passwordcard;
-                                       obj_ui.ClearRenewdata();
                                        obj_ui.loaddataRenew();
                                        cout << "Please Input the Password Card : "; cin >> passwordcard; 
                                        obj_ui.EnterCardcode(passwordcard);
@@ -174,7 +163,6 @@ bool Islogin(string user_name,string pass){
                             }while(menu_renew!=2);
                           }//Renew Member Card
                           else if(menu_admin == 5){
-                            obj_ui.readfile();
                               char choice;
 	                          string StationName,StationID,Status;
                             int Cost;
@@ -201,7 +189,6 @@ bool Islogin(string user_name,string pass){
                                   cout << "Station cost: ";
                                   cin >> Cost;
                               obj_ui.Addstation(StationID,StationName,Status,Cost);
-                              obj_ui.WriteStationfile();
                           }
                           else if(choice == '2'){
                               int index;
@@ -251,14 +238,13 @@ bool Islogin(string user_name,string pass){
                             }
                                   }
                               }
-                              obj_ui.WriteStationfile();
                           }
                         else if(choice == '3'){
                               obj_ui.show_station();
                   }
                           }//Add Station
                           else if(menu_admin == 6){
-                              //obj_ui.readfile();
+                             // obj_ui.readfile();
                               obj_ui.ShowAllStation();
                               string chooseId;
                               int menu;
@@ -269,10 +255,10 @@ bool Islogin(string user_name,string pass){
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
                               obj_ui.ChooseFixMenu(chooseId,menu);
-                              obj_ui.WriteFixFile();
+                              obj_ui.WriteStationfile();
                           }//Fix Station
                           else if(menu_admin == 7){
-                              
+
                           }// back menu
                        }//Try
                        catch(string str){
