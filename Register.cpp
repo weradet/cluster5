@@ -105,7 +105,7 @@
             while(cur!=NULL){
               if(cur->getPassword()==password){
                 cur->Topupmoney(numMoney);
-                ShowRemainingAmount(password);
+                ShowRemainingAmount(cur);
                 //savedata();
               break; 
              }
