@@ -71,8 +71,8 @@
         void UI::ShowInformation(string name,string pass){
             Regis_obj->ShowUserInformation(name,pass);
         }
-        void UI::showallmember(){
-            Regis_obj->Showallmember();
+        void UI::ShowAllMember(){
+            Regis_obj->ShowAllMember();
         }
         void UI::InputMoney(double money,string pass){
             //topupcard->Loaddata();
@@ -88,7 +88,7 @@
 
         void UI::savefile(){
            // Regis_obj->list_member->savedata();
-              Regis_obj->savedata();
+              Regis_obj->SaveData();
         }
         void UI::savetopupfile(){
            // Regis_obj->list_member->savedata();
@@ -99,7 +99,7 @@
               topupcard.Loaddata();
         }
         void UI::loadfile(){
-              Regis_obj->Loaddata();
+              Regis_obj->LoadData();
         }
         bool UI::checkmember(string pass){
              Member *member = topupcard.CheckMember(pass);
