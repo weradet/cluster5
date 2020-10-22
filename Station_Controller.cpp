@@ -12,6 +12,9 @@
          void StationController::ShowAllStation(){
             obj_sta.ShowAllStation();
         } 
+        void StationController::ShowStation(string id){
+            obj_sta.showStation(id);
+        }
         void StationController::ShowFixMenuStation(){
             cout << "------------------- Menu -------------------" << endl;
             cout << "1. Fix Station Cost"       << endl;
