@@ -10,6 +10,7 @@
 #include "TopupCard.h"
 #include "StationList.h"
 #include "ViewCycleTimes.h"
+#include"node_Addstation.h"
 //#include"Buy_ticket.h"
 class UI{
     private:
