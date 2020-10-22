@@ -4,7 +4,7 @@
             Regis_obj = new RegisterController;
      //       a = new Buy_ticket_controller;
             station_obj = new StationController;
-            topupcard = new TopupCardController;
+           // topupcard = new TopupCardController;
        }
        void UI::PrintCustomer(){
             //print customer menu
@@ -73,7 +73,7 @@
         }
         void UI::InputMoney(double money,string pass){
             //topupcard->Loaddata();
-            topupcard->TopupMoney(money,pass);
+            topupcard.TopupMoney(money,pass);
             //Regis_obj->list_member->printlist();
         }
         void UI::savefile(){
@@ -82,28 +82,31 @@
         }
         void UI::savetopupfile(){
            // Regis_obj->list_member->savedata();
-              topupcard->savedata();
+              topupcard.savedata();
         }
         void UI::loadtopupfile(){
            // Regis_obj->list_member->savedata();
-              topupcard->Loaddata();
+              topupcard.Loaddata();
         }
         void UI::loadfile(){
               Regis_obj->Loaddata();
         }
         bool UI::checkmember(string pass){
-             Member *member = topupcard->CheckMember(pass);
+             Member *member = topupcard.CheckMember(pass);
              if(member!=NULL){
                 return true;
              }
                 return false;
         }
         void UI::Showmoney(string password){
-            Member *member = topupcard->CheckMember(password);
-            topupcard->ShowRemainingAmount(member);
+            Member *member = topupcard.CheckMember(password);
+            topupcard.ShowRemainingAmount(member);
         } 
         void UI::showmenu(){
-          topupcard->ShowMenuTopupCard();
+          topupcard.ShowMenuTopupCard();
+        }
+        void UI::Clear(){
+            topupcard.clear();
         }
 
          /*Usecase Renew Card */
