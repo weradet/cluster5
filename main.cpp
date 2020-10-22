@@ -244,7 +244,7 @@ int main(){
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
                               obj_ui.ChooseFixMenu(chooseId,menu);
-                              obj_ui.WriteStationfile();
+                              obj_ui.WriteFixFile();
                           }//Fix Station
                           else if(menu_admin == 7){
 
