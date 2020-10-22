@@ -8,6 +8,7 @@ class StationController{
     private:
         Status obj_sta;
     public:
+        void ShowStation(string id);
         void readfile();
         void ChooseFixMenu(string id,int menu);
         void ShowAllStation();
