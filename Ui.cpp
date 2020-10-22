@@ -77,9 +77,9 @@
             //Regis_obj->list_member->printlist();
         }
 
-        void UI::InputMoneyCard(double money,string pass){
+        void UI::InputMoneyCard(double numMoney,string password){
             //topupcard->Loaddata();
-            Regis_obj->TopupMoneyCard(money,pass);
+            Regis_obj->InputMoneyCard(numMoney,password);
             //Regis_obj->list_member->printlist();
         }
 
