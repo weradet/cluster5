@@ -3,7 +3,7 @@ TopupCardController::TopupCardController(){
              //list_member=new ListMember;
              head = NULL;
              tail = NULL;
-            // Loaddata();
+             //Loaddata();
 }
 void TopupCardController::ShowMenuTopupCard(){
    
@@ -12,7 +12,7 @@ void TopupCardController::ShowMenuTopupCard(){
             cout << "2. Show balance" << endl;
             cout << "3. Back to menu" << endl;
             cout << "====================================="<< endl;
-            cout << "" << endl;
+            cout << "Please Enter Choice: ";
                 
 }//void showMenu
 
@@ -95,4 +95,13 @@ void TopupCardController::Loaddata(){
             cout << "File Error!!" << endl;
           }
           data.close();
+        }
+        void TopupCardController::clear(){
+              Member *temp = head;
+              while(head!=NULL){
+                    temp = head;
+                    head = head->link;
+                    delete temp;
+                    
+                 }
         }
