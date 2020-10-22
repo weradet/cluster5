@@ -111,7 +111,7 @@
             Member *member = topupcard.CheckMember(password);
             topupcard.ShowRemainingAmount(member);
         } 
-        void UI::showmenu(){
+        void UI::ShowMenu(){
           topupcard.ShowMenuTopupCard();
         }
         void UI::Clear(){
