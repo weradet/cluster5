@@ -166,5 +166,5 @@
             StationList_obj->show_station();
         }
         int UI::StationNumber(){
-            StationList_obj->StationNumber();
+            return StationList_obj->StationNumber();
         }
