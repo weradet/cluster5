@@ -147,17 +147,13 @@ bool Islogin(string user_name,string pass){
                                 cin >> password_card;
                               obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                               obj_ui.ShowInformation(user_firstname,password_card);
-                              obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;
-                              obj_ui.savefile();           
+                              obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
                              cout << "================= Topup Money Card ===============" << endl;
                              cout << "Please Enter Money : ";
                                 cin >> money;
                               cout << "==================================================" << endl;
-                             /*/ obj_ui
-                              obj_ui.InputMoney(money,password_card);  
-                              obj_ui.savetopupfile();
-                            //  obj_ui.showallmember(); 
-                              //obj_ui.savefile();*/
+                              obj_ui.InputMoneyCard(money,password_card);                                          
+                              obj_ui.savefile();
                           }//Register Member
                           else if(menu_admin == 4){
                             int menu_renew;
