@@ -156,9 +156,9 @@ int main(){
                 if(choice == '1'){
                   cout << "Station ID : ";
                   cin >> StationID;
-                  while(StationID.length() != 5){
+                  while(StationID.length() != 2){
                     cout << "!!! Warning !!!\n";
-                    cout << "Station ID Not equal to 5 ";
+                    cout << "Station ID Not equal to 2 ";
                     cin >> StationID;
                   }//while
                   cout << "Station Name : ";
@@ -180,9 +180,9 @@ int main(){
                     int Cost;
                     cout << "Station ID : ";
                     cin >> StationID;
-                    while(StationID.length() != 5){
+                    while(StationID.length() != 2){
                       cout << "!!! Warning !!!\n";
-                      cout << "Station ID Not equal to 5 ";
+                      cout << "Station ID Not equal to 2 ";
                       cin >> StationID;
                     }//while
                     cout << "Station Name : ";
