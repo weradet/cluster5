@@ -40,6 +40,7 @@ class UI{
         void ShowExprirationDate(string name,string pass);
         void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
+        void InputMoneyCard(double numMoney,string password);
         void showallmember();
         bool checkmember(string password);
         void Showmoney(string password);
