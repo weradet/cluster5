@@ -76,6 +76,13 @@
             topupcard.TopupMoney(money,pass);
             //Regis_obj->list_member->printlist();
         }
+
+        void UI::InputMoneyCard(double money,string pass){
+            //topupcard->Loaddata();
+            Regis_obj->TopupMoneyCard(money,pass);
+            //Regis_obj->list_member->printlist();
+        }
+
         void UI::savefile(){
            // Regis_obj->list_member->savedata();
               Regis_obj->savedata();
