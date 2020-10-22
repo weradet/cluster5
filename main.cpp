@@ -263,6 +263,7 @@ bool Islogin(string user_name,string pass){
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
                               obj_ui.ChooseFixMenu(chooseId,menu);
+                              obj_ui.WriteStationfile();
                           }//Fix Station
                           else if(menu_admin == 7){
 
