@@ -5,13 +5,14 @@
 #include"station.h"
 class ViewCycleTime{
     private :
+        string DepartureStation;
+        string TerminalStation;
         Station my_station;
-        Path my_path;
         Path *head;
     public :
         ViewCycleTime(void);
-        void ChooseDepartureStation(string name);
-        void ChooseTerminalStation(string name);
+        void ChooseDepartureStation();
+        void ChooseTerminalStation();
 
 };
 #endif
