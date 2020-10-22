@@ -10,6 +10,7 @@
 #include"TopupCard.h"
 #include"StationList.h"
 #include"node_Addstation.h"
+#include"ViewCycleTimes.h"
 //#include"Buy_ticket.h"
 class UI{
     /*
@@ -24,6 +25,7 @@ class UI{
     TopupCardController topupcard;
     Node_Addstation *node_Addstation_obj;
     StationList *StationList_obj;
+    ViewCycleTime *view;
     public:
         UI();
         void readfile();
@@ -65,5 +67,7 @@ class UI{
         void WriteStationfile();
         void show_station();
         int StationNumber();//คืนค่าจำนวนสถานี(return count)
+
+        void View();
 };
 #endif
