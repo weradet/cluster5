@@ -13,6 +13,7 @@ class MemberCard{
         void GenerateExpire();
         double getMoney();
         void TopupMoney(double money);
+        void InputMoneyCard(double numMoney,string password);
         void setMoney(double money);
         void PayTicket(double money);
         void setDateExpire(string dayexpire); 
