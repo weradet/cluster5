@@ -109,32 +109,11 @@
         void UI::showmenuRenewCard(){
             Renew_obj->PrintRenewMenu();
         } 
-<<<<<<< Updated upstream
         void UI::EnterCardcode(string password){
-            Member *member = Renew_obj->Findmember(password);  
-            if(member!=NULL){
-                int comit;
-                cout << "Name : " << member->getFirstname() << endl;
-                cout << "LastName : " << member->getLastname() << endl;
-                cout << "Confirm Renew ? (1.Renew,2.No)"; cin >> comit;
-                if(!cin){
-                    cin.clear(); 
-                    cin.ignore(100, '\n');
-                }
-                Renew_obj->RenewCard(member,comit); 
-            }else{
-                cout << "Error Find !!" << endl;
-            }  
+            Renew_obj->Findmember(password);   
         }
         void UI::loaddataRenew(){
             Renew_obj->Loaddata();
-=======
-       void UI::EnterCardcode(string password){
-             Renew_obj->Findmember(password);   
-        }
-        void  UI::loaddataRenew(){
-              Renew_obj->Loaddata();
->>>>>>> Stashed changes
         }
         void UI::SaveDataRenew(){
             Renew_obj->savedata();
