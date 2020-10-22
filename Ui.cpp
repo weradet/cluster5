@@ -85,21 +85,20 @@
             Regis_obj->InputMoneyCard(numMoney,password);
             //Regis_obj->list_member->printlist();
         }
-
-        void UI::savefile(){
+        void UI::LoadFile(){
+              Regis_obj->LoadData();
+        }
+        void UI::SaveFile(){
            // Regis_obj->list_member->savedata();
               Regis_obj->SaveData();
-        }
-        void UI::savetopupfile(){
-           // Regis_obj->list_member->savedata();
-              topupcard.savedata();
         }
         void UI::loadtopupfile(){
            // Regis_obj->list_member->savedata();
               topupcard.Loaddata();
         }
-        void UI::loadfile(){
-              Regis_obj->LoadData();
+        void UI::savetopupfile(){
+           // Regis_obj->list_member->savedata();
+              topupcard.savedata();
         }
         bool UI::checkmember(string pass){
              Member *member = topupcard.CheckMember(pass);
