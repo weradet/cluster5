@@ -7,6 +7,7 @@
            // topupcard = new TopupCardController;
             //node_Addstation_obj = ;
             StationList_obj = new StationList;
+            view = new ViewCycleTime;
        }
        void UI::PrintCustomer(){
             //print customer menu
@@ -168,3 +169,7 @@
         int UI::StationNumber(){
             return StationList_obj->StationNumber();
         }//
+
+        void UI::View(){
+            view->ChooseDepartureStation("Siam");
+        }
