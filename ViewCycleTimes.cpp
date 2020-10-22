@@ -2,7 +2,10 @@
         ViewCycleTime::ViewCycleTime(){
             head = new Path;
             head->read_file();
+            round = new Round;
+            round->Readfile();
         }
+
         void ViewCycleTime::ChooseDepartureStation(){
             Path *a = head;
                 HANDLE color=GetStdHandle(STD_OUTPUT_HANDLE);
@@ -22,7 +25,7 @@
                     a->head = a->head->link;
                 }
                 SetConsoleTextAttribute(color,7);
-                cout << "Enter ID TerminalStation: ";
+                cout << "Enter ID DepartureStation: ";
                 SetConsoleTextAttribute(color,14);
                 cin >> DepartureStation;
                 SetConsoleTextAttribute(color,7);
@@ -36,6 +39,7 @@
                     }
                     a->head=a->head->link;
                 }
+                DepartureStation = a->head->stationName();
                 a->head=a->head->link;
                 HANDLE color=GetStdHandle(STD_OUTPUT_HANDLE);
                 for(int i=0;i<a->count-1;i++){
@@ -57,4 +61,26 @@
                 cout << "Enter ID TerminalStation: ";
                 SetConsoleTextAttribute(color,14);
                 cin >> TerminalStation;
+                a = head;
+                while(a->head != NULL){
+                    if(a->head->StationID()== TerminalStation){
+                        TerminalStation = a->head->stationName();
+                        break;
+                    }
+                    a->head=a->head->link;
+                }
+        }
+        void ViewCycleTime::SearchRound(){
+                //round->Show();
+                Round *ro = round;
+                while(ro->head != NULL){
+                    cout << "asfa";
+                    if(ro->head->Name == DepartureStation){
+                        cout <<"5246";
+                        for(int i=0;i<9;i++){
+                            cout << ro->head->Name<<ro->TimeOut[i]<<endl;
+                        }
+                    }
+                    ro->head = ro->head->link;
+                }
         }
