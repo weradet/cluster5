@@ -9,7 +9,7 @@ class RegisterController{
        // ListMember *list_member;
         Member *head;
         Member *tail;
-        Member *cur;
+        //Member *cur;
         RegisterController(); 
         ~RegisterController();
         void SetMemberInformation(string f,string l,string t,string pw);
@@ -18,7 +18,7 @@ class RegisterController{
         void ShowExpireCard(string name,string pass);
         void Showallmember();
         void InputMoneyCard(double numMoney,string password);
-        void ShowRemainingAmount(string password);
+        void ShowRemainingAmount(Member *cur);
         void savedata();
         void Loaddata();
 };
