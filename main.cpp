@@ -18,51 +18,40 @@ bool Islogin(string name,string password){
       cout << "\t\t\tCannot Login!!" << endl;
     }
     return false;
-}//get parameter username and pass for check 
- int main(){
-     /* In the main program 
-        Actor Admin Customer
-     */   
-     
-     int Menu;
-     UI obj_ui;
-     string str_error = "404 Not found! Your Input Incorrect. Please Try Again";
-      obj_ui.readfile();
-    do{
-        // loop for all Program
-      try{ 
-       obj_ui.PrintFirstMenu(); cin >> Menu; // input 1 
-          
-          if(!cin){
-              throw str_error; // Throw Error
-            } // if Not Input
-          else if(Menu == 1){
-              int menu_customer;
+}//get parameter Username and Password for check Login 
+int main(){
+  int Menu;
+  UI obj_ui;
+  string str_error = "404 Not found! Your Input Incorrect. Please Try Again";
+  obj_ui.readfile();
+  do{
+    // loop for all Program
+    try{ 
+      obj_ui.PrintFirstMenu(); 
+      cin >> Menu;
+      if(!cin){
+        throw str_error; //If not input
+      }else if(Menu == 1){
+        int menu_customer;
+        do{
+          obj_ui.PrintCustomer();
+          try{ 
+            cin >> menu_customer; //User input
+            if(!cin){
+              throw menu_customer;
+            }else if(menu_customer == 3){
+              string pass_card;
+              int menu_member;
               do{
-                  obj_ui.PrintCustomer();
-                 try{ 
-                     //user input
-                   cin >> menu_customer;
-                      if(!cin){
-                          throw menu_customer;
-                        } // if
-                      /* Customer have a member Card
-                      */  
-                      else if(menu_customer==3){
-                          string pass_card;
-                          int menu_member;
-                          do{
-                             cout << "=============== MEMBER ===============" << endl;
-                             cout << "1. Input The card" << endl;
-                             cout << "2. Back to menu Customer" << endl;
-                             cout << "======================================" << endl;
-                             cout << "Please Enter choice (1-2) : "; cin >> menu_member;
-                               if(!cin){
-                                 cin.clear(); 
-                                 cin.ignore(100, '\n'); 
-                                 } // if
-                             else if(menu_member==1){
-                                // obj_ui.loadtopupfile();
+                cout << "=============== MEMBER ===============" << endl;
+                cout << "1. Input The card" << endl;
+                cout << "2. Back to menu Customer" << endl;
+                cout << "======================================" << endl;
+                cout << "Please Enter choice (1-2) : "; cin >> menu_member;
+                if(!cin){
+                  cin.clear(); 
+                  cin.ignore(100,'\n'); 
+                }else if(menu_member == 1){
                                  cout << "Please Input Yours Password Card : "; cin >> pass_card;
                                  obj_ui.Clear();
                                  obj_ui.loadtopupfile();
@@ -271,13 +260,13 @@ bool Islogin(string name,string password){
                else{
                    cout << "\nCannot Login!!" << endl;
                }// Fail
-          } // if Menu =2 
-         } // Try Exception  
+      }//If Menu = 1 
+    }//Try Exception  
       catch(string str){
-          cout << str << endl;  
-          cin.clear(); 
-          cin.ignore(100, '\n'); 
-      }  // catch Error   
-    }while(Menu!=3);
-     return 0;
+        cout << str << endl;  
+        cin.clear(); 
+        cin.ignore(100, '\n'); 
+      }//Catch Error   
+  }while(Menu!=3);
+  return 0;
 }//main
