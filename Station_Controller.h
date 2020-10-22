@@ -3,9 +3,10 @@
 #include "include.h"
 #include "station.h"
 #include "Status.h"
-#include "Path.h"
+#include "StationList.h"
 class StationController{
     private:
+        StationList obj_stalist;
         Status obj_sta;
     public:
         void ShowStation(string id);
@@ -14,5 +15,6 @@ class StationController{
         void ShowAllStation();
         void ShowFixMenuStation();
         bool CheckStatus(string name);
+        void WriteFixFile();
 };
 #endif
