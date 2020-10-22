@@ -12,18 +12,13 @@
 #include "ViewCycleTimes.h"
 //#include"Buy_ticket.h"
 class UI{
-    /*
-    class UI 
-    any ui in the project
-    */
     private:
-    RenewController *Renew_obj;  
-    RegisterController *Regis_obj;
-    //Buy_ticket_controller *a;
-    StationController *station_obj;
-    TopupCardController topupcard;
-    StationList *StationList_obj;
-    ViewCycleTime *view;
+        RenewController *Renew_obj;  
+        RegisterController *Regis_obj;
+        StationController *station_obj;
+        TopupCardController topupcard;
+        StationList *StationList_obj;
+        ViewCycleTime *view;
     public:
         UI();
         void readfile();
