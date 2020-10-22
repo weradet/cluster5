@@ -141,5 +141,6 @@
             return StationList_obj->StationNumber();
         }
         void UI::View(){
-            view->ChooseDepartureStation("Siam");
+            view->ChooseDepartureStation();
+            view->ChooseTerminalStation();
         }
