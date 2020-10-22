@@ -125,7 +125,7 @@ bool Islogin(string user_name,string pass){
                               throw str_error;
                              } //if check exception
                           else if(menu_admin == 1){
-
+                              obj_ui.View();
                           }//find cycle time
                           else if(menu_admin == 2){
 
