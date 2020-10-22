@@ -34,7 +34,6 @@ void Status::showStation(string id){
             }            cout << "*****************************************" << endl;
 }
  void Status::ChooseFixMenu(string id,int menu){
-            showStation(id);
                 if(menu == 1){
                     int cost;
                     cout << "Enter New Station Cost : ";
@@ -52,7 +51,8 @@ void Status::showStation(string id){
                     cin >> name;
                     NewStationName(id,name);
                     cout << "******** Fix Station Name Complete *******" << endl;
-                }            
+                }    
+                showStation(id);        
         }
 void Status::FixCostStation(string id,int cost){
             Station *temp = head;
