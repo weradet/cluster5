@@ -22,6 +22,8 @@ class UI{
     //Buy_ticket_controller *a;
     StationController *station_obj;
     TopupCardController topupcard;
+    Node_Addstation *node_Addstation_obj;
+    StationList *StationList_obj;
     public:
         UI();
         void readfile();
@@ -38,7 +40,6 @@ class UI{
         void ShowExprirationDate(string name,string pass);
         void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
-        void InputMoneyCard(double numMoney,string password);
         void showallmember();
         bool checkmember(string password);
         void Showmoney(string password);
