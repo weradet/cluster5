@@ -1,6 +1,9 @@
 #include"ViewCycleTimes.h"
-
-        void ViewCycleTime::ChooseDepatureStation(string name){
+        ViewCycleTime::ViewCycleTime(){
+            head = new Path;
+            head->read_file();
+        }
+        void ViewCycleTime::ChooseDepartureStation(string name){
             Path *a = head;
             Path *b = head;
                 while(a->head != NULL){
@@ -14,6 +17,6 @@
                 }
         }
 
-        void ViewCycleTime::ChooseTeminalStation(string name){
+        void ViewCycleTime::ChooseTerminalStation(string name){
 
         }
