@@ -103,3 +103,16 @@ bool Status::CheckStatus(string name){
             }
             return true;
 }
+void Status::WriteFixFile(){
+			Station *temp = head;
+			ofstream myFile3("Station.txt",ios::out);
+        	if(myFile3.is_open()){ 
+        	while(temp!=NULL){
+				myFile3  << temp->stationName() <<","<< temp->StationID() << "," << temp->cost()  << ","  << temp->stationStatus() << endl;
+				temp = temp->link;
+				if(temp == head){
+                	break;
+				}
+   			}		   
+		}
+}
