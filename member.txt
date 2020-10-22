@@ -1,3 +1,7 @@
 natda,prarw,mut,1235,2021-10-22,5000
+<<<<<<< Updated upstream
 weradet,nopsombun,0852812191,1234,2021-10-22,1400
 Natsuda,Kuhasak,0912465258,7088,2021-10-22,300
+=======
+weradet,nopsombun,0852812191,1234,2021-10-22,1900
+>>>>>>> Stashed changes
