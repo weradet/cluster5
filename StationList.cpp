@@ -1,16 +1,6 @@
 #include"StationList.h"
 		void StationList::Addstation(string StationID,string StationName,string Status,int Cost){
-			Station *n = new Station(StationID,StationName,Status,Cost);
-			if(head == NULL){
-				head = n;
-				tail = head;
-				count++;
-			}else{
-				tail->link = n;
-				n->plink = tail;	
-				tail = n;
-				count++;
-			}		
+			Path::add_path(StationID,StationName,Status,Cost);	
 		}
 		void StationList::AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost){
 			Station *newnode = new Station(StationID,StationName,Status,Cost);
@@ -74,9 +64,13 @@
 			ofstream myFile3("Station.txt",ios::app);
         	if(myFile3.is_open()){ 
         	while(temp!=NULL){
-				myFile3 << temp->StationID() <<","<< temp->stationName() << "," << temp->stationStatus()  << "," << temp->cost() << endl;
+				myFile3  << temp->stationName() <<","<< temp->StationID() << "," << temp->cost()  << ","  << temp->stationStatus() << endl;
 				temp = temp->link;
+				if(temp == head){
+                	break;
+				}
    			}
+			   
 		}
 
 		}
