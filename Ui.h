@@ -21,7 +21,7 @@ class UI{
     RegisterController *Regis_obj;
     //Buy_ticket_controller *a;
     StationController *station_obj;
-    TopupCardController *topupcard;
+    TopupCardController topupcard;
     public:
         UI();
         void readfile();
@@ -46,6 +46,7 @@ class UI{
         void loadfile();
         void savetopupfile(); 
         void loadtopupfile();
+        void Clear();
        
 
         void showmenuRenewCard();
