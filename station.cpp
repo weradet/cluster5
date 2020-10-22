@@ -28,3 +28,6 @@
         int Station::cost(){
             return Cost;
         }
+    Station::Station(){
+
+    }
