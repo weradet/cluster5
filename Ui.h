@@ -47,8 +47,8 @@ class UI{
         bool checkmember(string password);
         void Showmoney(string password);
         void showmenu();
-        void savefile();
-        void loadfile();
+        void SaveFile();
+        void LoadFile();
         void savetopupfile(); 
         void loadtopupfile();
         void Clear();
