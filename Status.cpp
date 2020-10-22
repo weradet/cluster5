@@ -51,8 +51,8 @@ void Status::showStation(string id){
                     cin >> name;
                     NewStationName(id,name);
                     cout << "******** Fix Station Name Complete *******" << endl;
-                }    
-                showStation(id);        
+                }      
+                 showStation(id);    
         }
 void Status::FixCostStation(string id,int cost){
             Station *temp = head;
@@ -67,14 +67,15 @@ void Status::FixCostStation(string id,int cost){
         }
 void Status::Maintenance(string id){
             Station *temp = head;
-            while(temp != NULL){
+            for(int i=0;i<count;i++){
                 if(id == temp->StationID()){
                     if(temp->stationStatus() == "open"){
                         temp->NewStatus("close");
+                        break;
                     }else if(temp->stationStatus() == "close"){
                         temp->NewStatus("open");
+                        break;
                     }
-                    break;
                 }
                 temp = temp->link;
             }
