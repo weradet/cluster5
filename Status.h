@@ -11,5 +11,6 @@ class Status :public Path{
         void Maintenance(string id);
         void NewStationName(string id,string name);
         bool CheckStatus(string name);
+        void WriteFixFile();
 };
 #endif
