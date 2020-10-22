@@ -146,23 +146,23 @@
  
        /*Usecase Add Station */
         void UI::Addstation(string StationID,string StationName,string Status,string Cost){
-
+            StationList_obj->Addstation(StationID,StationName,Status,Cost);
         }
         void UI::AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost){
-
+            StationList_obj->AddStation_ontheway(index,StationID,StationName,Status,Cost);
         }
         bool UI::checkStationID(string id){
-            return true;
+            StationList_obj->checkStationID(id);
         }
         bool UI::checkStationName(string name){
-            return true;
+            StationList_obj->checkStationName(name);
         }
         void UI::WriteStationfile(){
-            
+            StationList_obj->WriteStationfile();
         }
         void UI::show_station(){
-
+            StationList_obj->show_station();
         }
         int UI::StationNumber(){
-            return 1;
+            StationList_obj->StationNumber();
         }
