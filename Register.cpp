@@ -100,12 +100,12 @@
                    }
         } 
 
-        void RegisterController::TopupMoneyCard(double money,string password){
+        void RegisterController::InputMoneyCard(double numMoney,string password){
             Member *cur = head;
             while(cur!=NULL){
               if(cur->getPassword()==password){
-                cur->Topupmoney(money);
-                ShowRemainingAmount(cur);
+                cur->Topupmoney(numMoney);
+                ShowRemainingAmount(password);
                 //savedata();
               break; 
              }
