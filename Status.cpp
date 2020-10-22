@@ -67,7 +67,7 @@ void Status::FixCostStation(string id,int cost){
         }
 void Status::Maintenance(string id){
             Station *temp = head;
-            for(int i=0;i<count;i++){
+            for(int i=0;i<count+1;i++){
                 if(id == temp->StationID()){
                     if(temp->stationStatus() == "open"){
                         temp->NewStatus("close");
