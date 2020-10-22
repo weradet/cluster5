@@ -10,6 +10,7 @@ class Station{
     public:
         Station *link;
         Station *plink;
+        Station();
         Station(string sta_name,string id,string sta_stu,int cost);
         void NewCost(int cost);
         void NewStatus(string status);
