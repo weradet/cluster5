@@ -16,7 +16,7 @@
 			head = NULL;
 			tail = NULL;
 		}
-		void StationList::Addstation(int index,string StationName,string StationID,int Cost,string Status){
+		void StationList::Addstation(string StationName,string StationID,int Cost,string Status){
 			Node_Addstation *n = new Node_Addstation(StationName,StationID,Cost,Status);
 			if(head == NULL){
 				head = n;
