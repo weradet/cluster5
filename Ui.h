@@ -43,12 +43,12 @@ class UI{
         void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
         void InputMoneyCard(double numMoney,string password);
-        void ShowAllMember();
+        void showallmember();
         bool checkmember(string password);
         void Showmoney(string password);
-        void showmenu();
-        void SaveFile();
-        void LoadFile();
+        void ShowMenu();
+        void savefile();
+        void Loadfile();
         void savetopupfile(); 
         void loadtopupfile();
         void Clear();
