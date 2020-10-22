@@ -5,6 +5,8 @@
      //       a = new Buy_ticket_controller;
             station_obj = new StationController;
            // topupcard = new TopupCardController;
+            //node_Addstation_obj = ;
+            StationList_obj = new StationList;
        }
        void UI::PrintCustomer(){
             //print customer menu
