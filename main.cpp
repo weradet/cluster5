@@ -153,7 +153,7 @@ bool Islogin(string user_name,string pass){
                                 cin >> money;
                               cout << "==================================================" << endl;
                               obj_ui.InputMoneyCard(money,password_card);                                          
-                              obj_ui.savefile();
+                              obj_ui.SaveFile();
                           }//Register Member
                           else if(menu_admin == 4){
                             int menu_renew;
