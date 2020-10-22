@@ -3,7 +3,7 @@
             //list_member = new ListMember;
             head = NULL;
             tail=NULL;
-            Loaddata();
+            //Loaddata();
         } 
         RegisterController::~RegisterController(){
         }//destructer
