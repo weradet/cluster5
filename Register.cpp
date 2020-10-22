@@ -99,3 +99,16 @@
                          cur = cur->link; 
                    }
         } 
+
+        void RegisterController::TopupMoneyCard(double money,string password){
+            Member *cur = head;
+            while(cur!=NULL){
+              if(cur->getPassword()==password){
+                cur->Topupmoney(money);
+                ShowRemainingAmount(cur);
+                //savedata();
+              break; 
+             }
+              cur = cur->link;
+            }
+        }//void topupMoney
