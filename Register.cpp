@@ -27,7 +27,7 @@
       }
       customer = customer->link;
     }
-  }
+  }//Show User Information
   void RegisterController::ShowExpireCard(string firstname,string password){
     Member *customer = head;
     while(customer != NULL){
@@ -36,7 +36,7 @@
       }
       customer = customer->link;
     }
-  }
+  }//Show exp. Card
   void RegisterController::SetMemberInData(string firstname,string lastname,string tel,string password,string expire,string money){
     Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
     if(head == NULL){
@@ -47,17 +47,17 @@
       tail = new_member;
     }  
   }
-  void RegisterController::SaveData(){
+  void RegisterController::InputMoneyCard(double numMoney,string password){
     Member *cur = head;
-    ofstream file("member.txt",ios::app);
-    if(file.is_open()){
-      while(cur != NULL){ 
-        file << cur->getFirstname() << "," << cur->getLastname() << "," << cur->getTel() << "," 
-            << cur->getPassword() << "," << cur->getExpire() << "," << cur->getMoney() << endl;   
-        cur = cur->link;
-      }//while
-    }
-  }
+    while(cur != NULL){
+      if(cur->getPassword() == password){
+        cur->Topupmoney(numMoney);
+        ShowRemainingAmount(cur);
+        break; 
+      }
+      cur = cur->link;
+    }//while
+  }//Input Money Card
   void RegisterController::LoadData(){
     string line,firstname,lastname,tel,password,expire,money;
     ifstream data("member.txt",ios::in);
@@ -82,26 +82,26 @@
     }
       data.close();
   }
-  void RegisterController::ShowAllMember(){
+  void RegisterController::SaveData(){
+    Member *cur = head;
+    ofstream file("member.txt",ios::app);
+    if(file.is_open()){
+      while(cur != NULL){ 
+        file << cur->getFirstname() << "," << cur->getLastname() << "," << cur->getTel() << "," 
+            << cur->getPassword() << "," << cur->getExpire() << "," << cur->getMoney() << endl;   
+        cur = cur->link;
+      }//while
+    }
+  }
+  void RegisterController::ShowRemainingAmount(Member *cur){
+    cout << "Remaining Amount : " << cur->getMoney();
+    cout << "\n=====================================================" << endl;  
+  }//Show Remaining Amount
+  void RegisterController::ShowMember(){
     Member *cur = head;
     while(cur != NULL){
       cout << cur->getFirstname() << " " << cur->getLastname() 
            << " " << cur->getMoney() << " " << cur->getPassword() << endl;
       cur = cur->link; 
     }
-  } 
-  void RegisterController::InputMoneyCard(double numMoney,string password){
-    Member *cur = head;
-    while(cur!=NULL){
-      if(cur->getPassword()==password){
-        cur->Topupmoney(numMoney);
-        ShowRemainingAmount(cur);
-        break; 
-      }
-      cur = cur->link;
-    }//while
-  }
-  void RegisterController::ShowRemainingAmount(Member *cur){
-    cout << "Remaining Amount : " << cur->getMoney();
-    cout << "\n=====================================================" << endl;  
-  }//void showamoung
+  }//Show Member 
