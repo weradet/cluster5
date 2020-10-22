@@ -154,10 +154,10 @@
             StationList_obj->AddStation_ontheway(index,StationID,StationName,Status,Cost);
         }
         bool UI::checkStationID(string id){
-            StationList_obj->checkStationID(id);
+            return StationList_obj->checkStationID(id);
         }
         bool UI::checkStationName(string name){
-            StationList_obj->checkStationName(name);
+            return StationList_obj->checkStationName(name);
         }
         void UI::WriteStationfile(){
             StationList_obj->WriteStationfile();
