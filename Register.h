@@ -16,6 +16,7 @@ class RegisterController{
         void ShowUserInformation(string name,string pass);
         void ShowExpireCard(string name,string pass);
         void Showallmember();
+        void InputMoneyCard(double numMoney,string password);
         void ShowRemainingAmount(string password);
         void savedata();
         void Loaddata();
