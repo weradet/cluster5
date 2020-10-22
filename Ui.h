@@ -38,20 +38,22 @@ class UI{
         
         
         void InputPersonalInformation(string firstname,string lastname,string tel,string password);
-        void ShowExprirationDate(string name,string pass);
-        void ShowInformation(string name,string pass);
-        void InputMoney(double money,string pass);
-        void InputMoneyCard(double numMoney,string password);
-        void ShowAllMember();
-        bool checkmember(string password);
-        void Showmoney(string password);
-        void ShowMenu();
-        void SaveFile();
+        void ShowInformation(string firstname,string password);
+        void ShowExprirationDate(string firstname,string password);
+        void InputMoneyCard(double money,string password);
         void LoadFile();
-        void savetopupfile(); 
+        void SaveFile();
+        void ShowMember();
+
+
+        void ShowMenu();
+        bool checkmember(string password);
+        void InputMoney(double money,string pass);
+        void Showmoney(string password);
         void loadtopupfile();
+        void savetopupfile(); 
         void Clear();
-       
+        
 
         void showmenuRenewCard();
         void EnterCardcode(string password);
