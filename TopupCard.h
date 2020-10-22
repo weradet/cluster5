@@ -19,6 +19,6 @@ class TopupCardController{
         void Loaddata();
         void savedata();
         void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
- 
+        void clear();
 };
  #endif           
