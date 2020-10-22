@@ -80,7 +80,7 @@ bool Islogin(string user_name,string pass){
                                     int menu_topup;
                                     double money;
                                     obj_ui.PrintCustomer();
-                                    do{obj_ui.showmenu();
+                                    do{obj_ui.ShowMenu();
                                     cin >> menu_topup;
                                        if(menu_topup==1){
                                           // obj_ui.loadtopupfile();
@@ -172,7 +172,8 @@ bool Islogin(string user_name,string pass){
                           }//Renew Member Card
                           else if(menu_admin == 5){
                               char choice;
-	                          string StationName,StationID,Status,Cost;
+	                          string StationName,StationID,Status;
+                            int Cost;
                             cout <<"1.Add destination"<<endl;
                             cout <<"2.Add Departure station,Add station on the way"<<endl;
                             cout <<"3.show "<<endl;
@@ -205,7 +206,7 @@ bool Islogin(string user_name,string pass){
                                   cout << "cannot add station" << endl;
                               }
                               else{
-                                string Cost;
+                                int Cost;
                                   cout << "Station ID: ";
                                   cin >> StationID;
                                       while(StationID.length() != 5){
@@ -257,6 +258,7 @@ bool Islogin(string user_name,string pass){
                               int menu;
                               cout << "Choose Station ID : ";
                               cin >> chooseId;
+                              obj_ui.ShowStaiton(chooseId);
                               obj_ui.ShowFixMenuStation();
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
