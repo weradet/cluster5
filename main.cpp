@@ -174,6 +174,7 @@ bool Islogin(string user_name,string pass){
                             }while(menu_renew!=2);
                           }//Renew Member Card
                           else if(menu_admin == 5){
+                            obj_ui.readfile();
                               char choice;
 	                          string StationName,StationID,Status;
                             int Cost;
@@ -200,6 +201,7 @@ bool Islogin(string user_name,string pass){
                                   cout << "Station cost: ";
                                   cin >> Cost;
                               obj_ui.Addstation(StationID,StationName,Status,Cost);
+                              obj_ui.WriteStationfile();
                           }
                           else if(choice == '2'){
                               int index;
@@ -249,13 +251,14 @@ bool Islogin(string user_name,string pass){
                             }
                                   }
                               }
+                              obj_ui.WriteStationfile();
                           }
                         else if(choice == '3'){
                               obj_ui.show_station();
                   }
                           }//Add Station
                           else if(menu_admin == 6){
-                             // obj_ui.readfile();
+                              //obj_ui.readfile();
                               obj_ui.ShowAllStation();
                               string chooseId;
                               int menu;
@@ -266,10 +269,10 @@ bool Islogin(string user_name,string pass){
                               cout << "Choose Fix Menu Station : ";
                               cin >> menu;
                               obj_ui.ChooseFixMenu(chooseId,menu);
-                              obj_ui.WriteStationfile();
+                              obj_ui.WriteFixFile();
                           }//Fix Station
                           else if(menu_admin == 7){
-
+                              
                           }// back menu
                        }//Try
                        catch(string str){
