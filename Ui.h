@@ -9,7 +9,6 @@
 #include"Renewcard.h"
 #include"TopupCard.h"
 #include"StationList.h"
-#include"node_Addstation.h"
 #include"ViewCycleTimes.h"
 //#include"Buy_ticket.h"
 class UI{
@@ -23,7 +22,6 @@ class UI{
     //Buy_ticket_controller *a;
     StationController *station_obj;
     TopupCardController topupcard;
-    Node_Addstation *node_Addstation_obj;
     StationList *StationList_obj;
     ViewCycleTime *view;
     public:
@@ -36,6 +34,7 @@ class UI{
         void ChooseFixMenu(string id,int menu);
         void ShowFixMenuStation();
         void ShowAllStation();
+        void ShowStaiton(string id);
         
         
         void InputPersonalInformation(string firstname,string lastname,string tel,string password);
@@ -60,8 +59,8 @@ class UI{
         void SaveDataRenew();
         void ConfirmRenew();
 
-        void Addstation(string StationID,string StationName,string Status,string Cost);
-        void AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost);
+        void Addstation(string StationID,string StationName,string Status,int Cost);
+        void AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost);
         bool checkStationID(string id);
         bool checkStationName(string name);
         void WriteStationfile();
