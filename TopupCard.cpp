@@ -6,7 +6,7 @@ TopupCardController::TopupCardController(){
              //Loaddata();
 }
 void TopupCardController::ShowMenuTopupCard(){
-   
+            system("cls");
             cout << "=============== TOPUP ==============="<< endl;
             cout << "1. Topup" << endl;
             cout << "2. Show balance" << endl;
@@ -102,6 +102,6 @@ void TopupCardController::Loaddata(){
                     temp = head;
                     head = head->link;
                     delete temp;
-                    
+
                  }
         }
