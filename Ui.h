@@ -59,8 +59,8 @@ class UI{
         void ConfirmRenew();
         void ClearRenewdata();
 
-        void Addstation(string StationID,string StationName,string Status,int Cost);
-        void AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost);
+        void Addstation(string StationName,string StationID,int Cost,string Status);
+        void AddStation_ontheway(int index,string StationID,string StationName,int Cost,string Status);
         bool checkStationID(string id);
         bool checkStationName(string name);
         void WriteStationfile();
