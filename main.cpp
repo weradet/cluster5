@@ -111,8 +111,9 @@ bool Islogin(string user_name,string pass){
             string str_user_name;  // username
             string str_password = ""; //pass
            // char star;
-               cout << "Username : "; cin >> str_user_name;
-               cout << "Password : "; cin >> str_password;
+               cout << "\t\t************************************" << endl;
+               cout << "\t\tUsername : "; cin >> str_user_name;
+               cout << "\t\tPassword : "; cin >> str_password;
                if(Islogin(str_user_name,str_password)){
                       int menu_admin; //set varible menu admin
                    do{
