@@ -60,6 +60,9 @@
         void UI::ShowAllStation(){
             station_obj->ShowAllStation();
         }
+        void UI::ShowStaiton(string id){
+            station_obj->ShowStation(id);
+        }
 
         /*Usecase Register and Topup Card*/
         void UI::InputPersonalInformation(string firstname,string lastname,string tel,string password){
@@ -147,10 +150,10 @@
         }
  
        /*Usecase Add Station */
-        void UI::Addstation(string StationID,string StationName,string Status,string Cost){
+        void UI::Addstation(string StationID,string StationName,string Status,int Cost){
             StationList_obj->Addstation(StationID,StationName,Status,Cost);
         }
-        void UI::AddStation_ontheway(int index,string StationID,string StationName,string Status,string Cost){
+        void UI::AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost){
             StationList_obj->AddStation_ontheway(index,StationID,StationName,Status,Cost);
         }
         bool UI::checkStationID(string id){
