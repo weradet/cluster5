@@ -11,13 +11,13 @@ class RegisterController{
         RegisterController(); 
         ~RegisterController();
         void SetMemberInformation(string firstname,string lastname,string tel,string password);
-        void SetMemberInData(string firstname,string lastname,string tel,string password,string expire,string money);
         void ShowUserInformation(string firstname,string password);
         void ShowExpireCard(string firstname,string password);
-        void ShowAllMember();
+        void SetMemberInData(string firstname,string lastname,string tel,string password,string expire,string money);
         void InputMoneyCard(double money,string password);
-        void ShowRemainingAmount(Member *cur);
-        void SaveData();
         void LoadData();
+        void SaveData();
+        void ShowRemainingAmount(Member *cur);
+        void ShowMember();        
 };
 #endif
