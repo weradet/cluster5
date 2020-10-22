@@ -35,6 +35,7 @@ class UI{
         void ShowFixMenuStation();
         void ShowAllStation();
         void ShowStaiton(string id);
+        void WriteFixFile();
         
         
         void InputPersonalInformation(string firstname,string lastname,string tel,string password);
