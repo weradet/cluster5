@@ -43,7 +43,7 @@ class UI{
         void ShowInformation(string name,string pass);
         void InputMoney(double money,string pass);
         void InputMoneyCard(double numMoney,string password);
-        void showallmember();
+        void ShowAllMember();
         bool checkmember(string password);
         void Showmoney(string password);
         void ShowMenu();
