@@ -34,7 +34,8 @@
                                 filein.erase(0,filein.find(',')+1);
                             cost = filein.substr(0,filein.find(','));
                                 filein.erase(0,filein.find(',')+1);
-                            status = filein;
+                            status = filein.substr(0,filein.find(','));
+                                filein.erase(0,filein.find(','));
                             stringstream ss(cost);
                             ss >> Cost;
                             add_path(name,id,status,Cost);
