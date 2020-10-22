@@ -10,8 +10,8 @@ class ViewCycleTime{
         Path *head;
     public :
         ViewCycleTime(void);
-        void ChooseDepatureStation(string name);
-        void ChooseTeminalStation(string name);
+        void ChooseDepartureStation(string name);
+        void ChooseTerminalStation(string name);
 
 };
 #endif
