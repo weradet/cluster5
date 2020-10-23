@@ -65,10 +65,10 @@ int main(){
                       cin >> menu_topup;
                       if(menu_topup == 1){
                        do{
-                        cout << "Input money : (MAXIMAM : 5,000 Bath)";
+                        cout << "Input money (MAXIMAM : 5,000 Bath) : ";
                         cin >> money;
                         if(money > 5000){
-                           cout << "Money Overflow !!" << endl; 
+                           cout << "\nMoney Overflow !!" << endl; 
                         }  
                        }while(money > 5000); 
                         obj_ui.InputMoney(money,pass_card);
@@ -78,7 +78,10 @@ int main(){
                       }
                     }while(menu_topup != 3);
                   }else{
-                    cout << "Cannot Find Member or Password is Incorrect" << endl;
+                    system("cls");
+                    cout << "\t\t===========================================" << endl;
+                    cout << "\t\tCannot Find Member or Password is Incorrect" << endl;
+                    cout << "\t\t===========================================" << endl;
                   }
                 }//Menu Member is 1
               }while(menu_member != 2);
