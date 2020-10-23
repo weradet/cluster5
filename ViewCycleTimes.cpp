@@ -93,7 +93,7 @@
                                 while(filein != "-"){
                                     out = filein.substr(0,filein.find(','));
                                     filein.erase(0,filein.find(',')+1);
-                                    cout << out << endl;
+                                    //cout << out << endl;
                                         New->add_time(out);
                                 }
                              }
