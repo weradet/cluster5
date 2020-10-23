@@ -19,6 +19,16 @@ bool Islogin(string name,string password){
     }
     return false;
 }//get parameter Username and Password for check Login 
+void Interface(string file){
+  string line;
+  ifstream myfile(file,ios::in);
+  if(myfile.is_open()){
+    while(getline(myfile,line)){
+      cout << line << endl;
+    }
+  }
+  myfile.close();
+}
 int main(){
   int Menu;
   UI obj_ui;
@@ -117,8 +127,8 @@ int main(){
                 double money;
                 obj_ui.ClearRegister();
                 system ("cls");
-                cout << "\t\t==================== Register ====================" << endl;
-                cout << "\t\tPlease Input Your Firstname : ";
+                Interface("Register.txt");
+                cout << "\n\t\tPlease Input Your Firstname : ";
                 cin >> user_firstname;
                 cout << "\t\tPlease Input Your Lastname : ";
                 cin >> user_lastname;
@@ -131,9 +141,9 @@ int main(){
                 obj_ui.ShowInformation(user_firstname,password_card);
                 obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
                 cout << "\t\t================= Topup Money Card ===============" << endl;
-                cout << "\t\tPlease Enter Your Money : ";
+                cout << "\t\tPlease Input Your Money : ";
                 cin >> money;
-                cout << "==================================================" << endl;
+                cout << "\t\t=================== Money In Card =================" << endl;
                 obj_ui.InputMoneyCard(money,password_card);                                          
                 obj_ui.SaveFile(); //Register Member
               }else if(menu_admin == 4){
