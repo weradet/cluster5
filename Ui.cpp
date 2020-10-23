@@ -124,11 +124,12 @@ void UI::ClearRenewdata(){
     Renew_obj->clear();
 }
 /* Usecase Add Station */
-void UI::Addstation(string StationID,string StationName,string Status,int Cost){
-    StationList_obj->Addstation(StationID,StationName,Status,Cost);
+
+void UI::Addstation(string StationName,string StationID,int Cost,string Status){
+    StationList_obj->Addstation(StationID,StationName,Cost,Status);
 }
-void UI::AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost){
-    StationList_obj->AddStation_ontheway(index,StationID,StationName,Status,Cost);
+void UI::AddStation_ontheway(int index,string StationID,string StationName,int Cost,string Status){
+    StationList_obj->AddStation_ontheway(index,StationID,StationName,Cost,Status);
 }
 bool UI::checkStationID(string id){
     return StationList_obj->checkStationID(id);
