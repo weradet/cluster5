@@ -6,8 +6,8 @@ class Node_Addstation{
 		string StationName,StationID,Status;
 		int Cost;
 		Node_Addstation *link;
-		Node_Addstation *plink;
-		Node_Addstation(string Sid,string name,int Cost,string stat);
+		//Node_Addstation *plink;
+		Node_Addstation(string name,string Sid,int Cost,string stat);
 
 };
 #endif
