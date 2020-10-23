@@ -17,6 +17,7 @@ class MemberCard{
         void setMoney(double money);
         void PayTicket(double money);
         void setDateExpire(string dayexpire); 
+        bool CheckMoneyCard(double money);
 };
 
 class Member{
