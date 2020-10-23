@@ -45,7 +45,12 @@
           //cout << "In" << endl;
           DayExpire = dayexpire;
         }
-        
+        bool MemberCard::CheckMoneyCard(double money){
+             double customer_money = Money+money;
+                    if(customer_money > 10000){
+                      return true;
+                    }
+        }
      
      
         Member::Member(){
