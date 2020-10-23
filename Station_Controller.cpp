@@ -1,7 +1,7 @@
 #include"Station_Controller.h"    
         void StationController::readfile(){
             obj_sta.read_file();
-            obj_stalist.read_file();
+           // obj_stalist.read_file();
         }
         void StationController::WriteFixFile(){
             obj_sta.WriteFixFile();
