@@ -107,6 +107,7 @@
                 ifstream file("Round.txt",ios::in);
                 if(file.is_open()){
                     while(getline(file,filein)){
+
                         name = filein.substr(0,filein.find(','));
 						    filein.erase(0,filein.length());
                             Add(name); 
@@ -117,17 +118,18 @@
         }
         void ViewCycleTime::show(){
              Round *ro = first;
-            
-             cout << ro->Name << endl;
+             string we;
+            // cout << ro->Name << endl;
                 while(ro != NULL){
-                    
-                    cout << ro->Name << endl;
-                       while(ro->first != NULL){
-                           
-                            cout << ro->first->TO <<endl;
-                            ro->first = ro->first->link;
+                    if(ro->Name == DepartureStation){
+                        cout << ro->Name << endl;
+                        while(ro->first != NULL){
+                            
+                                cout << ro->first->TO <<endl;
+                                ro->first = ro->first->link;
                         }
-                        ro = ro->link;
+                    }
+                    ro = ro->link;
                 }
-                    
+                cin >> we;     
         }
