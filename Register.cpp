@@ -21,9 +21,9 @@
     while(customer != NULL){
       if(customer->getFirstname() == firstname && customer->getPassword() == password){
         system ("cls");
-        cout << "============== Customer Information ==============" << endl;
-        cout << "Name Customer : " << customer->getFirstname() << " " << customer->getLastname() << endl;
-        cout << "Tel. : " << customer->getTel() << endl;
+        cout << right << setw(80) << "============== Customer Information ==============" << endl;
+        cout << right << setw(80) << "Name Customer : " << customer->getFirstname() << " " << customer->getLastname() << endl;
+        cout << right << setw(80) << "Tel. : " << customer->getTel() << endl;
       }
       customer = customer->link;
     }
@@ -31,8 +31,8 @@
   void RegisterController::ShowExpireCard(string firstname,string password){
     Member *customer = head;
     while(customer != NULL){
-      if(customer->getFirstname()==firstname && customer->getPassword()==password){
-        cout << "ExpireCard : " << customer->getExpire() << endl;     
+      if(customer->getFirstname() == firstname && customer->getPassword() == password){
+        cout << right << setw(80) << "ExpireCard : " << customer->getExpire() << endl;     
       }
       customer = customer->link;
     }
@@ -94,10 +94,9 @@
     }
   }
   void RegisterController::ShowRemainingAmount(Member *cur){
-    cout << "\n=====================================================" << endl;  
-    cout << "Remaining Amount : " << cur->getMoney();
-    cout << "\n=====================================================" << endl; 
-    //Sleep(3000); 
+    cout << right << setw(80) << "\n=====================================================" << endl;  
+    cout << right << setw(80) << "Remaining Amount : " << cur->getMoney();
+    cout << right << setw(80) << "\n=====================================================" << endl; 
   }//Show Remaining Amount
   void RegisterController::ShowMember(){
     Member *cur = head;
