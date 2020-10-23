@@ -29,6 +29,10 @@ void Interface(string file){
   }
   myfile.close();
 }
+void Enter(){
+    cout << "Enter to continue" << endl;
+    getchar();
+}
 int main(){
   int Menu;
   UI obj_ui;
@@ -47,7 +51,7 @@ int main(){
         int menu_customer;
         do{
           system("cls");
-          Interface("TrainCustomer.txt");
+          Interface("TrainPersonal.txt");
           obj_ui.PrintCustomer();
           try{ 
             cin >> menu_customer; //User input
@@ -116,8 +120,8 @@ int main(){
         if(Islogin(str_user_name,str_password)){
           int menu_admin; //set varible menu admin
           do{
-            system("cls");
-            Interface("TrainCustomer.txt");
+            //system("cls");
+            Interface("TrainPersonal.txt");
             obj_ui.PrintAdmin();
             try{ 
               cin >> menu_admin; //Input 2
@@ -152,6 +156,7 @@ int main(){
                 cout << right << setw(80) << "=================== Money In Card =================" << endl;
                 obj_ui.InputMoneyCard(money,password_card);                                          
                 obj_ui.SaveFile(); //Register Member
+                Enter();
               }else if(menu_admin == 4){
                 int menu_renew;
                 do{
