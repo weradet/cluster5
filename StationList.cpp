@@ -5,6 +5,7 @@
 			head = NULL;
 			tail = NULL;
 			count = 0;
+			ReadStationFile();
 		}
 		StationList::~StationList(){
 			for(int i=1;i<count;i++){
@@ -20,11 +21,11 @@
 			Node_Addstation *n = new Node_Addstation(StationName,StationID,Cost,Status);
 			if(head == NULL){
 				head = n;
-				tail = head;
+				tail = n;
 				count++;
 			}else{
 				tail->link = n;
-				n->plink = tail;	
+				//n->plink = tail;	
 				tail = n;
 				count++;
 			}			
@@ -36,16 +37,16 @@
 				cout << "cannot add" << endl;
 			}else if(index == 1){				
 				newnode->link = head;
-				head->plink = newnode;
+				//head->plink = newnode;
 				head = newnode;
 				count++;
 			}else{
 				int i=2;
 				while(temp!=NULL){
 					if(index == i){
-						newnode->plink = temp;
+						//newnode->plink = temp;
 						newnode->link = temp->link;
-						temp->link->plink = newnode;
+						//temp->link->plink = newnode;
 						temp->link = newnode;
 					}
 					temp = temp->link;
@@ -65,9 +66,9 @@
 							line.erase(0,line.find(',')+1);	
 						StationID = line.substr(0,line.find(','));
 							line.erase(0,line.find(',')+1);
-						Status = line.substr(0,line.find(','));
-							line.erase(0,line.find(',')+1);
 						C = line.substr(0,line.find(','));
+							line.erase(0,line.find(',')+1);
+						Status = line.substr(0,line.find(','));
 							line.erase(0,line.find(',')+1);
 						stringstream COST(C);
 						int Cost = 0;
@@ -75,10 +76,13 @@
 						Addstation(StationName,StationID,Cost,Status);
 					}
 				}
+				myFile.close();
 		}
 		bool StationList::checkStationID(string id){
+			//cout << id << endl;
 			Node_Addstation *temp = head;
 			while(temp !=NULL){
+				//cout << temp->StationID << endl;
 				if(temp->StationID == id){
 					return true;
 					break;
@@ -96,12 +100,12 @@
 				}
 				temp = temp->link;
 			}
-            return true;
+            return false;
 		}
 		void StationList::show_station(){
 			Node_Addstation *temp = head;
 			int i = 1;
-			while(temp != NULL){
+			while(temp != NULL){  
 				cout << "Station" << i << ": = " << temp->StationID << temp->StationName << temp->Cost << temp->Status << endl;
 				temp = temp->link;
 				i++;
@@ -114,9 +118,6 @@
 				while(temp!=NULL){
 					myFile3  << temp->StationName <<","<< temp->StationID << "," << temp->Cost  << ","  << temp->Status <<"," << endl;
 					temp = temp->link;
-					if(temp == head){
-						break;
-					}
 				}  
 			}
 		}
