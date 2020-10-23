@@ -2,8 +2,10 @@
         ViewCycleTime::ViewCycleTime(){
             head = new Path;
             head->read_file();
-            round = new Round;
-            round->Readfile();
+            first = NULL;
+            last = NULL;
+            count = 0;
+            //round->Readfile();
         }
 
         void ViewCycleTime::ChooseDepartureStation(){
@@ -70,17 +72,62 @@
                     a->head=a->head->link;
                 }
         }
-        void ViewCycleTime::SearchRound(){
-            /*    //round->Show();
-                Round *ro = round;
-                while(ro->head != NULL){
-                    cout << "asfa";
-                    if(ro->head->Name == DepartureStation){
-                        cout <<"5246";
-                        for(int i=0;i<9;i++){
-                            cout << ro->head->Name<<ro->TimeOut[i]<<endl;
-                        }
+        void ViewCycleTime::Add(string name){
+            Round *New = new Round(name); 
+                if(first == NULL){
+                    first = New;
+                    last = New;
+                }else{
+                    last->link = New;
+                    New->plink = last;
+                    last = New; 
+                }
+                count++;
+                string filein,Name,out;
+                ifstream file("Round.txt",ios::in);
+                if(file.is_open()){
+                    while(getline(file,filein)){
+                        Name = filein.substr(0,filein.find(','));
+						     filein.erase(0,filein.find(',')+1); 
+                             if(Name == name){
+                                while(filein != "-"){
+                                    out = filein.substr(0,filein.find(','));
+                                    filein.erase(0,filein.find(',')+1);
+                                    cout << out << endl;
+                                        New->add_time(out);
+                                }
+                             }
                     }
-                    ro->head = ro->head->link;
-                }*/
+                file.close();
+                }
+        }
+        void ViewCycleTime::SearchRound(){
+                string filein,name,out;
+                //TimeOut *takeoff;
+                ifstream file("Round.txt",ios::in);
+                if(file.is_open()){
+                    while(getline(file,filein)){
+                        name = filein.substr(0,filein.find(','));
+						    filein.erase(0,filein.length());
+                            Add(name); 
+ 
+                    }
+                file.close();
+                }
+        }
+        void ViewCycleTime::show(){
+             Round *ro = first;
+            
+             cout << ro->Name << endl;
+                while(ro != NULL){
+                    
+                    cout << ro->Name << endl;
+                       while(ro->first != NULL){
+                           
+                            cout << ro->first->TO <<endl;
+                            ro->first = ro->first->link;
+                        }
+                        ro = ro->link;
+                }
+                    
         }
