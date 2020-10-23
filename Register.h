@@ -18,6 +18,7 @@ class RegisterController{
         void LoadData();
         void SaveData();
         void ShowRemainingAmount(Member *cur);
-        void ShowMember();        
+        void ShowMember();   
+        void clear();     
 };
 #endif
