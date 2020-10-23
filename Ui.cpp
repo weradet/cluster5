@@ -80,6 +80,11 @@ void UI::SaveFile(){
 void UI::ShowMember(){
     Regis_obj->ShowMember();
 }
+void UI::ClearRegister(){
+   Regis_obj->clear();
+}
+
+
 /* Usecase Topup Card */
 void UI::ShowMenu(){
     topupcard.ShowMenuTopupCard();
@@ -107,6 +112,8 @@ void UI::savetopupfile(){
 void UI::Clear(){
     topupcard.clear();
 }
+
+
 /*Usecase Renew Card */
 void UI::showmenuRenewCard(){
     Renew_obj->PrintRenewMenu();
@@ -123,6 +130,8 @@ void UI::SaveDataRenew(){
 void UI::ClearRenewdata(){
     Renew_obj->clear();
 }
+
+
 /* Usecase Add Station */
 
 void UI::Addstation(string StationName,string StationID,int Cost,string Status){
