@@ -36,8 +36,13 @@ void TopupCardController::TopupMoney(double money,string password){
     Member *cur = head;
     while(cur!=NULL){
       if(cur->getPassword()==password){
-        cur->Topupmoney(money);
-        ShowRemainingAmount(cur);
+           if(cur->member_card.CheckMoneyCard(money)){
+              cout << endl;
+              cout << "\t\t\t!!!! Card limit exceeded !!!!" << endl;
+           }else{
+              cur->Topupmoney(money);
+              ShowRemainingAmount(cur);
+           }
         //savedata();
         break; 
       }
