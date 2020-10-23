@@ -64,8 +64,13 @@ int main(){
                     do{obj_ui.ShowMenu();
                       cin >> menu_topup;
                       if(menu_topup == 1){
-                        cout << "Input money : ";
+                       do{
+                        cout << "Input money : (MAXIMAM : 5,000 Bath)";
                         cin >> money;
+                        if(money > 5000){
+                           cout << "Money Overflow !!" << endl; 
+                        }  
+                       }while(money > 5000); 
                         obj_ui.InputMoney(money,pass_card);
                         obj_ui.savetopupfile();
                       }else if(menu_topup == 2){
