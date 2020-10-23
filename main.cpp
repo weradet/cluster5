@@ -203,6 +203,7 @@ int main(){
                   cout << "Station Cost : ";
                   cin >> Cost;
                   obj_ui.Addstation(StationID,StationName,Cost,Status);
+                  obj_ui.WriteFixFile();
                 }else if(choice == '2'){
                   int index;
                   int size = obj_ui.StationNumber();
@@ -233,6 +234,7 @@ int main(){
                             cout << "Cannot Add Station!!" << endl;
                           }else{
                             obj_ui.AddStation_ontheway(index,StationID,StationName,Cost,Status);
+                            obj_ui.WriteFixFile();
                           }
                         }else{
                           cout << "Choose Position Station(1 - " << size << ") : ";
@@ -241,6 +243,7 @@ int main(){
                             cout << "Cannot Add Station!!" << endl;
                           }else{
                               obj_ui.AddStation_ontheway(index,StationID,StationName,Cost,Status);
+                              obj_ui.WriteFixFile();
                           }
                         }
                   }
