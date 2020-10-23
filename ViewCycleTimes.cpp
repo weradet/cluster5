@@ -131,6 +131,7 @@
                     }
                     ro = ro->link;
                 }
-                
+
                 cin >> we;     
         }
+        //asd
