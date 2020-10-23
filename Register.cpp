@@ -94,8 +94,10 @@
     }
   }
   void RegisterController::ShowRemainingAmount(Member *cur){
-    cout << "Remaining Amount : " << cur->getMoney();
     cout << "\n=====================================================" << endl;  
+    cout << "Remaining Amount : " << cur->getMoney();
+    cout << "\n=====================================================" << endl; 
+    //Sleep(3000); 
   }//Show Remaining Amount
   void RegisterController::ShowMember(){
     Member *cur = head;
