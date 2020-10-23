@@ -8,12 +8,12 @@ TopupCardController::TopupCardController(){
 void TopupCardController::ShowMenuTopupCard(){
    // system("cls");
     cout << endl;
-    cout << "=============== TOPUP ==============="<< endl;
-    cout << "1. Topup" << endl;
-    cout << "2. Show balance" << endl;
-    cout << "3. Back to menu" << endl;
-    cout << "====================================="<< endl;
-    cout << "Please Enter Choice: ";
+    cout << "\t\t================== TOPUP =================="<< endl;
+    cout << "\t\t| 1. Topup\t\t\t  \t|" << endl;
+    cout << "\t\t| 2. Show balance\t\t\t|" << endl;
+    cout << "\t\t| 3. Back to menu\t\t\t|" << endl;
+    cout << "\t\t==========================================="<< endl;
+    cout << "\t\tPlease Enter Choice: ";
                 
 }//void showMenu
 
@@ -46,8 +46,9 @@ void TopupCardController::TopupMoney(double money,string password){
 }//void topupMoney
 
 void TopupCardController::ShowRemainingAmount(Member *cur){
-    cout << "Remaining Amount : " << cur->getMoney();
-    cout << "\n=====================================================" << endl;  
+    cout << "\t\t============= Remaining amount ============" << endl;
+    cout << "\t\t|\tRemaining Amount : " << cur->getMoney() << " " << "Bath\t  |\n";
+    cout << "\t\t===========================================" << endl;  
 }//void showamoung
 
 void TopupCardController::SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money){
