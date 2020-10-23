@@ -7,9 +7,11 @@
 
    void RenewController::PrintRenewMenu(){
         //print interface ewnew card menu
-        cout << "****Renew Card****" << endl;
-        cout << "1.Renew Card" << endl;
-        cout << "2. Back " << endl;
+        system("cls");
+        cout << "\t\t*********** Renew Card **********" << endl;
+        cout << "\t\t*\t1.Renew Card\t\t*" << endl;
+        cout << "\t\t*\t2. Back \t\t*" << endl;
+        cout << "\t\t*********************************" << endl;
     }
    void RenewController::Findmember(string password){
           Member *cur = head;
