@@ -186,6 +186,8 @@ int main(){
                 cout << "Enter ==> ";
                 cin >> choice;
                 if(choice == '1'){
+                  obj_ui.show_station();
+                  //inputID:
                   cout << "Station ID : ";
                   cin >> StationID;
                   while(StationID.length() != 2){
@@ -193,17 +195,34 @@ int main(){
                     cout << "Station ID Not equal to 2 ";
                     cin >> StationID;
                   }//while
-                  cout << "Station Name : ";
+                 // bool istrue = obj_ui.checkStationID(StationID);
+                  while(obj_ui.checkStationID(StationID)){
+                        cout << "The Station Already Exist!!!" << endl;
+                         cin >> StationID;
+                  }//clear
+                 // inputname:cout << "Station Name : ";
+                 cout << "Station Name : ";
                   cin >> StationName;
-                  if(obj_ui.checkStationID(StationID) == true && obj_ui.checkStationName(StationName) == true){
-                    cout << "The Station Already Exist!!!" << endl;
-                  }
+                  while(obj_ui.checkStationName(StationName)){             
+                        cout << "The Station Already Exist!!!" << endl;
+                        //goto inputname; 
+                        cin >> StationName;              
+                  }//invalid
+      //inputStatus:
                   cout << "Station Status : ";
                   cin >> Status;
+                 /* if(Status!="open" && Status!="close"){
+                    goto inputStatus;
+                  }*/
+                  while(obj_ui.checkStationID(StationName)){             
+                      cout << "The Station Already Exist!!!" << endl;
+                        //goto inputname; 
+                        cin >> Status;           
+                  }//invalid
                   cout << "Station Cost : ";
                   cin >> Cost;
-                  obj_ui.Addstation(StationID,StationName,Cost,Status);
-                  obj_ui.WriteFixFile();
+                  obj_ui.Addstation(StationName,StationID,Cost,Status);
+                  obj_ui.WriteStationfile();
                 }else if(choice == '2'){
                   int index;
                   int size = obj_ui.StationNumber();
@@ -211,20 +230,28 @@ int main(){
                     cout << "Cannot Add Station!!" << endl;
                   }else{
                     int Cost;
-                    cout << "Station ID : ";
+                    inputID2:cout << "Station ID : ";
                     cin >> StationID;
                     while(StationID.length() != 2){
                       cout << "!!! Warning !!!\n";
                       cout << "Station ID Not equal to 2 ";
                       cin >> StationID;
                     }//while
-                    cout << "Station Name : ";
+                    if(obj_ui.checkStationName(StationID) == true){
+                    cout << "The Station Already Exist!!!" << endl;
+                        goto inputID2;
+                    }//invalid
+                    inputname2:cout << "Station Name : ";
                     cin >> StationName;
-                      if(obj_ui.checkStationID(StationID) == true && obj_ui.checkStationName(StationName) == true){
-                        cout << "The station already exists!!!" << endl;
-                      }
-                        cout << "Station Status : ";
+                      if(obj_ui.checkStationID(StationName) == true){                   
+                            cout << "The station already exists!!!" << endl;
+                            goto inputname2;                                                
+                      }//invalid
+            inputStatus2:cout << "Station Status : ";
                         cin >> Status;
+                        if(Status!="open" && Status!="close"){
+                          goto inputStatus2;
+                        }
                         cout << "Station Cost : ";
                         cin >> Cost;
                         if(size == 1){
@@ -233,8 +260,8 @@ int main(){
                           if(index > size || index < 1){
                             cout << "Cannot Add Station!!" << endl;
                           }else{
-                            obj_ui.AddStation_ontheway(index,StationID,StationName,Cost,Status);
-                            obj_ui.WriteFixFile();
+                            obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
+                            obj_ui.WriteStationfile();
                           }
                         }else{
                           cout << "Choose Position Station(1 - " << size << ") : ";
@@ -242,13 +269,14 @@ int main(){
                           if(index > size || index < 1){
                             cout << "Cannot Add Station!!" << endl;
                           }else{
-                              obj_ui.AddStation_ontheway(index,StationID,StationName,Cost,Status);
-                              obj_ui.WriteFixFile();
+                              obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
+                              obj_ui.WriteStationfile();
                           }
                         }
                   }
                 }else if(choice == '3'){
                   obj_ui.show_station();
+                  Sleep(2000);
                 }//Add Station
               }else if(menu_admin == 6){
                 obj_ui.ShowAllStation();
