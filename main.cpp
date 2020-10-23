@@ -15,7 +15,7 @@ bool Islogin(string name,string password){
       }//while
       userfile.close();
     }else{
-      cout << "\t\t\tCannot Login!!" << endl;
+      cout << right << setw(70) << "Cannot Login!! Try Again." << endl;
     }
     return false;
 }//get parameter Username and Password for check Login 
@@ -36,7 +36,9 @@ int main(){
   obj_ui.readfile();
   do{
     // loop for all Program
-    try{ 
+    try{
+      system("cls");
+      Interface("Train.txt"); 
       obj_ui.PrintFirstMenu(); 
       cin >> Menu;
       if(!cin){
@@ -105,9 +107,9 @@ int main(){
       }else if(Menu == 2){
         string str_user_name;
         string str_password = "";
-        cout << "\t\t************************************" << endl;
-        cout << "\t\t\tUsername : "; cin >> str_user_name;
-        cout << "\t\t\tPassword : "; cin >> str_password;
+        cout << "\n" << right << setw(80) << "************************************" << endl;
+        cout << right << setw(60) << "Username : "; cin >> str_user_name;
+        cout << right << setw(60) << "Password : "; cin >> str_password;
         if(Islogin(str_user_name,str_password)){
           int menu_admin; //set varible menu admin
           do{
