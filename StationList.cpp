@@ -109,7 +109,7 @@
 		}
 		void StationList::WriteStationfile(){
 			Node_Addstation *temp = head;
-			ofstream myFile3("Station.txt",ios::app);
+			ofstream myFile3("Station.txt",ios::out);
         	if(myFile3.is_open()){ 
 				while(temp!=NULL){
 					myFile3  << temp->StationName <<","<< temp->StationID << "," << temp->Cost  << ","  << temp->Status <<"," << endl;
