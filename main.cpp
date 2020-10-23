@@ -46,6 +46,8 @@ int main(){
       }else if(Menu == 1){
         int menu_customer;
         do{
+          system("cls");
+          Interface("TrainCustomer.txt");
           obj_ui.PrintCustomer();
           try{ 
             cin >> menu_customer; //User input
@@ -114,7 +116,8 @@ int main(){
         if(Islogin(str_user_name,str_password)){
           int menu_admin; //set varible menu admin
           do{
-            cout << endl;
+            system("cls");
+            Interface("TrainCustomer.txt");
             obj_ui.PrintAdmin();
             try{ 
               cin >> menu_admin; //Input 2
@@ -131,22 +134,22 @@ int main(){
                 obj_ui.ClearRegister();
                 system ("cls");
                 Interface("Register.txt");
-                cout << "\n\t\tPlease Input Your Firstname : ";
+                cout << "\n" << right << setw(66) << "Please Input Your Firstname : ";
                 cin >> user_firstname;
-                cout << "\t\tPlease Input Your Lastname : ";
+                cout << right << setw(65) << "Please Input Your Lastname : ";
                 cin >> user_lastname;
-                cout << "\t\tPlease Input Your Tel. : ";
+                cout << right << setw(61) << "Please Input Your Tel. : ";
                 cin >> user_tel;    
-                cout << "\t\t================== Password Card =================" << endl;
-                cout << "\t\tPlease Input Your Password Card : ";
+                cout << right << setw(80) << "================== Password Card =================" << endl;
+                cout << right << setw(70) << "Please Input Your Password Card : ";
                 cin >> password_card;
                 obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                 obj_ui.ShowInformation(user_firstname,password_card);
                 obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
-                cout << "\t\t================= Topup Money Card ===============" << endl;
-                cout << "\t\tPlease Input Your Money : ";
+                cout << right << setw(80) << "================= Topup Money Card ===============" << endl;
+                cout << right << setw(70) << "Please Input Your Money : ";
                 cin >> money;
-                cout << "\t\t=================== Money In Card =================" << endl;
+                cout << right << setw(80) << "=================== Money In Card =================" << endl;
                 obj_ui.InputMoneyCard(money,password_card);                                          
                 obj_ui.SaveFile(); //Register Member
               }else if(menu_admin == 4){
