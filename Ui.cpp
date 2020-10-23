@@ -156,4 +156,6 @@ int UI::StationNumber(){
 void UI::View(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();
+    view->SearchRound();
+    view->show();
 }
