@@ -10,11 +10,15 @@ class ViewCycleTime{
         string TerminalStation;
         Station my_station;
         Path *head;
-        Round *round;
     public :
+        Round *first;
+        Round *last;
+        int count;
         ViewCycleTime(void);
         void ChooseDepartureStation();
         void ChooseTerminalStation();
         void SearchRound();
+        void Add(string N);
+        void show();
 };
 #endif
