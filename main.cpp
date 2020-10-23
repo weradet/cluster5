@@ -77,7 +77,7 @@ int main(){
                       cin >> menu_topup;
                       if(menu_topup == 1){
                        do{
-                        cout << "Input money (MAXIMAM : 5,000 Bath) : ";
+                        cout << "\t\tInput money (MAXIMAM : 5,000 Bath) : ";
                         cin >> money;
                         if(money > 5000){
                            cout << "\nMoney Overflow !!" << endl; 
