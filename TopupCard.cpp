@@ -9,9 +9,9 @@ void TopupCardController::ShowMenuTopupCard(){
    // system("cls");
     cout << endl;
     cout << "\t\t================== TOPUP =================="<< endl;
-    cout << "\t\t| 1. Topup\t\t\t  \t|" << endl;
-    cout << "\t\t| 2. Show balance\t\t\t|" << endl;
-    cout << "\t\t| 3. Back to menu\t\t\t|" << endl;
+    cout << "\t\t|  1. Topup                               |" << endl;
+    cout << "\t\t|  2. Show balance                        |" << endl;
+    cout << "\t\t|  3. Back to menu                        |" << endl;
     cout << "\t\t==========================================="<< endl;
     cout << "\t\tPlease Enter Choice: ";
                 
