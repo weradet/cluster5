@@ -107,6 +107,7 @@ int main(){
                 //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
                 string user_firstname,user_lastname,user_tel,password_card;
                 double money;
+                obj_ui.ClearRegister();
                 system ("cls");
                 cout << "\t\t==================== Register ====================" << endl;
                 cout << "\t\tPlease Input Your Firstname : ";
