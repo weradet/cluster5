@@ -1,21 +1,19 @@
 #ifndef ROUND_H
 #define ROUND_H
 #include "include.h"
+#include "Node_time.h"
 class Round{
-        private:
-            string TimeOut[9];
-            string Name;
+            
         public:
-            Round *head;
-            Round *tail;
+            string Name;
+            TimeOut *first;
+            TimeOut *last;
             Round *link;
             Round *plink;
             int count;
             Round();
-            Round(string timeout,int i);
             Round(string name);
-            void add(string name);
-            void add(string timeout,int i);
+            void add_time(string timeout);
             void Readfile();
             void Show();
 };
