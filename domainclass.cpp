@@ -50,6 +50,7 @@
                     if(customer_money > 10000){
                       return true;
                     }
+                      return false;
         }
      
      
