@@ -30,12 +30,12 @@ void UI::PrintAdmin(){
     cout << "\t\tPlease Choose 1 Choice (1-7) : ";
 }//Print Menu For Admin
 void UI::PrintFirstMenu(){
-    cout << "\t\t************* Personal *************" << endl;
-    cout << "\t\t*  1.CUSTOMER                      *" << endl;
-    cout << "\t\t*  2.ADMIN                         *" << endl;
-    cout << "\t\t*  3.EXIT THE PROGRAM              *" << endl;
-    cout << "\t\t************************************" << endl;
-    cout << "\t\tPlease Choose 1 Choice (1-3) : ";
+    cout << "\n" << right << setw(80) << "************* Personal *************" << endl;
+    cout << right << setw(80) << "*  1.CUSTOMER                      *" << endl;
+    cout << right << setw(80) << "*  2.ADMIN                         *" << endl;
+    cout << right << setw(80) << "*  3.EXIT THE PROGRAM              *" << endl;
+    cout << right << setw(80) << "************************************" << endl;
+    cout << right << setw(75) << "Please Choose 1 Choice (1-3) : ";
 }//Print Main Menu
 void UI::WriteFixFile(){
     station_obj->WriteFixFile();
