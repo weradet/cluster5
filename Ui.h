@@ -41,6 +41,7 @@ class UI{
         void LoadFile();
         void SaveFile();
         void ShowMember();
+        void ClearRegister();
 
 
         void ShowMenu();
