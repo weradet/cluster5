@@ -17,7 +17,7 @@ void UI::PrintCustomer(){
     cout << "\t\tPlease Choose 1 Choice (1-4) : ";
 }//Print Menu For Customer
 void UI::PrintAdmin(){
-    //system ("cls");
+    system ("cls");
     cout << "\t\t************** Electic Train **************" << endl;
     cout << "\t\t*  1. Find Cycle Time                     *" << endl; 
     cout << "\t\t*  2. Buy Train Ticket                    *" << endl;
