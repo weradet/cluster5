@@ -116,4 +116,5 @@ void Status::WriteFixFile(){
 				}
    			}		   
 		}
+        myFile3.close();
 }

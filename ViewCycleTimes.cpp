@@ -95,7 +95,9 @@
                                     filein.erase(0,filein.find(',')+1);
                                     //cout << out << endl;
                                         New->add_time(out);
+                                        //cout << out << endl;
                                 }
+                                //cout << "qwe" <<endl;
                              }
                     }
                 file.close();
@@ -107,9 +109,10 @@
                 ifstream file("Round.txt",ios::in);
                 if(file.is_open()){
                     while(getline(file,filein)){
-
+                        
                         name = filein.substr(0,filein.find(','));
 						    filein.erase(0,filein.length());
+                           // cout << name << endl;
                             Add(name); 
  
                     }

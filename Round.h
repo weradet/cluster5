@@ -14,7 +14,5 @@ class Round{
             Round();
             Round(string name);
             void add_time(string timeout);
-            void Readfile();
-            void Show();
 };
 #endif
