@@ -131,5 +131,6 @@
                     }
                     ro = ro->link;
                 }
+                
                 cin >> we;     
         }
