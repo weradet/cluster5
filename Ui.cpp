@@ -7,27 +7,25 @@ UI::UI(){
     view = new ViewCycleTime;
 }
 void UI::PrintCustomer(){
-    system ("cls");
-    cout << "\t\t************** Electic Train **************" << endl;
-    cout << "\t\t*  1. Find Cycle Time                     *" << endl; 
-    cout << "\t\t*  2. Buy Train Ticket                    *" << endl;
-    cout << "\t\t*  3. Topup The Card                      *" << endl;
-    cout << "\t\t*  4. Back To Menu                        *" << endl;
-    cout << "\t\t*******************************************" << endl;
-    cout << "\t\tPlease Choose 1 Choice (1-4) : ";
+    cout << "\n" << right << setw(80) << "********************************************" << endl;
+    cout << right << setw(80) << "*  1. Find Cycle Time                      *" << endl; 
+    cout << right << setw(80) << "*  2. Buy Train Ticket                     *" << endl;
+    cout << right << setw(80) << "*  3. Topup The Card                       *" << endl;
+    cout << right << setw(80) << "*  4. Back To Menu                         *" << endl;
+    cout << right << setw(80) << "********************************************" << endl;
+    cout << right << setw(70) << "Please Choose 1 Choice (1-4) : ";
 }//Print Menu For Customer
 void UI::PrintAdmin(){
-    system ("cls");
-    cout << "\t\t************** Electic Train **************" << endl;
-    cout << "\t\t*  1. Find Cycle Time                     *" << endl; 
-    cout << "\t\t*  2. Buy Train Ticket                    *" << endl;
-    cout << "\t\t*  3. Register Member                     *" << endl;
-    cout << "\t\t*  4. Renew Member Card                   *" << endl;
-    cout << "\t\t*  5. Add Station                         *" << endl;
-    cout << "\t\t*  6. Fix Station                         *" << endl;
-    cout << "\t\t*  7. Back To Menu                        *" << endl;
-    cout << "\t\t*******************************************" << endl;
-    cout << "\t\tPlease Choose 1 Choice (1-7) : ";
+    cout << "\n" << right << setw(80) << "********************************************" << endl;
+    cout << right << setw(80) << "*  1. Find Cycle Time                      *" << endl; 
+    cout << right << setw(80) << "*  2. Buy Train Ticket                     *" << endl;
+    cout << right << setw(80) << "*  3. Register Member                      *" << endl;
+    cout << right << setw(80) << "*  4. Renew Member Card                    *" << endl;
+    cout << right << setw(80) << "*  5. Add Station                          *" << endl;
+    cout << right << setw(80) << "*  6. Fix Station                          *" << endl;
+    cout << right << setw(80) << "*  7. Back To Menu                         *" << endl;
+    cout << right << setw(80) << "********************************************" << endl;
+    cout << right << setw(70) << "Please Choose 1 Choice (1-7) : ";
 }//Print Menu For Admin
 void UI::PrintFirstMenu(){
     cout << "\n" << right << setw(80) << "************* Personal *************" << endl;
