@@ -5,26 +5,9 @@ Buy_ticket_controller :: Buy_ticket_controller(){
         Cost = 0;
         Round = " ";
         Head  = new Path();
+        view = new ViewCycleTime;
 }
 void Buy_ticket_controller :: Seach(){
-
-}
-void Buy_ticket_controller :: Departure_Staion(string Origin){
-    
-}
-void Buy_ticket_controller :: Terminal_Staion(string destination){
-    Head->read_file();
-    Path *train = Head;
-    while(train != NULL){
-    if(destination == train->head->stationName()){
-         cout << train->head->StationID();
-         break;
-    }
-        train->head = train->head->link;
-    }
-
-}
-void Buy_ticket_controller :: Chose_Round(){
 
 }
 double Buy_ticket_controller :: Calculate(){
