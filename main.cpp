@@ -39,7 +39,6 @@ int main(){
   int Menu;
   UI obj_ui;
   string str_error = "404 Not found! Your Input Incorrect. Please Try Again";
-  obj_ui.readfile();
   do{
     // loop for all Program
     try{
@@ -271,6 +270,7 @@ int main(){
                   Sleep(2000);
                 }//Add Station
               }else if(menu_admin == 6){
+                obj_ui.readfile();
                 obj_ui.ShowAllStation();
                 string chooseId;
                 int menu;

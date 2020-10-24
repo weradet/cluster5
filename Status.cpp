@@ -3,7 +3,7 @@ void Status::ShowAllStation(){
             Station *temp = head;
             //int i;
             cout << "**************** Station ****************" << endl;
-            cout << setw(7) << left << "NO."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
+            cout << setw(7) << left << "ID."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
             cout << "*****************************************" << endl;
             while(temp != NULL){
                 cout << left << setw(7) << temp->StationID();
