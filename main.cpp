@@ -187,7 +187,6 @@ int main(){
                 cin >> choice;
                 if(choice == '1'){
                   obj_ui.show_station();
-                  //inputID:
                   cout << "Station ID : ";
                   cin >> StationID;
                   while(StationID.length() != 2){
@@ -200,25 +199,17 @@ int main(){
                         cout << "The Station Already Exist!!!" << endl;
                          cin >> StationID;
                   }//clear
-                 // inputname:cout << "Station Name : ";
-                 cout << "Station Name : ";
+                  cout << "Station Name : ";
                   cin >> StationName;
                   while(obj_ui.checkStationName(StationName)){             
                         cout << "The Station Already Exist!!!" << endl;
-                        //goto inputname; 
                         cin >> StationName;              
                   }//invalid
-      //inputStatus:
-                  cout << "Station Status : ";
+      inputStatus:cout << "Station Status : ";
                   cin >> Status;
-                 /* if(Status!="open" && Status!="close"){
+                  if(Status!="open" && Status!="close"){
                     goto inputStatus;
-                  }*/
-                  while(obj_ui.checkStationID(StationName)){             
-                      cout << "The Station Already Exist!!!" << endl;
-                        //goto inputname; 
-                        cin >> Status;           
-                  }//invalid
+                  }
                   cout << "Station Cost : ";
                   cin >> Cost;
                   obj_ui.Addstation(StationName,StationID,Cost,Status);
@@ -230,24 +221,24 @@ int main(){
                     cout << "Cannot Add Station!!" << endl;
                   }else{
                     int Cost;
-                    inputID2:cout << "Station ID : ";
+                    cout << "Station ID : ";
                     cin >> StationID;
                     while(StationID.length() != 2){
                       cout << "!!! Warning !!!\n";
                       cout << "Station ID Not equal to 2 ";
                       cin >> StationID;
                     }//while
-                    if(obj_ui.checkStationName(StationID) == true){
-                    cout << "The Station Already Exist!!!" << endl;
-                        goto inputID2;
-                    }//invalid
-                    inputname2:cout << "Station Name : ";
-                    cin >> StationName;
-                      if(obj_ui.checkStationID(StationName) == true){                   
-                            cout << "The station already exists!!!" << endl;
-                            goto inputname2;                                                
-                      }//invalid
-            inputStatus2:cout << "Station Status : ";
+                    while(obj_ui.checkStationID(StationID)){
+                        cout << "The Station Already Exist!!!" << endl;
+                        cin >> StationID;
+                    }
+                      cout << "Station Name : ";
+                      cin >> StationName;
+                    while(obj_ui.checkStationName(StationName)){             
+                      cout << "The Station Already Exist!!!" << endl;
+                      cin >> StationName;              
+                  }//invalid
+           inputStatus2:cout << "Station Status : ";
                         cin >> Status;
                         if(Status!="open" && Status!="close"){
                           goto inputStatus2;
