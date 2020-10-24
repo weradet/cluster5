@@ -22,6 +22,7 @@ class UI{
         ViewCycleTime *view;
     public:
         UI();
+        void remove();
         void readfile();
         bool CheckStatus(string name);
         void PrintCustomer();

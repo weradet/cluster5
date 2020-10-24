@@ -1,4 +1,7 @@
 #include"Station_Controller.h"    
+        void StationController::remove(){
+            obj_sta.remove();
+        }
         void StationController::readfile(){
             obj_sta.read_file();
            // obj_stalist.read_file();
