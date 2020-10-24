@@ -167,7 +167,7 @@ int main(){
                 string tel = user_tel.substr(0,3) + "-" + user_tel.substr(3,3) + "-" + user_tel.substr(6,4);
                 cout << right << setw(54) << "Phone number : " << user_tel << endl;
                 obj_ui.ShowExprirationDate(user_firstname,password_card);
-                obj_ui.ShowRemainingAmount();                                      
+                obj_ui.ShowRemainingAmount(password_card);                                      
                 obj_ui.SaveFile(); cout << endl;
                 Enter(); //Register Member                                          
               }else if(menu_admin == 4){

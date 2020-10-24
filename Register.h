@@ -17,7 +17,7 @@ class RegisterController{
         void InputMoneyCard(double money,string password);
         void LoadData();
         void SaveData();
-        void ShowRemainingAmount(Member *cur);
+        void ShowRemainingAmount(string password);
         void ShowMember();   
         void clear();     
 };

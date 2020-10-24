@@ -97,10 +97,17 @@
       }//while
     }
   }
-  void RegisterController::ShowRemainingAmount(Member *cur){
-    cout << right << setw(58) << "Remaining Amount : " << cur->getMoney() << " Bath";
-    cout << "\n" << right << setw(80) << "==================================================" << endl;
-    cout << "\n" << right << setw(80) << "- - - - - - - - REGISTER COMPLETE! - - - - - - - -\n" << endl; 
+  void RegisterController::ShowRemainingAmount(string password){
+    Member *cur = head;
+    while(cur != NULL){
+      if(cur->getPassword() == password){
+        cout << right << setw(58) << "Remaining Amount : " << cur->getMoney() << " Bath";
+        cout << "\n" << right << setw(80) << "==================================================" << endl;
+        cout << "\n" << right << setw(80) << "- - - - - - - - REGISTER COMPLETE! - - - - - - - -\n" << endl;
+        break; 
+      }
+      cur = cur->link; 
+    }
   }//Show Remaining Amount
   void RegisterController::ShowMember(){
     Member *cur = head;
