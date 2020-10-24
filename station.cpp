@@ -16,6 +16,9 @@
         void Station::NewName(string name){
             Station_Name = name;
         }
+        void Station::NewID(string id){
+            ID = id;
+        }
         string Station::StationID(){
             return ID;
         }

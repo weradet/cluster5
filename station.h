@@ -15,6 +15,7 @@ class Station{
         void NewCost(int cost);
         void NewStatus(string status);
         void NewName(string name);
+        void NewID(string ID);
         string StationID();
         string stationName();
         string stationStatus();

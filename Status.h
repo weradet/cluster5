@@ -4,6 +4,7 @@
 #include"Path.h"
 class Status :public Path{
     public:
+        string SortStation(Station *ptemp);
         void ShowAllStation();
         void showStation(string id);
         void ChooseFixMenu(string id,int menu);
