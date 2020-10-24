@@ -104,6 +104,8 @@ int main(){
             }else if(menu_customer == 3){
               string pass_card;
               int menu_member;
+              system("cls");
+              Interface("Topup card.txt");
               do{
                 cout << "\t\t\t============= MEMBER =============" << endl;
                 cout << "\t\t\t=     1. Input The Card          =" << endl;
