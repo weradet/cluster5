@@ -6,7 +6,7 @@ TopupCardController::TopupCardController(){
     //Loaddata();
 }
 void TopupCardController::ShowMenuTopupCard(){
-   // system("cls");
+    system("cls");
     cout << endl;
     cout << "\t\t================== TOPUP =================="<< endl;
     cout << "\t\t|  1. Topup                               |" << endl;
@@ -14,6 +14,7 @@ void TopupCardController::ShowMenuTopupCard(){
     cout << "\t\t|  3. Back to menu                        |" << endl;
     cout << "\t\t==========================================="<< endl;
     cout << "\t\tPlease Enter Choice: ";
+    cout << endl;
                 
 }//void showMenu
 
