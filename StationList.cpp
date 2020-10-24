@@ -118,7 +118,8 @@
 				while(temp!=NULL){
 					myFile3  << temp->StationName <<","<< temp->StationID << "," << temp->Cost  << ","  << temp->Status <<"," << endl;
 					temp = temp->link;
-				}  
+				}
+				myFile3.close();  
 			}
 		}
 		int StationList::StationNumber(){
