@@ -44,6 +44,40 @@ void CannotAddstation(){
       cin >> enter;
     }
 }
+string pass(){
+   // int i;
+    char ch='\0',match[20];
+    for(int i=0;i>=0;)
+     {
+       ch=getch();
+
+      if(ch!=8&&ch!=13)
+        {
+         cout<<"*";
+         match[i]=ch;
+         i++;
+        }
+      else if (ch==8) // if backspace is presssed
+       {
+           if(i>0){
+            cout<<"\b \b"; // moves cursor to the left print <space> again move cursor to left
+             i--;
+           }else{
+
+           }
+       }
+      else if(ch==13)
+    {
+         match[i]='\0'; // if enter is pressed, last character in match[] becomes null
+        break;         // for end of string
+    }
+    else
+    {
+         break;
+    }
+  }
+  return match;
+}
 int main(){
   int Menu;
   UI obj_ui;
@@ -126,7 +160,7 @@ int main(){
         string str_password = "";
         cout << "\n" << right << setw(80) << "************************************" << endl;
         cout << right << setw(60) << "Username : "; cin >> str_user_name;
-        cout << right << setw(60) << "Password : "; cin >> str_password;
+        cout << right << setw(60) << "Password : "; str_password = pass();
         if(Islogin(str_user_name,str_password)){
           int menu_admin; //set varible menu admin
           do{
