@@ -156,6 +156,10 @@ void UI::show_station(){
 int UI::StationNumber(){
     return StationList_obj->StationNumber();
 }
+void UI::WriteRoundfile(){
+    StationList_obj->WriteRoundfile();
+}
+
 void UI::View(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();

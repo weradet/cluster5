@@ -106,7 +106,7 @@
 			Node_Addstation *temp = head;
 			int i = 1;
 			while(temp != NULL){  
-				cout << "Station" << i << ": = " << temp->StationName << temp->StationID << temp->Cost << temp->Status << endl;
+				cout << "Station" << i << ": = " << temp->StationID << temp->StationName << temp->Cost << temp->Status << endl;
 				temp = temp->link;
 				i++;
 			}		
@@ -124,3 +124,47 @@
 		int StationList::StationNumber(){
             return count;
         }
+		void StationList::remove(){
+			ReadStationFile();
+			for(int i=1;i<count;i++){
+				Node_Addstation *tmp = head;
+				head = head->link;
+				delete tmp;
+				tmp = NULL;
+			}
+			head = NULL;
+			tail = NULL;
+		}
+		void StationList::WriteRoundfile(){
+			remove();
+			ReadStationFile();
+			ViewCycleTime *view = new ViewCycleTime();
+			view->SearchRound();
+			Node_Addstation *temp = head;
+			ViewCycleTime *V = view;
+			
+			while(V->first->Name == temp->StationName){
+				if(V->first->Name != temp->StationName){
+					break;
+				}
+				V->first = V->first->link;
+				temp = temp->link;
+			}
+			Round *New = new Round(temp->StationName);
+			New->link = V->first;
+			New->plink = V->first->plink;
+			V->first->plink->link = New; 
+			V->first->plink = New;
+
+			//Node_Addstation *temp = head;
+			ofstream myFile3("Round.txt",ios::out);
+        	if(myFile3.is_open()){ 
+				while(view->first!=NULL){
+					myFile3  << view->first->Name <<",";
+					while(view->first->first != NULL){
+						view->first->first->link; 
+					}
+					view->first = view->first;
+				}  
+			}
+		}

@@ -231,6 +231,7 @@ int main(){
                   cin >> Cost;
                   obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
                   obj_ui.WriteStationfile();
+                  obj_ui.WriteRoundfile();
                 }else if(choice == '2'){
                   int index;
                   int size = obj_ui.StationNumber();
@@ -273,6 +274,7 @@ int main(){
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
                           obj_ui.WriteStationfile();
+                          obj_ui.WriteRoundfile();
                         }
                       }else{
                         cout << "Choose Position Station(1 - " << size << ") : ";
@@ -282,6 +284,7 @@ int main(){
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
                           obj_ui.WriteStationfile();
+                          obj_ui.WriteRoundfile();
                         }
                       }
                   }
