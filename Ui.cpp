@@ -62,6 +62,8 @@ void UI::ShowAllStation(){
 void UI::ShowStaiton(string id){
     station_obj->ShowStation(id);
 }
+
+
 /* Usecase Register */
 void UI::InputPersonalInformation(string firstname,string lastname,string tel,string password){
     Regis_obj->SetMemberInformation(firstname,lastname,tel,password);   

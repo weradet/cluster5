@@ -33,9 +33,7 @@
     Member *customer = head;
     while(customer != NULL){
       if(customer->getFirstname() == firstname && customer->getPassword() == password){
-        cout << right << setw(52) << "ExpireCard : " << customer->getExpire() << endl;
-        // ShowRemainingAmount();
-        // break;     
+        cout << right << setw(52) << "ExpireCard : " << customer->getExpire() << endl;     
       }
       customer = customer->link;
     }
@@ -55,8 +53,6 @@
     while(cur != NULL){
       if(cur->getPassword() == password){
         cur->Topupmoney(numMoney);
-        // ShowRemainingAmount(cur);
-        // break; 
       }
       cur = cur->link;
     }//while
@@ -103,7 +99,7 @@
       if(cur->getPassword() == password){
         cout << right << setw(58) << "Remaining Amount : " << cur->getMoney() << " Bath";
         cout << "\n" << right << setw(80) << "==================================================" << endl;
-        cout << "\n" << right << setw(80) << "- - - - - - - - REGISTER COMPLETE! - - - - - - - -\n" << endl;
+        cout << "\n" << right << setw(81) << "- - - - - - - - REGISTER COMPLETE! - - - - - - - -\n" << endl;
         break; 
       }
       cur = cur->link; 

@@ -224,10 +224,11 @@ int main(){
                   }else if(menu_renew == 1){
                     string passwordcard;
                     obj_ui.loaddataRenew();
-                    cout << "Please Input the Password Card : "; 
+                    cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
                     cin >> passwordcard; 
                     obj_ui.EnterCardcode(passwordcard);
                     obj_ui.SaveDataRenew();
+                    Enter();
                   }
                 }while(menu_renew != 2); //Renew Member Card
               }else if(menu_admin == 5){
