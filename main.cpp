@@ -238,13 +238,10 @@ int main(){
                     cin.ignore(100,'\n'); 
                   }else if(menu_renew == 1){
                     string passwordcard;
-                    obj_ui.loadtopupfile();
-                    do{
                     obj_ui.loaddataRenew();
                     cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
                     cin >> passwordcard; 
                     obj_ui.EnterCardcode(passwordcard);
-                    }while(obj_ui.checkmember(passwordcard));
                     obj_ui.SaveDataRenew();
                     Enter();
                   }
