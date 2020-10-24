@@ -30,10 +30,11 @@ void Interface(string file){
   myfile.close();
 }
 void Enter(){
-  char enter;
+  char enter = ' ';
   cout << "Please Enter to Continue : ";
-  cin >> enter;
-  enter = getchar();
+  while((enter = getch()) != '\r'){  
+    cin >> enter;
+  }
 }
 int main(){
   int Menu;
@@ -152,13 +153,19 @@ int main(){
                 obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                 obj_ui.ShowInformation(user_firstname,password_card);
                 obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
-                cout << right << setw(80) << "================= Topup Money Card ===============" << endl;
-                cout << right << setw(70) << "Please Input Your Money : ";
+                cout << right << setw(80) << "================ Topup Money Card ================" << endl;
+                cout << right << setw(65) << "Please Input Your Money : ";
                 cin >> money;
-                cout << right << setw(80) << "=================== Money In Card =================" << endl;
-                obj_ui.InputMoneyCard(money,password_card);                                          
-                obj_ui.SaveFile(); //Register Member
-                Enter();
+                obj_ui.InputMoneyCard(money,password_card);
+                system ("cls");
+                cout << right << setw(80) << "============== Customer Information ==============" << endl;
+                cout << right << setw(55) << "Name Customer : " << user_firstname << " " << user_lastname << endl;  
+                string tel = user_tel.substr(0,3) + "-" + user_tel.substr(3,3) + "-" + user_tel.substr(6,4);
+                cout << right << setw(54) << "Phone number : " << user_tel << endl;
+                obj_ui.ShowExprirationDate(user_firstname,password_card);
+                //obj_ui.ShowRemainingAmount(MemberCard *cur);                                      
+                obj_ui.SaveFile(); cout << endl;
+                Enter(); //Register Member                                          
               }else if(menu_admin == 4){
                 int menu_renew;
                 do{

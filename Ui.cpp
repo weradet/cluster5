@@ -69,6 +69,9 @@ void UI::ShowExprirationDate(string firstname,string password){
 void UI::InputMoneyCard(double money,string password){
     Regis_obj->InputMoneyCard(money,password);
 }
+void UI::ShowRemainingAmount(Member *cur){
+    Regis_obj->ShowRemainingAmount(cur);
+}
 void UI::LoadFile(){
     Regis_obj->LoadData();
 }

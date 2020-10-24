@@ -10,7 +10,7 @@
 #include "TopupCard.h"
 #include "StationList.h"
 #include "ViewCycleTimes.h"
-#include"node_Addstation.h"
+#include "node_Addstation.h"
 //#include"Buy_ticket.h"
 class UI{
     private:
@@ -38,6 +38,7 @@ class UI{
         void ShowInformation(string firstname,string password);
         void ShowExprirationDate(string firstname,string password);
         void InputMoneyCard(double money,string password);
+        void ShowRemainingAmount(Member *cur);
         void LoadFile();
         void SaveFile();
         void ShowMember();

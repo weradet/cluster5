@@ -22,8 +22,9 @@
       if(customer->getFirstname() == firstname && customer->getPassword() == password){
         system ("cls");
         cout << right << setw(80) << "============== Customer Information ==============" << endl;
-        cout << right << setw(80) << "Name Customer : " << customer->getFirstname() << " " << customer->getLastname() << endl;
-        cout << right << setw(80) << "Tel. : " << customer->getTel() << endl;
+        cout << right << setw(55) << "Name Customer : " << customer->getFirstname() << " " << customer->getLastname() << endl;
+        string tel = customer->getTel().substr(0,3) + "-" + customer->getTel().substr(3,3) + "-" + customer->getTel().substr(6,4);
+        cout << right << setw(54) << "Phone number : " << tel << endl;
       }
       customer = customer->link;
     }
@@ -32,7 +33,9 @@
     Member *customer = head;
     while(customer != NULL){
       if(customer->getFirstname() == firstname && customer->getPassword() == password){
-        cout << right << setw(80) << "ExpireCard : " << customer->getExpire() << endl;     
+        cout << right << setw(52) << "ExpireCard : " << customer->getExpire() << endl;
+        // ShowRemainingAmount();
+        // break;     
       }
       customer = customer->link;
     }
@@ -52,8 +55,8 @@
     while(cur != NULL){
       if(cur->getPassword() == password){
         cur->Topupmoney(numMoney);
-        ShowRemainingAmount(cur);
-        break; 
+        // ShowRemainingAmount(cur);
+        // break; 
       }
       cur = cur->link;
     }//while
@@ -78,7 +81,7 @@
         SetMemberInData(firstname,lastname,tel,password,expire,money);
       }//while
     }else{
-      cout << "File Error!!" << endl;
+      cout << right << setw(60) << "File Error!!" << endl;
     }
       data.close();
   }
@@ -87,16 +90,17 @@
     ofstream file("member.txt",ios::app);
     if(file.is_open()){
       while(cur != NULL){ 
-        file << cur->getFirstname() << "," << cur->getLastname() << "," << cur->getTel() << "," 
-            << cur->getPassword() << "," << cur->getExpire() << "," << cur->getMoney() << endl;   
+        file << cur->getFirstname() << "," << cur->getLastname() << ","
+             << cur->getTel().substr(0,3) + "-" + cur->getTel().substr(3,3) + "-" + cur->getTel().substr(6,4) << "," 
+             << cur->getPassword() << "," << cur->getExpire() << "," << cur->getMoney() << endl;   
         cur = cur->link;
       }//while
     }
   }
   void RegisterController::ShowRemainingAmount(Member *cur){
-    cout << right << setw(80) << "\n=====================================================" << endl;  
-    cout << right << setw(80) << "Remaining Amount : " << cur->getMoney();
-    cout << right << setw(80) << "\n=====================================================" << endl; 
+    cout << right << setw(58) << "Remaining Amount : " << cur->getMoney() << " Bath";
+    cout << "\n" << right << setw(80) << "==================================================" << endl;
+    cout << "\n" << right << setw(80) << "- - - - - - - - REGISTER COMPLETE! - - - - - - - -\n" << endl; 
   }//Show Remaining Amount
   void RegisterController::ShowMember(){
     Member *cur = head;
