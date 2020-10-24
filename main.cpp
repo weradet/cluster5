@@ -268,10 +268,24 @@ int main(){
                   if(Status != "open" && Status != "close"){
                     goto inputStatus;
                   }
-                  cout << "Station Cost : ";
-                  cin >> Cost;
-                  obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
-                  obj_ui.WriteRoundfile();
+                  //cout << "Station Cost : ";
+                //  cin >> Cost;
+          
+            inputcost:cout << "Enter Station Cost : ";
+                        try{ 
+                            cin >> Cost; //User input
+                         if(!cin){
+                              throw Cost;
+                         }else{
+                            obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
+                          //  obj_ui.WriteRoundfile();
+                         }
+                        }catch(int x){  
+                            cin.clear(); 
+                            cin.ignore(100, '\n');
+                            goto inputcost;
+                        }
+              
                 }else if(choice == '2'){
                   int index;
                   int size = obj_ui.StationNumber();
@@ -304,8 +318,20 @@ int main(){
                     if(Status!="open" && Status!="close"){
                       goto inputStatus2;
                     }
-                      cout << "Station Cost : ";
-                      cin >> Cost;
+                      inputcost2:cout << "Enter Station Cost : ";
+                        try{ 
+                            cin >> Cost; //User input
+                         if(!cin){
+                              throw Cost;
+                         }else{
+                            obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
+                          //  obj_ui.WriteRoundfile();
+                         }
+                        }catch(int x){  
+                            cin.clear(); 
+                            cin.ignore(100, '\n');
+                            goto inputcost2;
+                        }
                       if(size == 1){
                         cout << "Input Position (1) : ";
                         cin >> index;
@@ -324,7 +350,7 @@ int main(){
                           CannotAddstation();
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
-                          obj_ui.WriteRoundfile();
+                          //obj_ui.WriteRoundfile();
                         }
                       }
                       obj_ui.WriteStationfile();
