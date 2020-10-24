@@ -131,8 +131,12 @@ int main(){
               if(!cin){
                 throw str_error;
               }else if(menu_admin == 1){
+                system ("cls");
+                Interface("CycleTime.txt");
                 obj_ui.View(); //Find Cycle Time
               }else if(menu_admin == 2){
+                system ("cls");
+                Interface("BuyTicket.txt");
                 //Buy Train Ticket
               }else if(menu_admin == 3){
                 //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
@@ -163,12 +167,14 @@ int main(){
                 string tel = user_tel.substr(0,3) + "-" + user_tel.substr(3,3) + "-" + user_tel.substr(6,4);
                 cout << right << setw(54) << "Phone number : " << user_tel << endl;
                 obj_ui.ShowExprirationDate(user_firstname,password_card);
-                //obj_ui.ShowRemainingAmount(MemberCard *cur);                                      
+                obj_ui.ShowRemainingAmount();                                      
                 obj_ui.SaveFile(); cout << endl;
                 Enter(); //Register Member                                          
               }else if(menu_admin == 4){
                 int menu_renew;
                 do{
+                  system ("cls");
+                  Interface("Renew_card.txt");
                   obj_ui.showmenuRenewCard();
                   cin >> menu_renew;
                   if(!cin){
@@ -187,6 +193,8 @@ int main(){
                 char choice;
 	              string StationName,Status,StationID;
                 int Cost;
+                system ("cls");
+                Interface("Add_station.txt");
                 cout << "1.Add Destination" << endl;
                 cout << "2.Add Departure station,Add station on the way" << endl;
                 cout << "3.Show" << endl;
@@ -213,9 +221,10 @@ int main(){
                       StationName = "";
                       cin >> StationName;              
                     }//invalid
-      inputStatus:cout << "Station Status : ";
+                  inputStatus:
+                  cout << "Station Status : ";
                   cin >> Status;
-                  if(Status!="open" && Status!="close"){
+                  if(Status != "open" && Status != "close"){
                     goto inputStatus;
                   }
                   cout << "Station Cost : ";
@@ -237,9 +246,9 @@ int main(){
                       cin >> StationID;
                     }//while
                     while(obj_ui.checkStationID(StationID)){
-                        cout << "The Station Already Exist!!!" << endl;
-                        StationID = "";
-                        cin >> StationID;
+                      cout << "The Station Already Exist!!!" << endl;
+                      StationID = "";
+                      cin >> StationID;
                     }
                       cout << "Station Name : ";
                       cin >> StationName;
@@ -248,38 +257,41 @@ int main(){
                       StationName = "";
                       cin >> StationName;              
                   }//invalid
-           inputStatus2:cout << "Station Status : ";
-                        cin >> Status;
-                        if(Status!="open" && Status!="close"){
-                          goto inputStatus2;
-                        }
-                        cout << "Station Cost : ";
-                        cin >> Cost;
-                        if(size == 1){
-                          cout << "Input Position (1) : ";
-                          cin >> index;
-                          if(index > size || index < 1){
-                            cout << "Cannot Add Station!!" << endl;
-                          }else{
-                            obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
-                            obj_ui.WriteStationfile();
-                          }
+                  inputStatus2:
+                    cout << "Station Status : ";
+                    cin >> Status;
+                    if(Status!="open" && Status!="close"){
+                      goto inputStatus2;
+                    }
+                      cout << "Station Cost : ";
+                      cin >> Cost;
+                      if(size == 1){
+                        cout << "Input Position (1) : ";
+                        cin >> index;
+                        if(index > size || index < 1){
+                          cout << "Cannot Add Station!!" << endl;
                         }else{
-                          cout << "Choose Position Station(1 - " << size << ") : ";
-                          cin >> index; 
-                          if(index > size || index < 1){
-                            cout << "Cannot Add Station!!" << endl;
-                          }else{
-                              obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
-                              obj_ui.WriteStationfile();
-                          }
+                          obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
+                          obj_ui.WriteStationfile();
                         }
+                      }else{
+                        cout << "Choose Position Station(1 - " << size << ") : ";
+                        cin >> index; 
+                        if(index > size || index < 1){
+                          cout << "Cannot Add Station!!" << endl;
+                        }else{
+                          obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
+                          obj_ui.WriteStationfile();
+                        }
+                      }
                   }
                 }else if(choice == '3'){
                   obj_ui.show_station();
-                  Sleep(2000);
+                  Enter();
                 }//Add Station
               }else if(menu_admin == 6){
+                system ("cls");
+                Interface("Fixstation.txt");
                 obj_ui.readfile();
                 obj_ui.ShowAllStation();
                 string chooseId;
@@ -293,7 +305,7 @@ int main(){
                 obj_ui.ChooseFixMenu(chooseId,menu);
                 obj_ui.WriteFixFile(); //Fix Station
                 string commit;
-                cout << "Do you want to go back to the main page? Ans(Yes/No) : ";cin >> commit;
+                cout << "Do you want to go back to the main page? Ans(Yes/No) : "; cin >> commit;
                 if(commit == "Yes"){
                   goto Firstpage;
                 }
