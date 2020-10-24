@@ -5,6 +5,7 @@
 #include"Path.h"
 class Buy_ticket_controller{
     public:
+        ViewCycleTime * view; 
         string Terminal;
         string Departure;
         int Cost;

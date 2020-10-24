@@ -4,7 +4,7 @@ Buy_ticket_controller :: Buy_ticket_controller(){
         Departure = " ";
         Cost = 0;
         Round = " ";
-        Head  = new Path();
+        Head  = new Path;
         view = new ViewCycleTime;
 }
 void Buy_ticket_controller :: Seach(){
