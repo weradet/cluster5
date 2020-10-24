@@ -32,7 +32,7 @@
                     tail->link = head;
                     head->plink = tail;
                     count--; 
-                }else(count == 1){
+                }else if(count == 1){
                     head = NULL;
                     tail = NULL;
                     delete temp;
