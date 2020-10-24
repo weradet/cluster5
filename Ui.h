@@ -22,13 +22,14 @@ class UI{
         ViewCycleTime *view;
     public:
         UI();
+        bool CheckID(string id);
         void remove();
         void readfile();
         bool CheckStatus(string name);
         void PrintCustomer();
         void PrintAdmin();
         void PrintFirstMenu();
-        void ChooseFixMenu(string id,int menu);
+        void ChooseFixMenu(string id,string menu);
         void ShowFixMenuStation();
         void ShowAllStation();
         void ShowStaiton(string id);

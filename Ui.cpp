@@ -35,6 +35,9 @@ void UI::PrintFirstMenu(){
     cout << right << setw(80) << "************************************" << endl;
     cout << right << setw(75) << "Please Choose 1 Choice (1-3) : ";
 }//Print Main Menu
+bool UI::CheckID(string id){
+    return  station_obj->CheckID(id); 
+}
 void UI::WriteFixFile(){
     station_obj->WriteFixFile();
 }
@@ -47,7 +50,7 @@ void UI::readfile(){
 bool UI::CheckStatus(string name){
     return station_obj->CheckStatus(name);      
 }
-void UI::ChooseFixMenu(string id,int menu){
+void UI::ChooseFixMenu(string id,string menu){
     station_obj->ChooseFixMenu(id,menu);
 }
 void UI::ShowFixMenuStation(){

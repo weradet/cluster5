@@ -305,13 +305,19 @@ int main(){
                 obj_ui.readfile();
                 obj_ui.ShowAllStation();
                 string chooseId;
-                int menu;
-                cout << "Choose Station ID : ";
+                string menu;
+        ch_id:  cout << "Choose Station ID : ";
                 cin >> chooseId;
-                obj_ui.ShowStaiton(chooseId);
+                if(chooseId.length() != 2 || obj_ui.CheckID(chooseId) == true){
+                  goto ch_id;
+                }
+                obj_ui.ShowStaiton(chooseId);         
                 obj_ui.ShowFixMenuStation();
-                cout << "Choose Fix Menu Station : ";
+ch_fixmenu:     cout << "Choose Fix Menu Station : ";
                 cin >> menu;
+                if(menu < "1" || menu > "3"){
+                  goto ch_fixmenu;
+                }
                 obj_ui.ChooseFixMenu(chooseId,menu);
                 obj_ui.WriteFixFile(); //Fix Station
                 obj_ui.remove();

@@ -1,12 +1,12 @@
-National Stadium,01,30,open,
-Siam,02,30,open,
-Ratchadamri,03,30,open,
-Sala Daeng,04,30,open,
-Chong Nonsi,05,30,open,
-Surasuk,06,30,open,
-Saphan Taksin,07,30,open,
-Krung Thon Buri,08,30,open,
-Wongwian Yai,09,30,open,
-Pho Nimit,10,30,open,
-Talat Phlu,11,30,open,
-Wutthakat,12,30,open,
+National Stadium,01,30,open
+Siam,02,30,open
+Ratchadamri,03,30,open
+Sala Daeng,04,30,open
+Chong Nonsi,05,30,open
+Surasuk,06,30,open
+Saphan Taksin,07,30,open
+Krung Thon Buri,08,30,open
+Wongwian Yai,09,30,open
+Pho Nimit,10,30,open
+Talat Phlu,11,40,close
+Wutthakat,12,30,close

@@ -1,4 +1,7 @@
 #include"Station_Controller.h"    
+        bool StationController::CheckID(string id){
+            return obj_sta.CheckID(id);
+        }
         void StationController::remove(){
             obj_sta.remove();
         }
@@ -12,7 +15,7 @@
         bool StationController::CheckStatus(string name){
            return obj_sta.CheckStatus(name);
         }
-        void StationController::ChooseFixMenu(string id,int menu){
+        void StationController::ChooseFixMenu(string id,string menu){
             obj_sta.ChooseFixMenu(id,menu);
         }
          void StationController::ShowAllStation(){

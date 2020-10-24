@@ -9,10 +9,11 @@ class StationController{
         StationList obj_stalist;
         Status obj_sta;
     public:
+        bool CheckID(string id);
         void ShowStation(string id);
         void remove();
         void readfile();
-        void ChooseFixMenu(string id,int menu);
+        void ChooseFixMenu(string id,string menu);
         void ShowAllStation();
         void ShowFixMenuStation();
         bool CheckStatus(string name);

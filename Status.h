@@ -7,11 +7,12 @@ class Status :public Path{
         string SortStation(Station *ptemp);
         void ShowAllStation();
         void showStation(string id);
-        void ChooseFixMenu(string id,int menu);
+        void ChooseFixMenu(string id,string menu);
         void FixCostStation(string id,int cost);
         void Maintenance(string id);
         void NewStationName(string id,string name);
         bool CheckStatus(string name);
+        bool CheckID(string id);
         void WriteFixFile();
 };
 #endif

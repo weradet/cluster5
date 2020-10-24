@@ -44,6 +44,19 @@ void Status::ShowAllStation(){
             }
             cout << "*****************************************" << endl;
 }
+bool Status::CheckID(string id){
+    Station *temp = head;
+    while(temp != NULL){
+        if(temp->StationID() == id){
+            return false;
+        }
+        temp = temp->link;
+        if(temp == head){
+                 	break;
+		}
+    }
+    return true;
+}
 void Status::showStation(string id){
             Station *temp = head;
             cout << "**************** Detail Station ****************" << endl;
@@ -60,19 +73,19 @@ void Status::showStation(string id){
 				}
             }            cout << "*****************************************" << endl;
 }
- void Status::ChooseFixMenu(string id,int menu){
-                if(menu == 1){
+ void Status::ChooseFixMenu(string id,string menu){
+                if(menu == "1"){
                     int cost;
                     cout << "Enter New Station Cost : ";
                     cin >> cost;
                     FixCostStation(id,cost);
                     cout << "******** Fix Station Cost Complete *******" << endl;
                 }                 
-                if(menu == 2){
+                if(menu == "2"){
                     Maintenance(id);
                     cout << "******** Maintenance Station Complete *******" << endl;
                 }
-                if(menu == 3){
+                if(menu == "3"){
                     string name;
                     cout << "Enter New Station Name : ";
                     cin >> name;
