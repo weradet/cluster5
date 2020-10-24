@@ -190,17 +190,32 @@ int main(){
                 cin >> user_firstname;
                 cout << right << setw(65) << "Please Input Your Lastname : ";
                 cin >> user_lastname;
-                cout << right << setw(61) << "Please Input Your Tel. : ";
-                cin >> user_tel;    
-                cout << right << setw(80) << "================== Password Card =================" << endl;
-                cout << right << setw(70) << "Please Input Your Password Card : ";
-                cin >> password_card;
+                //fluk
+                do{ // 
+                cout << right << setw(61) << "Please Input Your Tel. : "; //
+                cin >> user_tel; // 
+                  if(user_tel.length()>10 || user_tel.length()<10){//
+                      cout << "Phone Number Must 10 digit" << endl;//
+                   }//
+                }while(user_tel.length()!=10);//
+                //fluk
+                obj_ui.loadtopupfile();//  
+                do{//
+                cout << right << setw(80) << "================== Password Card =================" << endl;//
+                cout << right << setw(70) << "Please Input Your Password Card : ";//
+                cin >> password_card;//
+                }while(obj_ui.checkmember(password_card));//
                 obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
                 obj_ui.ShowInformation(user_firstname,password_card);
                 obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
+                do{//
                 cout << right << setw(80) << "================ Topup Money Card ================" << endl;
                 cout << right << setw(65) << "Please Input Your Money : ";
-                cin >> money;
+                cin >> money;//
+                if(money>5000){//
+                    cout<<"OVERFLOW"<<endl;//
+                }//
+                }while(money>5000);//
                 obj_ui.InputMoneyCard(money,password_card);
                 system ("cls");
                 cout << right << setw(80) << "============== Customer Information ==============" << endl;
@@ -223,10 +238,13 @@ int main(){
                     cin.ignore(100,'\n'); 
                   }else if(menu_renew == 1){
                     string passwordcard;
+                    obj_ui.loadtopupfile();
+                    do{
                     obj_ui.loaddataRenew();
                     cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
                     cin >> passwordcard; 
                     obj_ui.EnterCardcode(passwordcard);
+                    }while(obj_ui.checkmember(passwordcard));
                     obj_ui.SaveDataRenew();
                     Enter();
                   }

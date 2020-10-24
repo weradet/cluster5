@@ -14,7 +14,6 @@ void TopupCardController::ShowMenuTopupCard(){
     cout << "\t\t|  3. Back to menu                        |" << endl;
     cout << "\t\t==========================================="<< endl;
     cout << "\t\tPlease Enter Choice: ";
-    cout << endl;
                 
 }//void showMenu
 
