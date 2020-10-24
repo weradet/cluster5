@@ -253,6 +253,7 @@ int main(){
 	              string StationName,Status,StationID;
                 int Cost;
                 system ("cls");
+                obj_ui.ReadStationFile();
                 Interface("Add_station.txt");
                 cout << "1.Add Destination" << endl;
                 cout << "2.Add Departure station,Add station on the way" << endl;
@@ -295,8 +296,9 @@ int main(){
                          if(!cin){
                               throw Cost;
                          }else{
-                            obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
-                          //  obj_ui.WriteRoundfile();
+                            obj_ui.Addstation(StationID,StationName,Cost,Status);
+                            obj_ui.WriteStationfile();
+                            obj_ui.WriteRoundfile();
                          }
                         }catch(int x){  
                             cin.clear(); 
@@ -341,9 +343,6 @@ int main(){
                             cin >> Cost; //User input
                          if(!cin){
                               throw Cost;
-                         }else{
-                            obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
-                          //  obj_ui.WriteRoundfile();
                          }
                         }catch(int x){  
                             cin.clear(); 
@@ -358,6 +357,7 @@ int main(){
                           CannotAddstation();
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
+                          obj_ui.WriteStationfile();
                           obj_ui.WriteRoundfile();
                         }
                       }else{
@@ -368,10 +368,11 @@ int main(){
                           CannotAddstation();
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
-                          //obj_ui.WriteRoundfile();
+                          obj_ui.WriteStationfile();
+                          obj_ui.WriteRoundfile();
                         }
                       }
-                      obj_ui.WriteStationfile();
+                      
                   }
                 }else if(choice == '3'){
                   obj_ui.show_station();

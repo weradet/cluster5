@@ -193,13 +193,7 @@
 				V->remove();
 				cycle->remove();
 				remove();
-				cout << "com\n";
-				//myFile3.close();  
-				cout << "com\n";
-			}else{
-				cout << "can't";
-				Sleep(100);
 			}
 			myFile3.close();
-			cout << "com\n";
+			//cout << "com\n";
 		}

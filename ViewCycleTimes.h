@@ -13,6 +13,7 @@ class ViewCycleTime{
     public :
         Round *first;
         Round *last;
+        Round *H;
         int count;
         ViewCycleTime(void);
         void ChooseDepartureStation();
@@ -21,5 +22,6 @@ class ViewCycleTime{
         void Add(string N);
         void Times(string time);
         void show();
+        void remove();
 };
 #endif

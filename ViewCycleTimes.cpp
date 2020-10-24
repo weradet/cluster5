@@ -77,6 +77,7 @@
                 if(first == NULL){
                     first = New;
                     last = New;
+                    H = first;
                 }else{
                     last->link = New;
                     New->plink = last;
@@ -119,6 +120,22 @@
                 file.close();
                 }
         }
+                void ViewCycleTime::remove(){
+            Round *ro = first;
+            TimeOut *temp;
+            while(first != NULL){
+                while(first->first != NULL){
+                    temp = first->first;
+                    first->first = first->first->link;
+                    delete temp;
+                }
+                ro = first;
+                first = first->link;
+                delete ro; 
+            }
+            count=0;
+        }
+
         void ViewCycleTime::show(){
              Round *ro = first;
              string we;

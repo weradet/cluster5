@@ -155,6 +155,11 @@ bool UI::checkStationID(string id){
 bool UI::checkStationName(string name){
     return StationList_obj->checkStationName(name);
 }
+void UI::ReadStationFile(){
+    StationList_obj->remove();
+    StationList_obj->ReadStationFile();
+
+}
 void UI::WriteStationfile(){
     StationList_obj->WriteStationfile();
 }
