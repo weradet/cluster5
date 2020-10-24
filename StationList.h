@@ -10,7 +10,7 @@ class StationList{
 		Node_Addstation *tail;
 		int count;
 	public:
-		//ViewCycleTime *view;
+		ViewCycleTime *cycle;
 		StationList();
 		~StationList();
 		void Addstation(string StationID,string StationName,int Cost,string Status);

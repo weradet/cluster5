@@ -6,6 +6,8 @@
 			tail = NULL;
 			count = 0;
 			ReadStationFile();
+			cycle  =new ViewCycleTime;
+			cycle->SearchRound();
 		}
 		StationList::~StationList(){
 			for(int i=1;i<count;i++){
@@ -106,7 +108,7 @@
 			Node_Addstation *temp = head;
 			int i = 1;
 			while(temp != NULL){  
-				cout << "Station" << i << ": = " << temp->StationID << temp->StationName << temp->Cost << temp->Status << endl;
+				cout << "Station" << i << ": = " << temp->StationID << " "<< temp->StationName << temp->Cost << temp->Status << endl;
 				temp = temp->link;
 				i++;
 			}		
@@ -126,46 +128,78 @@
             return count;
         }
 		void StationList::remove(){
-			ReadStationFile();
-			for(int i=1;i<count;i++){
+			//ReadStationFile();
+			while(head!=NULL){
 				Node_Addstation *tmp = head;
 				head = head->link;
 				delete tmp;
 				tmp = NULL;
+				count--;
 			}
-			head = NULL;
-			tail = NULL;
+			//head = NULL;
+			//tail = NULL;
+			count = 0;
 		}
-		void StationList::WriteRoundfile(){
+			void StationList::WriteRoundfile(){
 			remove();
 			ReadStationFile();
-			ViewCycleTime *view = new ViewCycleTime();
+			ViewCycleTime *view = cycle;
+			view->remove();
 			view->SearchRound();
 			Node_Addstation *temp = head;
 			ViewCycleTime *V = view;
-			
-			while(V->first->Name == temp->StationName){
+			int i=1;
+			while(temp!=NULL){
 				if(V->first->Name != temp->StationName){
 					break;
 				}
-				V->first = V->first->link;
-				temp = temp->link;
+				i++;
+				if(V->first->link != NULL){
+					V->first = V->first->link;
+				}
+					temp = temp->link;
 			}
 			Round *New = new Round(temp->StationName);
-			New->link = V->first;
-			New->plink = V->first->plink;
-			V->first->plink->link = New; 
-			V->first->plink = New;
-
-			//Node_Addstation *temp = head;
+			if(i==1){
+					V->first->plink = New;
+					New->link = V->first;
+					V->first = New;
+					V->H = V->first;
+			}else if(i>1){
+				if(V->count+1 == i){
+					V->first->link = New;
+					New->plink = V->first;
+					V->first = New;
+				}else if(i != 1){
+					New->link = V->first;
+					New->plink = V->first->plink;
+					V->first->plink->link = New; 
+					V->first->plink = New;	
+				}
+			}
+			 view->first = view->H;
 			ofstream myFile3("Round.txt",ios::out);
         	if(myFile3.is_open()){ 
 				while(view->first!=NULL){
 					myFile3  << view->first->Name <<",";
 					while(view->first->first != NULL){
-						view->first->first->link; 
+						myFile3 << view->first->first->TO << ",";
+						view->first->first = view->first->first->link; 
 					}
-					view->first = view->first;
-				}  
+					myFile3 << "-" <<endl;
+					view->first = view->first->link;
+				}
+				view->remove();
+				V->remove();
+				cycle->remove();
+				remove();
+				cout << "com\n";
+				//myFile3.close();  
+				cout << "com\n";
+			}else{
+				cout << "can't";
+				Sleep(100);
 			}
+			myFile3.close();
+			cout << "com\n";
 		}
