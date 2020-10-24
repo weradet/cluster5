@@ -133,24 +133,16 @@ void UI::ClearRenewdata(){
 /* Usecase Add Station */
 
 void UI::Addstation(string StationName,string StationID,int Cost,string Status){
-    StationList_obj->Addstation(StationName,StationID,Cost,Status);
-    //StationName
+    StationList_obj->Addstation(StationID,StationName,Cost,Status);
 }
 void UI::AddStation_ontheway(int index,string StationID,string StationName,int Cost,string Status){
     StationList_obj->AddStation_ontheway(index,StationID,StationName,Cost,Status);
 }
 bool UI::checkStationID(string id){
-     if(StationList_obj->checkStationID(id)){
-    
-         return true;
-     }
-     return false;
+    return StationList_obj->checkStationID(id);
 }
 bool UI::checkStationName(string name){
-    if(StationList_obj->checkStationName(name)){
-         return true;
-     }
-     return false;
+    return StationList_obj->checkStationName(name);
 }
 void UI::WriteStationfile(){
     StationList_obj->WriteStationfile();
@@ -161,11 +153,7 @@ void UI::show_station(){
 int UI::StationNumber(){
     return StationList_obj->StationNumber();
 }
-
-
 void UI::View(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();
-    view->SearchRound();
-    view->show();
 }

@@ -159,7 +159,7 @@ int main(){
                 cout << right << setw(80) << "=================== Money In Card =================" << endl;
                 obj_ui.InputMoneyCard(money,password_card);                                          
                 obj_ui.SaveFile(); //Register Member
-                //Enter();
+                Enter();
               }else if(menu_admin == 4){
                 int menu_renew;
                 do{
