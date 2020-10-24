@@ -130,17 +130,14 @@ int main(){
                         cout << endl;
                         cout << "\t\tInput money (MAXIMAM : 5,000 Bath) : ";
                         cin >> money;
-                        cout << endl;
                         if(money > 5000){
                            cout << "\nMoney Overflow !!" << endl; 
                         }  
                        }while(money > 5000); //do while loop
                         obj_ui.InputMoney(money,pass_card);
                         obj_ui.savetopupfile();
-                        Enter();
                       }else if(menu_topup == 2){
                         obj_ui.Showmoney(pass_card);
-                        Enter();
                       }
                     }while(menu_topup != 3);
                   }else{
