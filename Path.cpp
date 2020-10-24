@@ -26,7 +26,7 @@
             //Station *ptemp = tail;
             for(int i=0; i<num;i++){
                 temp = head;
-                if(count != 0){
+                if(count > 1){
                     head = temp->link;
                     delete temp;
                     tail->link = head;

@@ -38,6 +38,9 @@ void UI::PrintFirstMenu(){
 void UI::WriteFixFile(){
     station_obj->WriteFixFile();
 }
+void UI::remove(){
+    station_obj->remove();
+}
 void UI::readfile(){
     station_obj->readfile();
 }

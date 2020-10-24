@@ -43,7 +43,6 @@ int main(){
   do{
     // loop for all Program
     try{
-      Firstpage:
       system("cls");
       Interface("Train.txt"); 
       obj_ui.PrintFirstMenu(); 
@@ -307,11 +306,8 @@ int main(){
                 cin >> menu;
                 obj_ui.ChooseFixMenu(chooseId,menu);
                 obj_ui.WriteFixFile(); //Fix Station
-                string commit;
-                cout << "Do you want to go back to the main page? Ans(Yes/No) : "; cin >> commit;
-                if(commit == "Yes"){
-                  goto Firstpage;
-                }
+                obj_ui.remove();
+                Enter();
               }else if(menu_admin == 7){
 
               }// back menu

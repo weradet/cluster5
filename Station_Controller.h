@@ -10,6 +10,7 @@ class StationController{
         Status obj_sta;
     public:
         void ShowStation(string id);
+        void remove();
         void readfile();
         void ChooseFixMenu(string id,int menu);
         void ShowAllStation();
