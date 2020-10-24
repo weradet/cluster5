@@ -349,7 +349,7 @@ int main(){
                 obj_ui.ShowFixMenuStation();
 ch_fixmenu:     cout << "Choose Fix Menu Station : ";
                 cin >> menu;
-                if(menu < "1" || menu > "3"){
+                if(menu < "1" || menu > "3" || menu.length() != 1){
                   goto ch_fixmenu;
                 }
                 obj_ui.ChooseFixMenu(chooseId,menu);

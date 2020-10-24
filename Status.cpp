@@ -75,9 +75,20 @@ void Status::showStation(string id){
 }
  void Status::ChooseFixMenu(string id,string menu){
                 if(menu == "1"){
+                    stringstream ss;
+                    string fix;
                     int cost;
-                    cout << "Enter New Station Cost : ";
-                    cin >> cost;
+            ch_cost:cout << "Enter New Station Cost : ";
+                        try{ 
+                            cin >> cost; //User input
+                         if(!cin){
+                              throw cost;
+                         }
+                        }catch(int x){  
+                            cin.clear(); 
+                            cin.ignore(100, '\n');
+                            goto ch_cost; 
+                        }  
                     FixCostStation(id,cost);
                     cout << "******** Fix Station Cost Complete *******" << endl;
                 }                 
@@ -87,8 +98,11 @@ void Status::showStation(string id){
                 }
                 if(menu == "3"){
                     string name;
-                    cout << "Enter New Station Name : ";
+            ch_name:cout << "Enter New Station Name : ";
                     cin >> name;
+                    if(name <= "A"){
+                        goto ch_name;
+                    }
                     NewStationName(id,name);
                     cout << "******** Fix Station Name Complete *******" << endl;
                 }      
