@@ -20,13 +20,11 @@
           DayExpire = date;
         }
         void MemberCard::renewcard(){
-          //DayExpire = dayexpire;
           time_t now = time(0);
           tm *ltm = localtime(&now);
           stringstream ss;
           ss <<  1901+ltm->tm_year << "-" << 1+ltm->tm_mon << "-" << ltm->tm_mday;
           string date = ss.str();
-          cout << "Date :" << date << endl;
           setDateExpire(date);
         }
         double MemberCard::getMoney(){
@@ -42,7 +40,6 @@
           Money -= money;
         }
         void MemberCard::setDateExpire(string dayexpire){
-          //cout << "In" << endl;
           DayExpire = dayexpire;
         }
         bool MemberCard::CheckMoneyCard(double money){
@@ -52,8 +49,6 @@
                     }
                       return false;
         }
-     
-     
         Member::Member(){
         link = NULL;
         }

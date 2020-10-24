@@ -172,9 +172,9 @@ int main(){
                 Enter(); //Register Member                                          
               }else if(menu_admin == 4){
                 int menu_renew;
+                system ("cls");
+                Interface("Renew_card.txt");
                 do{
-                  system ("cls");
-                  Interface("Renew_card.txt");
                   obj_ui.showmenuRenewCard();
                   cin >> menu_renew;
                   if(!cin){

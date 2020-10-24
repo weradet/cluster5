@@ -4,29 +4,24 @@
     head = NULL;
     tail = NULL;
    }
-
    void RenewController::PrintRenewMenu(){
-        //print interface ewnew card menu
-        system("cls");
-        cout << "\t\t*********** Renew Card **********" << endl;
-        cout << "\t\t*\t1.Renew Card\t\t*" << endl;
-        cout << "\t\t*\t2. Back \t\t*" << endl;
+        cout << "\n\t\t*********** Renew Card **********" << endl;
+        cout << "\t\t*    1.Renew Card               *" << endl;
+        cout << "\t\t*    2.Back                     *" << endl;
         cout << "\t\t*********************************" << endl;
+        cout << "\t\tPlease Input Choice : ";
     }
    void RenewController::Findmember(string password){
           Member *cur = head;
           while(cur != NULL){
              if(cur->getPassword()==password){
-                //return cur;
-                   cout << cur->getFirstname() << " " << cur->getLastname() << endl;
-                  // cur->getmembercard().GenerateExpire();
-                    cur->member_card.renewcard();
-                   cout << "NEW EXPIRE : " << cur->getExpire() << endl;
-                   break;
+              cout << "Name Customer : " << cur->getFirstname() << " " << cur->getLastname() << endl;
+              cur->member_card.renewcard();
+              cout << "New Expire : " << cur->getExpire() << endl;
+              break;
              }
               cur = cur->link;
           }
-          //return NULL;
     }
     void RenewController::SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money){
              Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
