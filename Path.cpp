@@ -20,6 +20,27 @@
                 count++;
             }
         }
+        void Path::remove(){
+            int num = count;
+            Station *temp = head;
+            //Station *ptemp = tail;
+            for(int i=0; i<num;i++){
+                temp = head;
+                if(count != 0){
+                    head = temp->link;
+                    delete temp;
+                    tail->link = head;
+                    head->plink = tail;
+                    count--; 
+                }else(count == 1){
+                    head = NULL;
+                    tail = NULL;
+                    delete temp;
+                    count--;
+                }
+            }
+        }
+
         void Path::read_file(){
             string id,name,cost,status,filein;
             int Cost;
@@ -42,14 +63,23 @@
                         }
                         infile.close();			
         }
-        void Path::show(){
-            Station *a = head;
-            while(a != NULL){
-                cout << a->StationID() << a->stationName() << a->stationStatus() << a->cost() << endl;
-                a = a->link;
-            }
-        }
 
-        void Path::calculate_cost(string DepartureStation,string TerminalStation){
-            
+        double Path::calculate_cost(string DepartureStation,string TerminalStation){
+            Station *temp = head;
+                for(int i = 0; i<count ;i++){
+                    if(DepartureStation == temp->stationName()){
+                        break;
+                    }
+                    temp = temp->link;
+                }
+                double sum = 0;
+                for(int i=0;i<count;i++){
+                    if(TerminalStation == temp->stationName()){
+                        break;
+                    }else{
+                        sum += temp->cost();
+                        temp = temp->link;
+                    }
+                }
+                return sum;
         }

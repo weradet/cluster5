@@ -9,9 +9,9 @@ class Path{
         int count;
         void add_path(string id,string sta_name,string sta_stu,int cost);
         Path();
+        void remove();
         void read_file();
-        void show();
-        void calculate_cost(string DepartureStation,string TerminalStation);
+        double calculate_cost(string DepartureStation,string TerminalStation);
 };
 
 #endif
