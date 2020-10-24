@@ -178,7 +178,7 @@ int main(){
                 }while(menu_renew != 2); //Renew Member Card
               }else if(menu_admin == 5){
                 char choice;
-	              string StationName,StationID,Status;
+	              string StationName,Status,StationID;
                 int Cost;
                 cout << "1.Add Destination" << endl;
                 cout << "2.Add Departure station,Add station on the way" << endl;
@@ -191,20 +191,21 @@ int main(){
                   cin >> StationID;
                   while(StationID.length() != 2){
                     cout << "!!! Warning !!!\n";
-                    cout << "Station ID Not equal to 2 ";
+                    cout << "Station ID Not equal to 2";
                     cin >> StationID;
                   }//while
-                 // bool istrue = obj_ui.checkStationID(StationID);
-                  while(obj_ui.checkStationID(StationID)){
+                   while(obj_ui.checkStationID(StationID)){
                         cout << "The Station Already Exist!!!" << endl;
-                         cin >> StationID;
-                  }//clear
-                  cout << "Station Name : ";
-                  cin >> StationName;
-                  while(obj_ui.checkStationName(StationName)){             
-                        cout << "The Station Already Exist!!!" << endl;
-                        cin >> StationName;              
-                  }//invalid
+                        StationID = "";
+                        cin >> StationID;
+                    }
+                      cout << "Station Name : ";
+                      cin >> StationName;
+                    while(obj_ui.checkStationName(StationName)){             
+                      cout << "The Station Already Exist!!!" << endl;
+                      StationName = "";
+                      cin >> StationName;              
+                    }//invalid
       inputStatus:cout << "Station Status : ";
                   cin >> Status;
                   if(Status!="open" && Status!="close"){
@@ -212,7 +213,7 @@ int main(){
                   }
                   cout << "Station Cost : ";
                   cin >> Cost;
-                  obj_ui.Addstation(StationName,StationID,Cost,Status);
+                  obj_ui.Addstation(StationID,StationName,Cost,Status);//bug
                   obj_ui.WriteStationfile();
                 }else if(choice == '2'){
                   int index;
@@ -222,7 +223,7 @@ int main(){
                   }else{
                     int Cost;
                     cout << "Station ID : ";
-                    cin >> StationID;
+                    cin >> StationID;  
                     while(StationID.length() != 2){
                       cout << "!!! Warning !!!\n";
                       cout << "Station ID Not equal to 2 ";
@@ -230,12 +231,14 @@ int main(){
                     }//while
                     while(obj_ui.checkStationID(StationID)){
                         cout << "The Station Already Exist!!!" << endl;
+                        StationID = "";
                         cin >> StationID;
                     }
                       cout << "Station Name : ";
                       cin >> StationName;
                     while(obj_ui.checkStationName(StationName)){             
                       cout << "The Station Already Exist!!!" << endl;
+                      StationName = "";
                       cin >> StationName;              
                   }//invalid
            inputStatus2:cout << "Station Status : ";

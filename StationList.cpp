@@ -106,7 +106,7 @@
 			Node_Addstation *temp = head;
 			int i = 1;
 			while(temp != NULL){  
-				cout << "Station" << i << ": = " << temp->StationID << temp->StationName << temp->Cost << temp->Status << endl;
+				cout << "Station" << i << ": = " << temp->StationName << temp->StationID << temp->Cost << temp->Status << endl;
 				temp = temp->link;
 				i++;
 			}		

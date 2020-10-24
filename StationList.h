@@ -10,7 +10,7 @@ class StationList{
 	public:
 		StationList();
 		~StationList();
-		void Addstation(string StationID,string StationName,int Cost,string Status);
+		void Addstation(string StationName,string StationID,int Cost,string Status);
 		void AddStation_ontheway(int index,string StationID,string StationName,int Cost,string Status);
 		void ReadStationFile();
 		bool checkStationID(string id);
