@@ -148,17 +148,13 @@
                     if(ro->Name == DepartureStation){
                         cout << ro->Name << endl;
                         while(ro->first != NULL){
-                            
                                 cout << ro->first->TO <<endl;
                                 ro->first = ro->first->link;
-
                         }
                         break;
                     }
                     ro = ro->link;
                 }
-
-
                 Times(); 
         }
 
@@ -212,7 +208,10 @@
                 string retime;
                 cin.ignore();
                //getline(cin,retime);
-               cin >> retime;
+        retime: cin >> retime;
+                if(retime > "A" || retime.length() != 5){
+                    goto retime;
+                }
                 while( Rounds  != NULL){
                    // cout << Rounds ->Name << "==="<<DepartureStation<< endl;
                 
