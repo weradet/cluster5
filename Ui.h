@@ -72,6 +72,7 @@ class UI{
         int StationNumber();//คืนค่าจำนวนสถานี(return count)
         void WriteRoundfile();
         void ReadStationFile();
+        void chang();
 
         void View();
 };

@@ -21,6 +21,7 @@ class StationList{
 		void show_station();
 		void WriteStationfile();
 		void WriteRoundfile();
+		void chang();
 		void remove();
 		int StationNumber();
 };

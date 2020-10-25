@@ -114,6 +114,8 @@
 			}		
 		}
 		void StationList::WriteStationfile(){
+			remove();
+			ReadStationFile();
 			Node_Addstation *temp = head;
 			ofstream myFile3("Station.txt",ios::out);
         	if(myFile3.is_open()){ 
@@ -177,10 +179,11 @@
 					V->first->plink = New;	
 				}
 			}
-		view->first = view->H;
+		
 
 			int hour = 6 ,min=0,sum = 0,sum1 = 0,h=0,m=0;
 			 string T,t;
+			 view->first = view->H;
 			ofstream myFile3("Round.txt",ios::out);
         	if(myFile3.is_open()){ 
 				while(view->first!=NULL){
@@ -226,8 +229,49 @@
 					myFile3 << "-" <<endl;
 					view->first = view->first->link;
 				}//while
-				
+				view->remove();
+				V->remove();
 			}
 			myFile3.close();
 			//cout << "com\n";
+		}
+
+		void StationList::chang(){
+			remove();
+			ReadStationFile();
+			ViewCycleTime *view = cycle;
+			view->remove();
+			view->SearchRound();
+			Node_Addstation *temp = head;
+			ViewCycleTime *V = view;
+			int i=1;
+			while(temp!=NULL){
+				if(V->first->Name != temp->StationName){
+					break;
+				}
+				i++;
+				if(V->first->link != NULL){
+					V->first = V->first->link;
+				}
+					temp = temp->link;
+			}
+			V->first->Name = temp->StationName;
+
+			view->first = view->H;
+			ofstream myFile3("Round.txt",ios::out);
+        	if(myFile3.is_open()){ 
+				while(view->first!=NULL){
+					myFile3 << view->first->Name<<",";
+					while(view->first->first != NULL){
+						myFile3 << view->first->first->TO <<",";
+						view->first->first = view->first->first->link;
+				}
+				myFile3 << "-" <<endl;
+				view->first = view->first->link;
+			}
+			}
+			remove();
+			view->remove();
+			V->remove();
+			myFile3.close();
 		}

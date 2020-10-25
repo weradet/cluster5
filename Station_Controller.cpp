@@ -25,9 +25,9 @@
             obj_sta.showStation(id);
         }
         void StationController::ShowFixMenuStation(){
-            cout << "------------------- Menu -------------------" << endl;
-            cout << "1. Fix Station Cost"       << endl;
-            cout << "2. Maintenance Station"    << endl;
-            cout << "3. Fix Station Name"       << endl;
-            cout << "--------------------------------------------" << endl;
+            cout << right << setw(81) << "----------------- Menu -------------------" << endl;
+            cout << right << setw(62) << "1. Fix Station Cost"       << endl;
+            cout << right << setw(65) << "2. Maintenance Station"    << endl;
+            cout << right << setw(62) << "3. Fix Station Name"       << endl;
+            cout << right << setw(81) << "------------------------------------------" << endl;
         }

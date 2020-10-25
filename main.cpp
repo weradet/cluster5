@@ -265,7 +265,7 @@ int main(){
                   cout << "Station ID : ";
                   cin >> StationID;
                   while(StationID.length() != 2){
-                    cout << right << setw(90) << "!!! Warning !!!\n";
+                    cout << right << setw(76) << "!!! Warning !!!\n";
                     cout << right << setw(80) << "Station ID Not equal to 2"<<endl;
                     cin >> StationID;
                   }//while
@@ -315,7 +315,7 @@ int main(){
                     cout << "Station ID : ";
                     cin >> StationID;  
                     while(StationID.length() != 2){
-                      cout << right << setw(90) << "!!! Warning !!!\n";
+                      cout << right << setw(76) << "!!! Warning !!!\n";
                       cout << right << setw(80) << "Station ID Not equal to 2 " <<endl;
                       goto inputID2;
                     }//while
@@ -385,20 +385,24 @@ int main(){
                 obj_ui.ShowAllStation();
                 string chooseId;
                 string menu;
-        ch_id:  cout << "Choose Station ID : ";
+                ch_id:  
+                cout << "Choose Station ID : ";
                 cin >> chooseId;
                 if(chooseId.length() != 2 || obj_ui.CheckID(chooseId) == true){
                   goto ch_id;
                 }
                 obj_ui.ShowStaiton(chooseId);         
                 obj_ui.ShowFixMenuStation();
-ch_fixmenu:     cout << "Choose Fix Menu Station : ";
+                ch_fixmenu:     
+                cout << "Choose Fix Menu Station : ";
                 cin >> menu;
                 if(menu < "1" || menu > "3" || menu.length() != 1){
                   goto ch_fixmenu;
                 }
                 obj_ui.ChooseFixMenu(chooseId,menu);
                 obj_ui.WriteFixFile(); //Fix Station
+                obj_ui.WriteStationfile();
+                obj_ui.chang();
                 obj_ui.remove();
                 Enter();
               }else if(menu_admin == 7){

@@ -26,13 +26,12 @@ string Status::SortStation(Station *ptemp){
 }
 void Status::ShowAllStation(){
             Station *temp = head;
-            //int i;
-            cout << "**************** Station ****************" << endl;
-            cout << setw(7) << left << "ID."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
-            cout << "*****************************************" << endl;
+            cout << right << setw(81) << "**************** Station *****************" << endl;
+            cout << setw(40) << left << " " << setw(7) << left << "ID."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
+            cout << right << setw(81) << "******************************************" << endl;
             while(temp != NULL){
                 if(SortStation(temp) == temp->StationID()){
-                    cout << left << setw(7) << temp->StationID();
+                    cout << setw(40) << left << " " << left << setw(7) << temp->StationID();
                     cout << left << setw(20) << temp->stationName();
                     cout << left << setw(10) << temp->stationStatus();
                     cout << temp->cost() << endl;
@@ -42,7 +41,7 @@ void Status::ShowAllStation(){
                  	break;
 				}   
             }
-            cout << "*****************************************" << endl;
+            cout << right << setw(81) << "******************************************" << endl;
 }
 bool Status::CheckID(string id){
     Station *temp = head;
@@ -58,20 +57,21 @@ bool Status::CheckID(string id){
     return true;
 }
 void Status::showStation(string id){
-            Station *temp = head;
-            cout << "**************** Detail Station ****************" << endl;
-            while(temp != NULL){
-                if(id == temp->StationID()){
-                   cout << "Station ID : " << temp->StationID() << endl;
-                   cout << "Station Name : " << temp->stationName() << endl;
-                   cout << "Station Status : " << temp->stationStatus() << endl;
-                   cout << "Station Cost : " << temp->cost() << endl; 
-                }
-               temp = temp->link;
-               if(temp == head){
-                	break;
-				}
-            }            cout << "*****************************************" << endl;
+    Station *temp = head;
+    cout << right << setw(81) << "************* Detail Station *************" << endl;
+    while(temp != NULL){
+        if(id == temp->StationID()){
+            cout << right << setw(60) << "Station ID : " << temp->StationID() << endl;
+            cout << right << setw(62) << "Station Name : " << temp->stationName() << endl;
+            cout << right << setw(64) << "Station Status : " << temp->stationStatus() << endl;
+            cout << right << setw(62) << "Station Cost : " << temp->cost() << endl; 
+        }
+        temp = temp->link;
+        if(temp == head){
+            break;
+		}
+    }   
+    cout << right << setw(81) << "******************************************" << endl;
 }
  void Status::ChooseFixMenu(string id,string menu){
                 if(menu == "1"){
@@ -90,21 +90,22 @@ void Status::showStation(string id){
                             goto ch_cost; 
                         }  
                     FixCostStation(id,cost);
-                    cout << "******** Fix Station Cost Complete *******" << endl;
+                    cout << right << setw(83) << "********** Fix Station Cost Complete *********" << endl;
                 }                 
                 if(menu == "2"){
                     Maintenance(id);
-                    cout << "******** Maintenance Station Complete *******" << endl;
+                    cout << right << setw(83) << "********* Maintenance Station Complete *******" << endl;
                 }
                 if(menu == "3"){
                     string name;
             ch_name:cout << "Enter New Station Name : ";
-                    cin >> name;
+                    cin.ignore();
+                    getline(cin,name);
                     if(name <= "A"){
                         goto ch_name;
                     }
                     NewStationName(id,name);
-                    cout << "******** Fix Station Name Complete *******" << endl;
+                    cout << right << setw(83) << "********** Fix Station Cost Complete *********" << endl;
                 }      
                  showStation(id);    
         }

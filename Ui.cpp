@@ -178,6 +178,9 @@ int UI::StationNumber(){
 void UI::WriteRoundfile(){
     StationList_obj->WriteRoundfile();
 }
+void UI::chang(){
+    StationList_obj->chang();
+}
 
 void UI::View(){
     view->ChooseDepartureStation();
