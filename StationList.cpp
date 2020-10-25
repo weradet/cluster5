@@ -136,18 +136,18 @@
 				tmp = NULL;
 				count--;
 			}
-			//head = NULL;
-			//tail = NULL;
 			count = 0;
 		}
-			void StationList::WriteRoundfile(){
+		void StationList::WriteRoundfile(){
 			remove();
 			ReadStationFile();
+			int co = StationNumber();
 			ViewCycleTime *view = cycle;
 			view->remove();
 			view->SearchRound();
 			Node_Addstation *temp = head;
 			ViewCycleTime *V = view;
+
 			int i=1;
 			while(temp!=NULL){
 				if(V->first->Name != temp->StationName){
@@ -177,22 +177,57 @@
 					V->first->plink = New;	
 				}
 			}
-			 view->first = view->H;
+		view->first = view->H;
+
+			int hour = 6 ,min=0,sum = 0,sum1 = 0,h=0,m=0;
+			 string T,t;
 			ofstream myFile3("Round.txt",ios::out);
         	if(myFile3.is_open()){ 
 				while(view->first!=NULL){
-					myFile3  << view->first->Name <<",";
-					while(view->first->first != NULL){
-						myFile3 << view->first->first->TO << ",";
-						view->first->first = view->first->first->link; 
-					}
+					h = hour;
+					m = min;
+					sum = 0;
+					sum1 = 0; 
+					myFile3 << view->first->Name <<",";
+
+					while(h < 24){
+						sum = 0;
+						sum1 = 0; 
+						stringstream ss,yy;
+							ss<<h;
+							ss>>T;
+							if(T.length()==1){
+								T = "0"+T;
+							}
+							yy<<m;
+							yy>>t;
+							if(t.length()==1){
+								t = "0"+t;
+							}
+							myFile3 << T <<"."<< t << ","; 
+							sum1 = 10*co;
+							while(sum1 >= 60){
+								sum++;
+								sum1 -= 60;
+							}
+							h += sum;
+							m += sum1;
+
+							while(m>=60){
+								h++;
+								m -=60;
+							}		
+							cout << h <<endl;
+					}//while
+						min = min+10;
+						if(min >= 60){
+							hour++;
+							min = 0;
+						}
 					myFile3 << "-" <<endl;
 					view->first = view->first->link;
-				}
-				view->remove();
-				V->remove();
-				cycle->remove();
-				remove();
+				}//while
+				
 			}
 			myFile3.close();
 			//cout << "com\n";

@@ -5,6 +5,7 @@
             first = NULL;
             last = NULL;
             count = 0;
+            H = NULL;
             //round->Readfile();
         }
 

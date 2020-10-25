@@ -10,6 +10,7 @@ class Round{
             TimeOut *last;
             Round *link;
             Round *plink;
+            TimeOut *head;
             int count;
             Round();
             Round(string name);

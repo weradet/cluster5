@@ -4,6 +4,8 @@
             	plink = NULL;
                 first = NULL;
                 last = NULL;
+                Name = " ";
+                head = NULL;
                 count = 0;
 			}
         Round::Round(string name){
@@ -12,6 +14,7 @@
             	plink = NULL;
                 first = NULL;
                 last = NULL;
+                head = NULL;
 
             }
         void Round::add_time(string timeout){
