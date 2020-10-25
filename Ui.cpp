@@ -183,5 +183,5 @@ void UI::View(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();
     view->SearchRound();
-    view->Times("r");
+    view->Times();
 }

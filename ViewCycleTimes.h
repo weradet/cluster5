@@ -20,7 +20,7 @@ class ViewCycleTime{
         void ChooseTerminalStation();
         void SearchRound();
         void Add(string N);
-        void Times(string time);
+        string Times();
         void show();
         void remove();
 };

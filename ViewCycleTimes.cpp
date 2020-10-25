@@ -35,6 +35,7 @@
         }
 
         void ViewCycleTime::ChooseTerminalStation(){
+
             Path *a = head;
                 while(a->head != NULL){
                     if(a->head->StationID()== DepartureStation){
@@ -155,13 +156,12 @@
                     ro = ro->link;
                 }
 
-                cin >> we; 
 
-                Times(we); 
+                Times(); 
         }
 
 
-        void ViewCycleTime::Times(string as){
+         string ViewCycleTime::Times(){
             int hour,min;
             time_t now = time(0);
             tm *ltm = localtime(&now);
@@ -191,14 +191,14 @@
                                     if(min>Min){
                                         ro->first = ro->first->link;
                                     }
-                                    else if(min<Min){
+                                    else if(min<=Min){
                                         cout<<ro->first->TO<<endl;
                                     }
                            }else{
                                cout<<ro->first->TO<<endl;
                                Time = ro->first->TO;
                                ro->first = ro->first->link;
-                               //break;
+                               break;
                            }
                         }
                    }
@@ -215,7 +215,7 @@
                    // cout << Rounds ->Name << "==="<<DepartureStation<< endl;
                 
                      if(Rounds ->Name == DepartureStation){
-                         //cout << kuy->first->TO<<endl;
+                         //cout << Rounds->first->TO<<endl;
                         // Round *cur = H;
                          int i = 0;
                             while(i<Rounds ->count){
@@ -242,5 +242,6 @@
                 }
                // cout << "5555555555555" << endl;
                  Sleep(20000);
+                 return retime;
             
         }

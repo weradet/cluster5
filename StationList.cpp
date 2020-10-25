@@ -217,7 +217,6 @@
 								h++;
 								m -=60;
 							}		
-							cout << h <<endl;
 					}//while
 						min = min+10;
 						if(min >= 60){
