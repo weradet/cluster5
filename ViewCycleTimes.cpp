@@ -197,11 +197,49 @@
                                cout<<ro->first->TO<<endl;
                                Time = ro->first->TO;
                                ro->first = ro->first->link;
+                               //break;
                            }
                         }
                    }
                     ro = ro->link;
                }
-                cin>>min;
-
+               remove();
+               SearchRound();
+               Round * Rounds = H;
+                string retime;
+                cin.ignore();
+               //getline(cin,retime);
+               cin >> retime;
+                while( Rounds  != NULL){
+                   // cout << Rounds ->Name << "==="<<DepartureStation<< endl;
+                
+                     if(Rounds ->Name == DepartureStation){
+                         //cout << kuy->first->TO<<endl;
+                        // Round *cur = H;
+                         int i = 0;
+                            while(i<Rounds ->count){
+                              //  cout << "eieiiiiii" << endl;
+                                if( retime == Rounds ->first->TO){
+                                    cout<<" Correct "<<endl;
+                                    cout<<" Time : " << Rounds ->first->TO<<endl;
+                                    Sleep(1000);
+                                    break;
+                                }
+                                else{
+                                   // cout << "No Correct " << endl;
+                                  // Sleep(1000);
+                                }
+                                Rounds ->first = Rounds ->first->link;
+                                i++;
+                            }
+                            break; 
+                     }
+                     else{
+                         //cout<< "Name is not correct" << endl;
+                     }
+                     Rounds  = Rounds ->link;
+                }
+               // cout << "5555555555555" << endl;
+                 Sleep(20000);
+            
         }
