@@ -31,7 +31,7 @@ void Interface(string file){
 }
 void Enter(){
   char enter = ' ';
-  cout << "Please Enter to Continue : ";
+  cout << "Please Enter to Continue . . . ";
   while((enter = getch()) != '\r'){  
     cin >> enter;
   }
@@ -39,41 +39,29 @@ void Enter(){
 void CannotAddstation(){
   char enter = ' ';
   cout << "Cannot Add Station!!" << endl;
-  cout << "Please Enter to Continue : ";
+  cout << "Please Enter to Continue . . . ";
     while((enter = getch()) != '\r'){  
       cin >> enter;
     }
 }
 string pass(){
-   // int i;
-    char ch='\0',match[20];
-    for(int i=0;i>=0;)
-     {
-       ch=getch();
-
-      if(ch!=8&&ch!=13)
-        {
-         cout<<"*";
-         match[i]=ch;
-         i++;
-        }
-      else if (ch==8) // if backspace is presssed
-       {
-           if(i>0){
-            cout<<"\b \b"; // moves cursor to the left print <space> again move cursor to left
-             i--;
-           }else{
-
-           }
-       }
-      else if(ch==13)
-    {
-         match[i]='\0'; // if enter is pressed, last character in match[] becomes null
-        break;         // for end of string
-    }
-    else
-    {
-         break;
+  char ch = '\0',match[20];
+  for(int i = 0;i >= 0;){
+    ch = getch();
+    if(ch != 8 && ch != 13){
+      cout << "*";
+      match[i] = ch;
+      i++;
+    }else if(ch == 8){ // if backspace is presssed
+      if(i > 0){
+        cout << "\b \b"; // moves cursor to the left print <space> again move cursor to left
+        i--;
+      }
+    }else if(ch == 13){
+      match[i] = '\0'; // if enter is pressed, last character in match[] becomes null
+      break;          // for end of string
+    }else{
+      break;
     }
   }
   return match;
@@ -194,56 +182,56 @@ int main(){
                 cin >> user_firstname;
                 cout << right << setw(65) << "Please Input Your Lastname : ";
                 cin >> user_lastname;
-                //fluk
-                do{ // 
-                cout << right << setw(61) << "Please Input Your Tel. : "; //
-                cin >> user_tel; // 
-                  if(user_tel.length()>10 || user_tel.length()<10){//
-                      cout << "Phone Number Must 10 digit" << endl;//
-                   }//
-                }while(user_tel.length()!=10);//
-                //fluk
-                obj_ui.loadtopupfile();//  
-                do{//
-                cout << right << setw(80) << "================== Password Card =================" << endl;//
-                cout << right << setw(70) << "Please Input Your Password Card : ";//
-                cin >> password_card;//
-                }while(obj_ui.checkmember(password_card));//
-                obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
-                obj_ui.ShowInformation(user_firstname,password_card);
-                obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
-                do{//
-                cout << right << setw(80) << "================ Topup Money Card ================" << endl;
-                cout << right << setw(65) << "Please Input Your Money : ";
-                cin >> money;//
-                if(money>5000){//
-                    cout<<"OVERFLOW"<<endl;//
-                }//
-                }while(money>5000);//
+                do{ 
+                  cout << right << setw(61) << "Please Input Your Tel. : "; 
+                  cin >> user_tel; 
+                  if(user_tel.length() > 10 || user_tel.length() < 10){
+                    cout << "Phone Number Must 10 digit" << endl;
+                  }
+                }while(user_tel.length() != 10);
+                obj_ui.loadtopupfile();  
+                do{
+                  cout << right << setw(80) << "================== Password Card =================" << endl;//
+                  cout << right << setw(70) << "Please Input Your Password Card : ";
+                  cin >> password_card;
+                }while(obj_ui.checkmember(password_card));
+                  obj_ui.InputPersonalInformation(user_firstname,user_lastname,user_tel,password_card);
+                  obj_ui.ShowInformation(user_firstname,password_card);
+                  obj_ui.ShowExprirationDate(user_firstname,password_card); cout << endl;           
+                do{
+                  cout << right << setw(80) << "================ Topup Money Card ================" << endl;
+                  cout << right << setw(65) << "Please Input Your Money : ";
+                  cin >> money;
+                  if(money > 5000){
+                    cout << "OverFlow!!" << endl;
+                  }
+                }while(money > 5000);
                 obj_ui.InputMoneyCard(money,password_card);
                 system ("cls");
                 cout << right << setw(80) << "============== Customer Information ==============" << endl;
                 cout << right << setw(55) << "Name Customer : " << user_firstname << " " << user_lastname << endl;  
                 string tel = user_tel.substr(0,3) + "-" + user_tel.substr(3,3) + "-" + user_tel.substr(6,4);
-                cout << right << setw(54) << "Phone number : " << user_tel << endl;
+                cout << right << setw(54) << "Phone number : " << tel << endl;
                 obj_ui.ShowExprirationDate(user_firstname,password_card);
                 obj_ui.ShowRemainingAmount(password_card);                                      
                 obj_ui.SaveFile(); cout << endl;
                 Enter(); //Register Member                                          
               }else if(menu_admin == 4){
                 int menu_renew;
-                system ("cls");
                 obj_ui.ClearRenewdata();
+                system ("cls");
+                Interface("Renew_card.txt");
                 do{
-                  Interface("Renew_card.txt");
                   obj_ui.showmenuRenewCard();
                   cin >> menu_renew;
                   if(!cin){
+                    system ("cls");
                     cin.clear(); 
                     cin.ignore(100,'\n'); 
                   }else if(menu_renew == 1){
                     string passwordcard;
                     obj_ui.loaddataRenew();
+                    Again:
                     cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
                     cin >> passwordcard; 
                     if(obj_ui.CheckmemberRenew(passwordcard)){
@@ -251,7 +239,8 @@ int main(){
                         obj_ui.SaveDataRenew();
                         Enter();
                     }else{
-                        cout << "Password Incorrect !" << endl;
+                        cout << "Password Incorrect!" << endl;
+                        goto Again;
                     }
                   }
                 }while(menu_renew != 2); //Renew Member Card
@@ -262,31 +251,36 @@ int main(){
                 system ("cls");
                 obj_ui.ReadStationFile();
                 Interface("Add_station.txt");
-                cout << "1.Add Destination" << endl;
-                cout << "2.Add Departure station,Add station on the way" << endl;
-                cout << "3.Show" << endl;
-                cout << "Enter ==> ";
+                cout << right << setw(95) << "------------------------------------------------------" << endl;
+                cout << right << setw(62) << "1.Add Destination" << endl;
+                cout << right << setw(91) << "2.Add Departure station,Add station on the way" << endl;
+                cout << right << setw(59) << "3.Show Station" << endl;
+                cout << right << setw(95) << "------------------------------------------------------" << endl;
+                cout << right << setw(70) << "Enter Choice : ";
                 cin >> choice;
                 if(choice == '1'){
+                  system ("cls");
                   obj_ui.show_station();
+                  inputID:
                   cout << "Station ID : ";
                   cin >> StationID;
                   while(StationID.length() != 2){
-                    cout << "!!! Warning !!!\n";
-                    cout << "Station ID Not equal to 2"<<endl;
+                    cout << right << setw(90) << "!!! Warning !!!\n";
+                    cout << right << setw(80) << "Station ID Not equal to 2"<<endl;
                     cin >> StationID;
                   }//while
                    while(obj_ui.checkStationID(StationID)){
-                        cout << "The Station Already Exist!!!" << endl;
+                        cout << right << setw(80) << "The Station Already Exist!!!" << endl;
                         StationID = "";
-                        cin >> StationID;
+                        goto inputID;
                     }
+                    inputName:
                       cout << "Station Name : ";
                       cin >> StationName;
                     while(obj_ui.checkStationName(StationName)){             
-                      cout << "The Station Already Exist!!!" << endl;
+                      cout << right << setw(80) << "The Station Already Exist!!!" << endl;
                       StationName = "";
-                      cin >> StationName;              
+                      goto inputName;              
                     }//invalid
                   inputStatus:
                   cout << "Station Status : ";
@@ -294,10 +288,8 @@ int main(){
                   if(Status != "open" && Status != "close"){
                     goto inputStatus;
                   }
-                  //cout << "Station Cost : ";
-                //  cin >> Cost;
-          
-            inputcost:cout << "Enter Station Cost : ";
+                  inputcost:
+                      cout << "Enter Station Cost : ";
                         try{ 
                             cin >> Cost; //User input
                          if(!cin){
@@ -312,55 +304,56 @@ int main(){
                             cin.ignore(100, '\n');
                             goto inputcost;
                         }
-              
                 }else if(choice == '2'){
                   int index;
                   int size = obj_ui.StationNumber();
                   if(size == 0){
-                    cout << "Cannot Add Station!!" << endl;
+                    cout << right << setw(90) << "Cannot Add Station!!" << endl;
                   }else{
                     int Cost;
+                    inputID2:
                     cout << "Station ID : ";
                     cin >> StationID;  
                     while(StationID.length() != 2){
-                      cout << "!!! Warning !!!\n";
-                      cout << "Station ID Not equal to 2 " <<endl;
-                      cin >> StationID;
+                      cout << right << setw(90) << "!!! Warning !!!\n";
+                      cout << right << setw(80) << "Station ID Not equal to 2 " <<endl;
+                      goto inputID2;
                     }//while
                     while(obj_ui.checkStationID(StationID)){
-                      cout << "The Station Already Exist!!!" << endl;
+                      cout << right << setw(80) << "The Station Already Exist!!!" << endl;
                       StationID = "";
-                      cin >> StationID;
+                      goto inputID2;
                     }
+                    inputName2:
                       cout << "Station Name : ";
                       cin >> StationName;
                     while(obj_ui.checkStationName(StationName)){             
-                      cout << "The Station Already Exist!!!" << endl;
+                      cout << right << setw(80) << "The Station Already Exist!!!" << endl;
                       StationName = "";
-                      cin >> StationName;              
+                      goto inputName2;             
                   }//invalid
                   inputStatus2:
                     cout << "Station Status : ";
                     cin >> Status;
-                    if(Status!="open" && Status!="close"){
+                    if(Status != "open" && Status != "close"){
                       goto inputStatus2;
                     }
-                      inputcost2:cout << "Enter Station Cost : ";
+                      inputcost2:
+                      cout << "Enter Station Cost : ";
                         try{ 
                             cin >> Cost; //User input
                          if(!cin){
-                              throw Cost;
+                            throw Cost;
                          }
                         }catch(int x){  
-                            cin.clear(); 
-                            cin.ignore(100, '\n');
-                            goto inputcost2;
+                          cin.clear(); 
+                          cin.ignore(100, '\n');
+                          goto inputcost2;
                         }
                       if(size == 1){
                         cout << "Input Position (1) : ";
                         cin >> index;
                         if(index > size || index < 1){
-                          //cout << "Cannot Add Station!!" << endl;
                           CannotAddstation();
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
@@ -371,18 +364,18 @@ int main(){
                         cout << "Choose Position Station(1 - " << size << ") : ";
                         cin >> index; 
                         if(index > size || index < 1){
-                          //cout << "Cannot Add Station!!" << endl;
                           CannotAddstation();
                         }else{
                           obj_ui.AddStation_ontheway(index,StationName,StationID,Cost,Status);
                           obj_ui.WriteStationfile();
                           obj_ui.WriteRoundfile();
                         }
-                      }
-                      
+                      } 
                   }
                 }else if(choice == '3'){
+                  system ("cls");
                   obj_ui.show_station();
+                  cout << "\n" << endl;
                   Enter();
                 }//Add Station
               }else if(menu_admin == 6){

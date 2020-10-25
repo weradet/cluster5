@@ -14,7 +14,8 @@ void RenewController::Findmember(string password){
   Member *cur = head;
   while(cur != NULL){
     if(cur->getPassword()==password){
-      cout << right << setw(91) << "- - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+      system ("cls");
+      cout << right << setw(91) << "- - - - - - - - - - Renews Card - - - - - - - - - -" << endl;
       cout << right << setw(65) << "    Name Customer : " << cur->getFirstname() << " " << cur->getLastname() << endl;
       cur->member_card.renewcard();
       cout << right << setw(62) << "    New Expire : " << cur->getExpire() << endl;
