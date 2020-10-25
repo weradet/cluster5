@@ -5,11 +5,13 @@
             first = NULL;
             last = NULL;
             count = 0;
-            H = NULL;
+             H = NULL;
             //round->Readfile();
         }
 
         void ViewCycleTime::ChooseDepartureStation(){
+            head->remove();
+            head->read_file();
             Path *a = head;
                 HANDLE color=GetStdHandle(STD_OUTPUT_HANDLE);
                 for(int i=0;i<a->count;i++){
@@ -241,7 +243,13 @@
                      Rounds  = Rounds ->link;
                 }
                // cout << "5555555555555" << endl;
-                 Sleep(20000);
+                 Sleep(1500);
                  return retime;
             
+        }
+        int ViewCycleTime :: Calculate(){
+          cout<<head->calculate_cost(DepartureStation,TerminalStation);
+          Sleep(1500);
+          return head->calculate_cost(DepartureStation,TerminalStation);
+
         }

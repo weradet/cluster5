@@ -21,6 +21,7 @@ class ViewCycleTime{
         void SearchRound();
         void Add(string N);
         string Times();
+        int Calculate();
         void show();
         void remove();
 };
