@@ -233,8 +233,9 @@ int main(){
               }else if(menu_admin == 4){
                 int menu_renew;
                 system ("cls");
-                Interface("Renew_card.txt");
+                obj_ui.ClearRenewdata();
                 do{
+                  Interface("Renew_card.txt");
                   obj_ui.showmenuRenewCard();
                   cin >> menu_renew;
                   if(!cin){
@@ -245,9 +246,13 @@ int main(){
                     obj_ui.loaddataRenew();
                     cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
                     cin >> passwordcard; 
-                    obj_ui.EnterCardcode(passwordcard);
-                    obj_ui.SaveDataRenew();
-                    Enter();
+                    if(obj_ui.CheckmemberRenew(passwordcard)){
+                        obj_ui.EnterCardcode(passwordcard);
+                        obj_ui.SaveDataRenew();
+                        Enter();
+                    }else{
+                        cout << "Password Incorrect !" << endl;
+                    }
                   }
                 }while(menu_renew != 2); //Renew Member Card
               }else if(menu_admin == 5){

@@ -60,8 +60,8 @@ class UI{
         void EnterCardcode(string password);
         void loaddataRenew();
         void SaveDataRenew();
-        void ConfirmRenew();
         void ClearRenewdata();
+        bool CheckmemberRenew(string password);
 
         void Addstation(string StationName,string StationID,int Cost,string Status);
         void AddStation_ontheway(int index,string StationID,string StationName,int Cost,string Status);

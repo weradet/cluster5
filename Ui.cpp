@@ -139,6 +139,12 @@ void UI::SaveDataRenew(){
 void UI::ClearRenewdata(){
     Renew_obj->clear();
 }
+bool UI::CheckmemberRenew(string password){
+      if(Renew_obj->CheckMember(password)){
+             return true;
+      }
+      return false;
+}
 
 
 /* Usecase Add Station */

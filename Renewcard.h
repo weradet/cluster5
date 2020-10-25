@@ -17,5 +17,6 @@ class RenewController{
         void clear();
         void savedata();
         void Loaddata();
+        bool CheckMember(string password);
 };
 #endif

@@ -53,6 +53,16 @@ void RenewController::clear(){
     delete temp;
   }
 }
+bool RenewController::CheckMember(string password){
+         Member *cur = head;
+         while(cur!=NULL){
+              if(cur->getPassword()==password){
+                   return true;
+              }
+              cur=cur->link;
+         }
+        return false;
+}
 void RenewController::Loaddata(){
   string line,firstname,lastname,tel,password,expire,money;
   ifstream data("member.txt",ios::in);
