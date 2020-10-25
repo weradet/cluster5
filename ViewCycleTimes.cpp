@@ -178,20 +178,13 @@
                        cout << ro->Name << endl;
                         while(ro->first != NULL){
                             stringstream ss,yy;
-                           // Time = ro->first->TO;
                             timehour = ro->first->TO.substr(0,2);
-                            //Time.erase(0,ro->first->TO.find('.')+1);
                             ss<<timehour;
                             ss>>hr;
-                            //cout<<"hr : "<<hr<<endl;
                             timemin  = ro->first->TO.substr(ro->first->TO.find('.')+1,2);
-                            //Time.erase(0,ro->first->TO.find(',')+1);
                             yy<<timemin;
                             yy>>Min;
-                           // cout<<"min : "<<Min<<endl;
-                           // cout <<hr<<endl<<hour<<endl;
                             if(hr<hour){
-                                    //cout<<"toy"<<endl;
                                     ro->first = ro->first->link;
                            }else if(hr==hour){
                                     if(min>Min){
@@ -199,17 +192,13 @@
                                     }
                                     else if(min<Min){
                                         cout<<ro->first->TO<<endl;
-                                        break;
                                     }
                            }else{
                                cout<<ro->first->TO<<endl;
                                Time = ro->first->TO;
-                               break;
+                               ro->first = ro->first->link;
                            }
-                          //ro->first = ro->first->link;
-                          //break;
                         }
-                        //break;
                    }
                     ro = ro->link;
                }
