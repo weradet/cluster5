@@ -8,12 +8,12 @@ TopupCardController::TopupCardController(){
 void TopupCardController::ShowMenuTopupCard(){
     system("cls");
     cout << endl;
-    cout << "\t\t================== TOPUP =================="<< endl;
-    cout << "\t\t|  1. Topup                               |" << endl;
-    cout << "\t\t|  2. Show balance                        |" << endl;
-    cout << "\t\t|  3. Back to menu                        |" << endl;
-    cout << "\t\t==========================================="<< endl;
-    cout << "\t\tPlease Enter Choice: ";
+    cout << right << setw(80) << "================== TOPUP =================="<< endl;
+    cout << right << setw(80) << "|  1. Topup                               |" << endl;
+    cout << right << setw(80) << "|  2. Show balance                        |" << endl;
+    cout << right << setw(80) << "|  3. Back to menu                        |" << endl;
+    cout << right << setw(80) << "==========================================="<< endl;
+    cout << right << setw(65) << "Please Enter Choice: ";
                 
 }//void showMenu
 
@@ -38,7 +38,7 @@ void TopupCardController::TopupMoney(double money,string password){
       if(cur->getPassword()==password){
            if(cur->member_card.CheckMoneyCard(money)){
               cout << endl;
-              cout << "\t\t\t!!!! Card limit exceeded !!!!" << endl;
+              cout << "\t\t\t\t!!!! Card limit exceeded !!!!" << endl;
            }else{
               cur->Topupmoney(money);
               ShowRemainingAmount(cur);
@@ -51,9 +51,9 @@ void TopupCardController::TopupMoney(double money,string password){
 }//void topupMoney
 
 void TopupCardController::ShowRemainingAmount(Member *cur){
-    cout << "\t\t============= Remaining amount ============" << endl;
-    cout << "\t\t|\tRemaining Amount : " << cur->getMoney() << " " << "Bath\t  |\n";
-    cout << "\t\t===========================================" << endl;  
+    cout << right << setw(80) << "============= Remaining amount ============" << endl;
+    cout << right << setw(61) << "|    Remaining Amount : " << cur->getMoney() << " " << "Bath\t       |\n";
+    cout << right << setw(80) << "===========================================" << endl;  
 }//void showamoung
 
 void TopupCardController::SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money){
