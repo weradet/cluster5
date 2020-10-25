@@ -186,6 +186,7 @@ void UI::View(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();
     view->SearchRound();
-    view->Times();
-    view->Calculate();
+    if(view->Times() != "Y"){
+        view->Calculate();
+    }
 }

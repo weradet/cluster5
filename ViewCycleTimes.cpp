@@ -165,18 +165,21 @@
             tm *ltm = localtime(&now);
                     hour = ltm->tm_hour;
                     min = ltm->tm_min;
-            int hr=0,Min=0;
+            int hr=0,Min=0,Recount=0;
             string timehour,timemin,Time;
             
             Round *ro = first;
                 //Time = ro->first->TO;
-                cout<<hour<<endl;
-                cout<<min<<endl;
-                    while(ro != NULL){
+                //cout<<hour<<endl;
+                //cout<<min<<endl;
+                    while(ro->Name != DepartureStation){
+                        ro = ro->link;
+                    }
                      if(ro->Name == DepartureStation){
-                       cout << ro->Name << endl;
+                       cout << ro->Name << endl; 
+                        ro->head = ro->first;
                         while(ro->first != NULL){
-                            stringstream ss,yy;
+                       stringstream ss,yy;
                             timehour = ro->first->TO.substr(0,2);
                             ss<<timehour;
                             ss>>hr;
@@ -188,60 +191,72 @@
                            }else if(hr==hour){
                                     if(min>Min){
                                         ro->first = ro->first->link;
+
                                     }
                                     else if(min<=Min){
                                         cout<<ro->first->TO<<endl;
+                                        ro->first = ro->first->link;
+                                    
                                     }
-                           }else{
+                           }else {
                                cout<<ro->first->TO<<endl;
-                               Time = ro->first->TO;
                                ro->first = ro->first->link;
-                               break;
+                            
                            }
+                          Recount++; 
+                        }   
+                        }else{
+                            cout << "Error" <<endl;
                         }
-                   }
-                    ro = ro->link;
-               }
+
                remove();
                SearchRound();
                Round * Rounds = H;
                 string retime;
-                cin.ignore();
+                //int re;
+               // int i=0;
                //getline(cin,retime);
-        retime: cin >> retime;
-                if(retime > "A" || retime.length() != 5){
-                    goto retime;
-                }
-                while( Rounds  != NULL){
-                   // cout << Rounds ->Name << "==="<<DepartureStation<< endl;
+                retimes:
+                //cin.ignore(); 
                 
-                     if(Rounds ->Name == DepartureStation){
-                         //cout << Rounds->first->TO<<endl;
-                        // Round *cur = H;
+                cin.ignore();
+                cin.clear();
+                cout<<"Please Write Back (Y/N) : "<<endl;
+                cin >> retime;
+               // re=0;
+                ro->first = ro->head;
+                while(ro->first != NULL){
+                    if(retime == ro->first->TO){
+                        goto correct;
+                    }else{
+                        ro->first = ro->first->link;
+                     //   re++;
+                    }
+
+                }
+
+               // cout<<"Please Write Back (Y/N) : "<<endl;
+                   if(retime == "Y"||retime =="y"){
+                        return "Y";
+                    }
+                goto retimes;
+                correct:
+                while( Rounds ->Name != DepartureStation){
+                         Rounds = Rounds ->link;
+                 }
                          int i = 0;
-                            while(i<Rounds ->count){
-                              //  cout << "eieiiiiii" << endl;
+                        // cout << Rounds->count<<endl;
+                            while(Rounds->first != NULL){
                                 if( retime == Rounds ->first->TO){
                                     cout<<" Correct "<<endl;
                                     cout<<" Time : " << Rounds ->first->TO<<endl;
                                     Sleep(1000);
                                     break;
                                 }
-                                else{
-                                   // cout << "No Correct " << endl;
-                                  // Sleep(1000);
-                                }
                                 Rounds ->first = Rounds ->first->link;
                                 i++;
                             }
-                            break; 
-                     }
-                     else{
-                         //cout<< "Name is not correct" << endl;
-                     }
-                     Rounds  = Rounds ->link;
-                }
-               // cout << "5555555555555" << endl;
+
                  Sleep(1500);
                  return retime;
             
