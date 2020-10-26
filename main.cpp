@@ -89,6 +89,14 @@ int main(){
             cin >> menu_customer; //User input
             if(!cin){
               throw menu_customer;
+            }else if(menu_customer==1){
+               system("cls");
+              Interface("CycleTime.txt");
+              obj_ui.View();
+            }else if(menu_customer==2){
+               system("cls");
+              Interface("BuyTicket.txt");
+              obj_ui.BuyTicket();
             }else if(menu_customer == 3){
               string pass_card;
               int menu_member;
