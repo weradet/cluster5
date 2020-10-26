@@ -114,8 +114,6 @@
 			}		
 		}
 		void StationList::WriteStationfile(){
-			remove();
-			ReadStationFile();
 			Node_Addstation *temp = head;
 			ofstream myFile3("Station.txt",ios::out);
         	if(myFile3.is_open()){ 
@@ -244,18 +242,16 @@
 			view->SearchRound();
 			Node_Addstation *temp = head;
 			ViewCycleTime *V = view;
-			int i=1;
 			while(temp!=NULL){
 				if(V->first->Name != temp->StationName){
+					V->first->Name = temp->StationName;
 					break;
 				}
-				i++;
-				if(V->first->link != NULL){
 					V->first = V->first->link;
-				}
 					temp = temp->link;
 			}
-			V->first->Name = temp->StationName;
+
+			
 
 			view->first = view->H;
 			ofstream myFile3("Round.txt",ios::out);

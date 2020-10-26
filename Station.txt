@@ -1,17 +1,16 @@
-Alice,00,25,open,
-National Stadium,01,30,open,
-Siam,02,30,open,
-Ratchadamri,03,30,open,
-Sala Daeng,04,30,open,
-Chong Nonsi,05,30,open,
-Surasuk,06,30,open,
-Saphan Taksin,07,30,open,
-Krung Thon Buri,08,30,open,
-Wongwian Yai,09,30,open,
-Pho Nimit,10,30,open,
-Talat Phlu,11,40,open,
-Wutthakat,12,30,close,
-June Poon Poon,13,30,open,
-Maidainone,14,30,open,
-Cluster5,15,30,close,
-Maimeewanpakloey,99,30,open,
+Alice,00,25,open
+National Stadium,01,30,open
+Siam,02,30,open
+Sleep,14,45,close
+Ratchadamri,03,30,open
+Sala Daeng,04,30,open
+Chong Nonsi,05,30,open
+Surasuk,06,30,open
+Saphan Taksin,07,30,open
+Krung Thon Buri,08,30,open
+Wongwian Yai,09,30,open
+Pho Nimit,10,30,open
+Talat Phlu,11,40,open
+Wutthakat,12,30,close
+Maimeewanpakloey,99,40,open
+Go to Our Dream!,13,45,close

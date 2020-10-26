@@ -22,6 +22,7 @@
                 if(first == NULL){
                     first = temp;
                     last = temp;
+                    head = first;
                     //count++;
                 }else{
                     last->link = temp;	

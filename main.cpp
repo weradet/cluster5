@@ -403,7 +403,7 @@ int main(){
                 }
                 obj_ui.ChooseFixMenu(chooseId,menu);
                 obj_ui.WriteFixFile(); //Fix Station
-                obj_ui.WriteStationfile();
+                //obj_ui.WriteStationfile();
                 obj_ui.chang();
                 obj_ui.remove();
                 Enter();

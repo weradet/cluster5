@@ -46,7 +46,7 @@
             int Cost;
                 filein = "Station.txt";
                 ifstream infile;
-                stringstream ss();
+                
                 infile.open(filein.c_str(),std::ios::in);
                         while(getline(infile,filein)){
                             name = filein.substr(0,filein.find(','));

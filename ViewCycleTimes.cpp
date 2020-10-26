@@ -5,7 +5,7 @@
             first = NULL;
             last = NULL;
             count = 0;
-             H = NULL;
+            H = NULL;
             //round->Readfile();
         }
 
@@ -160,6 +160,8 @@
 
 
          string ViewCycleTime::Times(){
+             remove();
+             SearchRound();
             int hour,min;
             time_t now = time(0);
             tm *ltm = localtime(&now);
@@ -169,9 +171,6 @@
             string timehour,timemin,Time;
             
             Round *ro = first;
-                //Time = ro->first->TO;
-                //cout<<hour<<endl;
-                //cout<<min<<endl;
                     while(ro->Name != DepartureStation){
                         ro = ro->link;
                     }
@@ -209,8 +208,8 @@
                             cout << "Error" <<endl;
                         }
 
-               remove();
-               SearchRound();
+               //remove();
+               //SearchRound();
                Round * Rounds = H;
                 string retime;
                 //int re;
@@ -218,19 +217,21 @@
                //getline(cin,retime);
                 retimes:
                 //cin.ignore(); 
-                
+                 ro->first = ro->head;
                 cin.ignore();
                 cin.clear();
-                cout<<"Please Write Back (Y/N) : "<<endl;
+               // cout<<"Please Write Back (Y/N) : "<<endl;
                 cin >> retime;
                // re=0;
-                ro->first = ro->head;
+              // cout << "head: " <<ro->head->TO <<endl;
+               
+                
                 while(ro->first != NULL){
+                    //cout << "Check : " <<ro->first->TO <<endl;
                     if(retime == ro->first->TO){
                         goto correct;
                     }else{
                         ro->first = ro->first->link;
-                     //   re++;
                     }
 
                 }
