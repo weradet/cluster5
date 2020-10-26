@@ -11,7 +11,7 @@
 #include "StationList.h"
 #include "ViewCycleTimes.h"
 #include "node_Addstation.h"
-//#include"Buy_ticket.h"
+#include"Buy_ticket.h"
 class UI{
     private:
         RenewController *Renew_obj;  
@@ -20,6 +20,7 @@ class UI{
         TopupCardController topupcard;
         StationList *StationList_obj;
         ViewCycleTime *view;
+        Buy_ticket_controller *Buy;
     public:
         UI();
         bool CheckID(string id);
@@ -75,5 +76,6 @@ class UI{
         void chang();
 
         void View();
+        void BuyTicket();
 };
 #endif

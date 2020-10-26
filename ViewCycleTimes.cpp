@@ -224,11 +224,11 @@
                 cin >> retime;
                // re=0;
               // cout << "head: " <<ro->head->TO <<endl;
-               
                 
                 while(ro->first != NULL){
                     //cout << "Check : " <<ro->first->TO <<endl;
                     if(retime == ro->first->TO){
+                        Ttime = retime;
                         goto correct;
                     }else{
                         ro->first = ro->first->link;
@@ -263,8 +263,12 @@
             
         }
         int ViewCycleTime :: Calculate(){
-          cout<<head->calculate_cost(DepartureStation,TerminalStation);
-          Sleep(1500);
+          //cout<<head->calculate_cost(DepartureStation,TerminalStation);
+          //Sleep(1500);
           return head->calculate_cost(DepartureStation,TerminalStation);
 
+        }
+        void ViewCycleTime :: ShowView(){
+            cout<<"Cost : "<<head->calculate_cost(DepartureStation,TerminalStation)<<endl;
+            Sleep(1500);
         }

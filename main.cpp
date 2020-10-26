@@ -172,6 +172,7 @@ int main(){
               }else if(menu_admin == 2){
                 system ("cls");
                 Interface("BuyTicket.txt");
+                obj_ui.BuyTicket();
                 //Buy Train Ticket
               }else if(menu_admin == 3){
                 //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร

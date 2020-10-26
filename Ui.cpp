@@ -5,6 +5,7 @@ UI::UI(){
     station_obj = new StationController;
     StationList_obj = new StationList;
     view = new ViewCycleTime;
+    Buy = new Buy_ticket_controller;
 }
 void UI::PrintCustomer(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;
@@ -189,4 +190,11 @@ void UI::View(){
     if(view->Times() != "Y"){
         view->Calculate();
     }
+    view->ShowView();
+}
+void UI::BuyTicket(){
+    Buy->Seach();
+    Buy->Calculate();
+    Buy->Payment();
+    Buy->Print_Ticket();
 }

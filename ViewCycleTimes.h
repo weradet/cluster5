@@ -5,12 +5,12 @@
 #include"station.h"
 #include"Round.h"
 class ViewCycleTime{
-    private :
+     public :
         string DepartureStation;
         string TerminalStation;
         Station my_station;
+        string Ttime;
         Path *head;
-    public :
         Round *first;
         Round *last;
         Round *H;
@@ -24,5 +24,6 @@ class ViewCycleTime{
         int Calculate();
         void show();
         void remove();
+        void ShowView();
 };
 #endif

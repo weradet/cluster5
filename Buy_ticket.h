@@ -5,16 +5,13 @@
 #include"Path.h"
 class Buy_ticket_controller{
     public:
+        double change;
         ViewCycleTime * view; 
-        string Terminal;
-        string Departure;
-        int Cost;
-        string Round;
         Path *Head;
         Buy_ticket_controller();
         void Seach();
         double Calculate();
-        void Payment();
+        double Payment();
         void Print_Ticket();
         void View(); 
 };
