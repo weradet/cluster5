@@ -173,7 +173,9 @@ int main(){
                         cout << right << setw(74) << "Input money (MAXIMAM : 5,000 Bath) : ";
                         cin >> money;
                         if(money > 5000){
-                           cout << "Money Overflow !!" << endl; 
+                           cout << setw(80) << right << "********************" << endl;
+                           cout << setw(80) << right << "!! Money Overflow !!" << endl; 
+                           cout << setw(80) << right << "********************" << endl;
                         }
                        }while(money > 5000); //do while loop
                         obj_ui.InputMoney(money,pass_card);
