@@ -29,7 +29,7 @@ Member* TopupCardController::CheckMember(string Pass_Card){
 }//voidCheck
 
 void TopupCardController::ShowMemberInformation(Member *cur){
-    cout << cur->getFirstname() << " " << cur->getLastname() << endl;
+    cout << cur->getFirstname() << " " << cur->getLastname() ;
 }//show InforMember
 
 void TopupCardController::TopupMoney(double money,string password){
@@ -38,7 +38,9 @@ void TopupCardController::TopupMoney(double money,string password){
       if(cur->getPassword()==password){
            if(cur->member_card.CheckMoneyCard(money)){
               cout << endl;
-              cout << "\t\t\t\t!!!! Card limit exceeded !!!!" << endl;
+              cout << "\t\t\t\t\t*********************************\n" << endl;
+              cout << "\t\t\t\t\t  !!!! Card limit exceeded !!!!\n" << endl;
+              cout << "\t\t\t\t\t*********************************" << endl;
            }else{
               cur->Topupmoney(money);
               ShowRemainingAmount(cur);
@@ -52,6 +54,9 @@ void TopupCardController::TopupMoney(double money,string password){
 
 void TopupCardController::ShowRemainingAmount(Member *cur){
     cout << right << setw(80) << "============= Remaining amount ============" << endl;
+    cout << right << setw(42) << "|    ";
+    ShowMemberInformation(cur);
+    cout << setw(28) << right  << "|" << endl;
     cout << right << setw(61) << "|    Remaining Amount : " << cur->getMoney() << " " << "Bath\t       |\n";
     cout << right << setw(80) << "===========================================" << endl;  
 }//void showamoung
