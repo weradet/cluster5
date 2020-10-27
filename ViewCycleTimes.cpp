@@ -218,7 +218,7 @@
                            }else {
                                cout<<setw(13) << right<<ro->first->TO<<endl;
                                ro->first = ro->first->link;
-                               cout<<"*********************" <<endl;
+                            
                            }
                           Recount++; 
                         }   
@@ -237,5 +237,5 @@
         }
         void ViewCycleTime :: ShowView(){
             cout<<"Cost : "<<head->calculate_cost(DepartureStation,TerminalStation)<<endl;
-            Sleep(1500);
+            //Sleep(1500);
         }
