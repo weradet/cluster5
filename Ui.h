@@ -77,7 +77,13 @@ class UI{
         void ReadStationFile();
         void chang();
 
-        void View();
+        //view
+        void Show_Departure();
+        void Show_Terminal(string departure);
+        Round* Show_viewcycles(string name);
+        bool Check(string ID_station);
+
+
         void BuyTicket();
         void BuyTicket_Customer();
 };

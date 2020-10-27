@@ -10,10 +10,10 @@ Buy_ticket_controller :: Buy_ticket_controller(){
     mem->
 }*/ 
 void Buy_ticket_controller :: Seach(){
-    view->ChooseDepartureStation();
+   /* view->ChooseDepartureStation();
     view->ChooseTerminalStation();
     view->SearchRound();
-    view->Times();
+    view->Times();*/
 }
 double Buy_ticket_controller :: Calculate(){
    return view->Calculate();

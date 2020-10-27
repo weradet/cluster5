@@ -17,13 +17,14 @@ class ViewCycleTime{
         int count;
         ViewCycleTime(void);
         void ChooseDepartureStation();
-        void ChooseTerminalStation();
+        void ChooseTerminalStation(string terminal);
         void SearchRound();
         void Add(string N);
-        string Times();
+        Round *Times(string name);
         int Calculate();
         void show();
         void remove();
         void ShowView();
+        bool Check(string name);
 };
 #endif

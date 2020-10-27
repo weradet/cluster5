@@ -90,9 +90,52 @@ int main(){
             if(!cin){
               throw menu_customer;
             }else if(menu_customer==1){
-               system("cls");
-              Interface("CycleTime.txt");
-              obj_ui.View();
+                               string Departure,Terminal;
+                  do{
+                      system ("cls");
+                      Interface("CycleTime.txt");
+                      obj_ui.Show_Departure();
+                      cout << "Enter ID DepartureStation: ";
+                      cin >> Departure;
+                  }while(obj_ui.Check(Departure)!=true);
+                  
+                  do{
+                    system ("cls");
+                    Interface("CycleTime.txt");
+                    obj_ui.Show_Terminal(Departure);
+                    cout << "Enter ID TerminalStation: ";
+                    cin >> Terminal;
+                  }while(obj_ui.Check(Terminal)!=true);
+                Round *cycle = obj_ui.Show_viewcycles(Terminal);
+                Round * Rounds = cycle;
+                string retime,Ttime;
+                retimess:
+                 cycle->first = cycle->head;
+                cin.ignore();
+                cin.clear();
+                cin >> retime;
+                 if(retime == "Y"||retime =="y"){
+                        goto backs;
+                  }
+                while(cycle->first != NULL){
+                    if(retime == cycle->first->TO){
+                        Ttime = retime;
+                        goto corrects;
+                    }
+                    cycle->first = cycle->first->link;
+                } 
+                goto retimess;
+                corrects:
+                while(Rounds->first != NULL){
+                    if( retime == Rounds ->first->TO){
+                        cout<<" Correct "<<endl;
+                        cout<<" Time : " << Rounds ->first->TO<<endl;
+                        break;
+                    }
+                    Rounds ->first = Rounds ->first->link;
+                }
+                backs:
+                  Enter(); 
             }else if(menu_customer==2){
                system("cls");
               Interface("BuyTicket.txt");
@@ -174,9 +217,52 @@ int main(){
               if(!cin){
                 throw str_error;
               }else if(menu_admin == 1){
-                system ("cls");
-                Interface("CycleTime.txt");
-                obj_ui.View(); //Find Cycle Time
+                 string Departure,Terminal;
+                  do{
+                      system ("cls");
+                      Interface("CycleTime.txt");
+                      obj_ui.Show_Departure();
+                      cout << "Enter ID DepartureStation: ";
+                      cin >> Departure;
+                  }while(obj_ui.Check(Departure)!=true);
+                  
+                  do{
+                    system ("cls");
+                    Interface("CycleTime.txt");
+                    obj_ui.Show_Terminal(Departure);
+                    cout << "Enter ID TerminalStation: ";
+                    cin >> Terminal;
+                  }while(obj_ui.Check(Terminal)!=true);
+                Round *cycle = obj_ui.Show_viewcycles(Terminal);
+                Round * Rounds = cycle;
+                string retime,Ttime;
+                retimes:
+                 cycle->first = cycle->head;
+                cin.ignore();
+                cin.clear();
+                cin >> retime;
+                 if(retime == "Y"||retime =="y"){
+                        goto back;
+                  }
+                while(cycle->first != NULL){
+                    if(retime == cycle->first->TO){
+                        Ttime = retime;
+                        goto correct;
+                    }
+                    cycle->first = cycle->first->link;
+                } 
+                goto retimes;
+                correct:
+                while(Rounds->first != NULL){
+                    if( retime == Rounds ->first->TO){
+                        cout<<" Correct "<<endl;
+                        cout<<" Time : " << Rounds ->first->TO<<endl;
+                        break;
+                    }
+                    Rounds ->first = Rounds ->first->link;
+                }
+                back:
+                  Enter();          
               }else if(menu_admin == 2){
                 system ("cls");
                 Interface("BuyTicket.txt");

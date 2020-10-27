@@ -6,7 +6,6 @@ UI::UI(){
     StationList_obj = new StationList;
     view = new ViewCycleTime;
     Buy = new Buy_ticket_controller;
-    BuyCustomer = new Buy_ticket_controller;
 }
 void UI::PrintCustomer(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;
@@ -184,24 +183,31 @@ void UI::chang(){
     StationList_obj->chang();
 }
 
-void UI::View(){
-    view->ChooseDepartureStation();
-    view->ChooseTerminalStation();
-    view->SearchRound();
-    if(view->Times() != "Y"){
-        view->Calculate();
-    }
-    view->ShowView();
+
+bool UI::Check(string id){
+    return view->Check(id);
 }
+void UI::Show_Departure(){
+    view->ChooseDepartureStation();
+}
+
+void UI::Show_Terminal(string name){
+    view->ChooseTerminalStation(name);
+}
+Round* UI::Show_viewcycles(string name){
+    return view->Times(name);
+
+}
+
+    
+    
+   
 void UI::BuyTicket(){
-    Buy->Seach();
+  /*  Buy->Seach();
     Buy->Calculate();
     Buy->Payment();
-    Buy->Print_Ticket();
+    Buy->Print_Ticket();*/
 }
 void UI::BuyTicket_Customer(){
-    BuyCustomer->Seach();
-    BuyCustomer->Calculate();
-    BuyCustomer->Payment();
-    BuyCustomer->Print_Ticket_Customer();
+
 }

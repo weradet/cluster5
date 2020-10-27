@@ -29,18 +29,31 @@
                     }
                     a->head = a->head->link;
                 }
-                SetConsoleTextAttribute(color,7);
-                cout << "Enter ID DepartureStation: ";
-                SetConsoleTextAttribute(color,14);
-                cin >> DepartureStation;
-                SetConsoleTextAttribute(color,7);
         }
-
-        void ViewCycleTime::ChooseTerminalStation(){
+        bool ViewCycleTime::Check(string name){
+            Path *a = head;
+            int i=0;
+            cout << a->count <<endl;
+                while(a->head != NULL){
+                    if(a->head->StationID()== name){
+                        
+                        return true;
+                    }
+                   
+                    if(i > a->count){
+                        return false;
+                    }
+                    i++;
+                    a->head=a->head->link;
+                    
+                }
+                return true;
+        }
+        void ViewCycleTime::ChooseTerminalStation(string terminal){
 
             Path *a = head;
                 while(a->head != NULL){
-                    if(a->head->StationID()== DepartureStation){
+                    if(a->head->StationID()== terminal){
                         break;
                     }
                     a->head=a->head->link;
@@ -63,18 +76,7 @@
                     }
                     a->head = a->head->link;
                 }
-                SetConsoleTextAttribute(color,7);
-                cout << "Enter ID TerminalStation: ";
-                SetConsoleTextAttribute(color,14);
-                cin >> TerminalStation;
-                a = head;
-                while(a->head != NULL){
-                    if(a->head->StationID()== TerminalStation){
-                        TerminalStation = a->head->stationName();
-                        break;
-                    }
-                    a->head=a->head->link;
-                }
+
         }
         void ViewCycleTime::Add(string name){
             Round *New = new Round(name); 
@@ -155,11 +157,20 @@
                     }
                     ro = ro->link;
                 }
-                Times(); 
+               // Times(); 
         }
 
 
-         string ViewCycleTime::Times(){
+         Round* ViewCycleTime::Times(string name){
+               Path *a = head;
+                while(a->head != NULL){
+                    if(a->head->StationID()== name){
+                      
+                        break;
+                    }
+                    a->head=a->head->link;
+                }
+                TerminalStation = a->head->stationName();
              remove();
              SearchRound();
             int hour,min;
@@ -190,78 +201,24 @@
                            }else if(hr==hour){
                                     if(min>Min){
                                         ro->first = ro->first->link;
-
                                     }
                                     else if(min<=Min){
                                         cout<<ro->first->TO<<endl;
                                         ro->first = ro->first->link;
-                                    
                                     }
                            }else {
                                cout<<ro->first->TO<<endl;
                                ro->first = ro->first->link;
-                            
                            }
                           Recount++; 
                         }   
-                        }else{
-                            cout << "Error" <<endl;
-                        }
-
-               //remove();
-               //SearchRound();
-               Round * Rounds = H;
-                string retime;
-                //int re;
-               // int i=0;
-               //getline(cin,retime);
-                retimes:
-                //cin.ignore(); 
-                 ro->first = ro->head;
-                cin.ignore();
-                cin.clear();
-               // cout<<"Please Write Back (Y/N) : "<<endl;
-                cin >> retime;
-               // re=0;
-              // cout << "head: " <<ro->head->TO <<endl;
-                
-                while(ro->first != NULL){
-                    //cout << "Check : " <<ro->first->TO <<endl;
-                    if(retime == ro->first->TO){
-                        Ttime = retime;
-                        goto correct;
                     }else{
-                        ro->first = ro->first->link;
-                    }
-
-                }
-
-               // cout<<"Please Write Back (Y/N) : "<<endl;
-                   if(retime == "Y"||retime =="y"){
-                        return "Y";
-                    }
-                goto retimes;
-                correct:
-                while( Rounds ->Name != DepartureStation){
-                         Rounds = Rounds ->link;
-                 }
-                         int i = 0;
-                        // cout << Rounds->count<<endl;
-                            while(Rounds->first != NULL){
-                                if( retime == Rounds ->first->TO){
-                                    cout<<" Correct "<<endl;
-                                    cout<<" Time : " << Rounds ->first->TO<<endl;
-                                    Sleep(1000);
-                                    break;
-                                }
-                                Rounds ->first = Rounds ->first->link;
-                                i++;
-                            }
-
-                 Sleep(1500);
-                 return retime;
+                        cout << "Error" <<endl;
+                    } 
+            return ro;
             
         }
+
         int ViewCycleTime :: Calculate(){
           //cout<<head->calculate_cost(DepartureStation,TerminalStation);
           //Sleep(1500);
