@@ -6,7 +6,6 @@
 #include "StationList.h"
 class StationController{
     private:
-        StationList obj_stalist;
         Status obj_sta;
     public:
         bool CheckID(string id);
