@@ -6,6 +6,7 @@
             last = NULL;
             count = 0;
             H = NULL;
+            Ttime = "";
             //round->Readfile();
         }
 
@@ -33,7 +34,7 @@
         bool ViewCycleTime::Check(string name){
             Path *a = head;
             int i=0;
-            cout << a->count <<endl;
+          //  cout << a->count <<endl;
                 while(a->head != NULL){
                     if(a->head->StationID()== name){
                         

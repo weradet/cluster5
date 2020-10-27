@@ -4,26 +4,25 @@ Buy_ticket_controller :: Buy_ticket_controller(){
         view = new ViewCycleTime;
         view->SearchRound();
        // mem = new Member;
-
 }
-/*void Buy_ticket_controller ::member(){
-    mem->
-}*/ 
-void Buy_ticket_controller :: Seach(){
-   /* view->ChooseDepartureStation();
-    view->ChooseTerminalStation();
-    view->SearchRound();
-    view->Times();*/
+void Buy_ticket_controller :: SeachDeparture(){
+    view->ChooseDepartureStation();
 }
-double Buy_ticket_controller :: Calculate(){
-   return view->Calculate();
+void Buy_ticket_controller::SeachTerminal(string Departure){
+    view->ChooseTerminalStation(Departure);
+}
+Round* Buy_ticket_controller ::ShowTime_Buyticket(string name){
+    return view->Times(name);
+}
+void Buy_ticket_controller :: Calculate(){
+    view->ShowView();
 }
 double Buy_ticket_controller :: Payment(){
     double money;
     double Change = 0;
     do{
     //cout<<endl;
-    cout<<view->Calculate()<<endl;
+    //cout<<view->Calculate()<<endl;
     cout<<"Please Input Money : ";
     cin>>money;
     if(money<view->Calculate()){
@@ -33,31 +32,34 @@ double Buy_ticket_controller :: Payment(){
        Change = money - view->Calculate();
        change = Change;
     }
+    else if(money == view->Calculate()){
+        change = 0;   
+    }
     }while(money<view->Calculate());
-    return Change;
+    return change;
 }
 void Date(){
     time_t now = time(0);
     tm *ltm = localtime(&now);
     cout<<"DEPARTURE DATE : "<<1900 + ltm->tm_year<<":"<<1 + ltm->tm_mon<<":"<<ltm->tm_mday<<endl;
 }
-void Buy_ticket_controller :: Print_Ticket(){
+void Buy_ticket_controller :: Print_Ticket(string retime){
     cout<<"========================================="<<endl;
     cout<<"ORIGIN : "<<view->DepartureStation <<endl;
     cout<<"DESTINATION  : "<<view->TerminalStation <<endl;
     Date();
-    cout<<"ROUND : "<<view->Ttime <<endl;
+    cout<<"ROUND : "<<retime <<endl;
     cout<<"PRICE : "<<view->Calculate() <<endl;
     cout<<"CHANGE : "<< change <<endl;
     cout<<"========================================="<<endl;
     Sleep(1500);
 }
-void Buy_ticket_controller :: Print_Ticket_Customer(){
+void Buy_ticket_controller :: Print_Ticket_Customer(string retime){
     cout<<"========================================="<<endl;
     cout<<"ORIGIN : "<<view->DepartureStation <<endl;
     cout<<"DESTINATION  : "<<view->TerminalStation <<endl;
     Date();
-    cout<<"ROUND : "<<view->Ttime <<endl;
+    cout<<"ROUND : "<<retime <<endl;
     cout<<"PRICE : "<<view->Calculate() <<endl;
    // cout<<"CHANGE : "<< change <<endl;
     cout<<"========================================="<<endl;

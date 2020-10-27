@@ -83,8 +83,15 @@ class UI{
         Round* Show_viewcycles(string name);
         bool Check(string ID_station);
 
-
-        void BuyTicket();
+        //Buyticket
+        void BuyTicket_Departure();
+        void BuyTicket_Terminal(string Terminal);
+        bool Check_Station(string ID_station);
         void BuyTicket_Customer();
+        Round* ShowTime_Buyticket(string name);
+        void Buy_Calculate();
+        void Buy_Shows(string retime);
+        void Buy_Ticket_Calculate();
+        void BuyTicket_Customer(string retime);
 };
 #endif

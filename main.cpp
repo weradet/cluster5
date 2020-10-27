@@ -137,9 +137,54 @@ int main(){
                 backs:
                   Enter(); 
             }else if(menu_customer==2){
-               system("cls");
-              Interface("BuyTicket.txt");
-              obj_ui.BuyTicket_Customer();
+               string Departure,Terminal;
+               do{
+                      system ("cls");
+                      Interface("BuyTicket.txt");
+                      obj_ui.BuyTicket_Departure();
+                      cout << "Enter ID DepartureStation: ";
+                      cin >> Departure;
+                  }while(obj_ui.Check_Station(Departure)!=true);
+              do{
+                    system ("cls");
+                    Interface("BuyTicket.txt");
+                    obj_ui.BuyTicket_Terminal(Departure);
+                    cout << "Enter ID TerminalStation: ";
+                    cin >> Terminal;
+                  }while(obj_ui.Check_Station(Terminal)!=true);
+                Round *cycle = obj_ui.ShowTime_Buyticket(Terminal);
+                Round * Rounds = cycle;
+                string retime,Ttime;
+                retimes:
+                 cycle->first = cycle->head;
+                cin.ignore();
+                cin.clear();
+                cin >> retime;
+                 if(retime == "Y"||retime =="y"){
+                        goto back;
+                  }
+                while(cycle->first != NULL){
+                    if(retime == cycle->first->TO){
+                        Ttime = retime;
+                        goto correct;
+                    }
+                    cycle->first = cycle->first->link;
+                } 
+                goto retimes;
+                correct:
+                while(Rounds->first != NULL){
+                    if( retime == Rounds ->first->TO){
+                        cout<<" Correct "<<endl;
+                        cout<<" Time : " << Rounds ->first->TO<<endl;
+                        break;
+                    }
+                    Rounds ->first = Rounds ->first->link;
+                }
+                obj_ui.Buy_Calculate();
+                obj_ui.Buy_Ticket_Calculate();
+                obj_ui.BuyTicket_Customer(retime);
+                back:
+                  Enter();            
             }else if(menu_customer == 3){
               string pass_card;
               int menu_member;
@@ -173,9 +218,7 @@ int main(){
                         cout << right << setw(74) << "Input money (MAXIMAM : 5,000 Bath) : ";
                         cin >> money;
                         if(money > 5000){
-                           cout << setw(80) << right << "********************" << endl;
-                           cout << setw(80) << right << "!! Money Overflow !!" << endl; 
-                           cout << setw(80) << right << "********************" << endl;
+                           cout << "Money Overflow !!" << endl; 
                         }
                        }while(money > 5000); //do while loop
                         obj_ui.InputMoney(money,pass_card);
@@ -238,23 +281,23 @@ int main(){
                 Round *cycle = obj_ui.Show_viewcycles(Terminal);
                 Round * Rounds = cycle;
                 string retime,Ttime;
-                retimes:
+                Retimes:
                  cycle->first = cycle->head;
                 cin.ignore();
                 cin.clear();
                 cin >> retime;
                  if(retime == "Y"||retime =="y"){
-                        goto back;
+                        goto  Menus;
                   }
                 while(cycle->first != NULL){
                     if(retime == cycle->first->TO){
                         Ttime = retime;
-                        goto correct;
+                        goto Corrects;
                     }
                     cycle->first = cycle->first->link;
                 } 
-                goto retimes;
-                correct:
+                goto Retimes;
+                Corrects:
                 while(Rounds->first != NULL){
                     if( retime == Rounds ->first->TO){
                         cout<<" Correct "<<endl;
@@ -263,13 +306,57 @@ int main(){
                     }
                     Rounds ->first = Rounds ->first->link;
                 }
-                back:
+                Menus:
                   Enter();          
               }else if(menu_admin == 2){
-                system ("cls");
-                Interface("BuyTicket.txt");
-                obj_ui.BuyTicket();
-                //Buy Train Ticket
+               string Departure,Terminal;
+               do{
+                      system ("cls");
+                      Interface("BuyTicket.txt");
+                      obj_ui.BuyTicket_Departure();
+                      cout << "Enter ID DepartureStation: ";
+                      cin >> Departure;
+                  }while(obj_ui.Check_Station(Departure)!=true);
+              do{
+                    system ("cls");
+                    Interface("BuyTicket.txt");
+                    obj_ui.BuyTicket_Terminal(Departure);
+                    cout << "Enter ID TerminalStation: ";
+                    cin >> Terminal;
+                  }while(obj_ui.Check_Station(Terminal)!=true);
+                Round *cycle = obj_ui.ShowTime_Buyticket(Terminal);
+                Round * Rounds = cycle;
+                string retime,Ttime;
+                REtimes:
+                 cycle->first = cycle->head;
+                cin.ignore();
+                cin.clear();
+                cin >> retime;
+                 if(retime == "Y"||retime =="y"){
+                        goto BackMenus;
+                  }
+                while(cycle->first != NULL){
+                    if(retime == cycle->first->TO){
+                        Ttime = retime;
+                        goto Correct;
+                    }
+                    cycle->first = cycle->first->link;
+                } 
+                goto REtimes;
+                Correct:
+                while(Rounds->first != NULL){
+                    if( retime == Rounds ->first->TO){
+                        cout<<" Correct "<<endl;
+                        cout<<" Time : " << Rounds ->first->TO<<endl;
+                        break;
+                    }
+                    Rounds ->first = Rounds ->first->link;
+                }
+                obj_ui.Buy_Calculate();
+                obj_ui.Buy_Ticket_Calculate();
+                obj_ui.Buy_Shows(retime);
+                BackMenus:
+                  Enter();          
               }else if(menu_admin == 3){
                 //ประกาศตัวแปร ข้อมูลของลูกค้าในบัตร
                 string user_firstname,user_lastname,user_tel,password_card;
