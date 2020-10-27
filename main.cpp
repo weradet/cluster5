@@ -96,7 +96,7 @@ int main(){
             }else if(menu_customer==2){
                system("cls");
               Interface("BuyTicket.txt");
-              obj_ui.BuyTicket();
+              obj_ui.BuyTicket_Customer();
             }else if(menu_customer == 3){
               string pass_card;
               int menu_member;

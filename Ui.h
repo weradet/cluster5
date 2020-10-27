@@ -21,6 +21,8 @@ class UI{
         StationList *StationList_obj;
         ViewCycleTime *view;
         Buy_ticket_controller *Buy;
+        Buy_ticket_controller *BuyCustomer;
+        
     public:
         UI();
         bool CheckID(string id);
@@ -77,5 +79,6 @@ class UI{
 
         void View();
         void BuyTicket();
+        void BuyTicket_Customer();
 };
 #endif

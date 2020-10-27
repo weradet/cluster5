@@ -3,7 +3,12 @@ Buy_ticket_controller :: Buy_ticket_controller(){
         Head  = new Path;
         view = new ViewCycleTime;
         view->SearchRound();
+       // mem = new Member;
+
 }
+/*void Buy_ticket_controller ::member(){
+    mem->
+}*/ 
 void Buy_ticket_controller :: Seach(){
     view->ChooseDepartureStation();
     view->ChooseTerminalStation();
@@ -47,5 +52,18 @@ void Buy_ticket_controller :: Print_Ticket(){
     cout<<"========================================="<<endl;
     Sleep(1500);
 }
+void Buy_ticket_controller :: Print_Ticket_Customer(){
+    cout<<"========================================="<<endl;
+    cout<<"ORIGIN : "<<view->DepartureStation <<endl;
+    cout<<"DESTINATION  : "<<view->TerminalStation <<endl;
+    Date();
+    cout<<"ROUND : "<<view->Ttime <<endl;
+    cout<<"PRICE : "<<view->Calculate() <<endl;
+   // cout<<"CHANGE : "<< change <<endl;
+    cout<<"========================================="<<endl;
+    Sleep(1500);
+}
+
+
 
 
