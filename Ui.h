@@ -84,6 +84,7 @@ class UI{
         void Show_Terminal(string departure);
         Round* Show_viewcycles(string name);
         bool Check(string ID_station);
+        void Show_Cost();
 
         //Buyticket
         void BuyTicket_Departure();

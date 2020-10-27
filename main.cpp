@@ -134,6 +134,7 @@ int main(){
                     }
                     Rounds ->first = Rounds ->first->link;
                 }
+                  obj_ui.Show_Cost();
                 backs:
                   Enter(); 
                   // Memu Buy Ticket //
@@ -257,6 +258,7 @@ int main(){
                     }
                     Rounds ->first = Rounds ->first->link;
                 }
+                obj_ui.Show_Cost();
                 Menus:
                   Enter();          
               }else if(menu_admin == 2){

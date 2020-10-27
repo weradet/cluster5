@@ -200,6 +200,9 @@ Round* UI::Show_viewcycles(string name){
     return view->Times(name);
 
 }
+void UI::Show_Cost(){
+    view->ShowView();
+}
 
 //BuyTicket    
 void UI::BuyTicket_Departure(){
