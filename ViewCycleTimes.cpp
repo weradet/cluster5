@@ -36,11 +36,14 @@
             int i=0;
           //  cout << a->count <<endl;
                 while(a->head != NULL){
-                    if(a->head->StationID()== name){
+                    if(a->head->stationStatus() == "close" && a->head->StationID()== name){
+                        return false;
+                        
+                    }else if(a->head->StationID()== name){
                         
                         return true;
                     }
-                   
+                    
                     if(i > a->count){
                         return false;
                     }
