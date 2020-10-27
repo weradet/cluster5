@@ -12,6 +12,7 @@
 #include "ViewCycleTimes.h"
 #include "node_Addstation.h"
 #include"Buy_ticket.h"
+#include"Buy_memer.h"
 class UI{
     private:
         RenewController *Renew_obj;  
@@ -20,8 +21,9 @@ class UI{
         TopupCardController topupcard;
         StationList *StationList_obj;
         ViewCycleTime *view;
+        ViewCycleTime *isview;
         Buy_ticket_controller *Buy;
-        Buy_ticket_controller *BuyCustomer;
+        Buy_Member_controller *BuyCustomer;
         
     public:
         UI();
@@ -93,5 +95,27 @@ class UI{
         void Buy_Shows(string retime);
         void Buy_Ticket_Calculate();
         void BuyTicket_Customer(string retime);
+  // is = fluk
+        //Buy ticket Member
+         bool checkmemberBuy(string password);
+         void LoaddataBuymember();
+         void clearBuy();
+        void isShow_Departure();
+        void isShow_Terminal(string departure);
+        Round* isShow_viewcycles(string name);
+        bool isCheck(string ID_station);
+         
+        //Buyticket
+        void isBuyTicket_Departure();
+        void isBuyTicket_Terminal(string Terminal);
+        bool isCheck_Station(string ID_station);
+        void isBuyTicket_Customer();
+        Round* isShowTime_Buyticket(string name);
+        void isBuy_Calculate();
+        void isBuy_Shows(string retime);
+        void isBuy_Ticket_Calculate(string password);
+        void isBuyTicket_Customer(string retime);
+        void SavedataBuyMember();
+        bool checkPayment(string password);
 };
 #endif

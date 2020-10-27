@@ -13,4 +13,6 @@ Pho Nimit,10,30,open
 Talat Phlu,11,40,open
 Wutthakat,12,30,close
 Maimeewanpakloey,99,40,open
-Go to Our Dream!,13,45,close
+Go to Our Dream!,13,45,open
+Peerasak,15,200,close
+we,16,10,close

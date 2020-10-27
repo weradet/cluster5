@@ -6,16 +6,16 @@ UI::UI(){
     StationList_obj = new StationList;
     view = new ViewCycleTime;
     Buy = new Buy_ticket_controller;
-    BuyCustomer = new Buy_ticket_controller;
+    BuyCustomer = new Buy_Member_controller;
+    isview = new ViewCycleTime;
 }
 void UI::PrintCustomer(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;
     cout << right << setw(80) << "*  1. Find Cycle Time                      *" << endl; 
     cout << right << setw(80) << "*  2. Buy Train Ticket                     *" << endl;
-    cout << right << setw(80) << "*  3. Topup The Card                       *" << endl;
-    cout << right << setw(80) << "*  4. Back To Menu                         *" << endl;
+    cout << right << setw(80) << "*  3. Back To Menu                         *" << endl;
     cout << right << setw(80) << "********************************************" << endl;
-    cout << right << setw(70) << "Please Choose 1 Choice (1-4) : ";
+    cout << right << setw(70) << "Please Choose 1 Choice (1-3) : ";
 }//Print Menu For Customer
 void UI::PrintAdmin(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;
@@ -33,7 +33,8 @@ void UI::PrintFirstMenu(){
     cout << "\n" << right << setw(80) << "************* Personal *************" << endl;
     cout << right << setw(80) << "*  1.CUSTOMER                      *" << endl;
     cout << right << setw(80) << "*  2.ADMIN                         *" << endl;
-    cout << right << setw(80) << "*  3.EXIT THE PROGRAM              *" << endl;
+    cout << right << setw(80) << "*  3.Member                        *" << endl;
+    cout << right << setw(80) << "*  4.EXIT THE PROGRAM              *" << endl;
     cout << right << setw(80) << "************************************" << endl;
     cout << right << setw(75) << "Please Choose 1 Choice (1-3) : ";
 }//Print Main Menu
@@ -224,4 +225,58 @@ void UI::Buy_Shows(string retime){
 }
 void UI::BuyTicket_Customer(string retime){
     Buy->Print_Ticket_Customer(retime);
+}
+
+
+// Buy Ticket Member 
+bool UI::checkmemberBuy(string password){
+    return BuyCustomer->checkmember(password); 
+}
+void UI::LoaddataBuymember(){
+    BuyCustomer->Loaddata();
+}
+void UI::clearBuy(){
+    BuyCustomer->clear();
+}
+bool UI::isCheck(string id){
+    return isview->Check(id);
+}
+void UI::isShow_Departure(){
+    isview->ChooseDepartureStation();
+}
+void UI::isShow_Terminal(string name){
+    isview->ChooseTerminalStation(name);
+}
+Round* UI::isShow_viewcycles(string name){
+    return isview->Times(name);
+}   
+void UI::isBuyTicket_Departure(){
+    BuyCustomer->SeachDeparture();
+}
+bool UI::isCheck_Station(string ID_station){
+    return isview->Check(ID_station);
+}
+void UI::isBuyTicket_Terminal(string Terminal){
+    BuyCustomer->SeachTerminal(Terminal);
+}
+Round* UI::isShowTime_Buyticket(string name){
+    return BuyCustomer->ShowTime_Buyticket(name);
+}
+void UI::isBuy_Ticket_Calculate(string password){
+   BuyCustomer->Payment(password);
+}
+void UI::isBuy_Calculate(){
+    BuyCustomer->Calculate();
+}
+void UI::isBuy_Shows(string retime){
+    BuyCustomer->Print_Ticket(retime);
+}
+void UI::isBuyTicket_Customer(string retime){
+    BuyCustomer->Print_Ticket_Customer(retime);
+}
+void UI::SavedataBuyMember(){
+    BuyCustomer->savedata();
+}
+bool UI::checkPayment(string password){
+    return BuyCustomer->CheckPayment(password);
 }

@@ -45,6 +45,7 @@ void RenewController::savedata(){
       cur = cur->link;
     }//while
   }//if
+  file.close();
 }
 void RenewController::clear(){
   Member *temp = head;
