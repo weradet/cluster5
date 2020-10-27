@@ -79,7 +79,7 @@ int main(){
       cin >> Menu;
       if(!cin){
         throw str_error; //If not input
-      }else if(Menu == 1){
+      }else if(Menu == 1){  
         int menu_customer;
         do{
           system("cls");
@@ -136,6 +136,8 @@ int main(){
                 }
                 backs:
                   Enter(); 
+                  // Memu Buy Ticket //
+
             }else if(menu_customer==2){
                string Departure,Terminal;
                do{
@@ -605,12 +607,158 @@ int main(){
           cout << "\nCannot Login!!" << endl;
         }//If Login Fail
       }//If Menu = 1 
+      else if(Menu == 3){
+            string password;
+            int menu_member;
+            obj_ui.clearBuy();
+            obj_ui.LoaddataBuymember();
+            do{
+               cout << "1. Input The card" << endl;
+               cout << "2. Exit" << endl;
+               cout << "Enter the choice : "; cin >>  menu_member;
+                 if(!cin){
+                  cin.clear(); 
+                  cin.ignore(100, '\n');   
+                 }else if(menu_member == 1){
+                    cout << endl;
+                    cout << "Input The Card : "; cin >> password;
+                    if(obj_ui.checkmemberBuy(password)){
+                        int menu_choice;
+                        mainmenu:
+                        cout << endl;
+                        cout << "1. Buy Ticket" << endl;
+                        cout << "2. View Cycle Time" << endl;
+                        cout << "3. Topup Money" << endl;
+                        cout << "4. Exit" << endl;
+                        cout << "Enter the Choice : "; cin >> menu_choice;
+                         if(!cin){
+                          cin.clear(); 
+                          cin.ignore(100, '\n');   
+                          }
+                         else if(menu_choice == 1){ //buy
+                                      string Departure,Terminal;
+                            do{
+                                    system ("cls");
+                                    Interface("BuyTicket.txt");
+                                    obj_ui.isBuyTicket_Departure();
+                                    cout << "Enter ID DepartureStation: ";
+                                    cin >> Departure;
+                                }while(obj_ui.isCheck_Station(Departure)!=true);
+                            do{
+                                  system ("cls");
+                                  Interface("BuyTicket.txt");
+                                  obj_ui.isBuyTicket_Terminal(Departure);
+                                  cout << "Enter ID TerminalStation: ";
+                                  cin >> Terminal;
+                                }while(obj_ui.isCheck_Station(Terminal)!=true);
+                              Round *cycle = obj_ui.isShowTime_Buyticket(Terminal);
+                              Round * Rounds = cycle;
+                              string retime,Ttime;
+                              isretimes:
+                              cycle->first = cycle->head;
+                              cin.ignore();
+                              cin.clear();
+                              cin >> retime;
+                              if(retime == "Y"||retime =="y"){
+                                      goto isback;
+                                }
+                              while(cycle->first != NULL){
+                                  if(retime == cycle->first->TO){
+                                      Ttime = retime;
+                                      goto iscorrect;
+                                  }
+                                  cycle->first = cycle->first->link;
+                              } 
+                              goto isretimes;
+                              iscorrect:
+                              while(Rounds->first != NULL){
+                                  if( retime == Rounds ->first->TO){
+                                      cout<<" Correct "<<endl;
+                                      cout<<" Time : " << Rounds ->first->TO<<endl;
+                                      break;
+                                  }
+                                  Rounds ->first = Rounds ->first->link;
+                              }
+                              obj_ui.isBuy_Calculate();
+                              if(obj_ui.checkPayment(password)){ // check money
+                                obj_ui.isBuy_Ticket_Calculate(password);
+                                obj_ui.isBuyTicket_Customer(retime);
+                              }else{
+                                 cout << "Not Enoungth Money !!!!!!! " << endl;
+                              }
+                              obj_ui.SavedataBuyMember();
+                              isback:
+                                Enter();            
+                                      }
+
+
+                         else if(menu_choice == 2){ // View Cycle Time
+                              string Departure,Terminal;
+                                do{
+                              system ("cls");
+                              Interface("CycleTime.txt");
+                              obj_ui.isShow_Departure(); ///
+                              cout << "Enter ID TerminalStation: ";
+                              cin >> Departure;
+                            }while(obj_ui.isCheck(Departure)!=true);
+                                do{
+                              system ("cls");
+                              Interface("CycleTime.txt");
+                              obj_ui.isShow_Terminal(Departure); ///
+                              cout << "Enter ID TerminalStation: ";
+                              cin >> Terminal;
+                            }while(obj_ui.isCheck(Terminal)!=true);
+                              Round *cycle = obj_ui.isShow_viewcycles(Terminal);
+                              Round * Rounds = cycle;
+                              string retime,Ttime;
+                              isRetimes:
+                              cycle->first = cycle->head;
+                              cin.ignore();
+                              cin.clear();
+                              cin >> retime;
+                              if(retime == "Y"||retime =="y"){
+                                      goto  isMenus;
+                                }
+                              while(cycle->first != NULL){
+                                  if(retime == cycle->first->TO){
+                                      Ttime = retime;
+                                      goto isCorrects;
+                                  }
+                                  cycle->first = cycle->first->link;
+                              } 
+                              goto isRetimes;
+                              isCorrects:
+                              while(Rounds->first != NULL){
+                                  if( retime == Rounds ->first->TO){
+                                      cout<<" Correct "<<endl;
+                                      cout<<" Time : " << Rounds ->first->TO<<endl;
+                                      break;
+                                  }
+                                  Rounds ->first = Rounds ->first->link;
+                              }
+                              isMenus:
+                                Enter();
+                                goto mainmenu;          
+                                      }
+
+
+
+
+
+
+                    }else{
+                      cout << "Password in correct" << endl;
+                    }
+                 }
+                 
+            }while(menu_member!=2); 
+      } //If Menu = 2 Member
     }//Try Exception  
       catch(string str){
         cout << str << endl;  
         cin.clear(); 
         cin.ignore(100, '\n'); 
-      }//Catch Error   
-  }while(Menu!=3);
+      }//Catch Error       
+  }while(Menu!=4);
   return 0;
 }//main

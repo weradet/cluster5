@@ -37,7 +37,8 @@
           Money = money;
         }
         void MemberCard::PayTicket(double money){
-          Money -= money;
+          cout << "Money" << money << endl;
+          Money = Money - money;
         }
         void MemberCard::setDateExpire(string dayexpire){
           DayExpire = dayexpire;
