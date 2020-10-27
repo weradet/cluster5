@@ -19,7 +19,7 @@
                     if(a->head->stationStatus() != "close"){
                         
                         SetConsoleTextAttribute(color,5);
-                        cout <<"ID DepartureStation: ";
+                        cout <<setw(50) << right<<"ID DepartureStation: ";
                         SetConsoleTextAttribute(color,6);
                         cout << a->head->StationID();
                         SetConsoleTextAttribute(color,5);
@@ -69,7 +69,7 @@
                     if(a->head->stationStatus() != "close"){
                         
                         SetConsoleTextAttribute(color,5);
-                        cout <<"ID TerminalStation: ";
+                        cout <<setw(50) << right <<"ID TerminalStation: ";
                         SetConsoleTextAttribute(color,6);
                         cout << a->head->StationID();
                         SetConsoleTextAttribute(color,5);
@@ -153,8 +153,9 @@
                 while(ro != NULL){
                     if(ro->Name == DepartureStation){
                         cout << ro->Name << endl;
+                        cout << "All Times" << endl;
                         while(ro->first != NULL){
-                                cout << ro->first->TO <<endl;
+                                cout <<setw(10) <<right << ro->first->TO <<endl;
                                 ro->first = ro->first->link;
                         }
                         break;
@@ -190,7 +191,8 @@
                         ro = ro->link;
                     }
                      if(ro->Name == DepartureStation){
-                       cout << ro->Name << endl; 
+                       cout << ro->Name << endl;
+                       cout << " ***** All Times *****" << endl; 
                         ro->head = ro->first;
                         while(ro->first != NULL){
                        stringstream ss,yy;
@@ -207,12 +209,14 @@
                                         ro->first = ro->first->link;
                                     }
                                     else if(min<=Min){
-                                        cout<<ro->first->TO<<endl;
+                                        cout<<setw(13) << right<<ro->first->TO<<endl;
                                         ro->first = ro->first->link;
+                                        cout<<"*********************" <<endl;
                                     }
                            }else {
-                               cout<<ro->first->TO<<endl;
+                               cout<<setw(13) << right<<ro->first->TO<<endl;
                                ro->first = ro->first->link;
+                               cout<<"*********************" <<endl;
                            }
                           Recount++; 
                         }   
