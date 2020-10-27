@@ -13,10 +13,9 @@ void UI::PrintCustomer(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;
     cout << right << setw(80) << "*  1. Find Cycle Time                      *" << endl; 
     cout << right << setw(80) << "*  2. Buy Train Ticket                     *" << endl;
-    cout << right << setw(80) << "*  3. Topup The Card                       *" << endl;
-    cout << right << setw(80) << "*  4. Back To Menu                         *" << endl;
+    cout << right << setw(80) << "*  3. Back To Menu                         *" << endl;
     cout << right << setw(80) << "********************************************" << endl;
-    cout << right << setw(70) << "Please Choose 1 Choice (1-4) : ";
+    cout << right << setw(70) << "Please Choose 1 Choice (1-3) : ";
 }//Print Menu For Customer
 void UI::PrintAdmin(){
     cout << "\n" << right << setw(80) << "********************************************" << endl;

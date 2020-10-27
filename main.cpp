@@ -187,66 +187,15 @@ int main(){
                 obj_ui.BuyTicket_Customer(retime);
                 back:
                   Enter();            
-            }else if(menu_customer == 3){
-              string pass_card;
-              int menu_member;
-              topup:
-              system("cls");
-              Interface("Topup card.txt");
-              do{
-                cout << right << setw(80) << "============= MEMBER =============" << endl;
-                cout << right << setw(80) << "=     1. Input The Card          =" << endl;
-                cout << right << setw(80) << "=     2. Back to Menu Customer   =" << endl;
-                cout << right << setw(80) << "==================================" << endl;
-                cout << right << setw(74) << "Please Enter choice (1-2) : ";
-                cin >> menu_member;
-                if(!cin){
-                  cin.clear(); 
-                  cin.ignore(100,'\n'); 
-                }else if(menu_member == 1){
-                  cout << right << setw(74) << "Please Input Your Password Card : "; 
-                  cin >> pass_card;
-                  obj_ui.Clear();
-                  obj_ui.loadtopupfile();
-                  if(obj_ui.checkmember(pass_card)){
-                    int menu_topup;
-                    double money;
-                    obj_ui.PrintCustomer();
-                    do{obj_ui.ShowMenu();
-                      cin >> menu_topup;
-                      if(menu_topup == 1){
-                       do{
-                        cout << endl;
-                        cout << right << setw(74) << "Input money (MAXIMAM : 5,000 Bath) : ";
-                        cin >> money;
-                        if(money > 5000){
-                           cout << "Money Overflow !!" << endl; 
-                        }
-                       }while(money > 5000); //do while loop
-                        obj_ui.InputMoney(money,pass_card);
-                        obj_ui.savetopupfile();
-                      }else if(menu_topup == 2){
-                        obj_ui.Showmoney(pass_card);
-                        Enter();
-                      }else if(menu_topup == 3){
-                        goto topup;
-                      }
-                    }while(menu_topup != 3);
-                  }else{
-                    system("cls");
-                    cout << right << setw(80) << "===========================================" << endl;
-                    cout << right << setw(80) << "Cannot Find Member or Password is Incorrect" << endl;
-                    cout << right << setw(80) << "===========================================" << endl;
-                  }
-                }//Menu Member is 1
-              }while(menu_member != 2);
-            }//Menu Customer is 3
+            }
           }//Try
             catch(int menu){
               cin.clear(); 
               cin.ignore(100, '\n'); 
             }
-        }while(menu_customer != 4);   
+        }while(menu_customer != 3); 
+
+
       }else if(Menu == 2){
         string str_user_name;
         string str_password = "";
@@ -418,6 +367,7 @@ int main(){
                     cin.ignore(100,'\n'); 
                   }else if(menu_renew == 1){
                     string passwordcard;
+                    obj_ui.ClearRenewdata();
                     obj_ui.loaddataRenew();
                     Again:
                     cout << "\n" << right << setw(80) << "Please Input the Password Card : "; 
@@ -613,6 +563,7 @@ int main(){
             obj_ui.clearBuy();
             obj_ui.LoaddataBuymember();
             do{
+              cout << endl;
                cout << "1. Input The card" << endl;
                cout << "2. Exit" << endl;
                cout << "Enter the choice : "; cin >>  menu_member;
@@ -621,7 +572,7 @@ int main(){
                   cin.ignore(100, '\n');   
                  }else if(menu_member == 1){
                     cout << endl;
-                    cout << "Input The Card : "; cin >> password;
+                    cout << "Input The Password Card : "; cin >> password;
                     if(obj_ui.checkmemberBuy(password)){
                         int menu_choice;
                         mainmenu:
@@ -739,9 +690,62 @@ int main(){
                               isMenus:
                                 Enter();
                                 goto mainmenu;          
-                                      }
-
-
+                                      } // 
+ 
+               else if(menu_choice == 3){
+                      string pass_card;
+                      int menu_member;
+                      istopup:
+                      system("cls");
+                      Interface("Topup card.txt");
+                      do{
+                        cout << right << setw(80) << "============= MEMBER =============" << endl;
+                        cout << right << setw(80) << "=     1. Input The Card          =" << endl;
+                        cout << right << setw(80) << "=     2. Back to Menu Customer   =" << endl;
+                        cout << right << setw(80) << "==================================" << endl;
+                        cout << right << setw(74) << "Please Enter choice (1-2) : ";
+                        cin >> menu_member;
+                        if(!cin){
+                          cin.clear(); 
+                          cin.ignore(100,'\n'); 
+                        }else if(menu_member == 1){
+                          cout << right << setw(74) << "Please Input Your Password Card : "; 
+                          cin >> pass_card;
+                          obj_ui.Clear();
+                          obj_ui.loadtopupfile();
+                          if(obj_ui.checkmember(pass_card)){
+                            int menu_topup;
+                            double money;
+                            obj_ui.PrintCustomer();
+                            do{obj_ui.ShowMenu();
+                              cin >> menu_topup;
+                              if(menu_topup == 1){
+                              do{
+                                cout << endl;
+                                cout << right << setw(74) << "Input money (MAXIMAM : 5,000 Bath) : ";
+                                cin >> money;
+                                if(money > 5000){
+                                  cout << "Money Overflow !!" << endl; 
+                                }
+                              }while(money > 5000); //do while loop
+                                obj_ui.InputMoney(money,pass_card);
+                                obj_ui.savetopupfile();
+                              }else if(menu_topup == 2){
+                                obj_ui.Showmoney(pass_card);
+                                Enter();
+                              }else if(menu_topup == 3){
+                                goto istopup;
+                              }
+                            }while(menu_topup != 3);
+                          }else{
+                            system("cls");
+                            cout << right << setw(80) << "===========================================" << endl;
+                            cout << right << setw(80) << "Cannot Find Member or Password is Incorrect" << endl;
+                            cout << right << setw(80) << "===========================================" << endl;
+                          }
+                        }//Menu Member is 1
+                      }while(menu_member != 2);
+                    }//Menu Customer is 3
 
 
 

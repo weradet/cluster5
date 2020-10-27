@@ -21,7 +21,6 @@ void Buy_Member_controller :: Calculate(){
 }
 double Buy_Member_controller :: Payment(string password){
     double money = view->Calculate();
-    double Change = 0;
     Member *cur = head;
     while(cur!=NULL){
         if(cur->getPassword()==password){
@@ -33,6 +32,7 @@ double Buy_Member_controller :: Payment(string password){
         }
         cur = cur->link;
     }
+    return 0;
 }
 void Dates(){
     time_t now = time(0);
@@ -73,7 +73,6 @@ bool Buy_Member_controller :: checkmember(string password){
 }
 bool Buy_Member_controller :: CheckPayment(string password){
     double money = view->Calculate();
-    double Change = 0;
     Member *cur = head;
     while(cur!=NULL){
         if(cur->getPassword()==password){
@@ -85,6 +84,7 @@ bool Buy_Member_controller :: CheckPayment(string password){
         }
         cur = cur->link;
     }
+    return false;
 }
 void Buy_Member_controller ::Loaddata(){
   string line,firstname,lastname,tel,password,expire,money;

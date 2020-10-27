@@ -32,6 +32,8 @@
                 }
         }
         bool ViewCycleTime::Check(string name){
+            head->remove();
+            head->read_file();
             Path *a = head;
             int i=0;
           //  cout << a->count <<endl;
@@ -54,7 +56,7 @@
                 return true;
         }
         void ViewCycleTime::ChooseTerminalStation(string terminal){
-
+ 
             Path *a = head;
                 while(a->head != NULL){
                     if(a->head->StationID()== terminal){
