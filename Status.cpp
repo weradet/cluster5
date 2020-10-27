@@ -1,44 +1,16 @@
 #include"Status.h"
-string Status::SortStation(Station *ptemp){
-    Station *temp = tail;
-    string id,name,status;
-    int cost;
-    while(temp != NULL){
-        if(ptemp->StationID().compare(temp->StationID()) == 1){
-            id = temp->StationID();
-            name = temp->stationName();
-            status = temp->stationStatus();
-            cost = temp->cost();
-            temp->NewID(ptemp->StationID());
-            temp->NewName(ptemp->stationName());
-            temp->NewStatus(ptemp->stationStatus());
-            temp->NewCost(ptemp->cost());
-            ptemp->NewID(id);
-            ptemp->NewName(name);
-            ptemp->NewStatus(status);
-            ptemp->NewCost(cost);
-        }if(ptemp->StationID().compare(temp->StationID()) == 0){
-            break;
-        }
-        temp = temp->plink;
-    }
-    return ptemp->StationID();
-}
 void Status::ShowAllStation(){
             remove();
             read_file();
             Station *temp = head;
-            SortStation(temp);
             cout << right << setw(81) << "**************** Station *****************" << endl;
             cout << setw(40) << left << " " << setw(7) << left << "ID."  << setw(18) << left << "Station Name" << setw(8) << right << "Status" << setw(8) << right<< "Cost"<< endl;
             cout << right << setw(81) << "******************************************" << endl;
             while(temp != NULL){
-               // if(SortStation(temp) == temp->StationID()){
                     cout << setw(40) << left << " " << left << setw(7) << temp->StationID();
                     cout << left << setw(20) << temp->stationName();
                     cout << left << setw(10) << temp->stationStatus();
                     cout << temp->cost() << endl;
-               // }
                 temp = temp->link;
                 if(temp == head){
                  	break;

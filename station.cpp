@@ -32,5 +32,8 @@
             return Cost;
         }
     Station::Station(){
-
+        ID = " ";
+        Station_Name = " ";
+        StationStatus = " ";
+        Cost = 0;
     }
