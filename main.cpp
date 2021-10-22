@@ -168,6 +168,7 @@ bool Islogin(string user_name,string pass){
                                        obj_ui.loaddataRenew();
                                        cout << "Please Input the Password Card : "; cin >> passwordcard; 
                                        obj_ui.EnterCardcode(passwordcard);
+                                       obj_ui.SaveDataRenew();
                                  }
                             }while(menu_renew!=2);
                           }//Renew Member Card
