@@ -118,6 +118,11 @@
         void UI::SaveDataRenew(){
             Renew_obj->savedata();
         }
+         void UI::ClearRenewdata(){
+            Renew_obj->clear();
+        }
+
+
         /* Usecase Add Station */
         void UI::Addstation(string StationID,string StationName,string Status,int Cost){
             StationList_obj->Addstation(StationID,StationName,Status,Cost);
