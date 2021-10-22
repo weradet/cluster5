@@ -11,9 +11,6 @@
         cout << "1.Renew Card" << endl;
         cout << "2. Back " << endl;
     }
-    void RenewController::Entercardcode(string cardcode){
-
-    }
    void RenewController::Findmember(string password){
           Member *cur = head;
           while(cur != NULL){
@@ -51,7 +48,15 @@
             }//while
           }//if
         }
- 
+  
+  void RenewController::clear(){
+    Member *temp = head;
+      while(head!=NULL){
+        temp = head;
+        head = head->link;
+      delete temp;
+      }
+    }
    void RenewController::Loaddata(){
           string line,firstname,lastname,tel,password,expire,money;
           ifstream data("member.txt",ios::in);
