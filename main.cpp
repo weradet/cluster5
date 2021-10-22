@@ -165,6 +165,7 @@ bool Islogin(string user_name,string pass){
                                     cin.ignore(100, '\n'); 
                                  }else if(menu_renew==1){
                                       string passwordcard;
+                                       obj_ui.ClearRenewdata();
                                        obj_ui.loaddataRenew();
                                        cout << "Please Input the Password Card : "; cin >> passwordcard; 
                                        obj_ui.EnterCardcode(passwordcard);
