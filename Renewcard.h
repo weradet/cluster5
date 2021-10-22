@@ -17,9 +17,9 @@ public:
     RenewController();
     void PrintRenewMenu();
     void Entercardcode(string cardcode);
-    Member* Findmember(string password);
+    void Findmember(string password);
     void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
-    void RenewCard(Member *cur,int comit);
+    //void RenewCard();
     void savedata();
     void Loaddata();
 };
