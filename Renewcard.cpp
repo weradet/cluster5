@@ -14,27 +14,20 @@
     void RenewController::Entercardcode(string cardcode){
 
     }
-   void RenewController::RenewCard(Member *cur,int comit){
-       string temp = cur->getExpire();
-       string year = temp.substr(0,temp.find('-'));
-                     temp.erase(0,temp.find('-')+1);
-       string month = temp.substr(0,temp.find('-'));
-                     temp.erase(0,temp.find('-')+1);
-       string day = temp.substr(0,temp.find('-'));
-                      temp.erase(0,temp.find('-')+1);            
-       cur->getmembercard().GenerateExpire();   
-       cout << cur->getExpire();                                  
-       //cur->
-   }
-   Member* RenewController::Findmember(string password){
+   void RenewController::Findmember(string password){
           Member *cur = head;
           while(cur != NULL){
              if(cur->getPassword()==password){
-                return cur;
+                //return cur;
+                   cout << cur->getFirstname() << " " << cur->getLastname() << endl;
+                  // cur->getmembercard().GenerateExpire();
+                    cur->member_card.renewcard();
+                   cout << "NEW EXPIRE : " << cur->getExpire() << endl;
+                   break;
              }
               cur = cur->link;
           }
-          return NULL;
+          //return NULL;
     }
     void RenewController::SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money){
              Member *new_member = new Member(firstname,lastname,tel,password,expire,money);
