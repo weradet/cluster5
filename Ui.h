@@ -60,6 +60,7 @@ class UI{
         void loaddataRenew();
         void SaveDataRenew();
         void ConfirmRenew();
+        void ClearRenewdata();
 
         void Addstation(string StationID,string StationName,string Status,int Cost);
         void AddStation_ontheway(int index,string StationID,string StationName,string Status,int Cost);
