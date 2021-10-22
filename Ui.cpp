@@ -109,6 +109,7 @@
         void UI::showmenuRenewCard(){
             Renew_obj->PrintRenewMenu();
         } 
+<<<<<<< Updated upstream
         void UI::EnterCardcode(string password){
             Member *member = Renew_obj->Findmember(password);  
             if(member!=NULL){
@@ -127,6 +128,13 @@
         }
         void UI::loaddataRenew(){
             Renew_obj->Loaddata();
+=======
+       void UI::EnterCardcode(string password){
+             Renew_obj->Findmember(password);   
+        }
+        void  UI::loaddataRenew(){
+              Renew_obj->Loaddata();
+>>>>>>> Stashed changes
         }
         void UI::SaveDataRenew(){
             Renew_obj->savedata();
