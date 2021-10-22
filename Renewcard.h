@@ -20,6 +20,7 @@ public:
     void Findmember(string password);
     void SetMemberIndata(string firstname,string lastname,string tel,string password,string expire,string money);
     //void RenewCard();
+    void clear();
     void savedata();
     void Loaddata();
 };
